@@ -15,6 +15,9 @@
 		B404A9A021EEA23400491CE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B404A99F21EEA23400491CE2 /* Assets.xcassets */; };
 		B404A9A321EEA23400491CE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B404A9A121EEA23400491CE2 /* LaunchScreen.storyboard */; };
 		D843DF6EE5F2664A22F4B89B /* Pods_PhotoBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5A10CF1FC32FE99CC7F520 /* Pods_PhotoBox.framework */; };
+		E91FD2C521F14903004327D3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2C421F14903004327D3 /* User.swift */; };
+		E91FD2C721F149BB004327D3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2C621F149BB004327D3 /* Event.swift */; };
+		E91FD2C921F149CB004327D3 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2C821F149CB004327D3 /* Groups.swift */; };
 		EAD62AE684AD3C1A25E0C506 /* Pods_PhotoBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2121C950E2C77FF835D4F074 /* Pods_PhotoBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +37,9 @@
 		B404A99F21EEA23400491CE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B404A9A221EEA23400491CE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B404A9A421EEA23400491CE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E91FD2C421F14903004327D3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E91FD2C621F149BB004327D3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		E91FD2C821F149CB004327D3 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */,
+				E91FD2C421F14903004327D3 /* User.swift */,
+				E91FD2C621F149BB004327D3 /* Event.swift */,
+				E91FD2C821F149CB004327D3 /* Groups.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -308,9 +317,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E91FD2C521F14903004327D3 /* User.swift in Sources */,
 				1BB36AE621EEACF20089E2D1 /* FirebaseManager.swift in Sources */,
 				B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */,
 				1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */,
+				E91FD2C721F149BB004327D3 /* Event.swift in Sources */,
+				E91FD2C921F149CB004327D3 /* Groups.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,7 +470,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 56CLV9J785;
+				DEVELOPMENT_TEAM = 2446Y3VTK6;
 				INFOPLIST_FILE = PhotoBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -477,7 +489,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 56CLV9J785;
+				DEVELOPMENT_TEAM = 2446Y3VTK6;
 				INFOPLIST_FILE = PhotoBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

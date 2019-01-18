@@ -15,7 +15,6 @@ protocol FirestoreFetchable{
     init?(with dictionary: [String : Any], id: String)
     var dictionary: [String : Any] {get}
     
-    var propertyDescriptions: [String] { get }
 }
 
 extension FirestoreFetchable {
