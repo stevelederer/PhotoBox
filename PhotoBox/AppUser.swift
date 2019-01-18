@@ -70,6 +70,4 @@ extension AppUser {
             "groups" : groups,
             "blockedUsersIDs" : blockedUserIDs]
     }
-
-    
 }
