@@ -40,15 +40,16 @@ class AppUser: FirestoreFetchable {
         let username = dictionary["username"] as? String,
         let emailAddress = dictionary["emailAddress"] as? String,
         let profilePic = dictionary["profilePic"] as? UIImage,
-        let eventJoined = dictionary["eventJoined"] as? String,
-        let eventCreated = dictionary["eventCreated"] as? String,
-        let connections = dictionary["connections"] as? String,
-        let eventInvites = dictionary["eventInvited"] as? String,
-        let connectionRequests = dictionary["connectionRequests"] as? String,
+        let profilePicURL = dictionary["profilePicURL"] as? String,
+        let memberEventIDs = dictionary["memberEventIDs"] as? String,
+        let creatorEventIDs = dictionary["creatorEventIDs"] as? String,
+        let inviteEventIDs = dictionary["inviteEventIDs"] as? String,
+        let connectionsIDs = dictionary["connectionsIDs"] as? String,
+        let connectionInvitesIDs = dictionary["connectionInvitesIDs"] as? String,
         let groups = dictionary["groups"] as? [Groups],
-        let blockedUsers = dictionary["blockedUsers"] as? [AppUser] else {return nil}
+        let blockedUsers = dictionary["blockedUsers"] as? [String] else {return nil}
         
-       self.init(uuid: uuid, name: name, username: username, emailAddress: emailAddress)
+       self.init(uuid: id, name: name, username: username, emailAddress: emailAddress)
     }
 }
 
@@ -60,13 +61,14 @@ extension AppUser {
             "username": username,
             "emailAddress": emailAddress,
             "profilePic": profilePic,
-            "eventJoined": eventJoined,
-            "eventCreated": eventCreated,
-            "connections" : connections,
-            "eventInvites" : eventInvites,
-            "connectionRequests" : connectionRequests,
+            "profilePicURL" : profilePicURL,
+            "memberEventIDs": memberEventIDs,
+            "creatorEventIDs": creatorEventIDs,
+            "inviteEventIDs" : inviteEventIDs,
+            "connectionsIDs" : connectionIDs,
+            "connectionInvitesIDs" : connectionInviteIDs,
             "groups" : groups,
-            "blockedUsers" : blockedUsers]
+            "blockedUsersIDs" : blockedUserIDs]
     }
 
     
