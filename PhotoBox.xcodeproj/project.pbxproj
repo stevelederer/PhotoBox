@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1BB36AE321EEABF10089E2D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BB36AE221EEABF10089E2D1 /* GoogleService-Info.plist */; };
+		1B07485921F153BF0030D907 /* LoggedOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07485821F153BF0030D907 /* LoggedOutViewController.swift */; };
+		1B07485B21F15ADB0030D907 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07485A21F15ADB0030D907 /* LoginPageViewController.swift */; };
+		1B07485E21F160C70030D907 /* UnderlineButtonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07485D21F160C70030D907 /* UnderlineButtonText.swift */; };
+		1B07486021F16A090030D907 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07485F21F16A090030D907 /* SignupViewController.swift */; };
+		1B07486221F16E4E0030D907 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07486121F16E4E0030D907 /* LoginTextField.swift */; };
+		1B4B13A621F1733B002040A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */; };
+		1B4B13A821F18B03002040A6 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13A721F18B03002040A6 /* NewEventViewController.swift */; };
+		1B4B13AB21F19141002040A6 /* FriendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13AA21F19141002040A6 /* FriendSearchTableViewCell.swift */; };
 		1BB36AE621EEACF20089E2D1 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AE521EEACF20089E2D1 /* FirebaseManager.swift */; };
 		1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */; };
 		B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B404A99521EEA23200491CE2 /* AppDelegate.swift */; };
@@ -23,7 +30,24 @@
 
 /* Begin PBXFileReference section */
 		0A5A10CF1FC32FE99CC7F520 /* Pods_PhotoBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1BB36AE221EEABF10089E2D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1B07484E21F14BF90030D907 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		1B07484F21F14BF90030D907 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		1B07485021F14BF90030D907 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		1B07485121F14BF90030D907 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		1B07485221F14BF90030D907 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		1B07485321F14BF90030D907 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		1B07485421F14BFA0030D907 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		1B07485521F14BFA0030D907 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		1B07485621F14BFA0030D907 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		1B07485721F14BFA0030D907 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		1B07485821F153BF0030D907 /* LoggedOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutViewController.swift; sourceTree = "<group>"; };
+		1B07485A21F15ADB0030D907 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		1B07485D21F160C70030D907 /* UnderlineButtonText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButtonText.swift; sourceTree = "<group>"; };
+		1B07485F21F16A090030D907 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		1B07486121F16E4E0030D907 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1B4B13A721F18B03002040A6 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
+		1B4B13AA21F19141002040A6 /* FriendSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchTableViewCell.swift; sourceTree = "<group>"; };
 		1BB36AE521EEACF20089E2D1 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreFetchable.swift; sourceTree = "<group>"; };
 		2121C950E2C77FF835D4F074 /* Pods_PhotoBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,12 +90,46 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		1B07484D21F14BE50030D907 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1B07485521F14BFA0030D907 /* Lato-Black.ttf */,
+				1B07484F21F14BF90030D907 /* Lato-BlackItalic.ttf */,
+				1B07485321F14BF90030D907 /* Lato-Bold.ttf */,
+				1B07485021F14BF90030D907 /* Lato-BoldItalic.ttf */,
+				1B07485121F14BF90030D907 /* Lato-Hairline.ttf */,
+				1B07485221F14BF90030D907 /* Lato-HairlineItalic.ttf */,
+				1B07485621F14BFA0030D907 /* Lato-Italic.ttf */,
+				1B07485721F14BFA0030D907 /* Lato-Light.ttf */,
+				1B07485421F14BFA0030D907 /* Lato-LightItalic.ttf */,
+				1B07484E21F14BF90030D907 /* Lato-Regular.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		1B07485C21F160B70030D907 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1B07485D21F160C70030D907 /* UnderlineButtonText.swift */,
+				1B07486121F16E4E0030D907 /* LoginTextField.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		1B4B13A921F19120002040A6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1B4B13AA21F19141002040A6 /* FriendSearchTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		1BB36ADF21EEAAAA0089E2D1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				B404A99521EEA23200491CE2 /* AppDelegate.swift */,
+				1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */,
 				B404A99F21EEA23400491CE2 /* Assets.xcassets */,
-				1BB36AE221EEABF10089E2D1 /* GoogleService-Info.plist */,
 				B404A9A421EEA23400491CE2 /* Info.plist */,
 			);
 			name = Resources;
@@ -80,6 +138,10 @@
 		1BB36AE021EEAABD0089E2D1 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1B07485821F153BF0030D907 /* LoggedOutViewController.swift */,
+				1B07485A21F15ADB0030D907 /* LoginPageViewController.swift */,
+				1B07485F21F16A090030D907 /* SignupViewController.swift */,
+				1B4B13A721F18B03002040A6 /* NewEventViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -140,12 +202,15 @@
 		B404A99421EEA23200491CE2 /* PhotoBox */ = {
 			isa = PBXGroup;
 			children = (
+				1B07485C21F160B70030D907 /* Helpers */,
 				1BB36AE721EEB8F60089E2D1 /* Models */,
 				1BB36AEA21EEBA440089E2D1 /* Model Controllers */,
 				1BB36AE021EEAABD0089E2D1 /* View Controllers */,
+				1B4B13A921F19120002040A6 /* Views */,
 				1BB36AE121EEAAC50089E2D1 /* UI */,
 				1BB36AE421EEACE10089E2D1 /* Firebase */,
 				1BB36ADF21EEAAAA0089E2D1 /* Resources */,
+				1B07484D21F14BE50030D907 /* Fonts */,
 			);
 			path = PhotoBox;
 			sourceTree = "<group>";
@@ -221,7 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B404A9A321EEA23400491CE2 /* LaunchScreen.storyboard in Resources */,
-				1BB36AE321EEABF10089E2D1 /* GoogleService-Info.plist in Resources */,
+				1B4B13A621F1733B002040A6 /* GoogleService-Info.plist in Resources */,
 				B404A9A021EEA23400491CE2 /* Assets.xcassets in Resources */,
 				B404A99B21EEA23200491CE2 /* Main.storyboard in Resources */,
 			);
@@ -319,7 +384,14 @@
 			files = (
 				E91FD2C521F14903004327D3 /* User.swift in Sources */,
 				1BB36AE621EEACF20089E2D1 /* FirebaseManager.swift in Sources */,
+				1B07486221F16E4E0030D907 /* LoginTextField.swift in Sources */,
+				1B07486021F16A090030D907 /* SignupViewController.swift in Sources */,
+				1B07485E21F160C70030D907 /* UnderlineButtonText.swift in Sources */,
+				1B4B13A821F18B03002040A6 /* NewEventViewController.swift in Sources */,
+				1B4B13AB21F19141002040A6 /* FriendSearchTableViewCell.swift in Sources */,
+				1B07485921F153BF0030D907 /* LoggedOutViewController.swift in Sources */,
 				B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */,
+				1B07485B21F15ADB0030D907 /* LoginPageViewController.swift in Sources */,
 				1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */,
 				E91FD2C721F149BB004327D3 /* Event.swift in Sources */,
 				E91FD2C921F149CB004327D3 /* Groups.swift in Sources */,
