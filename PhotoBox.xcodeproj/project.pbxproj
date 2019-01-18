@@ -15,6 +15,7 @@
 		1B4B13A621F1733B002040A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */; };
 		1B4B13A821F18B03002040A6 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13A721F18B03002040A6 /* NewEventViewController.swift */; };
 		1B4B13AB21F19141002040A6 /* FriendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13AA21F19141002040A6 /* FriendSearchTableViewCell.swift */; };
+		1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13AC21F279FB002040A6 /* UserController.swift */; };
 		1BB36AE621EEACF20089E2D1 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AE521EEACF20089E2D1 /* FirebaseManager.swift */; };
 		1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */; };
 		B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B404A99521EEA23200491CE2 /* AppDelegate.swift */; };
@@ -51,6 +52,7 @@
 		1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B4B13A721F18B03002040A6 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		1B4B13AA21F19141002040A6 /* FriendSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchTableViewCell.swift; sourceTree = "<group>"; };
+		1B4B13AC21F279FB002040A6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		1BB36AE521EEACF20089E2D1 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreFetchable.swift; sourceTree = "<group>"; };
 		2121C950E2C77FF835D4F074 /* Pods_PhotoBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +188,7 @@
 		1BB36AEA21EEBA440089E2D1 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1B4B13AC21F279FB002040A6 /* UserController.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				1BB36AE621EEACF20089E2D1 /* FirebaseManager.swift in Sources */,
 				1B07486221F16E4E0030D907 /* LoginTextField.swift in Sources */,
 				1B07486021F16A090030D907 /* SignupViewController.swift in Sources */,
+				1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */,
 				1B07485E21F160C70030D907 /* UnderlineButtonText.swift in Sources */,
 				1B4B13A821F18B03002040A6 /* NewEventViewController.swift in Sources */,
 				1B4B13AB21F19141002040A6 /* FriendSearchTableViewCell.swift in Sources */,
@@ -554,7 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2446Y3VTK6;
+				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = PhotoBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -573,7 +577,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2446Y3VTK6;
+				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = PhotoBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

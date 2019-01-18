@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eht-EX-I5H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yOk-5c-chU">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -189,13 +189,33 @@
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OkW-rL-P0t" userLabel="CheckBox">
-                                <rect key="frame" x="88.333333333333329" y="525" width="24" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRv-Ut-W9Y">
+                                <rect key="frame" x="87.666666666666686" y="572" width="200" height="56"/>
+                                <color key="backgroundColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="DLa-bp-uif"/>
+                                    <constraint firstAttribute="height" constant="56" id="YoR-aS-5k2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
+                                <state key="normal" title="SIGN UP">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpButtonTapped:" destination="yOk-5c-chU" eventType="touchUpInside" id="M2M-hA-xBp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OkW-rL-P0t" userLabel="CheckBox">
+                                <rect key="frame" x="87" y="525" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="797-Dd-4xU"/>
                                     <constraint firstAttribute="width" constant="24" id="NSI-DX-wM8"/>
                                 </constraints>
-                                <state key="normal" title="☑️"/>
+                                <state key="normal" title="☑️">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkBoxButtonTapped:" destination="yOk-5c-chU" eventType="touchUpInside" id="11f-Jd-41A"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -208,6 +228,8 @@
                             <constraint firstItem="aFp-MC-wNx" firstAttribute="top" secondItem="zwi-0i-KlY" secondAttribute="top" constant="200" id="U6x-SZ-Vv8"/>
                             <constraint firstItem="qKn-3e-e3X" firstAttribute="top" secondItem="zwi-0i-KlY" secondAttribute="top" constant="64" id="Zh6-4R-rWe"/>
                             <constraint firstItem="aFp-MC-wNx" firstAttribute="centerX" secondItem="zwi-0i-KlY" secondAttribute="centerX" id="cpC-Ic-91m"/>
+                            <constraint firstAttribute="bottom" secondItem="SRv-Ut-W9Y" secondAttribute="bottom" constant="184" id="fYJ-5J-nQu"/>
+                            <constraint firstItem="SRv-Ut-W9Y" firstAttribute="centerX" secondItem="zwi-0i-KlY" secondAttribute="centerX" id="tuD-U3-tsJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zhv-yV-Raq"/>
                     </view>
@@ -216,6 +238,7 @@
                         <outlet property="emailTextField" destination="a26-gc-UlD" id="fVe-m9-DB1"/>
                         <outlet property="nameTextField" destination="YLu-6q-uuS" id="0w1-sy-Ane"/>
                         <outlet property="passwordTextField" destination="FgV-tJ-XvX" id="fFe-H7-2e2"/>
+                        <outlet property="signUpButton" destination="SRv-Ut-W9Y" id="9HC-TB-a9L"/>
                         <outlet property="termsAndConditionsButton" destination="eDJ-GH-Itc" id="IEk-uW-7KS"/>
                         <outlet property="usernameTextField" destination="Ltu-Yv-naz" id="ApW-7n-nNi"/>
                     </connections>
