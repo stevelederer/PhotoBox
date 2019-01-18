@@ -8,8 +8,7 @@
 
 import UIKit
 
-class User: FirestoreFetchable {
-    
+class AppUser: FirestoreFetchable {
     
     static let CollectionName: String = "users"
     
@@ -18,29 +17,21 @@ class User: FirestoreFetchable {
     var username: String
     var emailAddress: String
     var profilePic: UIImage?
-    var eventJoined: String //is this a string?
-    var eventCreated: String //is this a string?
-    var connections: String
-    var eventInvites: String //is this a string?
-    var connectionRequests: String //is this a string?
-    var groups: [Groups]
-    var blockedUsers: [User]
+    var profilePicURL: String?
+    var memberEventIDs: [String]?
+    var creatorEventIDs: [String]?
+    var inviteEventIDs: [String]?
+    var connectionIDs: [String]?
+    var connectionInviteIDs: [String]?
+    var groups: [Groups]?
+    var blockedUserIDs: [String]?
     
-    init(uuid: String = UUID().uuidString, name: String, username: String, emailAddress: String, profilePic: UIImage, eventJoined: String, eventCreated: String, connections: String, eventInvites: String, connectionRequests: String, groups: [Groups], blockedUsers: [User]) {
+    init(uuid: String = UUID().uuidString, name: String, username: String, emailAddress: String) {
         
         self.uuid = uuid
         self.name = name
         self.username = username
         self.emailAddress = emailAddress
-        self.profilePic = profilePic
-        self.eventJoined = eventJoined
-        self.eventCreated = eventCreated
-        self.connections = connections
-        self.eventInvites = eventInvites
-        self.connectionRequests = connectionRequests
-        self.groups = groups
-        self.blockedUsers = blockedUsers
-        
     }
     
     convenience required init?(with dictionary: [String : Any], id: String) {
@@ -55,13 +46,13 @@ class User: FirestoreFetchable {
         let eventInvites = dictionary["eventInvited"] as? String,
         let connectionRequests = dictionary["connectionRequests"] as? String,
         let groups = dictionary["groups"] as? [Groups],
-        let blockedUsers = dictionary["blockedUsers"] as? [User] else {return nil}
+        let blockedUsers = dictionary["blockedUsers"] as? [AppUser] else {return nil}
         
-        self.init(uuid: id, name: name, username: username, emailAddress: emailAddress, profilePic: profilePic, eventJoined: eventJoined, eventCreated: eventCreated, connections: connections, eventInvites: eventInvites, connectionRequests: connectionRequests, groups: groups, blockedUsers: blockedUsers)
+       self.init(uuid: uuid, name: name, username: username, emailAddress: emailAddress)
     }
 }
 
-extension User {
+extension AppUser {
     var dictionary: [String : Any] {
         return [
             "uuid": uuid,
