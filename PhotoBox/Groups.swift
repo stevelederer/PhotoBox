@@ -10,9 +10,9 @@ import Foundation
 
 class Groups {
     
-    let members: [User]
+    let members: [AppUser]
    
-    init(members: [User]) {
+    init(members: [AppUser]) {
         
         self.members = members
     }
