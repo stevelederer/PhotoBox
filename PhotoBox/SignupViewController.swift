@@ -39,9 +39,21 @@ class SignupViewController: UIViewController {
         checkBoxButton.layer.borderWidth = 2
         checkBoxButton.layer.borderColor = darkGrayBorder.cgColor
         checkBoxButton.layer.cornerRadius = 5
-//        checkBoxButton.setTitle("", for: .normal)
-        checkBoxButton.setTitle("✔", for: .normal)
+        checkBoxButton.setTitle("", for: .normal)
+        checkBoxButton.setTitle("✔", for: .selected)
+        checkBoxButton.isSelected = false
         termsAndConditionsButton.setTitle("Terms and conditions", for: .normal)
+    }
+    
+    @IBAction func signUpButtonTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func checkBoxButtonTapped(_ sender: UIButton) {
+        if checkBoxButton.isSelected == false {
+            checkBoxButton.isSelected = true
+        } else {
+            checkBoxButton.isSelected = false
+        }
     }
     
 
