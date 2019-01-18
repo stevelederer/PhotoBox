@@ -14,14 +14,14 @@ class Event: FirestoreFetchable {
     
     let uuid: String
     var photos: [UIImage]
-    var owner: [User]
-    var members: [User]
+    var owner: [AppUser]
+    var members: [AppUser]
     var status: String //is this a string??
     var time: DateInterval
     var details: String //use a textview and should this be optional?
     var location: String //should this be optional?
     
-    init(uuid: String = UUID().uuidString, photos: [UIImage], owner: [User], members: [User], status: String, time: DateInterval, details: String, location: String) {
+    init(uuid: String = UUID().uuidString, photos: [UIImage], owner: [AppUser], members: [AppUser], status: String, time: DateInterval, details: String, location: String) {
         self.uuid = uuid
         self.photos = photos
         self.owner = owner
@@ -35,8 +35,8 @@ class Event: FirestoreFetchable {
     
     required convenience init?(with dictionary: [String : Any], id: String) {
         guard let photos = dictionary["photos"] as? UIImage,
-        let owner = dictionary["owner"] as? [User],
-        let members = dictionary["members"] as? [User],
+        let owner = dictionary["owner"] as? [AppUser],
+        let members = dictionary["members"] as? [AppUser],
         let status = dictionary["status"] as? String,
         let time = dictionary["time"] as? DateInterval,
         let details = dictionary["details"] as? String,
