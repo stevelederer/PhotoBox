@@ -32,7 +32,27 @@ class LoginPageViewController: UIViewController {
         signUpButton.backgroundColor = UIColor(displayP3Red: 0.61, green: 0.61, blue: 0.61, alpha: 1)
     }
     
-
+    @IBAction func forgotPasswordButtonTapped(_ sender: UIButton) {
+        guard let email = emailTextField.text else { return }
+        if email.isEmpty {
+            presentForgotPasswordAlert()
+        } else {
+            UserController.shared.forgotPassword(email: email) { (success) in
+                if success {
+                    self.presentForgotPasswordSuccessAlert()
+                }
+            }
+        }
+    }
+    
+    func presentForgotPasswordAlert() {
+        #warning("add forgot password alert")
+    }
+    
+    func presentForgotPasswordSuccessAlert() {
+        #warning("add successful password reset alert")
+    }
+    
     /*
     // MARK: - Navigation
 

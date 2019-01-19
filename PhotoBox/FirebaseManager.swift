@@ -13,7 +13,7 @@ class FirebaseManager {
     
     static let shared = FirebaseManager()
     
-    func auth(name: String, email: String, username: String, password: String, completion: @escaping (AppUser?) -> Void) {
+    func signUp(name: String, email: String, username: String, password: String, completion: @escaping (AppUser?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
                 print("There was an error creating user with email address \(email). \(error) ; \(error.localizedDescription)")
@@ -39,6 +39,61 @@ class FirebaseManager {
             })
             completion(newUser)
             return
+        }
+    }
+    
+    func signIn(email: String, password: String, completion: @escaping (AppUser?) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+            if let error = error {
+                print("There was an error signing in user with email addresss \(email). \(error) ; \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            guard let user = authResult?.user else {
+                print("error unwrapping user.")
+                return
+            }
+            
+            let uuid = user.uid
+            
+            let collectionReference = Firestore.firestore().collection("users")
+            
+            collectionReference.document(uuid).getDocument(completion: { (fetchedUserSnapshot, error) in
+                if let error = error {
+                    print("There was an error in \(#function): \(error) ; \(error.localizedDescription)")
+                    completion(nil)
+                    return
+                }
+                guard let fetchedUserData = fetchedUserSnapshot, fetchedUserData.exists, let fetchedUserDictionary = fetchedUserData.data() else { completion(nil) ; return }
+
+                let signedInuser = AppUser(with: fetchedUserDictionary, id: fetchedUserData.documentID)
+                completion(signedInuser)
+            })
+            
+        }
+    }
+    
+    func signOut(user: AppUser, completion: @escaping (Error?) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            completion(nil)
+        } catch {
+            print("There was an error signing out for the user \(user.username). \(error) ; \(error.localizedDescription)")
+            completion(error)
+        }
+    }
+    
+    func forgotPassword(email: String, completion: @escaping (Bool) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            if let error = error {
+                print("There was an error sending password reset to \(email). \(error) ; \(error.localizedDescription)")
+                completion(false)
+                return
+            } else {
+                completion(true)
+                return
+            }
         }
     }
         

@@ -18,7 +18,10 @@ class LoggedOutViewController: UIViewController {
         logBackInButton.layer.cornerRadius = logBackInButton.frame.height / 2
     }
     
-
+    @IBAction func logBackInButtonTapped(_ sender: UIButton) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 
