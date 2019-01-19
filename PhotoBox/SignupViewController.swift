@@ -46,6 +46,22 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
+        guard let name = nameTextField.text,
+            !name.isEmpty,
+        let email = emailTextField.text,
+        !email.isEmpty,
+        let username = usernameTextField.text,
+        !username.isEmpty,
+        let password = usernameTextField.text,
+            !password.isEmpty else { presentRequiredFieldAlert() ; return }
+        
+        if checkBoxButton.isSelected {
+            UserController.shared.signUpUser(name: name, email: email, username: username, password: password) { (_) in
+                #warning("check for sign up, and sign in new user")
+            }
+        } else {
+            presentTermsAndConditionsAlert()
+        }
     }
     
     @IBAction func checkBoxButtonTapped(_ sender: UIButton) {
@@ -54,6 +70,14 @@ class SignupViewController: UIViewController {
         } else {
             checkBoxButton.isSelected = false
         }
+    }
+    
+    func presentRequiredFieldAlert() {
+        
+    }
+    
+    func presentTermsAndConditionsAlert() {
+        
     }
     
 
