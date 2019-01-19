@@ -12,6 +12,35 @@ import Firebase
 class FirebaseManager {
     
     static let shared = FirebaseManager()
+    
+    func auth(name: String, email: String, username: String, password: String, completion: @escaping (AppUser?) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+            if let error = error {
+                print("There was an error creating user with email address \(email). \(error) ; \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            guard let user = authResult?.user else {
+                print("Error unwrapping user.")
+                return
+            }
+            
+            let uuid = user.uid
+            
+            let newUser = AppUser(uuid: uuid, name: name, username: username, emailAddress: email)
+            
+            self.saveData(object: newUser, completion: { (error) in
+                if let error = error {
+                    print("Error saving user to FireStore: \(error); \(error.localizedDescription)")
+                    completion(nil)
+                    return
+                }
+            })
+            completion(newUser)
+            return
+        }
+    }
         
     func fetchFromFirestore<T: FirestoreFetchable>(uuid: String, completion: @escaping (T?) -> Void) {
         let collectionReference = T.collection
