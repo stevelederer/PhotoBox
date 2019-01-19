@@ -16,7 +16,7 @@ class BasicEvent: FirestoreFetchable {
     let eventName: String
     let coverPhoto: UIImage?
     
-    init(uuid: String, eventName: String, coverPhoto: UIImage) {
+    init(uuid: String, eventName: String, coverPhoto: UIImage?) {
         self.uuid = uuid
         self.eventName = eventName
         self.coverPhoto = coverPhoto
@@ -24,14 +24,14 @@ class BasicEvent: FirestoreFetchable {
     
     required convenience init?(with dictionary: [String : Any], id: String) {
         guard let eventName = dictionary["eventName"] as? String,
-            let coverPhoto = dictionary["coverPhoto"] as? UIImage else {return nil}
+            let coverPhoto = dictionary["coverPhoto"] as? UIImage? else {return nil}
         self.init(uuid: id, eventName: eventName, coverPhoto: coverPhoto)
     }
 }
 
 extension BasicEvent {
     
-    var dictionary: [String : Any] {
+    var dictionary: [String : Any?] {
         return [
             "uuid" : uuid,
             "eventName" : eventName,

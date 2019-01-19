@@ -16,7 +16,7 @@ class Photo: FirestoreFetchable {
     let imageURL: String
     let numberOfLikes: Int
     
-    init(uuid: String, imageURL: String, numberOfLikes: Int) {
+    init(uuid: String, imageURL: String, numberOfLikes: Int = 0) {
         self.uuid = uuid
         self.imageURL = imageURL
         self.numberOfLikes = numberOfLikes
@@ -31,10 +31,11 @@ class Photo: FirestoreFetchable {
 }
 extension Photo {
     
-    var dictionary: [String : Any] {
+    var dictionary: [String : Any?] {
         return [
             "uuid" : uuid,
             "imageURL" : imageURL,
-            "numberOfLikes" : numberOfLikes]
+            "numberOfLikes" : numberOfLikes
+        ]
     }
 }

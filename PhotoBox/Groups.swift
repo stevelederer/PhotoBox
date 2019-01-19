@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Groups {
+class Group {
     
     let members: [AppUser]
    
