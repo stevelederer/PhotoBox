@@ -11,13 +11,11 @@ import Firebase
 
 class FirebaseManager {
     
-    static let shared = FirebaseManager()
-    
-    func signUp(name: String, email: String, username: String, password: String, completion: @escaping (AppUser?) -> Void) {
+    static func signUp(name: String, email: String, username: String, password: String, completion: @escaping (AppUser?, Error?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
-                print("There was an error creating user with email address \(email). \(error) ; \(error.localizedDescription)")
-                completion(nil)
+                print("There was an error creating user with email address \(email)...\(error.localizedDescription)")
+                completion(nil, error)
                 return
             }
             
@@ -33,16 +31,16 @@ class FirebaseManager {
             self.saveData(object: newUser, completion: { (error) in
                 if let error = error {
                     print("Error saving user to FireStore: \(error); \(error.localizedDescription)")
-                    completion(nil)
+                    completion(nil, error)
                     return
                 }
             })
-            completion(newUser)
+            completion(newUser, nil)
             return
         }
     }
     
-    func signIn(email: String, password: String, completion: @escaping (AppUser?) -> Void) {
+    static func signIn(email: String, password: String, completion: @escaping (AppUser?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
                 print("There was an error signing in user with email addresss \(email). \(error) ; \(error.localizedDescription)")
@@ -74,7 +72,7 @@ class FirebaseManager {
         }
     }
     
-    func signOut(user: AppUser, completion: @escaping (Error?) -> Void) {
+    static func signOut(user: AppUser, completion: @escaping (Error?) -> Void) {
         do {
             try Auth.auth().signOut()
             completion(nil)
@@ -84,7 +82,30 @@ class FirebaseManager {
         }
     }
     
-    func forgotPassword(email: String, completion: @escaping (Bool) -> Void) {
+    static func getLoggedInUser(completion: @escaping (AppUser?) -> Void)  {
+        guard let user = Auth.auth().currentUser else {
+            print("Error unwrapping currentUser from Firestore.")
+            completion(nil)
+            return
+        }
+        
+        let uuid = user.uid
+        
+        let collectionReference = Firestore.firestore().collection("users")
+        collectionReference.document(uuid).getDocument { (fetchedUserSnapshot, error) in
+            if let error = error {
+                print("There was an error in \(#function): \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            guard let fetchedUserData = fetchedUserSnapshot, fetchedUserData.exists, let fetchedUserDictionary = fetchedUserData.data() else { completion(nil) ; return }
+            
+            let loggedInUser = AppUser(with: fetchedUserDictionary, id: uuid)
+            completion(loggedInUser)
+        }
+    }
+    
+    static func forgotPassword(email: String, completion: @escaping (Bool) -> Void) {
         Auth.auth().sendPasswordReset(withEmail: email) { (error) in
             if let error = error {
                 print("There was an error sending password reset to \(email). \(error) ; \(error.localizedDescription)")
@@ -97,7 +118,7 @@ class FirebaseManager {
         }
     }
         
-    func fetchFromFirestore<T: FirestoreFetchable>(uuid: String, completion: @escaping (T?) -> Void) {
+    static func fetchFromFirestore<T: FirestoreFetchable>(uuid: String, completion: @escaping (T?) -> Void) {
         let collectionReference = T.collection
         
         collectionReference.document(uuid).getDocument { (documentSnapshot, error) in
@@ -113,7 +134,7 @@ class FirebaseManager {
         }
     }
 
-    func fetchAllInACollectionFromFirestore<T: FirestoreFetchable>(completion: @escaping ([T]?) -> Void) {
+    static func fetchAllInACollectionFromFirestore<T: FirestoreFetchable>(completion: @escaping ([T]?) -> Void) {
         let collectionReference = T.collection
         
         collectionReference.getDocuments { (querySnapshot, error) in
@@ -134,7 +155,7 @@ class FirebaseManager {
         }
     }
 
-    func fetchFirestoreWithFieldAndCriteria<T: FirestoreFetchable>(for field: String, criteria: String, completion: @escaping ([T]?) -> Void) {
+    static func fetchFirestoreWithFieldAndCriteria<T: FirestoreFetchable>(for field: String, criteria: String, completion: @escaping ([T]?) -> Void) {
         let collectionReference = T.collection
         let filteredCollection = collectionReference.whereField(field, isEqualTo: criteria)
         filteredCollection.getDocuments { (querySnapshot, error) in
@@ -155,7 +176,7 @@ class FirebaseManager {
         }
     }
     
-    func saveData<T: FirestoreFetchable>(object: T, completion: @escaping (Error?) -> Void) {
+    static func saveData<T: FirestoreFetchable>(object: T, completion: @escaping (Error?) -> Void) {
         let collectionReference = T.collection
         let documentReference = collectionReference.document(object.uuid)
         documentReference.setData(object.dictionary) { (error) in
@@ -168,7 +189,7 @@ class FirebaseManager {
         }
     }
     
-    func updateData<T: FirestoreFetchable>(obect: T, dictionary: [String : Any], completion: @escaping (Error?) -> Void) {
+    static func updateData<T: FirestoreFetchable>(obect: T, dictionary: [String : Any], completion: @escaping (Error?) -> Void) {
         let documentReference = T.collection.document(obect.uuid)
         documentReference.updateData(dictionary) { (error) in
             if let error = error {
@@ -181,7 +202,7 @@ class FirebaseManager {
         
     }
     
-    func deleteData<T: FirestoreFetchable>(object: T, completion: @escaping (Bool) -> Void) {
+    static func deleteData<T: FirestoreFetchable>(object: T, completion: @escaping (Bool) -> Void) {
         let collectionReference = T.collection
         collectionReference.document().delete()
         completion(true)

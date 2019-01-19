@@ -19,33 +19,50 @@ class UserController {
     
     var currentUser: AppUser? {
         didSet {
-            print("Current User is: \(String(describing: currentUser?.username))")
+            print("Current AppUser is now: \(String(describing: currentUser?.username))")
         }
     }
     
     // MARK: - User Functions
     
-    func signUpUser(name: String, email: String, username: String, password: String, completion: @escaping (Bool) -> Void) {
-        FirebaseManager.shared.signUp(name: name, email: email, username: username, password: password) { (newUser) in
-            if let newUser = newUser {
-                self.currentUser = newUser
-                
-                BasicUserController.shared.create(user: newUser, completion: completion)
+    func checkForLoggedInUser(completion: @escaping (Bool) -> Void) {
+        FirebaseManager.getLoggedInUser { (currentLoggedInUser) in
+            if let currentLoggedInUser = currentLoggedInUser {
+                self.currentUser = currentLoggedInUser
+                completion(true)
                 return
+            } else {
+                completion(false)
             }
         }
     }
     
     func signInUser(email: String, password: String, completion: @escaping (Bool) -> Void) {
-        FirebaseManager.shared.signIn(email: email, password: password) { (signedInUser) in
+        FirebaseManager.signIn(email: email, password: password) { (signedInUser) in
             if let signedInUser = signedInUser {
                 self.currentUser = signedInUser
             }
         }
     }
     
+    func signUpUser(name: String, email: String, username: String, password: String, completion: @escaping (Bool) -> Void) {
+        FirebaseManager.signUp(name: name, email: email, username: username, password: password) { (firebaseUser, error) in
+            if let error = error {
+                print("Error saving a new user to the Firebase Database: \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            
+            if let newUser = firebaseUser {
+                self.currentUser = newUser
+                BasicUserController.shared.createBasicUserProfile(from: newUser, completion: completion)
+                return
+            }
+        }
+    }
+    
     func signOutUser(user: AppUser, completion: @escaping (Bool) -> Void) {
-        FirebaseManager.shared.signOut(user: user) { (error) in
+        FirebaseManager.signOut(user: user) { (error) in
             if let error = error {
                 print("There was an error signing out user \(user.username). \(error) ; \(error.localizedDescription)")
                 completion(false)
@@ -58,7 +75,7 @@ class UserController {
     }
     
     func forgotPassword(email: String, completion: @escaping (Bool) -> Void) {
-        FirebaseManager.shared.forgotPassword(email: email) { (success) in
+        FirebaseManager.forgotPassword(email: email) { (success) in
             if success {
                 print("Successfully sent password reset email to \(email)")
                 completion(true)
@@ -72,7 +89,7 @@ class UserController {
     }
     
     func changeUserInfo(user: AppUser, completion: @escaping (Bool) -> Void) {
-        FirebaseManager.shared.updateData(obect: user, dictionary: user.dictionary) { (error) in
+        FirebaseManager.updateData(obect: user, dictionary: user.dictionary) { (error) in
             if let error = error {
                 print("There was an error updating \(user.name): \(error) ; \(error.localizedDescription)")
                 completion(false)
@@ -82,4 +99,6 @@ class UserController {
         }
         BasicUserController.shared.changeBasicProfileInfo(user: user, completion: completion)
     }
+    
+    
 }
