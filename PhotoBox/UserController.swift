@@ -6,8 +6,7 @@
 //  Copyright © 2019 Cameron Milliken. All rights reserved.
 //
 
-import Foundation
-
+import UIKit
 
 class UserController {
     
@@ -20,23 +19,20 @@ class UserController {
         }
     }
     
-    func signUpUser() {
+    func signUpUser(name: String, email: String, username: String, password: String, completion: @escaping (Bool) -> Void) {
+        FirebaseManager.shared.auth(name: name, email: email, username: username, password: password) { (newUser) in
+            if let newUser = newUser {
+                self.currentUser = newUser
+                
+                //basicusercontroller.shared.create(newuser, completion(true)
+                
+                completion(true)
+                return
+            }
+        }
+    }
+    
+    func updateUser(userame: String?, name: String?, profilePic: UIImage?) {
         
     }
-    
-    
-    func createUser() {
-        <#code#>
-    }
-    
-    func updateUser() {
-        <#code#>
-    }
-    
-    func deleteUser() {
-        <#code#>
-    }
-    
-    
-    
 }

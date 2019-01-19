@@ -12,6 +12,7 @@
 		1B07485E21F160C70030D907 /* UnderlineButtonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07485D21F160C70030D907 /* UnderlineButtonText.swift */; };
 		1B07486021F16A090030D907 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07485F21F16A090030D907 /* SignupViewController.swift */; };
 		1B07486221F16E4E0030D907 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07486121F16E4E0030D907 /* LoginTextField.swift */; };
+		1B17856221F29BD600CDADAC /* BasicUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B17856121F29BD600CDADAC /* BasicUserController.swift */; };
 		1B4B13A621F1733B002040A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */; };
 		1B4B13A821F18B03002040A6 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13A721F18B03002040A6 /* NewEventViewController.swift */; };
 		1B4B13AB21F19141002040A6 /* FriendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13AA21F19141002040A6 /* FriendSearchTableViewCell.swift */; };
@@ -49,6 +50,7 @@
 		1B07485D21F160C70030D907 /* UnderlineButtonText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButtonText.swift; sourceTree = "<group>"; };
 		1B07485F21F16A090030D907 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		1B07486121F16E4E0030D907 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		1B17856121F29BD600CDADAC /* BasicUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUserController.swift; sourceTree = "<group>"; };
 		1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B4B13A721F18B03002040A6 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		1B4B13AA21F19141002040A6 /* FriendSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				1B4B13AC21F279FB002040A6 /* UserController.swift */,
+				1B17856121F29BD600CDADAC /* BasicUserController.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				E91FD2C721F149BB004327D3 /* Event.swift in Sources */,
 				E91FD2CB21F25296004327D3 /* BasicProfile.swift in Sources */,
 				E91FD2C921F149CB004327D3 /* Groups.swift in Sources */,
+				1B17856221F29BD600CDADAC /* BasicUserController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
