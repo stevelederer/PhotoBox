@@ -13,7 +13,7 @@ class Event: FirestoreFetchable {
     static let CollectionName: String = "events"
     
     let uuid: String
-    let eventName: String
+    var eventName: String
     var photos: [Photo]?
     var photoIDs : [String]?
     var admins: [BasicProfile]

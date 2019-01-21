@@ -30,6 +30,7 @@
 		E91FD2CB21F25296004327D3 /* BasicProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2CA21F25296004327D3 /* BasicProfile.swift */; };
 		E91FD2CD21F258C2004327D3 /* BasicEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2CC21F258C2004327D3 /* BasicEvent.swift */; };
 		E91FD2CF21F2764C004327D3 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2CE21F2764C004327D3 /* Photo.swift */; };
+		E91FD2D121F634DF004327D3 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2D021F634DF004327D3 /* EventController.swift */; };
 		EAD62AE684AD3C1A25E0C506 /* Pods_PhotoBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2121C950E2C77FF835D4F074 /* Pods_PhotoBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		E91FD2CA21F25296004327D3 /* BasicProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicProfile.swift; sourceTree = "<group>"; };
 		E91FD2CC21F258C2004327D3 /* BasicEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicEvent.swift; sourceTree = "<group>"; };
 		E91FD2CE21F2764C004327D3 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		E91FD2D021F634DF004327D3 /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			children = (
 				1B4B13AC21F279FB002040A6 /* UserController.swift */,
 				1B17856121F29BD600CDADAC /* BasicUserController.swift */,
+				E91FD2D021F634DF004327D3 /* EventController.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				E91FD2C721F149BB004327D3 /* Event.swift in Sources */,
 				E91FD2CB21F25296004327D3 /* BasicProfile.swift in Sources */,
 				E91FD2C921F149CB004327D3 /* Groups.swift in Sources */,
+				E91FD2D121F634DF004327D3 /* EventController.swift in Sources */,
 				1B17856221F29BD600CDADAC /* BasicUserController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
