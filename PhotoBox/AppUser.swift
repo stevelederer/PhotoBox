@@ -47,29 +47,43 @@ class AppUser: FirestoreFetchable {
         self.groups = groups
         self.events = events
         self.blockedUserIDs = blockedUserIDs
-        
     }
     
-    convenience required init?(with dictionary: [String : Any], id: String) {
-        
+    required init?(with dictionary: [String : Any], id: String) {
         guard let name = dictionary["name"] as? String,
-        let username = dictionary["username"] as? String,
-            let emailAddress = dictionary["emailAddress"] as? String,
-            let profilePicURL = dictionary["profilePicURL"] as? String?,
-            let memberEventIDs = dictionary["memberEventIDs"] as? [String]?,
-            let creatorEventIDs = dictionary["creatorEventIDs"] as? [String]?,
-            let inviteEventIDs = dictionary["inviteEventIDs"] as? [String]?,
-            let connectionsIDs = dictionary["connectionsIDs"] as? [String]?,
-            let connections = dictionary["connections"] as? [BasicProfile]?,
-            let groups = dictionary["groups"] as? [Group]?,
-            let events = dictionary["events"] as? [BasicEvent]?,
-            let connectionInviteIDs = dictionary["connectionInvitesIDs"] as? [String]?,
-            let groupIDs = dictionary["groupIDs"] as? [String]?,
-            let blockedUserIDs = dictionary["blockedUserIDs"] as? [String]?
+            let username = dictionary["username"] as? String,
+            let emailAddress = dictionary["emailAddress"] as? String
             else {return nil}
         
-        self.init(uuid: id, name: name, username: username, emailAddress: emailAddress, profilePicURL: profilePicURL, memberEventIDs: memberEventIDs, creatorEventIDs: creatorEventIDs, inviteEventIDs: inviteEventIDs, connectionIDs: connectionsIDs, connectionInviteIDs: connectionInviteIDs, groupIDs: groupIDs, connections: connections, groups: groups, events: events, blockedUserIDs: blockedUserIDs)
+        self.uuid = id
+        self.name = name
+        self.username = username
+        self.emailAddress = emailAddress
         
+        if let profilePicURL = dictionary["profilePicURL"] as? String? {
+            self.profilePicURL = profilePicURL
+        }
+        if let memberEventIDs = dictionary["memberEventIDs"] as? [String] {
+            self.memberEventIDs = memberEventIDs
+        }
+        if let creatorEventIDs = dictionary["creatorEventIDs"] as? [String]? {
+            self.creatorEventIDs = creatorEventIDs
+        }
+        if let inviteEventIDs = dictionary["inviteEventIDs"] as? [String]? {
+            self.inviteEventIDs = inviteEventIDs
+        }
+        if let connectionIDs = dictionary["connectionIDs"] as? [String]? {
+            self.connectionIDs = connectionIDs
+        }
+        if let connectionInviteIDs = dictionary["connectionInvitesIDs"] as? [String]? {
+            self.connectionInviteIDs = connectionInviteIDs
+        }
+        if let groupIDs = dictionary["groupIDs"] as? [String]? {
+            self.groupIDs = groupIDs
+        }
+        if let blockedUserIDs = dictionary["blockedUserIDs"] as? [String]? {
+            self.blockedUserIDs = blockedUserIDs
+        }
     }
 }
 
@@ -85,7 +99,7 @@ extension AppUser { // should any be optional??
             "creatorEventIDs": creatorEventIDs,
             "inviteEventIDs" : inviteEventIDs,
             "connectionsIDs" : connectionIDs,
-            "connectionInvitesIDs" : connectionInviteIDs,
+            "connectionInviteIDs" : connectionInviteIDs,
             "groups" : groups,
             "blockedUsersIDs" : blockedUserIDs
         ]

@@ -19,7 +19,7 @@ class UserController {
     
     var currentUser: AppUser? {
         didSet {
-            print("Current AppUser is now: \(String(describing: currentUser?.username))")
+            print("✅✅✅ Current AppUser is: \(String(describing: currentUser?.username))")
         }
     }
     
@@ -45,7 +45,6 @@ class UserController {
                 return
             } else {
                 completion(false)
-                return
             }
         }
     }
@@ -73,6 +72,7 @@ class UserController {
                 completion(false)
                 return
             } else {
+                self.currentUser = nil
                 completion(true)
                 return
             }
@@ -104,6 +104,4 @@ class UserController {
         }
         BasicUserController.shared.changeBasicProfileInfo(user: user, completion: completion)
     }
-    
-    
 }

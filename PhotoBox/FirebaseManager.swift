@@ -88,9 +88,9 @@ class FirebaseManager {
             completion(nil)
             return
         }
-        
+
         let uuid = user.uid
-        
+
         let collectionReference = Firestore.firestore().collection("users")
         collectionReference.document(uuid).getDocument { (fetchedUserSnapshot, error) in
             if let error = error {
@@ -99,7 +99,7 @@ class FirebaseManager {
                 return
             }
             guard let fetchedUserData = fetchedUserSnapshot, fetchedUserData.exists, let fetchedUserDictionary = fetchedUserData.data() else { completion(nil) ; return }
-            
+
             let loggedInUser = AppUser(with: fetchedUserDictionary, id: uuid)
             completion(loggedInUser)
         }
