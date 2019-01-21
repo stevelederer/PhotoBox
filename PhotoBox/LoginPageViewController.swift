@@ -18,6 +18,15 @@ class LoginPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UserController.shared.checkForLoggedInUser { (success) in
+            if !success {
+                print("❌❌❌ NO LOGGED IN USER")
+            } else {
+                return
+            }
+        }
+        
         let darkGrayBorder: UIColor = UIColor(displayP3Red: 0.59, green: 0.59, blue: 0.59, alpha: 1)
         emailTextField.layer.borderWidth = 3
         emailTextField.layer.borderColor = darkGrayBorder.cgColor
