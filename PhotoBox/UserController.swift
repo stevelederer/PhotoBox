@@ -41,6 +41,11 @@ class UserController {
         FirebaseManager.signIn(email: email, password: password) { (signedInUser) in
             if let signedInUser = signedInUser {
                 self.currentUser = signedInUser
+                completion(true)
+                return
+            } else {
+                completion(false)
+                return
             }
         }
     }
