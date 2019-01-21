@@ -10,10 +10,12 @@ import Foundation
 
 class BasicUserController {
     
+    // MARK: - Shared Instance
+    
     static let shared = BasicUserController()
     private init () {}
     
-    func create(user: AppUser, completion: @escaping (Bool) -> Void) {
+    func createBasicUserProfile(from user: AppUser, completion: @escaping (Bool) -> Void) {
         let newBasicProfile = BasicProfile(uuid: user.uuid, name: user.name, profilePicURL: user.profilePicURL)
 
         FirebaseManager.shared.saveData(object: newBasicProfile) { (error) in
