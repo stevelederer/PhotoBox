@@ -13,19 +13,19 @@ class BasicEvent: FirestoreFetchable {
     static let CollectionName: String = "basicEvent"
     
     let uuid: String
-    let eventName: String
-    let coverPhoto: UIImage?
+    var eventName: String
+    var coverPhotoURL: String?
     
-    init(uuid: String, eventName: String, coverPhoto: UIImage?) {
+    init(uuid: String, eventName: String, coverPhotoURL: String?) {
         self.uuid = uuid
         self.eventName = eventName
-        self.coverPhoto = coverPhoto
+        self.coverPhotoURL = coverPhotoURL
     }
     
     required convenience init?(with dictionary: [String : Any], id: String) {
         guard let eventName = dictionary["eventName"] as? String,
-            let coverPhoto = dictionary["coverPhoto"] as? UIImage? else {return nil}
-        self.init(uuid: id, eventName: eventName, coverPhoto: coverPhoto)
+            let coverPhotoURL = dictionary["coverPhotoURL"] as? String? else {return nil}
+        self.init(uuid: id, eventName: eventName, coverPhotoURL: coverPhotoURL)
     }
 }
 
@@ -35,7 +35,7 @@ extension BasicEvent {
         return [
             "uuid" : uuid,
             "eventName" : eventName,
-            "coverPhoto" : coverPhoto
+            "coverPhotoURL" : coverPhotoURL
         ]
     }
 }
