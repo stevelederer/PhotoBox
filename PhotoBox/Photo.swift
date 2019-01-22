@@ -12,30 +12,34 @@ class Photo: FirestoreFetchable {
     
     static var CollectionName: String = "photo"
     
-    var uuid: String
+    let uuid: String
     let imageURL: String
-    let numberOfLikes: Int
+    let eventID: String
+    let user: String
     
-    init(uuid: String, imageURL: String, numberOfLikes: Int = 0) {
+    init(uuid: String, imageURL: String, eventID: String, user: String) {
         self.uuid = uuid
         self.imageURL = imageURL
-        self.numberOfLikes = numberOfLikes
+        self.eventID = eventID
+        self.user = user
     }
     
     convenience required init?(with dictionary: [String : Any], id: String) {
         guard let imageURL = dictionary["imageURL"] as? String,
-            let numberOfLikes = dictionary["numberOfLikes"] as? Int else {return nil}
+        let eventID = dictionary["eventID"] as? String,
+        let user = dictionary["user"] as? String  else {return nil}
         
-        self.init(uuid: id, imageURL: imageURL, numberOfLikes: numberOfLikes)
+        self.init(uuid: id, imageURL: imageURL, eventID: eventID, user: user)
     }
 }
+
 extension Photo {
-    
     var dictionary: [String : Any?] {
         return [
             "uuid" : uuid,
             "imageURL" : imageURL,
-            "numberOfLikes" : numberOfLikes
+            "eventID" : eventID,
+            "user" : user
         ]
     }
 }

@@ -19,6 +19,7 @@
 		1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13AC21F279FB002040A6 /* UserController.swift */; };
 		1B5D6A8321F676290095F9CA /* FakeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */; };
 		1B61AE9721F79736007C6C06 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AE9621F79736007C6C06 /* SignIn.storyboard */; };
+		1B61AE9921F7BCC9007C6C06 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */; };
 		1BB36AE621EEACF20089E2D1 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AE521EEACF20089E2D1 /* FirebaseManager.swift */; };
 		1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */; };
 		B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B404A99521EEA23200491CE2 /* AppDelegate.swift */; };
@@ -28,7 +29,6 @@
 		D843DF6EE5F2664A22F4B89B /* Pods_PhotoBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5A10CF1FC32FE99CC7F520 /* Pods_PhotoBox.framework */; };
 		E91FD2C521F14903004327D3 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2C421F14903004327D3 /* AppUser.swift */; };
 		E91FD2C721F149BB004327D3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2C621F149BB004327D3 /* Event.swift */; };
-		E91FD2C921F149CB004327D3 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2C821F149CB004327D3 /* Groups.swift */; };
 		E91FD2CB21F25296004327D3 /* BasicProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2CA21F25296004327D3 /* BasicProfile.swift */; };
 		E91FD2CD21F258C2004327D3 /* BasicEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2CC21F258C2004327D3 /* BasicEvent.swift */; };
 		E91FD2CF21F2764C004327D3 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2CE21F2764C004327D3 /* Photo.swift */; };
@@ -60,6 +60,7 @@
 		1B4B13AC21F279FB002040A6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeProfileViewController.swift; sourceTree = "<group>"; };
 		1B61AE9621F79736007C6C06 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		1BB36AE521EEACF20089E2D1 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreFetchable.swift; sourceTree = "<group>"; };
 		2121C950E2C77FF835D4F074 /* Pods_PhotoBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +76,6 @@
 		B404A9A421EEA23400491CE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E91FD2C421F14903004327D3 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		E91FD2C621F149BB004327D3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		E91FD2C821F149CB004327D3 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		E91FD2CA21F25296004327D3 /* BasicProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicProfile.swift; sourceTree = "<group>"; };
 		E91FD2CC21F258C2004327D3 /* BasicEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicEvent.swift; sourceTree = "<group>"; };
 		E91FD2CE21F2764C004327D3 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -159,6 +159,7 @@
 				1B07485F21F16A090030D907 /* SignupViewController.swift */,
 				1B4B13A721F18B03002040A6 /* NewEventViewController.swift */,
 				1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */,
+				1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -189,7 +190,6 @@
 				E91FD2CA21F25296004327D3 /* BasicProfile.swift */,
 				E91FD2C621F149BB004327D3 /* Event.swift */,
 				E91FD2CC21F258C2004327D3 /* BasicEvent.swift */,
-				E91FD2C821F149CB004327D3 /* Groups.swift */,
 				E91FD2CE21F2764C004327D3 /* Photo.swift */,
 			);
 			name = Models;
@@ -423,7 +423,7 @@
 				E91FD2CD21F258C2004327D3 /* BasicEvent.swift in Sources */,
 				E91FD2C721F149BB004327D3 /* Event.swift in Sources */,
 				E91FD2CB21F25296004327D3 /* BasicProfile.swift in Sources */,
-				E91FD2C921F149CB004327D3 /* Groups.swift in Sources */,
+				1B61AE9921F7BCC9007C6C06 /* LandingPageViewController.swift in Sources */,
 				1B5D6A8321F676290095F9CA /* FakeProfileViewController.swift in Sources */,
 				E91FD2D121F634DF004327D3 /* EventController.swift in Sources */,
 				1B17856221F29BD600CDADAC /* BasicUserController.swift in Sources */,
