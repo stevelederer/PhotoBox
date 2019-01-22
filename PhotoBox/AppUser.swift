@@ -24,13 +24,10 @@ class AppUser: FirestoreFetchable {
     var connectionIDs: [String]?
     var connectionInviteIDs: [String]?
     var groupIDs: [String]?
-    var connections: [BasicProfile]?
-    var groups: [Group]?
-    var events: [BasicEvent]?
     var blockedUserIDs: [String]?
     
     
-    init(uuid: String = UUID().uuidString, name: String, username: String, emailAddress: String, profilePicURL: String? = nil, memberEventIDs: [String]? = nil, creatorEventIDs: [String]?  = nil, inviteEventIDs: [String]? = nil, connectionIDs: [String]? = nil, connectionInviteIDs: [String]? = nil, groupIDs: [String]? = nil, connections: [BasicProfile]? = nil, groups: [Group]? = nil, events: [BasicEvent]? = nil, blockedUserIDs: [String]? = nil) {
+    init(uuid: String = UUID().uuidString, name: String, username: String, emailAddress: String, profilePicURL: String? = nil, memberEventIDs: [String]? = nil, creatorEventIDs: [String]?  = nil, inviteEventIDs: [String]? = nil, connectionIDs: [String]? = nil, connectionInviteIDs: [String]? = nil, groupIDs: [String]? = nil, blockedUserIDs: [String]? = nil) {
         
         self.uuid = uuid
         self.name = name
@@ -43,9 +40,6 @@ class AppUser: FirestoreFetchable {
         self.connectionIDs = connectionIDs
         self.connectionInviteIDs = connectionInviteIDs
         self.groupIDs = groupIDs
-        self.connections = connections
-        self.groups = groups
-        self.events = events
         self.blockedUserIDs = blockedUserIDs
     }
     
@@ -100,7 +94,7 @@ extension AppUser { // should any be optional??
             "inviteEventIDs" : inviteEventIDs,
             "connectionsIDs" : connectionIDs,
             "connectionInviteIDs" : connectionInviteIDs,
-            "groups" : groups,
+            "groupIDs" : groupIDs,
             "blockedUsersIDs" : blockedUserIDs
         ]
     }

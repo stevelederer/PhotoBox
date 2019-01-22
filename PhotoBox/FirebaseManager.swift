@@ -177,6 +177,21 @@ class FirebaseManager {
         }
     }
     
+    static func fetchBasicEvent(for uuid: String, completion: @escaping (BasicEvent?) -> Void) {
+        let collectionReference = Firestore.firestore().collection("basicEvent")
+        collectionReference.document(uuid).getDocument { (basicEventSnapshot, error) in
+            if let error = error {
+                print("Thre was an error in \(#function): \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            guard let basicEventSnapshot = basicEventSnapshot, basicEventSnapshot.exists, let basicEventDictionary = basicEventSnapshot.data() else { completion(nil) ; return }
+            
+            let basicEvent = BasicEvent(with: basicEventDictionary, id: uuid)
+            completion(basicEvent)
+        }
+    }
+    
     static func saveData<T: FirestoreFetchable>(object: T, completion: @escaping (Error?) -> Void) {
         let collectionReference = T.collection
         let documentReference = collectionReference.document(object.uuid)
