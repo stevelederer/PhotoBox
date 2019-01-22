@@ -7,24 +7,26 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class EventController {
     
-     //   MARK: - Share Instance
+    //   MARK: - Share Instance
     
     static let shared = EventController()
     private init(){}
     
-     //   MARK: - Source of truth
-    var event: Event?
-        
-//   MARK: - Functions
+    //   MARK: - Source of truth
     
-   
+    var currentEvent: Event?
+    
+    //   MARK: - Functions
+    
+    
     // Create an event
-    func createAnEvent(eventName: String, admins: [BasicProfile], adminsIDs: [String], members: [BasicProfile], membersIDs: [String], status: String, startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, coverPhoto: UIImage?, completion: @escaping (Bool) -> Void) {
+    func createAnEvent(eventName: String, adminIDs: [String], membersIDs: [String], status: String, startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, coverPhoto: UIImage?, completion: @escaping (Bool) -> Void) {
         
-        let newEvent = Event(eventName: eventName, admins: admins, adminIDs: adminsIDs, members: members, memberIDs: membersIDs, status: status, startTime: startTime, endTime: endTime, details: details, location: location, coverPhoto: coverPhoto)
+        let newEvent = Event(eventName: eventName, adminIDs: adminIDs, memberIDs: membersIDs, status: status, startTime: startTime, endTime: endTime, details: details, location: location, coverPhoto: coverPhoto)
         
         FirebaseManager.saveData(object: newEvent) { (success) in
             if !(success != nil) {
@@ -38,12 +40,12 @@ class EventController {
     }
     
     // Update an event
-    func updateAnEvent(event: Event, eventName: String, admins: [BasicProfile], photos: [Photo]?, members: [BasicProfile], endTime: TimeInterval, details: String?, location: String, coverPhoto: UIImage?, completion: @escaping (Bool) -> Void) {
+    func updateAnEvent(event: Event, eventName: String, adminsIDs: [String], photosIDs: [String]?, membersIDs: [String], endTime: TimeInterval, details: String?, location: String, coverPhoto: UIImage?, completion: @escaping (Bool) -> Void) {
         
         event.eventName = eventName
-        event.admins = admins
-        event.photos = photos
-        event.members = members
+        event.adminIDs = adminsIDs
+        event.photoIDs = photosIDs
+        event.memberIDs = membersIDs
         event.endTime = endTime
         event.details = details
         event.location = location
@@ -58,8 +60,7 @@ class EventController {
                 completion(true)
             }
         }
-        
-}
+    }
     
     // Delete an Event
     func deleteAnEvent(event: Event, completion: @escaping (Bool) -> Void) {
@@ -73,11 +74,67 @@ class EventController {
             }
         }
     }
+    //Upload photos to an event
     
     func uploadPhotos(photos: Photo, completion: @escaping (Bool) -> Void) {
+        FirebaseManager.saveData(object: photos) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            }
+            completion(true)
+        }
+    }
+    //Delete photos from an event
+    
+    func deletePhotos(photos: Photo, completion: @escaping (Bool) -> Void) {
+        FirebaseManager.deleteData(object: photos) { (success) in
+            if !success {
+                print("There was an error deleting a photo \(photos)")
+                completion(false)
+                return
+            } else {
+                completion(true)
+            }
+        }
+    }
+    // Add people to event
+    
+    func addInvites(username: String, eventID: String, completion: @escaping (Bool) -> Void) {
+        
+        FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "username", criteria: username) { (basicProfile: [BasicProfile]?) in
+            guard let basicProfile = basicProfile?.first else { completion(false) ; return }
+            
+            FirebaseManager.updateData(obect: basicProfile, dictionary: ["inviteEventIDs" : eventID], completion: { (error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    completion(false)
+                    return
+                }
+                
+                completion(true)
+            })
+            
+        }
+        
     }
     
-    func addInvites(with members: [BasicProfile], completion: @escaping (Bool) -> Void) {
+    //remove a user from an event
+    
+    func removeUser(from event: Event, uuid: String, completion: @escaping (Bool) -> Void) {
+        Firestore.firestore().collection("events").document(event.uuid).updateData(["memberIDs" : FieldValue.arrayRemove([uuid])]) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            }
+        }
+    }
+    // admin can edit people in event
+    
+    func adminEditAttendees() {
         
     }
 }
+

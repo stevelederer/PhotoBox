@@ -14,11 +14,8 @@ class Event: FirestoreFetchable {
     
     let uuid: String
     var eventName: String
-    var photos: [Photo]?
     var photoIDs : [String]?
-    var admins: [BasicProfile]
     var adminIDs: [String]
-    var members: [BasicProfile]
     var memberIDs: [String]
     var status: String
     var startTime: TimeInterval
@@ -28,14 +25,11 @@ class Event: FirestoreFetchable {
     var coverPhoto: UIImage?
     var coverPhotoURL: String?
     
-    init(uuid: String = UUID().uuidString, eventName: String, photos: [Photo]? = nil, photoIDs: [String]? = nil, admins: [BasicProfile], adminIDs: [String], members: [BasicProfile], memberIDs: [String], status: String, startTime: TimeInterval, endTime: TimeInterval, details: String? = nil, location: String? = nil, coverPhoto: UIImage? = nil, coverPhotoURL: String? = nil) {
+    init(uuid: String = UUID().uuidString, eventName: String, photoIDs: [String]? = nil, adminIDs: [String], memberIDs: [String], status: String, startTime: TimeInterval, endTime: TimeInterval, details: String? = nil, location: String? = nil, coverPhoto: UIImage? = nil, coverPhotoURL: String? = nil) {
         self.uuid = uuid
         self.eventName = eventName
-        self.photos = photos
         self.photoIDs = photoIDs
-        self.admins = admins
         self.adminIDs = adminIDs
-        self.members = members
         self.memberIDs = memberIDs
         self.status = status
         self.startTime = startTime
@@ -48,11 +42,11 @@ class Event: FirestoreFetchable {
     
     required convenience init?(with dictionary: [String : Any], id: String) {
         guard let eventName = dictionary["eventName"] as? String,
-        let photos = dictionary["photos"] as? [Photo]?,
+//        let photos = dictionary["photos"] as? [Photo]?,
         let photoIDs = dictionary["photo"] as? [String]?,
-        let admins = dictionary["admins"] as? [BasicProfile],
+//        let admins = dictionary["admins"] as? [BasicProfile],
         let adminIDs = dictionary["adminIDs"] as? [String],
-        let members = dictionary["members"] as? [BasicProfile],
+//        let members = dictionary["members"] as? [BasicProfile],
         let memberIDs = dictionary["memberIDs"] as? [String],
         let status = dictionary["status"] as? String,
         let startTime = dictionary["startTime"] as? TimeInterval,
@@ -62,7 +56,7 @@ class Event: FirestoreFetchable {
         let coverPhoto = dictionary["coverPhoto"] as? UIImage?,
         let coverPhotoURL = dictionary["coverPhotoURL"] as? String? else {return nil}
         
-        self.init(uuid: id, eventName: eventName, photos: photos, photoIDs: photoIDs, admins: admins, adminIDs:adminIDs, members: members, memberIDs: memberIDs,  status: status, startTime: startTime, endTime: endTime, details: details, location: location, coverPhoto: coverPhoto, coverPhotoURL: coverPhotoURL)
+        self.init(uuid: id, eventName: eventName, photoIDs: photoIDs, adminIDs:adminIDs, memberIDs: memberIDs,  status: status, startTime: startTime, endTime: endTime, details: details, location: location, coverPhoto: coverPhoto, coverPhotoURL: coverPhotoURL)
     }
 }
 
@@ -72,11 +66,11 @@ extension Event {
         return [
             "uuid" : uuid,
             "eventName" : eventName,
-            "photos" : photos,
+//            "photos" : photos,
             "photoIDs" : photoIDs,
-            "admins" : admins,
+//            "admins" : admins,
             "adminIDs" : adminIDs,
-            "members" : members,
+//            "members" : members,
             "memberIDs" : memberIDs,
             "status" : status,
             "startTime" : startTime,

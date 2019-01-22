@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 
 class FirebaseManager {
     
@@ -120,7 +121,7 @@ class FirebaseManager {
         
     static func fetchFromFirestore<T: FirestoreFetchable>(uuid: String, completion: @escaping (T?) -> Void) {
         let collectionReference = T.collection
-        
+    
         collectionReference.document(uuid).getDocument { (documentSnapshot, error) in
             if let error = error {
                 print("There was an error in \(#function) \(error) \(error.localizedDescription)")
@@ -202,9 +203,16 @@ class FirebaseManager {
         
     }
     
-    static func deleteData<T: FirestoreFetchable>(object: T, completion: @escaping (Bool) -> Void) {
+    static func deleteData<T: FirestoreFetchable>(object: T, withChildren children: [String]? = nil, completion: @escaping (Bool) -> Void) {
         let collectionReference = T.collection
-        collectionReference.document().delete()
-        completion(true)
+        
+        collectionReference.document(object.uuid).delete { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            }
+            completion(true)
+        }
     }
 }
