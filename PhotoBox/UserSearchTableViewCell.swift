@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendSearchTableViewCell: UITableViewCell {
+class UserSearchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var friendProfilePictureImageView: UIImageView!
     @IBOutlet weak var friendNameLabel: UILabel!
