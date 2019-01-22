@@ -28,9 +28,9 @@ class EventController {
         
         let newEvent = Event(eventName: eventName, adminIDs: adminIDs, memberIDs: membersIDs, status: status, startTime: startTime, endTime: endTime, details: details, location: location, coverPhoto: coverPhoto)
         
-        FirebaseManager.saveData(object: newEvent) { (success) in
-            if !(success != nil) {
-                print("There was an error creating event \(newEvent)")
+        FirebaseManager.saveData(object: newEvent) { (error) in
+            if let error = error {
+                print("There was an error creating event \(newEvent). \(error.localizedDescription)")
                 completion(false)
                 return
             } else {
@@ -51,9 +51,9 @@ class EventController {
         event.location = location
         event.coverPhoto = coverPhoto
         
-        FirebaseManager.updateData(obect: event, dictionary: event.dictionary) { (success) in
-            if !(success != nil) {
-                print("There was an error updating event \(event)")
+        FirebaseManager.updateData(obect: event, dictionary: event.dictionary) { (error) in
+            if let error = error {
+                print("There was an error updating event \(event). \(error.localizedDescription)")
                 completion(false)
                 return
             } else {

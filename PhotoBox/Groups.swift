@@ -10,10 +10,13 @@ import Foundation
 
 class Group {
     
-    let members: [AppUser]
-   
-    init(members: [AppUser]) {
-        
+    var groupName: String
+    var coverPhotoURL: String?
+    let members: [String]
+    
+    init(groupName: String, coverPhotoURL: String, members: [String]) {
+        self.groupName = groupName
+        self.coverPhotoURL = coverPhotoURL
         self.members = members
     }
 }

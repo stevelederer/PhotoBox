@@ -16,7 +16,7 @@ class BasicUserController {
     private init () {}
     
     func createBasicUserProfile(from user: AppUser, completion: @escaping (Bool) -> Void) {
-        let newBasicProfile = BasicProfile(uuid: user.uuid, name: user.name, profilePicURL: user.profilePicURL)
+        let newBasicProfile = BasicProfile(uuid: user.uuid, username: user.username, name: user.name, profilePicURL: user.profilePicURL)
 
         FirebaseManager.saveData(object: newBasicProfile) { (error) in
             if let error = error {
@@ -30,7 +30,7 @@ class BasicUserController {
     }
     
     func changeBasicProfileInfo(user: AppUser, completion: @escaping (Bool) -> Void) {
-        let updatedBasicProfile = BasicProfile(uuid: user.uuid, name: user.name, profilePicURL: user.profilePicURL)
+        let updatedBasicProfile = BasicProfile(uuid: user.uuid, username: user.username, name: user.name, profilePicURL: user.profilePicURL)
         
         FirebaseManager.updateData(obect: updatedBasicProfile, dictionary: updatedBasicProfile.dictionary) { (error) in
             if let error = error {
