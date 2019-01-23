@@ -20,6 +20,28 @@
 		1B5D6A8321F676290095F9CA /* FakeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */; };
 		1B61AE9721F79736007C6C06 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AE9621F79736007C6C06 /* SignIn.storyboard */; };
 		1B61AE9921F7BCC9007C6C06 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */; };
+		1B61AEA521F82F20007C6C06 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AEA021F82AC1007C6C06 /* OpenSans-Bold.ttf */; };
+		1B61AEA621F82F20007C6C06 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AE9D21F82AC0007C6C06 /* OpenSans-BoldItalic.ttf */; };
+		1B61AEA721F82F20007C6C06 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AEA321F82AC1007C6C06 /* OpenSans-ExtraBold.ttf */; };
+		1B61AEA821F82F20007C6C06 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AE9E21F82AC0007C6C06 /* OpenSans-ExtraBoldItalic.ttf */; };
+		1B61AEA921F82F20007C6C06 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AE9B21F82AC0007C6C06 /* OpenSans-Italic.ttf */; };
+		1B61AEAA21F82F20007C6C06 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AE9C21F82AC0007C6C06 /* OpenSans-Light.ttf */; };
+		1B61AEAB21F82F20007C6C06 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AE9F21F82AC1007C6C06 /* OpenSans-LightItalic.ttf */; };
+		1B61AEAC21F82F20007C6C06 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AEA421F82AC1007C6C06 /* OpenSans-Regular.ttf */; };
+		1B61AEAD21F82F20007C6C06 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AEA121F82AC1007C6C06 /* OpenSans-SemiBold.ttf */; };
+		1B61AEAE21F82F20007C6C06 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AEA221F82AC1007C6C06 /* OpenSans-SemiBoldItalic.ttf */; };
+		1B61AEAF21F82F20007C6C06 /* Skia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AE9A21F82894007C6C06 /* Skia.ttf */; };
+		1B61AEB021F82F20007C6C06 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B07485521F14BFA0030D907 /* Lato-Black.ttf */; };
+		1B61AEB121F82F20007C6C06 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B07484F21F14BF90030D907 /* Lato-BlackItalic.ttf */; };
+		1B61AEB221F82F20007C6C06 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B07485321F14BF90030D907 /* Lato-Bold.ttf */; };
+		1B61AEB321F82F20007C6C06 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B07485021F14BF90030D907 /* Lato-BoldItalic.ttf */; };
+		1B61AEB421F82F20007C6C06 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B07485121F14BF90030D907 /* Lato-Hairline.ttf */; };
+		1B61AEB521F82F20007C6C06 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B07485221F14BF90030D907 /* Lato-HairlineItalic.ttf */; };
+		1B61AEB621F82F20007C6C06 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B07485621F14BFA0030D907 /* Lato-Italic.ttf */; };
+		1B61AEB721F82F20007C6C06 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B07485721F14BFA0030D907 /* Lato-Light.ttf */; };
+		1B61AEB821F82F20007C6C06 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B07485421F14BFA0030D907 /* Lato-LightItalic.ttf */; };
+		1B61AEB921F82F20007C6C06 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B07484E21F14BF90030D907 /* Lato-Regular.ttf */; };
+		1B61AEBB21F83496007C6C06 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B61AEBA21F83496007C6C06 /* HomeViewController.swift */; };
 		1BB36AE621EEACF20089E2D1 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AE521EEACF20089E2D1 /* FirebaseManager.swift */; };
 		1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */; };
 		B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B404A99521EEA23200491CE2 /* AppDelegate.swift */; };
@@ -62,6 +84,18 @@
 		1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeProfileViewController.swift; sourceTree = "<group>"; };
 		1B61AE9621F79736007C6C06 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
+		1B61AE9A21F82894007C6C06 /* Skia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Skia.ttf; sourceTree = "<group>"; };
+		1B61AE9B21F82AC0007C6C06 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		1B61AE9C21F82AC0007C6C06 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		1B61AE9D21F82AC0007C6C06 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		1B61AE9E21F82AC0007C6C06 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		1B61AE9F21F82AC1007C6C06 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		1B61AEA021F82AC1007C6C06 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		1B61AEA121F82AC1007C6C06 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		1B61AEA221F82AC1007C6C06 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		1B61AEA321F82AC1007C6C06 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		1B61AEA421F82AC1007C6C06 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		1B61AEBA21F83496007C6C06 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1BB36AE521EEACF20089E2D1 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreFetchable.swift; sourceTree = "<group>"; };
 		2121C950E2C77FF835D4F074 /* Pods_PhotoBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +145,17 @@
 		1B07484D21F14BE50030D907 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				1B61AEA021F82AC1007C6C06 /* OpenSans-Bold.ttf */,
+				1B61AE9D21F82AC0007C6C06 /* OpenSans-BoldItalic.ttf */,
+				1B61AEA321F82AC1007C6C06 /* OpenSans-ExtraBold.ttf */,
+				1B61AE9E21F82AC0007C6C06 /* OpenSans-ExtraBoldItalic.ttf */,
+				1B61AE9B21F82AC0007C6C06 /* OpenSans-Italic.ttf */,
+				1B61AE9C21F82AC0007C6C06 /* OpenSans-Light.ttf */,
+				1B61AE9F21F82AC1007C6C06 /* OpenSans-LightItalic.ttf */,
+				1B61AEA421F82AC1007C6C06 /* OpenSans-Regular.ttf */,
+				1B61AEA121F82AC1007C6C06 /* OpenSans-SemiBold.ttf */,
+				1B61AEA221F82AC1007C6C06 /* OpenSans-SemiBoldItalic.ttf */,
+				1B61AE9A21F82894007C6C06 /* Skia.ttf */,
 				1B07485521F14BFA0030D907 /* Lato-Black.ttf */,
 				1B07484F21F14BF90030D907 /* Lato-BlackItalic.ttf */,
 				1B07485321F14BF90030D907 /* Lato-Bold.ttf */,
@@ -163,6 +208,7 @@
 				1B07485F21F16A090030D907 /* SignupViewController.swift */,
 				1B4B13A721F18B03002040A6 /* NewEventViewController.swift */,
 				1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */,
+				1B61AEBA21F83496007C6C06 /* HomeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -312,6 +358,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B61AEA521F82F20007C6C06 /* OpenSans-Bold.ttf in Resources */,
+				1B61AEA621F82F20007C6C06 /* OpenSans-BoldItalic.ttf in Resources */,
+				1B61AEA721F82F20007C6C06 /* OpenSans-ExtraBold.ttf in Resources */,
+				1B61AEA821F82F20007C6C06 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				1B61AEA921F82F20007C6C06 /* OpenSans-Italic.ttf in Resources */,
+				1B61AEAA21F82F20007C6C06 /* OpenSans-Light.ttf in Resources */,
+				1B61AEAB21F82F20007C6C06 /* OpenSans-LightItalic.ttf in Resources */,
+				1B61AEAC21F82F20007C6C06 /* OpenSans-Regular.ttf in Resources */,
+				1B61AEAD21F82F20007C6C06 /* OpenSans-SemiBold.ttf in Resources */,
+				1B61AEAE21F82F20007C6C06 /* OpenSans-SemiBoldItalic.ttf in Resources */,
+				1B61AEAF21F82F20007C6C06 /* Skia.ttf in Resources */,
+				1B61AEB021F82F20007C6C06 /* Lato-Black.ttf in Resources */,
+				1B61AEB121F82F20007C6C06 /* Lato-BlackItalic.ttf in Resources */,
+				1B61AEB221F82F20007C6C06 /* Lato-Bold.ttf in Resources */,
+				1B61AEB321F82F20007C6C06 /* Lato-BoldItalic.ttf in Resources */,
+				1B61AEB421F82F20007C6C06 /* Lato-Hairline.ttf in Resources */,
+				1B61AEB521F82F20007C6C06 /* Lato-HairlineItalic.ttf in Resources */,
+				1B61AEB621F82F20007C6C06 /* Lato-Italic.ttf in Resources */,
+				1B61AEB721F82F20007C6C06 /* Lato-Light.ttf in Resources */,
+				1B61AEB821F82F20007C6C06 /* Lato-LightItalic.ttf in Resources */,
+				1B61AEB921F82F20007C6C06 /* Lato-Regular.ttf in Resources */,
 				B404A9A321EEA23400491CE2 /* LaunchScreen.storyboard in Resources */,
 				1B61AE9721F79736007C6C06 /* SignIn.storyboard in Resources */,
 				1B4B13A621F1733B002040A6 /* GoogleService-Info.plist in Resources */,
@@ -417,6 +484,7 @@
 				1B07486021F16A090030D907 /* SignupViewController.swift in Sources */,
 				1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */,
 				1B07485E21F160C70030D907 /* UnderlineButtonText.swift in Sources */,
+				1B61AEBB21F83496007C6C06 /* HomeViewController.swift in Sources */,
 				1B4B13A821F18B03002040A6 /* NewEventViewController.swift in Sources */,
 				1B4B13AB21F19141002040A6 /* UserSearchTableViewCell.swift in Sources */,
 				1B07485921F153BF0030D907 /* LoggedOutViewController.swift in Sources */,
