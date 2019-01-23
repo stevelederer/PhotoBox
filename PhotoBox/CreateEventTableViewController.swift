@@ -17,7 +17,6 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
     @IBOutlet weak var endTime: UITextField!
     @IBOutlet weak var eventLocation: UITextField!
     @IBOutlet weak var eventDetails: UITextView!
-    @IBOutlet weak var inviteConnections: UIButton!
     @IBOutlet weak var createEvent: UIButton!
     
     override func viewDidLoad() {
@@ -57,13 +56,10 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
         endTime.text = dateFormatter.string(from: sender.date)
     }
     
-   
-    @IBAction func inviteConnectionsButtonTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "inviteConnections", sender: self)
-    }
     
     @IBAction func createEventButtonTapped(_ sender: Any) {
-        
+        let newEvent = 
+        BasicEventController.shared.createBasicEvent(from: <#T##Event#>, completion: <#T##(Bool) -> Void#>)
     }
 //
 //    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
