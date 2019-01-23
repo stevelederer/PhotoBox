@@ -41,38 +41,50 @@ class UserController {
         }
     }
     
-    func signInUser(email: String, password: String, completion: @escaping (Bool) -> Void) {
-        FirebaseManager.signIn(email: email, password: password) { (signedInUser) in
-            if let signedInUser = signedInUser {
-                self.currentUser = signedInUser
-                completion(true)
+    func logInUser(email: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+        FirebaseManager.logInWith(email: email, password: password) { (loggedInUser, error) in
+            if let error = error {
+                print("Error signing in user: \(error.localizedDescription)")
+                completion(false, error)
                 return
-            } else {
-                completion(false)
+            }
+            if let loggedInUser = loggedInUser {
+                self.currentUser = loggedInUser
+                completion(true, nil)
+                return
             }
         }
     }
     
-    func signUpUser(name: String, email: String, username: String, password: String, completion: @escaping (Bool) -> Void) {
+    func signUpUser(name: String, email: String, username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
         FirebaseManager.signUp(name: name, email: email, username: username, password: password) { (firebaseUser, error) in
             if let error = error {
                 print("Error saving a new user to the Firebase Database: \(error.localizedDescription)")
-                completion(false)
+                completion(false, error)
                 return
             }
             
             if let newUser = firebaseUser {
                 self.currentUser = newUser
-                BasicUserController.shared.createBasicUserProfile(from: newUser, completion: completion)
+                BasicUserController.shared.createBasicUserProfile(from: newUser, completion: { (success) in
+                    if !success {
+                        print("Error creating basic user from new user: \(newUser.name)")
+                        completion(false, nil)
+                        return
+                    } else {
+                        completion(true, nil)
+                    }
+                })
                 return
             }
         }
     }
     
-    func signOutUser(user: AppUser, completion: @escaping (Bool) -> Void) {
-        FirebaseManager.signOut(user: user) { (error) in
+    func logOutUser(completion: @escaping (Bool) -> Void) {
+        guard let currentUser = currentUser else { return }
+        FirebaseManager.signOut() { (error) in
             if let error = error {
-                print("There was an error signing out user \(user.username). \(error) ; \(error.localizedDescription)")
+                print("There was an error signing out user \(currentUser.name). \(error) ; \(error.localizedDescription)")
                 completion(false)
                 return
             } else {
