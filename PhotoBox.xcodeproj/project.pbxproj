@@ -55,7 +55,8 @@
 		E91FD2CD21F258C2004327D3 /* BasicEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2CC21F258C2004327D3 /* BasicEvent.swift */; };
 		E91FD2CF21F2764C004327D3 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2CE21F2764C004327D3 /* Photo.swift */; };
 		E91FD2D121F634DF004327D3 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2D021F634DF004327D3 /* EventController.swift */; };
-		E957776321F7DE4A000F8E7A /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E957776221F7DE4A000F8E7A /* CreateEventViewController.swift */; };
+		E957776521F7F89D000F8E7A /* CreateEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E957776421F7F89D000F8E7A /* CreateEventTableViewController.swift */; };
+		E957776721F816F8000F8E7A /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E957776621F816F7000F8E7A /* UserListTableViewController.swift */; };
 		EAD62AE684AD3C1A25E0C506 /* Pods_PhotoBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2121C950E2C77FF835D4F074 /* Pods_PhotoBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,7 +116,8 @@
 		E91FD2CC21F258C2004327D3 /* BasicEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicEvent.swift; sourceTree = "<group>"; };
 		E91FD2CE21F2764C004327D3 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		E91FD2D021F634DF004327D3 /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
-		E957776221F7DE4A000F8E7A /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		E957776421F7F89D000F8E7A /* CreateEventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventTableViewController.swift; sourceTree = "<group>"; };
+		E957776621F816F7000F8E7A /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,9 +205,11 @@
 			children = (
 				1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */,
 				1B07485821F153BF0030D907 /* LoggedOutViewController.swift */,
-				E957776221F7DE4A000F8E7A /* CreateEventViewController.swift */,
 				1B07485A21F15ADB0030D907 /* LoginPageViewController.swift */,
 				1B07485F21F16A090030D907 /* SignupViewController.swift */,
+				E957776421F7F89D000F8E7A /* CreateEventTableViewController.swift */,
+				E957776621F816F7000F8E7A /* UserListTableViewController.swift */,
+				1BB36AE721EEB8F60089E2D1 /* Models */,
 				1B4B13A721F18B03002040A6 /* NewEventViewController.swift */,
 				1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */,
 				1B61AEBA21F83496007C6C06 /* HomeViewController.swift */,
@@ -276,7 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				1B07485C21F160B70030D907 /* Helpers */,
-				1BB36AE721EEB8F60089E2D1 /* Models */,
 				1BB36AEA21EEBA440089E2D1 /* Model Controllers */,
 				1BB36AE021EEAABD0089E2D1 /* View Controllers */,
 				1B4B13A921F19120002040A6 /* Views */,
@@ -481,10 +484,13 @@
 				E91FD2C521F14903004327D3 /* AppUser.swift in Sources */,
 				1BB36AE621EEACF20089E2D1 /* FirebaseManager.swift in Sources */,
 				1B07486221F16E4E0030D907 /* LoginTextField.swift in Sources */,
+				E957776721F816F8000F8E7A /* UserListTableViewController.swift in Sources */,
 				1B07486021F16A090030D907 /* SignupViewController.swift in Sources */,
 				1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */,
 				1B07485E21F160C70030D907 /* UnderlineButtonText.swift in Sources */,
+				E957776521F7F89D000F8E7A /* CreateEventTableViewController.swift in Sources */,
 				1B61AEBB21F83496007C6C06 /* HomeViewController.swift in Sources */,
+
 				1B4B13A821F18B03002040A6 /* NewEventViewController.swift in Sources */,
 				1B4B13AB21F19141002040A6 /* UserSearchTableViewCell.swift in Sources */,
 				1B07485921F153BF0030D907 /* LoggedOutViewController.swift in Sources */,
@@ -495,7 +501,6 @@
 				E91FD2C721F149BB004327D3 /* Event.swift in Sources */,
 				E91FD2CB21F25296004327D3 /* BasicProfile.swift in Sources */,
 				1B61AE9921F7BCC9007C6C06 /* LandingPageViewController.swift in Sources */,
-				E957776321F7DE4A000F8E7A /* CreateEventViewController.swift in Sources */,
 				1B5D6A8321F676290095F9CA /* FakeProfileViewController.swift in Sources */,
 				E91FD2D121F634DF004327D3 /* EventController.swift in Sources */,
 				1B17856221F29BD600CDADAC /* BasicUserController.swift in Sources */,
@@ -646,7 +651,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 56CLV9J785;
+				DEVELOPMENT_TEAM = 2446Y3VTK6;
 				INFOPLIST_FILE = PhotoBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -665,7 +670,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 56CLV9J785;
+				DEVELOPMENT_TEAM = 2446Y3VTK6;
 				INFOPLIST_FILE = PhotoBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
