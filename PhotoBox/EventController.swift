@@ -24,9 +24,9 @@ class EventController {
     
     
     // Create an event
-    func createAnEvent(eventName: String, adminIDs: [String], membersIDs: [String], status: String, startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, coverPhoto: UIImage?, completion: @escaping (Bool) -> Void) {
+    func createAnEvent(eventName: String, creatorID: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, coverPhoto: UIImage?, completion: @escaping (Bool) -> Void) {
         
-        let newEvent = Event(eventName: eventName, adminIDs: adminIDs, memberIDs: membersIDs, status: status, startTime: startTime, endTime: endTime, details: details, location: location, coverPhoto: coverPhoto)
+        let newEvent = Event(eventName: eventName, creatorID: creatorID, memberIDs: memberIDs, startTime: startTime, endTime: endTime, details: details, location: location, coverPhoto: coverPhoto)
         
         FirebaseManager.saveData(object: newEvent) { (error) in
             if let error = error {
@@ -40,12 +40,11 @@ class EventController {
     }
     
     // Update an event
-    func updateAnEvent(event: Event, eventName: String, adminsIDs: [String], photosIDs: [String]?, membersIDs: [String], endTime: TimeInterval, details: String?, location: String, coverPhoto: UIImage?, completion: @escaping (Bool) -> Void) {
+    func updateAnEvent(event: Event, eventName: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, coverPhoto: UIImage?, completion: @escaping (Bool) -> Void) {
         
         event.eventName = eventName
-        event.adminIDs = adminsIDs
-        event.photoIDs = photosIDs
-        event.memberIDs = membersIDs
+        event.memberIDs = memberIDs
+        event.startTime = startTime
         event.endTime = endTime
         event.details = details
         event.location = location

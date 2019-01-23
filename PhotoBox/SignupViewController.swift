@@ -35,7 +35,7 @@ class SignupViewController: UIViewController {
         passwordTextField.layer.borderColor = darkGrayBorder.cgColor
         passwordTextField.layer.cornerRadius = 5
         signUpButton.layer.cornerRadius = signUpButton.frame.height / 2
-        signUpButton.backgroundColor = UIColor(displayP3Red: 0.61, green: 0.61, blue: 0.61, alpha: 1)
+//        signUpButton.backgroundColor = UIColor(displayP3Red: 0.61, green: 0.61, blue: 0.61, alpha: 1)
         checkBoxButton.layer.borderWidth = 2
         checkBoxButton.layer.borderColor = darkGrayBorder.cgColor
         checkBoxButton.layer.cornerRadius = 5
