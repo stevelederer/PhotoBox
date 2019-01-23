@@ -208,6 +208,10 @@
 				1B07485A21F15ADB0030D907 /* LoginPageViewController.swift */,
 				1B07485F21F16A090030D907 /* SignupViewController.swift */,
 				E957776421F7F89D000F8E7A /* CreateEventTableViewController.swift */,
+
+
+				E957776621F816F7000F8E7A /* UserListTableViewController.swift */,
+
 				1B4B13A721F18B03002040A6 /* NewEventViewController.swift */,
 				1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */,
 				1B61AEBA21F83496007C6C06 /* HomeViewController.swift */,

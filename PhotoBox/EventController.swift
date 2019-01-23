@@ -26,7 +26,13 @@ class EventController {
     // Create an event
     func createAnEvent(eventName: String, creatorID: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, coverPhoto: UIImage?, completion: @escaping (Bool) -> Void) {
         
-        let newEvent = Event(eventName: eventName, creatorID: creatorID, memberIDs: memberIDs, startTime: startTime, endTime: endTime, details: details, location: location, coverPhoto: coverPhoto)
+        var newEventCode: String = ""
+        randomEventCode { (newCode) in
+            guard let newCode = newCode else { return }
+            newEventCode = newCode
+        }
+        
+        let newEvent = Event(eventName: eventName, eventCode: newEventCode, creatorID: creatorID, memberIDs: memberIDs, startTime: startTime, endTime: endTime, details: details, location: location, coverPhoto: coverPhoto)
         
         FirebaseManager.saveData(object: newEvent) { (error) in
             if let error = error {
@@ -36,6 +42,32 @@ class EventController {
             } else {
                 completion(true)
             }
+        }
+    }
+    
+    func randomEventCode(completion: @escaping (String?) -> Void) {
+        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let newCode = String((0...3).map{ _ in characters.randomElement()! })
+        var returnedEvents: [Event] = []
+        
+        let eventsRef = Firestore.firestore().collection("events")
+        eventsRef.whereField("eventCode", isEqualTo: newCode).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            } else {
+                guard let documents = querySnapshot?.documents else { return }
+                for event in documents {
+                    let eventDictionary = event.data()
+                    guard let newEvent = Event(with: eventDictionary, id: event.documentID) else { return }
+                    returnedEvents.append(newEvent)
+                }
+            }
+        }
+        if returnedEvents.isEmpty {
+            completion(newCode)
+        } else {
+            randomEventCode(completion: completion)
         }
     }
     
