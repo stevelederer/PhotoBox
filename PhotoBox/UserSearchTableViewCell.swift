@@ -10,12 +10,13 @@ import UIKit
 
 class UserSearchTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var friendProfilePictureImageView: UIImageView!
-    @IBOutlet weak var friendNameLabel: UILabel!
+    @IBOutlet weak var userProfilePictureImageView: UIImageView!
+    @IBOutlet weak var usersName: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        friendProfilePictureImageView.layer.cornerRadius = friendProfilePictureImageView.frame.height / 2
+        userProfilePictureImageView.layer.cornerRadius = userProfilePictureImageView.frame.height / 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
