@@ -10,18 +10,12 @@ import UIKit
 
 class NewEventViewController: UIViewController {
     
-    @IBOutlet weak var eventNameTextField: UITextField!
-    @IBOutlet weak var eventTimeDateTextField: UITextField!
-    @IBOutlet weak var eventLocationTextField: UITextField!
-    @IBOutlet weak var eventDetailsTextView: UITextView!
-    @IBOutlet weak var groupsTextField: UITextField!
-    @IBOutlet weak var friendsTextField: UITextField!
-    @IBOutlet weak var createEventButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        createEventButton.layer.cornerRadius = createEventButton.frame.height / 2
-        createEventButton.backgroundColor = UIColor(displayP3Red: 0.61, green: 0.61, blue: 0.61, alpha: 1)
+//        createEventButton.layer.cornerRadius = createEventButton.frame.height / 2
+//        createEventButton.backgroundColor = UIColor(displayP3Red: 0.61, green: 0.61, blue: 0.61, alpha: 1)
         
     }
     
