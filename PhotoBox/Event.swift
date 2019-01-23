@@ -14,6 +14,7 @@ class Event: FirestoreFetchable {
     
     let uuid: String
     var eventName: String
+    let eventCode: String
     let creatorID: String
     var memberIDs: [String]
     var startTime: TimeInterval
@@ -23,9 +24,10 @@ class Event: FirestoreFetchable {
     var coverPhoto: UIImage?
     var coverPhotoURL: String?
     
-    init(uuid: String = UUID().uuidString, eventName: String, creatorID: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String? = nil, location: String? = nil, coverPhoto: UIImage? = nil, coverPhotoURL: String? = nil) {
+    init(uuid: String = UUID().uuidString, eventName: String, eventCode: String, creatorID: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String? = nil, location: String? = nil, coverPhoto: UIImage? = nil, coverPhotoURL: String? = nil) {
         self.uuid = uuid
         self.eventName = eventName
+        self.eventCode = eventCode
         self.creatorID = creatorID
         self.memberIDs = memberIDs
         self.startTime = startTime
@@ -38,16 +40,17 @@ class Event: FirestoreFetchable {
     
     required convenience init?(with dictionary: [String : Any], id: String) {
         guard let eventName = dictionary["eventName"] as? String,
-        let creatorID = dictionary["creatorID"] as? String,
-        let memberIDs = dictionary["memberIDs"] as? [String],
-        let startTime = dictionary["startTime"] as? TimeInterval,
-        let endTime = dictionary["endTime"] as? TimeInterval,
-        let details = dictionary["details"] as? String?,
-        let location = dictionary["location"] as? String?,
-        let coverPhoto = dictionary["coverPhoto"] as? UIImage?,
-        let coverPhotoURL = dictionary["coverPhotoURL"] as? String? else {return nil}
+            let eventCode = dictionary["eventCode"] as? String,
+            let creatorID = dictionary["creatorID"] as? String,
+            let memberIDs = dictionary["memberIDs"] as? [String],
+            let startTime = dictionary["startTime"] as? TimeInterval,
+            let endTime = dictionary["endTime"] as? TimeInterval,
+            let details = dictionary["details"] as? String?,
+            let location = dictionary["location"] as? String?,
+            let coverPhoto = dictionary["coverPhoto"] as? UIImage?,
+            let coverPhotoURL = dictionary["coverPhotoURL"] as? String? else {return nil}
         
-        self.init(uuid: id, eventName: eventName, creatorID: creatorID, memberIDs: memberIDs, startTime: startTime, endTime: endTime, details: details, location: location, coverPhoto: coverPhoto, coverPhotoURL: coverPhotoURL)
+        self.init(uuid: id, eventName: eventName, eventCode: eventCode, creatorID: creatorID, memberIDs: memberIDs, startTime: startTime, endTime: endTime, details: details, location: location, coverPhoto: coverPhoto, coverPhotoURL: coverPhotoURL)
     }
 }
 
@@ -57,6 +60,7 @@ extension Event {
         return [
             "uuid" : uuid,
             "eventName" : eventName,
+            "eventCode" : eventCode,
             "creatorID" : creatorID,
             "memberIDs" : memberIDs,
             "startTime" : startTime,
