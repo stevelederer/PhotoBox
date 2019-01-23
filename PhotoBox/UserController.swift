@@ -129,15 +129,15 @@ class UserController {
         }
     }
     
-    func fetchEventsFor(user: AppUser, completion: @escaping (Bool) -> Void) {
-        guard let eventIDs = user.memberEventIDs else { completion(false) ; return }
-        for eventID in eventIDs {
-            fetchBasicEventInfo(for: eventID) { (basicEvent) in
-                self.userEvents.append(basicEvent)
-                completion(true)
-            }
-        }
-    }
+//    func fetchEventsFor(user: AppUser, completion: @escaping (Bool) -> Void) {
+//        guard let eventIDs = user.memberEventIDs else { completion(false) ; return }
+//        for eventID in eventIDs {
+//            fetchBasicEventInfo(for: eventID) { (basicEvent) in
+//                self.userEvents.append(basicEvent)
+//                completion(true)
+//            }
+//        }
+//    }
     
     func fetchBasicEventInfo(for eventID: String, completion: @escaping (BasicEvent) -> Void) {
         if let basicEvent = basicEventCache.object(forKey: NSString(string: eventID)) {
@@ -152,63 +152,63 @@ class UserController {
         }
     }
     
-    func requestFriend(userID: String, completion: @escaping (Bool) -> Void) {
-        guard let currentUser = currentUser else { completion(false) ; return }
-        let requestorID = currentUser.uuid
-        Firestore.firestore().collection("users").document(userID).updateData(["connectionInviteIDs" : FieldValue.arrayUnion([requestorID])]) { (error) in
-            if let error = error {
-                print(error.localizedDescription)
-                completion(false)
-                return
-            } else {
-                completion(true)
-                #warning("notify other user they have a connection request")
-            }
-        }
-    }
-    
-    func friendRequestAction(fromUser uuid: String, accept: Bool, completion: @escaping (Bool) -> Void) {
-        guard let currentUser = currentUser else { completion(false) ; return }
-        let currentUserID = currentUser.uuid
-        
-        if accept {
-            //add my uid to other person's connectionID array
-            Firestore.firestore().collection("users").document(uuid).updateData(["connectionIDs" : FieldValue.arrayUnion([currentUserID])]) { error in
-                if let error = error {
-                    print(error.localizedDescription)
-                    completion(false)
-                    return
-                } else {
-                    //remove uid from my inviteIDs array, add to my connectionID array
-                    Firestore.firestore().collection("users").document(currentUserID).updateData(["connectionIDs" : FieldValue.arrayUnion([uuid]), "connectionInviteIDs" : FieldValue.arrayRemove([uuid])]) { error in
-                        if let error = error {
-                            print(error.localizedDescription)
-                            completion(false)
-                            return
-                        } else {
-                            currentUser.connectionIDs?.append(uuid)
-                            UserController.shared.changeUserInfo(user: currentUser, completion: { (_) in
-                                
-                            })
-                            completion(true)
-                            // Notify other person that I accepted???
-                        }
-                    }
-                }
-            }
-        } else {
-            //remove the connectionInvite
-            Firestore.firestore().collection("users").document(currentUserID).updateData(["connectionInviteIDs" : FieldValue.arrayRemove([uuid])]) { error in
-                if let error = error {
-                    print(error.localizedDescription)
-                    completion(false)
-                    return
-                } else {
-                    completion(true)
-                }
-            }
-        }
-    }
+//    func requestFriend(userID: String, completion: @escaping (Bool) -> Void) {
+//        guard let currentUser = currentUser else { completion(false) ; return }
+//        let requestorID = currentUser.uuid
+//        Firestore.firestore().collection("users").document(userID).updateData(["connectionInviteIDs" : FieldValue.arrayUnion([requestorID])]) { (error) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                completion(false)
+//                return
+//            } else {
+//                completion(true)
+//                #warning("notify other user they have a connection request")
+//            }
+//        }
+//    }
+//
+//    func friendRequestAction(fromUser uuid: String, accept: Bool, completion: @escaping (Bool) -> Void) {
+//        guard let currentUser = currentUser else { completion(false) ; return }
+//        let currentUserID = currentUser.uuid
+//
+//        if accept {
+//            //add my uid to other person's connectionID array
+//            Firestore.firestore().collection("users").document(uuid).updateData(["connectionIDs" : FieldValue.arrayUnion([currentUserID])]) { error in
+//                if let error = error {
+//                    print(error.localizedDescription)
+//                    completion(false)
+//                    return
+//                } else {
+//                    //remove uid from my inviteIDs array, add to my connectionID array
+//                    Firestore.firestore().collection("users").document(currentUserID).updateData(["connectionIDs" : FieldValue.arrayUnion([uuid]), "connectionInviteIDs" : FieldValue.arrayRemove([uuid])]) { error in
+//                        if let error = error {
+//                            print(error.localizedDescription)
+//                            completion(false)
+//                            return
+//                        } else {
+//                            currentUser.connectionIDs?.append(uuid)
+//                            UserController.shared.changeUserInfo(user: currentUser, completion: { (_) in
+//
+//                            })
+//                            completion(true)
+//                            // Notify other person that I accepted???
+//                        }
+//                    }
+//                }
+//            }
+//        } else {
+//            //remove the connectionInvite
+//            Firestore.firestore().collection("users").document(currentUserID).updateData(["connectionInviteIDs" : FieldValue.arrayRemove([uuid])]) { error in
+//                if let error = error {
+//                    print(error.localizedDescription)
+//                    completion(false)
+//                    return
+//                } else {
+//                    completion(true)
+//                }
+//            }
+//        }
+//    }
     
     func blockUser(with uuid: String, completion: @escaping (Bool) -> Void) {
         guard let currentUser = currentUser else { completion(false) ; return }
