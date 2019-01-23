@@ -41,11 +41,11 @@ class FirebaseManager {
         }
     }
     
-    static func signIn(email: String, password: String, completion: @escaping (AppUser?) -> Void) {
+    static func logInWith(email: String, password: String, completion: @escaping (AppUser?, Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
                 print("There was an error signing in user with email addresss \(email). \(error) ; \(error.localizedDescription)")
-                completion(nil)
+                completion(nil, error)
                 return
             }
             
@@ -61,48 +61,50 @@ class FirebaseManager {
             collectionReference.document(uuid).getDocument(completion: { (fetchedUserSnapshot, error) in
                 if let error = error {
                     print("There was an error in \(#function): \(error) ; \(error.localizedDescription)")
-                    completion(nil)
+                    completion(nil, error)
                     return
                 }
-                guard let fetchedUserData = fetchedUserSnapshot, fetchedUserData.exists, let fetchedUserDictionary = fetchedUserData.data() else { completion(nil) ; return }
+                guard let fetchedUserData = fetchedUserSnapshot, fetchedUserData.exists, let fetchedUserDictionary = fetchedUserData.data() else { completion(nil, nil) ; return }
 
                 let signedInuser = AppUser(with: fetchedUserDictionary, id: fetchedUserData.documentID)
-                completion(signedInuser)
+                completion(signedInuser, nil)
             })
             
         }
     }
     
-    static func signOut(user: AppUser, completion: @escaping (Error?) -> Void) {
+    static func signOut(completion: @escaping (Error?) -> Void) {
         do {
             try Auth.auth().signOut()
             completion(nil)
         } catch {
-            print("There was an error signing out for the user \(user.username). \(error) ; \(error.localizedDescription)")
+            print("There was an error signing out. \(error) ; \(error.localizedDescription)")
             completion(error)
         }
     }
     
     static func getLoggedInUser(completion: @escaping (AppUser?) -> Void)  {
-        guard let user = Auth.auth().currentUser else {
-            print("Error unwrapping currentUser from Firestore.")
+        if Auth.auth().currentUser != nil {
+            guard let user = Auth.auth().currentUser else { return }
+            
+            let uuid = user.uid
+            
+            let collectionReference = Firestore.firestore().collection("users")
+            collectionReference.document(uuid).getDocument { (fetchedUserSnapshot, error) in
+                if let error = error {
+                    print("There was an error in \(#function): \(error.localizedDescription)")
+                    completion(nil)
+                    return
+                }
+                guard let fetchedUserData = fetchedUserSnapshot, fetchedUserData.exists, let fetchedUserDictionary = fetchedUserData.data() else { completion(nil) ; return }
+                
+                let loggedInUser = AppUser(with: fetchedUserDictionary, id: uuid)
+                completion(loggedInUser)
+            }
+        } else {
+            print("No user is currently signed in.")
             completion(nil)
             return
-        }
-
-        let uuid = user.uid
-
-        let collectionReference = Firestore.firestore().collection("users")
-        collectionReference.document(uuid).getDocument { (fetchedUserSnapshot, error) in
-            if let error = error {
-                print("There was an error in \(#function): \(error.localizedDescription)")
-                completion(nil)
-                return
-            }
-            guard let fetchedUserData = fetchedUserSnapshot, fetchedUserData.exists, let fetchedUserDictionary = fetchedUserData.data() else { completion(nil) ; return }
-
-            let loggedInUser = AppUser(with: fetchedUserDictionary, id: uuid)
-            completion(loggedInUser)
         }
     }
     

@@ -13,32 +13,40 @@ class LoginPageViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var signUpButton: UnderlineButtonText!
     @IBOutlet weak var forgotPasswordButton: UnderlineButtonText!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserController.shared.checkForLoggedInUser { (success) in
-            if !success {
-                print("❌❌❌ NO LOGGED IN USER")
-            } else {
-                return
-            }
-        }
-        
         let darkGrayBorder: UIColor = UIColor(displayP3Red: 0.59, green: 0.59, blue: 0.59, alpha: 1)
         emailTextField.layer.borderWidth = 3
         emailTextField.layer.borderColor = darkGrayBorder.cgColor
-        emailTextField.layer.cornerRadius = 5
+        emailTextField.layer.cornerRadius = emailTextField.frame.height / 2
         passwordTextField.layer.borderWidth = 3
         passwordTextField.layer.borderColor = darkGrayBorder.cgColor
-        passwordTextField.layer.cornerRadius = 5
+        passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 2
         forgotPasswordButton.setTitle("Forgot Password", for: .normal)
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
-        loginButton.backgroundColor = UIColor(displayP3Red: 0.61, green: 0.61, blue: 0.61, alpha: 1)
-        signUpButton.layer.cornerRadius = signUpButton.frame.height / 2
-        signUpButton.backgroundColor = UIColor(displayP3Red: 0.61, green: 0.61, blue: 0.61, alpha: 1)
+        loginButton.backgroundColor = UIColor(red:0.43, green:0.44, blue:0.78, alpha:1)
+        loginButton.setTitleColor(.white, for: .normal)
+        signUpButton.setTitle("SIGN UP", for: .normal)
+
+    }
+    
+    @IBAction func logInButtonTapped(_ sender: UIButton) {
+        guard let email = emailTextField.text,
+        !email.isEmpty,
+        let password = passwordTextField.text,
+            !password.isEmpty else { presentRequiredFieldAlert() ; return }
+        
+        UserController.shared.logInUser(email: email, password: password) { (success, error) in
+            if let error = error {
+                self.presentLogInErrorAlert(error: error)
+            } else {
+                self.performSegue(withIdentifier: "logInSuccess", sender: self)
+            }
+        }
     }
     
     @IBAction func forgotPasswordButtonTapped(_ sender: UIButton) {
@@ -52,6 +60,18 @@ class LoginPageViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func presentRequiredFieldAlert() {
+        let requiredFieldAlert = UIAlertController(title: "Missing Information!", message: "Please enter a username and password.", preferredStyle: .alert)
+        requiredFieldAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+        self.present(requiredFieldAlert, animated: true)
+    }
+    
+    func presentLogInErrorAlert(error: Error) {
+        let logInErrorAlert = UIAlertController(title: "Error!", message: "\(error.localizedDescription)", preferredStyle: .alert)
+        logInErrorAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+        self.present(logInErrorAlert, animated: true)
     }
     
     func presentForgotPasswordAlert() {
