@@ -32,7 +32,7 @@ class EventController {
             newEventCode = newCode
         }
         
-        let newEvent = Event(eventName: eventName, eventCode: newEventCode, creatorID: creatorID, memberIDs: memberIDs, startTime: startTime, endTime: endTime, details: details, location: location, coverPhoto: coverPhoto)
+        let newEvent = Event(eventName: eventName, eventCode: newEventCode, creatorID: creatorID, memberIDs: memberIDs, startTime: startTime, endTime: endTime, details: details, location: location/*, coverPhoto: coverPhoto*/)
         
         FirebaseManager.saveData(object: newEvent) { (error) in
             if let error = error {
