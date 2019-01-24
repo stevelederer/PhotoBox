@@ -33,6 +33,8 @@ class FeedDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDele
                     }
                     DispatchQueue.main.async {
                         cell.postedImage.image = UIImage(data: imageData as Data)
+                        
+                        
                     }
                 }
             }

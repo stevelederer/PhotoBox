@@ -17,7 +17,7 @@ class BasicEventController {
     
     func createBasicEvent(from event: Event, completion: @escaping (Bool) -> Void) {
         
-        let newBasicEvent = BasicEvent(uuid: event.uuid, eventName: event.eventName, coverPhotoURL: event.coverPhotoURL)
+        let newBasicEvent = BasicEvent(uuid: event.uuid, eventName: event.eventName, coverPhotoURL: event.coverPhotoURL, endTime: event.endTime)
         
         FirebaseManager.saveData(object: newBasicEvent) { (error) in
             if let error = error {
@@ -32,7 +32,8 @@ class BasicEventController {
     
     func changeBasicEvent(event: Event, completion: @escaping (Bool) -> Void) {
         
-        let updatedBasicEvent = BasicEvent(uuid: event.uuid, eventName: event.eventName, coverPhotoURL: event.coverPhotoURL)
+        let updatedBasicEvent = BasicEvent(uuid: event.uuid, eventName: event.eventName, coverPhotoURL: event.coverPhotoURL, endTime: event.endTime)
+        
         
         FirebaseManager.updateData(obect: updatedBasicEvent, dictionary: updatedBasicEvent.dictionary) { (error) in
             if let error = error {

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+    
     
     @IBOutlet weak var profilePicImageView: UIImageView!
     @IBOutlet weak var displayNameLabel: UILabel!
@@ -19,6 +20,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var settingsDropDown: UITableView!
     
     let settingArray: NSMutableArray = ["Settings", "Logout"]
+    
+    //Source of truth
+    var events: [BasicEvent]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,17 +89,52 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let events = events else {return 0}
+        return events.count
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as! AlbumCollectionViewCell
+        if let basicEvents = events {
+            let event = basicEvents[indexPath.row]
+            
+            if let basicEventCoverPhotoURLString = event.coverPhotoURL ,
+                let coverPhotoURL = URL(string: basicEventCoverPhotoURLString) {
+                URLSession.shared.dataTask(with: coverPhotoURL) { (data, _, error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    guard let data = data else { return }
+                    
+                    DispatchQueue.main.async {
+                        cell.albumImageView.image = UIImage(data: data)
+                        cell.eventName.text = event.eventName
+                        cell.eventTime.text = event.formattedEndTime
+                    }
+                }
+            } else {
+                // FIXME: - Have a default cover photo display if no cover photo URL
+            }
+        }
+        
+        return cell
+    }
 }
+
+
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+
 
 extension UIViewController {
     func setNavigationItem() {
