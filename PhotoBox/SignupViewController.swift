@@ -26,6 +26,9 @@ class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let backgroundImage = UIImage(named: "PhotoBoxBackgroundLight") {
+            self.view.backgroundColor = UIColor(patternImage: backgroundImage)
+        }
         let darkGrayBorder: UIColor = UIColor(displayP3Red: 0.59, green: 0.59, blue: 0.59, alpha: 1)
         nameTextField.layer.borderWidth = 3
         nameTextField.layer.borderColor = darkGrayBorder.cgColor

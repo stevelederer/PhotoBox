@@ -18,6 +18,9 @@ class LoginPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let backgroundImage = UIImage(named: "PhotoBoxBackgroundLight") {
+            self.view.backgroundColor = UIColor(patternImage: backgroundImage)
+        }
         
         let darkGrayBorder: UIColor = UIColor(displayP3Red: 0.59, green: 0.59, blue: 0.59, alpha: 1)
         emailTextField.layer.borderWidth = 3
@@ -33,6 +36,8 @@ class LoginPageViewController: UIViewController {
         signUpButton.setTitle("SIGN UP", for: .normal)
 
     }
+    
+    @IBAction func unwindToLoginPage(segue:UIStoryboardSegue) { }
     
     @IBAction func logInButtonTapped(_ sender: UIButton) {
         guard let email = emailTextField.text,
@@ -50,16 +55,6 @@ class LoginPageViewController: UIViewController {
     }
     
     @IBAction func forgotPasswordButtonTapped(_ sender: UIButton) {
-        guard let email = emailTextField.text else { return }
-        if email.isEmpty {
-            presentForgotPasswordAlert()
-        } else {
-            UserController.shared.forgotPassword(email: email) { (success) in
-                if success {
-                    self.presentForgotPasswordSuccessAlert()
-                }
-            }
-        }
     }
     
     func presentRequiredFieldAlert() {
