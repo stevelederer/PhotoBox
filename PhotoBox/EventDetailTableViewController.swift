@@ -14,19 +14,21 @@ class EventDetailTableViewController: UITableViewController {
     @IBOutlet weak var startDate: UILabel!
     @IBOutlet weak var eventLocation: UILabel!
     @IBOutlet weak var creator: UILabel!
+    @IBOutlet weak var memberCollectionView: UICollectionView!
+    @IBOutlet weak var liveFeedCollectionView: UICollectionView!
+    
     var memberDataSource = MemberDataSource()
     var feedDataSource = FeedDataSource()
     let messageComposer = MessageComposer()
-    
-//    @IBOutlet weak var memberCollectionView: UICollectionView
-    
+        
     //Landing Pad
     var event: Event?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        memberCollectionView.dataSource = memberDataSource
+        memberCollectionView.dataSource = memberDataSource
+        liveFeedCollectionView.dataSource = feedDataSource
         // Set both collection view data source's to respective data source
 }
 
