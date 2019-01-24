@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -410,12 +411,106 @@
                         <outlet property="creator" destination="rre-ho-X0U" id="qy9-jW-ASH"/>
                         <outlet property="eventLocation" destination="pBI-Q4-m48" id="gWy-Tu-NJn"/>
                         <outlet property="eventName" destination="deb-ox-AFA" id="T55-2L-dcn"/>
+                        <outlet property="liveFeedCollectionView" destination="vjt-vg-CKg" id="AdW-ib-Ceq"/>
+                        <outlet property="memberCollectionView" destination="Rao-9W-b52" id="j3e-L5-7o5"/>
                         <outlet property="startDate" destination="eZC-ff-PmY" id="Zok-Am-1Ew"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAk-eb-8JN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4560.8000000000002" y="51.724137931034484"/>
+            <point key="canvasLocation" x="4369" y="52"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="WKj-Vs-Nc5">
+            <objects>
+                <viewController id="PC3-Me-0tN" customClass="PhotoDetailViewController" customModule="PhotoBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9m9-9D-SY5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pa5-gg-or4">
+                                <rect key="frame" x="0.0" y="86" width="375" height="533"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WWA-K3-Gkr">
+                                    <size key="itemSize" width="378" height="519"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dfI-UF-qkV" customClass="PhotoCollectionViewCell" customModule="PhotoBox" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="7" width="378" height="519"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="378" height="519"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIr-oj-5gy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="378" height="519"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steve" translatesAutoresizingMaskIntoConstraints="NO" id="j8i-Ry-upz">
+                                                            <rect key="frame" x="0.0" y="0.0" width="378" height="466"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRA-mA-Euj">
+                                                            <rect key="frame" x="86" y="474" width="55" height="37"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="steve" translatesAutoresizingMaskIntoConstraints="NO" id="IqZ-TT-osm">
+                                                            <rect key="frame" x="14" y="474" width="54" height="37"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ew5-zM-kBq">
+                                                            <rect key="frame" x="329" y="474" width="30" height="37"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                                            <state key="normal" title="...">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="j8i-Ry-upz" secondAttribute="bottom" constant="53" id="1bD-6F-K1s"/>
+                                                        <constraint firstItem="j8i-Ry-upz" firstAttribute="centerX" secondItem="tIr-oj-5gy" secondAttribute="centerX" id="U1q-dc-Fzf"/>
+                                                        <constraint firstAttribute="trailing" secondItem="j8i-Ry-upz" secondAttribute="trailing" id="VUV-Jq-wFf"/>
+                                                        <constraint firstItem="j8i-Ry-upz" firstAttribute="leading" secondItem="tIr-oj-5gy" secondAttribute="leading" id="hgb-aI-AB8"/>
+                                                        <constraint firstItem="j8i-Ry-upz" firstAttribute="centerY" secondItem="tIr-oj-5gy" secondAttribute="centerY" constant="-26.5" id="sgu-09-B9L"/>
+                                                        <constraint firstItem="j8i-Ry-upz" firstAttribute="top" secondItem="tIr-oj-5gy" secondAttribute="top" id="uWC-q8-ipc"/>
+                                                    </constraints>
+                                                </scrollView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="tIr-oj-5gy" firstAttribute="leading" secondItem="dfI-UF-qkV" secondAttribute="leading" id="1X6-yp-XSm"/>
+                                            <constraint firstAttribute="bottom" secondItem="tIr-oj-5gy" secondAttribute="bottom" id="Ngq-SL-mrl"/>
+                                            <constraint firstAttribute="trailing" secondItem="tIr-oj-5gy" secondAttribute="trailing" id="PSR-Qb-ICl"/>
+                                            <constraint firstItem="tIr-oj-5gy" firstAttribute="top" secondItem="dfI-UF-qkV" secondAttribute="top" id="syL-WY-ZrR"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="moreOptionsButtonTapped" destination="ew5-zM-kBq" id="jBk-yf-Som"/>
+                                            <outlet property="postedImage" destination="j8i-Ry-upz" id="7Db-B6-crT"/>
+                                            <outlet property="usersName" destination="gRA-mA-Euj" id="VIB-yQ-iAx"/>
+                                            <outlet property="usersProfilePic" destination="IqZ-TT-osm" id="j41-yN-5Ud"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="nID-rC-inV"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoCollectionView" destination="pa5-gg-or4" id="LYj-wz-fB4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NaR-ei-R8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5176.8000000000002" y="51.724137931034484"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GS7-X7-Mp4">
@@ -433,7 +528,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dji-q4-O9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2668" y="52.463054187192121"/>
+            <point key="canvasLocation" x="2873" y="52"/>
         </scene>
     </scenes>
     <resources>
