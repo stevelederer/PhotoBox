@@ -80,7 +80,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             UserController.shared.logOutUser { (success) in
                 if success {
                     self.performSegue(withIdentifier: "unwindToLoginPage", sender: self)
-                    #warning("This only works if user has not been automatically logged in.")
                 }
             }
         }
