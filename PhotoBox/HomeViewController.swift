@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     @IBAction func signOutButtonTapped(_ sender: Any) {
         UserController.shared.logOutUser { (success) in
             if success {
-                self.performSegue(withIdentifier: "logOutUser", sender: self)
+                self.performSegue(withIdentifier: "unwindToLoginPage", sender: self)
             }
         }
     }
