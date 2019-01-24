@@ -427,23 +427,23 @@
                                     <constraint firstAttribute="height" constant="88" id="ey2-O6-bYA"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="30" id="wYw-G8-3ge" customClass="SettingsTableViewCell" customModule="PhotoBox" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="74" height="30"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="24" id="wYw-G8-3ge" customClass="SettingsTableViewCell" customModule="PhotoBox" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="74" height="24"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wYw-G8-3ge" id="S7E-iU-NB5">
-                                            <rect key="frame" x="0.0" y="0.0" width="74" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="74" height="24"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8p2-fc-zM4">
-                                                    <rect key="frame" x="0.0" y="6" width="74" height="18.666666666666668"/>
+                                                    <rect key="frame" x="0.0" y="1" width="74" height="22"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" name="textDarkGray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="8p2-fc-zM4" firstAttribute="centerY" secondItem="S7E-iU-NB5" secondAttribute="centerY" id="M5s-fI-28G"/>
                                                 <constraint firstItem="8p2-fc-zM4" firstAttribute="leading" secondItem="S7E-iU-NB5" secondAttribute="leading" id="QO2-ZT-ihb"/>
-                                                <constraint firstItem="8p2-fc-zM4" firstAttribute="top" secondItem="S7E-iU-NB5" secondAttribute="top" constant="6" id="mKT-Oi-gNp"/>
                                                 <constraint firstAttribute="trailing" secondItem="8p2-fc-zM4" secondAttribute="trailing" id="tyd-pF-DeH"/>
                                             </constraints>
                                         </tableViewCellContentView>
