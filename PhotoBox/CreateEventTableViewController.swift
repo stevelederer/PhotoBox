@@ -12,11 +12,11 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
 
      //   MARK: - Outlets
     @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var eventName: UITextField!
+    @IBOutlet weak var eventNameTextField: UITextField!
     @IBOutlet weak var startTimeTextField: UITextField!
     @IBOutlet weak var endTimeTextField: UITextField!
-    @IBOutlet weak var eventLocation: UITextField!
-    @IBOutlet weak var eventDetails: UITextView!
+    @IBOutlet weak var eventLocationTextField: UITextField!
+    @IBOutlet weak var eventDetailsTextView: UITextView!
     @IBOutlet weak var createEvent: UIButton!
     var startTime: TimeInterval?
     var endTime: TimeInterval?
@@ -62,19 +62,20 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
     
     
     @IBAction func createEventButtonTapped(_ sender: Any) {
-        guard let eventName = eventName.text, eventName != "",
-            let startTimeText = startTimeTextField.text,
-            !startTimeText.isEmpty,
+        guard let eventName = eventNameTextField.text,
+            !eventName.isEmpty,
             let startTime = startTime,
-            let endTimeText = endTimeTextField.text,
-            !endTimeText.isEmpty,
             let endTime = endTime,
-            let eventLocation = eventLocation.text, eventLocation != "",
-            let eventDetails = eventDetails.text, eventDetails != "",
-            let backgroundImage = backgroundImage.image
-            else { return }
+            let eventLocation = eventLocationTextField.text,
+            !eventLocation.isEmpty,
+            let eventDetails = eventDetailsTextView.text,
+            !eventDetails.isEmpty,
+            let backgroundImage = UIImage(named: "steve")
+//            let creatorID = UserController.shared.currentUser?.uuid
+            else { print("Something's not right") ; return } ; #warning("alert required fields")
         
-        EventController.shared.createAnEvent(eventName: eventName, creatorID: UserController.shared.currentUser!.uuid , memberIDs: [], startTime: startTime, endTime: endTime, details: eventDetails, location: eventLocation, coverPhoto: backgroundImage) { (event) in
+        #warning("don't forget to set creator ID back...")
+        EventController.shared.createAnEvent(eventName: eventName, creatorID: "stringstringstring" , memberIDs: [], startTime: startTime, endTime: endTime, details: eventDetails, location: eventLocation, coverPhoto: backgroundImage) { (event) in
             if let event = event {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let eventDetailVC = storyboard.instantiateViewController(withIdentifier: "eventDetailVC") as! EventDetailTableViewController

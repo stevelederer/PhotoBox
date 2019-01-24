@@ -16,11 +16,15 @@ class EventDetailTableViewController: UITableViewController {
     @IBOutlet weak var creator: UILabel!
     @IBOutlet weak var memberCollectionView: UICollectionView!
     @IBOutlet weak var liveFeedCollectionView: UICollectionView!
+    @IBOutlet weak var expandCollapseButton: UIButton!
+    
+    var collectionIsExpanded = false
+    var collectionCellHeight = 130
     
     var memberDataSource = MemberDataSource()
     var feedDataSource = FeedDataSource()
     let messageComposer = MessageComposer()
-        
+    
     //Landing Pad
     var event: Event?
     
@@ -30,9 +34,9 @@ class EventDetailTableViewController: UITableViewController {
         memberCollectionView.dataSource = memberDataSource
         liveFeedCollectionView.dataSource = feedDataSource
         // Set both collection view data source's to respective data source
-}
-
-     //   MARK: - Actions
+    }
+    
+    //   MARK: - Actions
     @IBAction func invitePeopleButtonTapped(_ sender: Any) {
         if (messageComposer.canSendText()) {
             guard let code = event?.eventCode,
@@ -41,68 +45,55 @@ class EventDetailTableViewController: UITableViewController {
             
             present(messageComposerVC, animated: true, completion: nil)
         } else {
-            let errorAlert = UIAlertController(title: "Cannot Send Text Message", message: "Your device is not able to sent text messages.", preferredStyle: .alert)
+            let errorAlert = UIAlertController(title: "Cannot Send Text Message", message: "Your device is not able to send text messages.", preferredStyle: .alert)
             errorAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
             present(errorAlert, animated: true)
         }
     }
     
+    @IBAction func expandCollapseButtonTapped(_ sender: UIButton) {
+        let buttonRotateClockwise = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+        if !collectionIsExpanded {
+            UIView.animate(withDuration: 0.3) {
+                sender.transform = buttonRotateClockwise
+                self.tableView.beginUpdates()
+                self.collectionCellHeight = 250
+                self.tableView.endUpdates()
+            }
+        } else {
+            UIView.animate(withDuration: 0.3) {
+                sender.transform = .identity
+                self.tableView.beginUpdates()
+                self.collectionCellHeight = 130
+                self.tableView.endUpdates()
+            }
+        }
+        collectionIsExpanded = !collectionIsExpanded
+    }
+    
+    
     
     // MARK: - Table view data source
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 && indexPath.row == 1 {
+            return CGFloat(collectionCellHeight)
+//            let numberOfRows = (numberOfPhotos / 5) + (numberOfPhotos % 5)
+//            let expandedHeight = (numberOfRows * rowHeight) + ((numberOfRows - 1) * rowSpacing)
+        } else {
+            return 248
+        }
+     
     }
-    */
-
+    
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
