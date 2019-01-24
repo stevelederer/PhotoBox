@@ -15,7 +15,6 @@
 		1B17856221F29BD600CDADAC /* BasicUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B17856121F29BD600CDADAC /* BasicUserController.swift */; };
 		1B4B13A621F1733B002040A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */; };
 		1B4B13A821F18B03002040A6 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13A721F18B03002040A6 /* NewEventViewController.swift */; };
-		1B4B13AB21F19141002040A6 /* UserSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13AA21F19141002040A6 /* UserSearchTableViewCell.swift */; };
 		1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13AC21F279FB002040A6 /* UserController.swift */; };
 		1B5D6A8321F676290095F9CA /* FakeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */; };
 		1B61AE9721F79736007C6C06 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AE9621F79736007C6C06 /* SignIn.storyboard */; };
@@ -58,6 +57,12 @@
 		E91FD2D121F634DF004327D3 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2D021F634DF004327D3 /* EventController.swift */; };
 		E957776521F7F89D000F8E7A /* CreateEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E957776421F7F89D000F8E7A /* CreateEventTableViewController.swift */; };
 		E957776B21F8F96A000F8E7A /* BasicEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E957776A21F8F96A000F8E7A /* BasicEventController.swift */; };
+		E9E9660021F92D0F0038218E /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E965FF21F92D0F0038218E /* EventDetailTableViewController.swift */; };
+		E9E9660221F937D50038218E /* MemberDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9660121F937D50038218E /* MemberDataSource.swift */; };
+		E9E9660421F937E30038218E /* FeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9660321F937E30038218E /* FeedDataSource.swift */; };
+		E9E9660621F93A950038218E /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9660521F93A950038218E /* MemberCollectionViewCell.swift */; };
+		E9E9660821F93AB30038218E /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9660721F93AB30038218E /* FeedCollectionViewCell.swift */; };
+		E9E9660A21F955420038218E /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9660921F955420038218E /* MessageComposer.swift */; };
 		EAD62AE684AD3C1A25E0C506 /* Pods_PhotoBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2121C950E2C77FF835D4F074 /* Pods_PhotoBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +86,6 @@
 		1B17856121F29BD600CDADAC /* BasicUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUserController.swift; sourceTree = "<group>"; };
 		1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B4B13A721F18B03002040A6 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
-		1B4B13AA21F19141002040A6 /* UserSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchTableViewCell.swift; sourceTree = "<group>"; };
 		1B4B13AC21F279FB002040A6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeProfileViewController.swift; sourceTree = "<group>"; };
 		1B61AE9621F79736007C6C06 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
@@ -120,6 +124,12 @@
 		E91FD2D021F634DF004327D3 /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		E957776421F7F89D000F8E7A /* CreateEventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventTableViewController.swift; sourceTree = "<group>"; };
 		E957776A21F8F96A000F8E7A /* BasicEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicEventController.swift; sourceTree = "<group>"; };
+		E9E965FF21F92D0F0038218E /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
+		E9E9660121F937D50038218E /* MemberDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDataSource.swift; sourceTree = "<group>"; };
+		E9E9660321F937E30038218E /* FeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDataSource.swift; sourceTree = "<group>"; };
+		E9E9660521F93A950038218E /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9E9660721F93AB30038218E /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9E9660921F955420038218E /* MessageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +189,7 @@
 			children = (
 				1B07485D21F160C70030D907 /* UnderlineButtonText.swift */,
 				1B07486121F16E4E0030D907 /* LoginTextField.swift */,
+				E9E9660921F955420038218E /* MessageComposer.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -186,7 +197,8 @@
 		1B4B13A921F19120002040A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1B4B13AA21F19141002040A6 /* UserSearchTableViewCell.swift */,
+				E9E9660521F93A950038218E /* MemberCollectionViewCell.swift */,
+				E9E9660721F93AB30038218E /* FeedCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -210,9 +222,7 @@
 				1B07485A21F15ADB0030D907 /* LoginPageViewController.swift */,
 				1B07485F21F16A090030D907 /* SignupViewController.swift */,
 				E957776421F7F89D000F8E7A /* CreateEventTableViewController.swift */,
-
-				E957776621F816F7000F8E7A /* UserListTableViewController.swift */,
-
+				E9E965FF21F92D0F0038218E /* EventDetailTableViewController.swift */,
 				1B4B13A721F18B03002040A6 /* NewEventViewController.swift */,
 				1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */,
 				1B61AEBA21F83496007C6C06 /* HomeViewController.swift */,
@@ -225,6 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				B404A99921EEA23200491CE2 /* Main.storyboard */,
+				E9E9660121F937D50038218E /* MemberDataSource.swift */,
+				E9E9660321F937E30038218E /* FeedDataSource.swift */,
 				1B61AE9621F79736007C6C06 /* SignIn.storyboard */,
 				B404A9A121EEA23400491CE2 /* LaunchScreen.storyboard */,
 			);
@@ -489,17 +501,20 @@
 				E91FD2CF21F2764C004327D3 /* Photo.swift in Sources */,
 				E91FD2C521F14903004327D3 /* AppUser.swift in Sources */,
 				1BB36AE621EEACF20089E2D1 /* FirebaseManager.swift in Sources */,
+				E9E9660021F92D0F0038218E /* EventDetailTableViewController.swift in Sources */,
 				1B07486221F16E4E0030D907 /* LoginTextField.swift in Sources */,
 				1B07486021F16A090030D907 /* SignupViewController.swift in Sources */,
+				E9E9660A21F955420038218E /* MessageComposer.swift in Sources */,
 				1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */,
+				E9E9660221F937D50038218E /* MemberDataSource.swift in Sources */,
 				1B07485E21F160C70030D907 /* UnderlineButtonText.swift in Sources */,
 				1B61AEBD21F91B0A007C6C06 /* ForgotPasswordViewController.swift in Sources */,
 				E957776521F7F89D000F8E7A /* CreateEventTableViewController.swift in Sources */,
 				1B61AEBB21F83496007C6C06 /* HomeViewController.swift in Sources */,
 				1B4B13A821F18B03002040A6 /* NewEventViewController.swift in Sources */,
-				1B4B13AB21F19141002040A6 /* UserSearchTableViewCell.swift in Sources */,
 				E957776B21F8F96A000F8E7A /* BasicEventController.swift in Sources */,
 				1B07485921F153BF0030D907 /* LoggedOutViewController.swift in Sources */,
+				E9E9660621F93A950038218E /* MemberCollectionViewCell.swift in Sources */,
 				B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */,
 				1B07485B21F15ADB0030D907 /* LoginPageViewController.swift in Sources */,
 				1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */,
@@ -509,6 +524,8 @@
 				1B61AE9921F7BCC9007C6C06 /* LandingPageViewController.swift in Sources */,
 				1B5D6A8321F676290095F9CA /* FakeProfileViewController.swift in Sources */,
 				E91FD2D121F634DF004327D3 /* EventController.swift in Sources */,
+				E9E9660421F937E30038218E /* FeedDataSource.swift in Sources */,
+				E9E9660821F93AB30038218E /* FeedCollectionViewCell.swift in Sources */,
 				1B17856221F29BD600CDADAC /* BasicUserController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
