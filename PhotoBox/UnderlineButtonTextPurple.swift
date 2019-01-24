@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UnderlineButtonText: UIButton {
+class UnderlineButtonTextPurple: UIButton {
     override func setTitle(_ title: String?, for state: UIControl.State) {
         super.setTitle(title, for: .normal)
         self.setAttributedTitle(self.attributedString(), for: .normal)
@@ -16,7 +16,7 @@ class UnderlineButtonText: UIButton {
     
     private func attributedString() -> NSAttributedString? {
         let attributes: [NSAttributedString.Key : Any] = [
-            NSAttributedString.Key.foregroundColor : UIColor(red:0.61, green:0.61, blue:0.61, alpha:1),
+            NSAttributedString.Key.foregroundColor : UIColor(red:0.43, green:0.43, blue:0.78, alpha:1),
             NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue
         ]
         let attributedString = NSAttributedString(string: self.currentTitle!, attributes: attributes)

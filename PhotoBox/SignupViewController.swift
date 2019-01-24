@@ -16,7 +16,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var termsAndConditionsButton: UnderlineButtonText!
+    @IBOutlet weak var termsAndConditionsButton: UnderlineButtonTextGray!
     @IBOutlet weak var checkBoxButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
@@ -32,16 +32,16 @@ class SignupViewController: UIViewController {
         let darkGrayBorder: UIColor = UIColor(displayP3Red: 0.59, green: 0.59, blue: 0.59, alpha: 1)
         nameTextField.layer.borderWidth = 3
         nameTextField.layer.borderColor = darkGrayBorder.cgColor
-        nameTextField.layer.cornerRadius = 5
+        nameTextField.layer.cornerRadius = nameTextField.frame.height / 2
         emailTextField.layer.borderWidth = 3
         emailTextField.layer.borderColor = darkGrayBorder.cgColor
-        emailTextField.layer.cornerRadius = 5
+        emailTextField.layer.cornerRadius = emailTextField.frame.height / 2
         usernameTextField.layer.borderWidth = 3
         usernameTextField.layer.borderColor = darkGrayBorder.cgColor
-        usernameTextField.layer.cornerRadius = 5
+        usernameTextField.layer.cornerRadius = usernameTextField.frame.height / 2
         passwordTextField.layer.borderWidth = 3
         passwordTextField.layer.borderColor = darkGrayBorder.cgColor
-        passwordTextField.layer.cornerRadius = 5
+        passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 2
         signUpButton.layer.cornerRadius = signUpButton.frame.height / 2
         signUpButton.backgroundColor = UIColor(red: 0.43, green: 0.44, blue: 0.78, alpha: 1)
         checkBoxButton.layer.borderWidth = 2
@@ -59,7 +59,7 @@ class SignupViewController: UIViewController {
         !email.isEmpty,
         let username = usernameTextField.text,
         !username.isEmpty,
-        let password = usernameTextField.text,
+        let password = passwordTextField.text,
             !password.isEmpty else { presentRequiredFieldAlert() ; return }
         
         if acceptedTermsAndContitions {

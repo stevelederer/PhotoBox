@@ -13,8 +13,8 @@ class LoginPageViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var signUpButton: UnderlineButtonText!
-    @IBOutlet weak var forgotPasswordButton: UnderlineButtonText!
+    @IBOutlet weak var signUpButton: UnderlineButtonTextGray!
+    @IBOutlet weak var forgotPasswordButton: UnderlineButtonTextGray!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,13 @@ class LoginPageViewController: UIViewController {
 
     }
     
-    @IBAction func unwindToLoginPage(segue:UIStoryboardSegue) { }
+    override func viewWillAppear(_ animated: Bool) {
+        emailTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
+//    @IBAction func unwindToLoginPage(segue:UIStoryboardSegue) {
+//    }
     
     @IBAction func logInButtonTapped(_ sender: UIButton) {
         guard let email = emailTextField.text,
@@ -69,14 +75,7 @@ class LoginPageViewController: UIViewController {
         self.present(logInErrorAlert, animated: true)
     }
     
-    func presentForgotPasswordAlert() {
-        #warning("add forgot password alert")
-    }
-    
-    func presentForgotPasswordSuccessAlert() {
-        #warning("add successful password reset alert")
-    }
-    
+
     /*
     // MARK: - Navigation
 
