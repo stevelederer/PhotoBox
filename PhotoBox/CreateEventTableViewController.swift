@@ -13,11 +13,13 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
      //   MARK: - Outlets
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var eventName: UITextField!
-    @IBOutlet weak var startTime: UITextField!
-    @IBOutlet weak var endTime: UITextField!
+    @IBOutlet weak var startTimeTextField: UITextField!
+    @IBOutlet weak var endTimeTextField: UITextField!
     @IBOutlet weak var eventLocation: UITextField!
     @IBOutlet weak var eventDetails: UITextView!
     @IBOutlet weak var createEvent: UIButton!
+    var startTime: TimeInterval?
+    var endTime: TimeInterval?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +39,8 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
-        startTime.text = dateFormatter.string(from: sender.date)
+        startTimeTextField.text = dateFormatter.string(from: sender.date)
+        startTime = sender.date.timeIntervalSince1970
     }
     
     @IBAction func endTime(_ sender: UITextField) {
@@ -53,44 +56,36 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
-        endTime.text = dateFormatter.string(from: sender.date)
+        endTimeTextField.text = dateFormatter.string(from: sender.date)
+        endTime = sender.date.timeIntervalSince1970
     }
     
     
     @IBAction func createEventButtonTapped(_ sender: Any) {
-        let newEvent = 
-        BasicEventController.shared.createBasicEvent(from: <#T##Event#>, completion: <#T##(Bool) -> Void#>)
+        guard let eventName = eventName.text, eventName != "",
+            let startTimeText = startTimeTextField.text,
+            !startTimeText.isEmpty,
+            let startTime = startTime,
+            let endTimeText = endTimeTextField.text,
+            !endTimeText.isEmpty,
+            let endTime = endTime,
+            let eventLocation = eventLocation.text, eventLocation != "",
+            let eventDetails = eventDetails.text, eventDetails != "",
+            let backgroundImage = backgroundImage.image
+            else { return }
+        
+        EventController.shared.createAnEvent(eventName: eventName, creatorID: UserController.shared.currentUser!.uuid , memberIDs: [], startTime: startTime, endTime: endTime, details: eventDetails, location: eventLocation, coverPhoto: backgroundImage) { (event) in
+            if let event = event {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let eventDetailVC = storyboard.instantiateViewController(withIdentifier: "eventDetailVC") as! EventDetailTableViewController
+                
+                eventDetailVC.event = event
+                
+                DispatchQueue.main.async {
+                    self.navigationController?.pushViewController(eventDetailVC, animated: true)
+                }
+            }
+        }
     }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 2
-//    }
-    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-//
-//        // Configure the cell...
-//
-//        return cell
-//    }
- 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

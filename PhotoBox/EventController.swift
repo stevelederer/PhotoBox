@@ -24,7 +24,7 @@ class EventController {
     
     
     // Create an event
-    func createAnEvent(eventName: String, creatorID: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, coverPhoto: UIImage?, completion: @escaping (Bool) -> Void) {
+    func createAnEvent(eventName: String, creatorID: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, coverPhoto: UIImage?, completion: @escaping (Event?) -> Void) {
         
         var newEventCode: String = ""
         randomEventCode { (newCode) in
@@ -37,10 +37,12 @@ class EventController {
         FirebaseManager.saveData(object: newEvent) { (error) in
             if let error = error {
                 print("There was an error creating event \(newEvent). \(error.localizedDescription)")
-                completion(false)
+                completion(nil)
                 return
             } else {
-                completion(true)
+                BasicEventController.shared.createBasicEvent(from: newEvent, completion: { (success) in
+                    completion(newEvent)
+                })
             }
         }
     }
