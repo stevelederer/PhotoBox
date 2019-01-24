@@ -68,6 +68,8 @@
 		E9E9660A21F955420038218E /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9660921F955420038218E /* MessageComposer.swift */; };
 		E9E9660C21F96C770038218E /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9660B21F96C770038218E /* PhotoDetailViewController.swift */; };
 		E9E9660E21F96D0D0038218E /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9660D21F96D0D0038218E /* PhotoCollectionViewCell.swift */; };
+		E9E9661221FA3A5A0038218E /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9661121FA3A5A0038218E /* AlbumCollectionViewCell.swift */; };
+		E9F3BA2A21FA78BF00D17003 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F3BA2921FA78BF00D17003 /* Extensions.swift */; };
 		EAD62AE684AD3C1A25E0C506 /* Pods_PhotoBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2121C950E2C77FF835D4F074 /* Pods_PhotoBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +142,8 @@
 		E9E9660921F955420038218E /* MessageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		E9E9660B21F96C770038218E /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		E9E9660D21F96D0D0038218E /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9E9661121FA3A5A0038218E /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9F3BA2921FA78BF00D17003 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,7 @@
 				1B9AF9AB21F98DA80003C220 /* UnderlineButtonTextPurple.swift */,
 				1B07486121F16E4E0030D907 /* LoginTextField.swift */,
 				E9E9660921F955420038218E /* MessageComposer.swift */,
+				E9F3BA2921FA78BF00D17003 /* Extensions.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				E9E9660721F93AB30038218E /* FeedCollectionViewCell.swift */,
 				1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */,
 				E9E9660D21F96D0D0038218E /* PhotoCollectionViewCell.swift */,
+				E9E9661121FA3A5A0038218E /* AlbumCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -532,6 +538,7 @@
 				1B07485921F153BF0030D907 /* LoggedOutViewController.swift in Sources */,
 				E9E9660621F93A950038218E /* MemberCollectionViewCell.swift in Sources */,
 				B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */,
+				E9F3BA2A21FA78BF00D17003 /* Extensions.swift in Sources */,
 				E9E9660C21F96C770038218E /* PhotoDetailViewController.swift in Sources */,
 				1B07485B21F15ADB0030D907 /* LoginPageViewController.swift in Sources */,
 				1BCEF0FF21F989E800662756 /* SettingsViewController.swift in Sources */,
@@ -547,6 +554,7 @@
 				E9E9660421F937E30038218E /* FeedDataSource.swift in Sources */,
 				E9E9660821F93AB30038218E /* FeedCollectionViewCell.swift in Sources */,
 				1B17856221F29BD600CDADAC /* BasicUserController.swift in Sources */,
+				E9E9661221FA3A5A0038218E /* AlbumCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
