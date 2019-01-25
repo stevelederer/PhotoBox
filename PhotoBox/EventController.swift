@@ -19,6 +19,7 @@ class EventController {
     //   MARK: - Source of truth
     
     var currentEvent: Event?
+    var currentEventMembers: [BasicProfile] = []
     
     //   MARK: - Functions
     
@@ -167,32 +168,40 @@ class EventController {
     // admin can edit people in event
     
     func adminEditAttendees() {
-        
+        #warning("?")
     }
     
-    func fetchEvents(completion: @escaping (Bool) -> Void) {
+    func fetchEvents(completion: @escaping (Bool, [BasicEvent]?) -> Void) {
         
-        guard let currentUser = UserController.shared.currentUser else { completion(false) ; return }
+        guard let currentUser = UserController.shared.currentUser else { completion(false, nil) ; return }
         
-        FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "memberIDs", criteria: currentUser.uuid, inArray: true) { (events: [Event]?) in
-            guard let events = events else { completion(false) ; return }
-            
+        FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "memberIDs", criteria: currentUser.uuid, inArray: true) { (events: [BasicEvent]?) in
+            if let events = events {
+                completion(true, events)
+                return
+            } else {
+                completion(false, nil)
+                return
+            }
         }
     }
     
-    func fetchMembers(for event: Event, completion: @escaping (Bool) -> Void) {
+    func fetchMembers(for event: Event, completion: @escaping (Bool, [BasicProfile]?) -> Void) {
         let dispatchGroup = DispatchGroup()
+        var fetchedEventMembers: [BasicProfile] = []
         
         for memberID in event.memberIDs {
             dispatchGroup.enter()
             FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "uuid", criteria: memberID, inArray: false) { (users: [BasicProfile]?) in
+                guard let users = users else { completion(false, nil) ; return }
+                fetchedEventMembers = users
                 dispatchGroup.leave()
-                
             }
         }
         
         dispatchGroup.notify(queue: .main) {
-            completion(true)
+            print("Fetched members of event \(event.eventName).")
+            completion(true, fetchedEventMembers)
         }
     }
 }
