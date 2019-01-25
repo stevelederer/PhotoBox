@@ -34,6 +34,8 @@ class EventDetailTableViewController: UITableViewController {
         memberCollectionView.dataSource = memberDataSource
         liveFeedCollectionView.dataSource = feedDataSource
         // Set both collection view data source's to respective data source
+        
+        
     }
     
     //   MARK: - Actions

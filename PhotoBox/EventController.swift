@@ -136,7 +136,7 @@ class EventController {
     
     func addInvites(username: String, eventID: String, completion: @escaping (Bool) -> Void) {
         
-        FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "username", criteria: username) { (basicProfile: [BasicProfile]?) in
+        FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "username", criteria: username, inArray: false) { (basicProfile: [BasicProfile]?) in
             guard let basicProfile = basicProfile?.first else { completion(false) ; return }
             
             FirebaseManager.updateData(obect: basicProfile, dictionary: ["inviteEventIDs" : eventID], completion: { (error) in
@@ -168,6 +168,32 @@ class EventController {
     
     func adminEditAttendees() {
         
+    }
+    
+    func fetchEvents(completion: @escaping (Bool) -> Void) {
+        
+        guard let currentUser = UserController.shared.currentUser else { completion(false) ; return }
+        
+        FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "memberIDs", criteria: currentUser.uuid, inArray: true) { (events: [Event]?) in
+            guard let events = events else { completion(false) ; return }
+            
+        }
+    }
+    
+    func fetchMembers(for event: Event, completion: @escaping (Bool) -> Void) {
+        let dispatchGroup = DispatchGroup()
+        
+        for memberID in event.memberIDs {
+            dispatchGroup.enter()
+            FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "uuid", criteria: memberID, inArray: false) { (users: [BasicProfile]?) in
+                dispatchGroup.leave()
+                
+            }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            completion(true)
+        }
     }
 }
 

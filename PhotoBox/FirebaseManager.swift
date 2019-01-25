@@ -157,11 +157,18 @@ class FirebaseManager {
             completion(returnValue)
         }
     }
+    
 
-    static func fetchFirestoreWithFieldAndCriteria<T: FirestoreFetchable>(for field: String, criteria: String, completion: @escaping ([T]?) -> Void) {
+    static func fetchFirestoreWithFieldAndCriteria<T: FirestoreFetchable>(for field: String, criteria: String, inArray: Bool, completion: @escaping ([T]?) -> Void) {
         let collectionReference = T.collection
-        let filteredCollection = collectionReference.whereField(field, isEqualTo: criteria)
-        filteredCollection.getDocuments { (querySnapshot, error) in
+        var filteredCollection: Query?
+        if inArray {
+            filteredCollection = collectionReference.whereField(field, arrayContains: criteria)
+        } else {
+             filteredCollection = collectionReference.whereField(field, isEqualTo: criteria)
+        
+        }
+        filteredCollection?.getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("There was an error in\(#function) \(error) \(error.localizedDescription)")
                 completion(nil)
