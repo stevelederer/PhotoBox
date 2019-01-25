@@ -47,9 +47,12 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KvX-ah-Vvn" id="X8e-0k-xHQ"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQk-uD-STZ">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQk-uD-STZ">
                                 <rect key="frame" x="32" y="427" width="311" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="311" id="1zZ-1A-FzC"/>
@@ -57,7 +60,10 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KvX-ah-Vvn" id="Ttm-rf-Pkk"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvy-QW-qX2" customClass="UnderlineButtonText" customModule="PhotoBox" customModuleProvider="target">
                                 <rect key="frame" x="127" y="549" width="121" height="33"/>
@@ -364,7 +370,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h78-Qs-ZlR">
-                                <rect key="frame" x="79.666666666666686" y="211" width="216" height="56"/>
+                                <rect key="frame" x="79.666666666666686" y="211.33333333333334" width="216" height="56.000000000000028"/>
                                 <color key="backgroundColor" name="buttonPurple"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="P9t-pj-rdm"/>
@@ -376,7 +382,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cw-fX-Zch">
-                                <rect key="frame" x="79.666666666666686" y="291" width="216" height="56"/>
+                                <rect key="frame" x="79.666666666666686" y="291.33333333333331" width="216" height="56"/>
                                 <color key="backgroundColor" name="buttonPurple"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="4bb-Ki-fcf"/>
@@ -387,7 +393,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steve" translatesAutoresizingMaskIntoConstraints="NO" id="rvL-Ik-sRw">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rvL-Ik-sRw">
                                 <rect key="frame" x="15" y="106" width="72" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="CSf-nj-FNY"/>
@@ -395,7 +401,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Past Group Albums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yq-BS-Dmo">
-                                <rect key="frame" x="16" y="385" width="166.66666666666666" height="25"/>
+                                <rect key="frame" x="16" y="385.33333333333331" width="166.66666666666666" height="24.666666666666686"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
                                 <color key="textColor" name="textDarkGray"/>
                                 <nil key="highlightedColor"/>
@@ -415,7 +421,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(display name)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqs-bo-ZSf">
-                                <rect key="frame" x="94.999999999999986" y="117" width="169.66666666666663" height="33"/>
+                                <rect key="frame" x="95.000000000000014" y="117" width="169.33333333333337" height="33"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="24"/>
                                 <color key="textColor" name="textDarkGray"/>
                                 <nil key="highlightedColor"/>
@@ -435,7 +441,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8p2-fc-zM4">
-                                                    <rect key="frame" x="0.0" y="1" width="74" height="22"/>
+                                                    <rect key="frame" x="0.0" y="2.6666666666666661" width="74" height="18.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" name="textDarkGray"/>
                                                     <nil key="highlightedColor"/>
@@ -631,6 +637,9 @@
                                         <state key="normal" title="Change Picture">
                                             <color key="titleColor" name="buttonPurple"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changePictureButtonTapped:" destination="ybG-e4-ZaL" eventType="touchUpInside" id="GP2-eb-Ihj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnE-Ha-7z2" customClass="UnderlineButtonTextPurple" customModule="PhotoBox" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="41" width="123" height="29"/>
@@ -638,6 +647,9 @@
                                         <state key="normal" title="Change Display Name">
                                             <color key="titleColor" name="buttonPurple"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changeDisplayNameButtonTapped:" destination="ybG-e4-ZaL" eventType="touchUpInside" id="pO4-91-yLG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PQ-fC-nAV" customClass="UnderlineButtonTextPurple" customModule="PhotoBox" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="82" width="104" height="29"/>
@@ -645,6 +657,9 @@
                                         <state key="normal" title="Change Username">
                                             <color key="titleColor" name="buttonPurple"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changeUsernameButtonTapped:" destination="ybG-e4-ZaL" eventType="touchUpInside" id="ClJ-uz-A86"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhT-Vr-1BD" customClass="UnderlineButtonTextPurple" customModule="PhotoBox" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="123" width="85" height="29"/>
@@ -652,6 +667,9 @@
                                         <state key="normal" title="Delete Account">
                                             <color key="titleColor" name="buttonPurple"/>
                                         </state>
+                                        <connections>
+                                            <action selector="deleteAccountButtonTapped:" destination="ybG-e4-ZaL" eventType="touchUpInside" id="eZx-Xf-yG0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -931,6 +949,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="54K-oT-9dq"/>
+        <segue reference="vVD-Qy-zah"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,6 +12,8 @@ import FirebaseAuth
 
 class FirebaseManager {
     
+    // MARK: - User Functions
+    
     static func signUp(name: String, email: String, username: String, password: String, completion: @escaping (AppUser?, Error?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
@@ -120,6 +122,8 @@ class FirebaseManager {
             }
         }
     }
+    
+    // MARK: - Fetch Functions
         
     static func fetchFromFirestore<T: FirestoreFetchable>(uuid: String, completion: @escaping (T?) -> Void) {
         let collectionReference = T.collection
@@ -165,9 +169,10 @@ class FirebaseManager {
         if inArray {
             filteredCollection = collectionReference.whereField(field, arrayContains: criteria)
         } else {
-             filteredCollection = collectionReference.whereField(field, isEqualTo: criteria)
+            filteredCollection = collectionReference.whereField(field, isEqualTo: criteria)
         
         }
+        
         filteredCollection?.getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("There was an error in\(#function) \(error) \(error.localizedDescription)")
@@ -200,6 +205,8 @@ class FirebaseManager {
             completion(basicEvent)
         }
     }
+    
+    // MARK: - Create, Update, Delete
     
     static func saveData<T: FirestoreFetchable>(object: T, completion: @escaping (Error?) -> Void) {
         let collectionReference = T.collection
@@ -237,6 +244,51 @@ class FirebaseManager {
                 return
             }
             completion(true)
+        }
+    }
+    
+    // MARK: - Photo Storage
+    
+    
+    static func uploadPhotoToFirebase(photo: UIImage, name: String, completion: @escaping (Bool) -> Void) {
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let photosRef = storageRef.child("photos")
+
+        var data = Data()
+        data = photo.jpegData(compressionQuality: 0.25)!
+        let imageRef = photosRef.child("\(name).jpg")
+        let _ = imageRef.putData(data, metadata: nil, completion: { (metadata, error) in
+            guard let metadata = metadata else {
+                completion(false)
+                return
+            }
+            
+            let _ = metadata.size
+            
+            imageRef.downloadURL { (url, error) in
+                if let downloadURL = url {
+                    print(downloadURL)
+                    completion(true)
+                    return
+                }
+            }
+        }
+    )}
+    
+    static func fetchPhotoFromFirebase(url: String, completion: @escaping (Bool, UIImage?) -> Void) {
+        let storage = Storage.storage()
+        let pathReference = storage.reference(forURL: url)
+        
+        pathReference.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false, nil)
+            } else {
+                guard let data = data else { return }
+                let image = UIImage(data: data)
+                completion(true, image)
+            }
         }
     }
 }

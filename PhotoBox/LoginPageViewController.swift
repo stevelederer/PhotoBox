@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginPageViewController: UIViewController {
+class LoginPageViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -34,6 +34,8 @@ class LoginPageViewController: UIViewController {
         loginButton.backgroundColor = UIColor(red:0.43, green:0.44, blue:0.78, alpha:1)
         loginButton.setTitleColor(.white, for: .normal)
         signUpButton.setTitle("SIGN UP", for: .normal)
+        
+        
 
     }
     
@@ -73,6 +75,18 @@ class LoginPageViewController: UIViewController {
         let logInErrorAlert = UIAlertController(title: "Error!", message: "\(error.localizedDescription)", preferredStyle: .alert)
         logInErrorAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
         self.present(logInErrorAlert, animated: true)
+    }
+    
+    // MARK: - TextFieldDelegate Methods
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            self.logInButtonTapped(loginButton)
+        }
+        return true
     }
     
 
