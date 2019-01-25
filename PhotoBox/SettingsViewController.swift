@@ -21,6 +21,12 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var photosAddedNotificationSwitch: UISwitch!
     @IBOutlet weak var automaticUploadReminderNotificationSwitch: UISwitch!
     
+    var photo: UIImage = UIImage() {
+        didSet {
+            self.profilePicImageView.image = photo
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationItem()
@@ -47,15 +53,58 @@ class SettingsViewController: UIViewController {
         automaticUploadReminderNotificationSwitch.layer.borderWidth = 2
         automaticUploadReminderNotificationSwitch.layer.cornerRadius = automaticUploadReminderNotificationSwitch.frame.height / 2
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func changePictureButtonTapped(_ sender: UIButton) {
+        selectImage()
     }
-    */
+    
+    func selectImage() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        
+        let imagePickerActionSheet = UIAlertController(title: "Select a Photo", message: nil, preferredStyle: .actionSheet)
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            imagePickerActionSheet.addAction(UIAlertAction(title: "Photos", style: .default, handler: { (_) in
+                imagePickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
+                self.present(imagePickerController, animated: true, completion: nil)
+            }))
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePickerActionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
+                imagePickerController.sourceType = UIImagePickerController.SourceType.camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            }))
+        }
+        
+        imagePickerActionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(imagePickerActionSheet, animated: true)
+    }
+    
+    @IBAction func changeDisplayNameButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func changeUsernameButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func deleteAccountButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+}
 
+extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.photo = photo
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
 }

@@ -26,7 +26,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let currentUser = UserController.shared.currentUser
         settingsDropDown.isHidden = true
+        displayNameLabel.text = currentUser?.name
+        usernameLabel.text = currentUser?.username
+        if let url = currentUser?.profilePicURL {
+            FirebaseManager.fetchPhotoFromFirebase(url: url) { (_, image) in
+                if let image = image {
+                    self.profilePicImageView.image = image
+                }
+            }
+        }
+
         self.setNavigationItem()
         self.navigationController?.navigationBar.layer.masksToBounds = false
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor

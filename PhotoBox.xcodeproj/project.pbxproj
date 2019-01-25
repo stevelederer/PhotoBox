@@ -43,6 +43,7 @@
 		1B61AEBB21F83496007C6C06 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B61AEBA21F83496007C6C06 /* HomeViewController.swift */; };
 		1B61AEBD21F91B0A007C6C06 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B61AEBC21F91B0A007C6C06 /* ForgotPasswordViewController.swift */; };
 		1B9AF9AC21F98DA80003C220 /* UnderlineButtonTextPurple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9AF9AB21F98DA80003C220 /* UnderlineButtonTextPurple.swift */; };
+		1BAF23AF21FAD03C00E26504 /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF23AE21FAD03C00E26504 /* PhotoSelectViewController.swift */; };
 		1BB36AE621EEACF20089E2D1 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AE521EEACF20089E2D1 /* FirebaseManager.swift */; };
 		1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */; };
 		1BCEF0FD21F97B2300662756 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */; };
@@ -113,6 +114,7 @@
 		1B61AEBA21F83496007C6C06 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1B61AEBC21F91B0A007C6C06 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		1B9AF9AB21F98DA80003C220 /* UnderlineButtonTextPurple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButtonTextPurple.swift; sourceTree = "<group>"; };
+		1BAF23AE21FAD03C00E26504 /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
 		1BB36AE521EEACF20089E2D1 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreFetchable.swift; sourceTree = "<group>"; };
 		1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				E9E9660B21F96C770038218E /* PhotoDetailViewController.swift */,
 				E9F3BA2B21FA9CF200D17003 /* EnterCodeViewController.swift */,
 				E9F3BA2D21FAA9A200D17003 /* PopUpViewController.swift */,
+				1BAF23AE21FAD03C00E26504 /* PhotoSelectViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				1B07486221F16E4E0030D907 /* LoginTextField.swift in Sources */,
 				1B07486021F16A090030D907 /* SignupViewController.swift in Sources */,
 				E9E9660A21F955420038218E /* MessageComposer.swift in Sources */,
+				1BAF23AF21FAD03C00E26504 /* PhotoSelectViewController.swift in Sources */,
 				1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */,
 				1BCEF0FD21F97B2300662756 /* SettingsTableViewCell.swift in Sources */,
 				E9E9660221F937D50038218E /* MemberDataSource.swift in Sources */,
