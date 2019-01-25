@@ -7,6 +7,7 @@ target 'PhotoBox' do
 
   # Pods for PhotoBox
 pod 'Firebase/Core'
+pod 'Firebase/Storage'
 pod 'Firebase/Auth'
 pod 'FirebaseFirestore'
 pod 'Firebase/Database'
