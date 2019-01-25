@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateEventTableViewController: UITableViewController, UITextFieldDelegate {
+class CreateEventTableViewController: UITableViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
      //   MARK: - Outlets
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -25,6 +25,28 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
         super.viewDidLoad()
 
     }
+    
+    @IBAction func importBackgroundImage(_ sender: Any) {
+        
+        let backGroundimage = UIImagePickerController()
+        backGroundimage.delegate = self
+        backGroundimage.sourceType = UIImagePickerController.SourceType.photoLibrary
+        backGroundimage.allowsEditing = true
+        backGroundimage.setEditing(true, animated: true)
+        self.present(backGroundimage, animated: true)
+        
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            backgroundImage.image = image
+        } else {
+            print("Error picking image)")
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     
     @IBAction func startTime(_ sender: UITextField) {
         
@@ -64,6 +86,7 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
     @IBAction func createEventButtonTapped(_ sender: Any) {
         guard let eventName = eventNameTextField.text,
             !eventName.isEmpty,
+            let currentUser = UserController.shared.currentUser,
             let startTime = startTime,
             let endTime = endTime,
             let eventLocation = eventLocationTextField.text,
@@ -75,7 +98,7 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
             else { print("Something's not right") ; return } ; #warning("alert required fields")
         
         #warning("don't forget to set creator ID back...")
-        EventController.shared.createAnEvent(eventName: eventName, creatorID: "stringstringstring" , memberIDs: [], startTime: startTime, endTime: endTime, details: eventDetails, location: eventLocation, coverPhoto: backgroundImage) { (event) in
+        EventController.shared.createAnEvent(eventName: eventName, creatorID: "stringstringstring" , memberIDs: [currentUser.uuid], startTime: startTime, endTime: endTime, details: eventDetails, location: eventLocation, coverPhoto: backgroundImage) { (event) in
             if let event = event {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let eventDetailVC = storyboard.instantiateViewController(withIdentifier: "eventDetailVC") as! EventDetailTableViewController

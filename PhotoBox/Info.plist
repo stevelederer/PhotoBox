@@ -25,6 +25,9 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please Allow Access to Photo Library</string>
 	<string>SignIn</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
