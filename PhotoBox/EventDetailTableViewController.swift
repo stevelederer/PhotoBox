@@ -19,7 +19,14 @@ class EventDetailTableViewController: UITableViewController {
     @IBOutlet weak var expandCollapseButton: UIButton!
     
     var collectionIsExpanded = false
-    var collectionCellHeight = 130
+    var membersCollectionViewCellHeight: CGFloat {
+        return memberCollectionView.frame.height
+    }
+    var membersTableViewCellHeight: CGFloat = 0
+    var expandedTableViewCellHeight: CGFloat {
+        return determineTableViewCellHeight()
+    }
+    var numberOfRows = 0
     
     var memberDataSource = MemberDataSource()
     var feedDataSource = FeedDataSource()
@@ -30,6 +37,8 @@ class EventDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
+        membersTableViewCellHeight = membersCollectionViewCellHeight
         // Set both collection view data source's to respective data source
         memberCollectionView.dataSource = memberDataSource
         liveFeedCollectionView.dataSource = feedDataSource
@@ -52,6 +61,13 @@ class EventDetailTableViewController: UITableViewController {
     }
     
     //   MARK: - Actions
+    
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "unwindToHomePage", sender: self)
+    }
+    
+    
+    
     @IBAction func invitePeopleButtonTapped(_ sender: Any) {
         if (messageComposer.canSendText()) {
             guard let code = event?.eventCode,
@@ -66,41 +82,55 @@ class EventDetailTableViewController: UITableViewController {
         }
     }
     
+    @objc func reloadCollection() {
+        memberCollectionView.reloadData()
+    }
+    
     @IBAction func expandCollapseButtonTapped(_ sender: UIButton) {
         let buttonRotateClockwise = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         if !collectionIsExpanded {
             UIView.animate(withDuration: 0.3) {
                 sender.transform = buttonRotateClockwise
                 self.tableView.beginUpdates()
-                self.collectionCellHeight = 250
+                self.membersTableViewCellHeight = self.membersCollectionViewCellHeight
                 self.tableView.endUpdates()
             }
         } else {
             UIView.animate(withDuration: 0.3) {
                 sender.transform = .identity
                 self.tableView.beginUpdates()
-                self.collectionCellHeight = 130
+                self.membersTableViewCellHeight = self.expandedTableViewCellHeight
                 self.tableView.endUpdates()
             }
         }
         collectionIsExpanded = !collectionIsExpanded
     }
     
-    @objc func reloadCollection() {
-        memberCollectionView.reloadData()
+    func determineTableViewCellHeight() -> CGFloat {
+//        guard let numberOfMembers = memberDataSource.members?.count else { return 0 }
+        let numberOfMembers = 20
+        if numberOfMembers > 5 {
+            if numberOfMembers % 5 >= 1 {
+                numberOfRows = (numberOfMembers / 5) + 1
+            } else {
+                numberOfRows = numberOfMembers / 5
+            }
+            let cellHeight = self.membersCollectionViewCellHeight
+            return (CGFloat(numberOfRows) * cellHeight) + CGFloat(((numberOfRows - 1) * 16))
+        } else if numberOfMembers <= 5 {
+            return self.membersCollectionViewCellHeight
+        }
+        return self.membersCollectionViewCellHeight
     }
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 && indexPath.row == 1 {
-            return CGFloat(collectionCellHeight)
-//            let numberOfRows = (numberOfPhotos / 5) + (numberOfPhotos % 5)
-//            let expandedHeight = (numberOfRows * rowHeight) + ((numberOfRows - 1) * rowSpacing)
+            return membersTableViewCellHeight
         } else {
             return 248
         }
-     
     }
     
     /*

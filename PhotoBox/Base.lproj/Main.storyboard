@@ -11,11 +11,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lato-Regular.ttf">
-            <string>Lato-Regular</string>
-        </array>
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans-Regular</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
         </array>
     </customFonts>
     <scenes>
@@ -145,13 +145,13 @@
                                                         </textView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbw-JN-dvn">
                                                             <rect key="frame" x="0.0" y="486" width="355" height="56"/>
-                                                            <color key="backgroundColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" name="buttonGreen"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="56" id="5DN-zR-heY"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="21"/>
                                                             <state key="normal" title="CREATE EVENT">
-                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="createEventButtonTapped:" destination="hL1-3n-qwa" eventType="touchUpInside" id="dhj-16-hh7"/>
@@ -175,10 +175,16 @@
                             <outlet property="delegate" destination="hL1-3n-qwa" id="WWw-it-lNi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Create Event" id="LHA-og-xzd"/>
+                    <navigationItem key="navigationItem" title="Create Event" id="LHA-og-xzd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="YR2-l0-K7d">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="hL1-3n-qwa" id="L0b-cG-PjL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="backgroundImage" destination="OXi-C6-bTs" id="ZOG-Ne-EfA"/>
-                        <outlet property="createEvent" destination="gbw-JN-dvn" id="p1R-Sx-G3j"/>
+                        <outlet property="createEventButton" destination="gbw-JN-dvn" id="p1R-Sx-G3j"/>
                         <outlet property="endTimeTextField" destination="k48-ub-hYD" id="Y88-S1-num"/>
                         <outlet property="eventDetailsTextView" destination="wPE-mH-bYN" id="v7U-0J-qlD"/>
                         <outlet property="eventLocationTextField" destination="xdp-7t-E9c" id="n9S-tQ-UKV"/>
@@ -448,7 +454,13 @@
                             <outlet property="delegate" destination="7uH-WC-zIV" id="p5d-rz-CR8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Photo Box" id="Ez3-fo-hPa"/>
+                    <navigationItem key="navigationItem" title="My Photo Box" id="Ez3-fo-hPa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jyS-3z-w4b">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="7uH-WC-zIV" id="IL5-j2-HAy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="creator" destination="rre-ho-X0U" id="qy9-jW-ASH"/>
                         <outlet property="eventLocation" destination="pBI-Q4-m48" id="gWy-Tu-NJn"/>
@@ -457,9 +469,11 @@
                         <outlet property="liveFeedCollectionView" destination="vjt-vg-CKg" id="AdW-ib-Ceq"/>
                         <outlet property="memberCollectionView" destination="Rao-9W-b52" id="j3e-L5-7o5"/>
                         <outlet property="startDate" destination="eZC-ff-PmY" id="Zok-Am-1Ew"/>
+                        <segue destination="bQ1-jp-qlW" kind="unwind" identifier="unwindToHomePage" unwindAction="unwindToHomePageWithSegue:" id="5CC-Uq-Fmz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAk-eb-8JN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bQ1-jp-qlW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4368.8000000000002" y="51.724137931034484"/>
         </scene>
@@ -576,7 +590,7 @@
         <!--Enter Code View Controller-->
         <scene sceneID="94L-yM-Dse">
             <objects>
-                <viewController id="7U6-Vl-rBI" customClass="EnterCodeViewController" customModule="PhotoBox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EnterCodeViewController" id="7U6-Vl-rBI" customClass="EnterCodeViewController" customModule="PhotoBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cfa-Ad-v7G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -633,7 +647,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eIs-nh-KRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4020" y="712"/>
+            <point key="canvasLocation" x="4050" y="743"/>
         </scene>
         <!--Title-->
         <scene sceneID="Dxo-Vg-IBG">

@@ -17,12 +17,43 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
     @IBOutlet weak var endTimeTextField: UITextField!
     @IBOutlet weak var eventLocationTextField: UITextField!
     @IBOutlet weak var eventDetailsTextView: UITextView!
-    @IBOutlet weak var createEvent: UIButton!
+    @IBOutlet weak var createEventButton: UIButton!
     var startTime: TimeInterval?
     var endTime: TimeInterval?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let borderColor = UIColor(named: "textDarkGray")?.cgColor
+        eventNameTextField.layer.cornerRadius = eventNameTextField.frame.height / 2
+        eventNameTextField.layer.borderWidth = 2
+        eventNameTextField.layer.borderColor = borderColor
+        eventNameTextField.clipsToBounds = true
+        
+        startTimeTextField.layer.cornerRadius = startTimeTextField.frame.height / 2
+        startTimeTextField.layer.borderWidth = 2
+        startTimeTextField.layer.borderColor = borderColor
+        startTimeTextField.clipsToBounds = true
+
+        endTimeTextField.layer.cornerRadius = endTimeTextField.frame.height / 2
+        endTimeTextField.layer.borderWidth = 2
+        endTimeTextField.layer.borderColor = borderColor
+        endTimeTextField.clipsToBounds = true
+
+        eventLocationTextField.layer.cornerRadius = eventLocationTextField.frame.height / 2
+        eventLocationTextField.layer.borderWidth = 2
+        eventLocationTextField.layer.borderColor = borderColor
+        eventLocationTextField.clipsToBounds = true
+
+        eventDetailsTextView.layer.cornerRadius = 9
+        eventDetailsTextView.layer.borderWidth = 2
+        eventDetailsTextView.layer.borderColor = borderColor
+        eventDetailsTextView.clipsToBounds = true
+        
+        createEventButton.layer.cornerRadius = createEventButton.frame.height / 2
+        
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
+
+        
 
     }
     
@@ -88,17 +119,15 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
             !eventName.isEmpty,
             let currentUser = UserController.shared.currentUser,
             let startTime = startTime,
+            startTimeTextField.text != "",
             let endTime = endTime,
+            endTimeTextField.text != "",
             let eventLocation = eventLocationTextField.text,
-            !eventLocation.isEmpty,
             let eventDetails = eventDetailsTextView.text,
-            !eventDetails.isEmpty,
             let backgroundImage = UIImage(named: "steve")
-//            let creatorID = UserController.shared.currentUser?.uuid
-            else { print("Something's not right") ; return } ; #warning("alert required fields")
+            else { presentRequiredFieldAlert() ; return }
         
-        #warning("don't forget to set creator ID back...")
-        EventController.shared.createAnEvent(eventName: eventName, creatorID: "stringstringstring" , memberIDs: [currentUser.uuid], startTime: startTime, endTime: endTime, details: eventDetails, location: eventLocation, coverPhoto: backgroundImage) { (event) in
+        EventController.shared.createAnEvent(eventName: eventName, creatorID: currentUser.uuid , memberIDs: [currentUser.uuid], startTime: startTime, endTime: endTime, details: eventDetails, location: eventLocation, coverPhoto: backgroundImage) { (event) in
             if let event = event {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let eventDetailVC = storyboard.instantiateViewController(withIdentifier: "eventDetailVC") as! EventDetailTableViewController
@@ -111,5 +140,16 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
             }
         }
     }
+    
+    func presentRequiredFieldAlert() {
+        let requiredFieldsAlert = UIAlertController(title: "OOPS!", message: "Event Name, Start Time, and End Time are required fields.", preferredStyle: .alert)
+        requiredFieldsAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+        present(requiredFieldsAlert, animated: true)
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
 }

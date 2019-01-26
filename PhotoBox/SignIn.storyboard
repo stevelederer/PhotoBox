@@ -274,7 +274,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="new-password"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="new-password"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -395,6 +395,9 @@
                                 <state key="normal" title="JOIN EVENT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="joinEventButtonTapped:" destination="cON-SR-WLr" eventType="touchUpInside" id="DAw-gj-bod"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rvL-Ik-sRw">
                                 <rect key="frame" x="15" y="106" width="72" height="72"/>
@@ -1097,6 +1100,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vVD-Qy-zah"/>
+        <segue reference="54K-oT-9dq"/>
     </inferredMetricsTieBreakers>
 </document>
