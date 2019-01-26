@@ -841,17 +841,160 @@
                     <view key="view" contentMode="scaleToFill" id="Qdv-TZ-rCQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoBoxBackground" translatesAutoresizingMaskIntoConstraints="NO" id="JxH-62-2K6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2Tn-hw-xno" firstAttribute="trailing" secondItem="JxH-62-2K6" secondAttribute="trailing" id="KWp-9I-CGa"/>
+                            <constraint firstItem="JxH-62-2K6" firstAttribute="top" secondItem="2Tn-hw-xno" secondAttribute="top" constant="-44" id="ajm-kZ-rB8"/>
+                            <constraint firstItem="JxH-62-2K6" firstAttribute="leading" secondItem="2Tn-hw-xno" secondAttribute="leading" id="bUn-7y-58p"/>
+                            <constraint firstItem="2Tn-hw-xno" firstAttribute="bottom" secondItem="JxH-62-2K6" secondAttribute="bottom" constant="-34" id="zxE-KK-fTo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2Tn-hw-xno"/>
                     </view>
                     <connections>
-                        <segue destination="KvX-ah-Vvn" kind="show" identifier="noUserLoggedIn" id="LD1-7R-WsK"/>
                         <segue destination="V6n-eu-BFT" kind="show" identifier="userIsLoggedIn" id="czN-Oi-FcR"/>
+                        <segue destination="ISd-1R-2JK" kind="showDetail" identifier="toWelcomePageVC" id="5RV-WT-jHe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15c-xh-jfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-868" y="-641"/>
+            <point key="canvasLocation" x="-868" y="-641.37931034482756"/>
+        </scene>
+        <!--Description Page View Controller-->
+        <scene sceneID="K2g-tc-Paz">
+            <objects>
+                <viewController id="XqG-PI-mwE" customClass="DescriptionPageViewController" customModule="PhotoBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="24A-U1-yBL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoBoxBackground" translatesAutoresizingMaskIntoConstraints="NO" id="D5X-T4-Ejs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EGY-sp-HIK">
+                                <rect key="frame" x="41" y="198" width="293" height="392"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ls-qy-WzY">
+                                        <rect key="frame" x="35" y="88" width="220" height="124"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <string key="text">Got a big event coming up? An afternoon hanging out with friends? Create a PhotoBox and invite everyone there to share all the photos together in one place.</string>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A place where you can share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTm-ke-zcz">
+                                        <rect key="frame" x="58" y="8" width="175" height="72"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="24"/>
+                                        <color key="textColor" name="buttonPurple"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Automatically upload your photos in real time or choose which photos are uploaded after the event." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6J-mH-enk">
+                                        <rect key="frame" x="35" y="220" width="220" height="112"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arb-Cu-87I">
+                                        <rect key="frame" x="93" y="347" width="112" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" name="buttonGreen"/>
+                                        <state key="normal" title="LET'S GO!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="letsGoButtonTappped:" destination="XqG-PI-mwE" eventType="touchUpInside" id="q2F-mc-dxP"/>
+                                            <segue destination="KvX-ah-Vvn" kind="show" identifier="noUserLoggedIn" id="TgU-iu-VHE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qIa-CL-Uan" firstAttribute="trailing" secondItem="D5X-T4-Ejs" secondAttribute="trailing" id="6CQ-dR-7p5"/>
+                            <constraint firstItem="qIa-CL-Uan" firstAttribute="bottom" secondItem="D5X-T4-Ejs" secondAttribute="bottom" constant="-34" id="LbA-Gn-vKN"/>
+                            <constraint firstItem="D5X-T4-Ejs" firstAttribute="leading" secondItem="qIa-CL-Uan" secondAttribute="leading" id="Olf-rz-Umg"/>
+                            <constraint firstItem="D5X-T4-Ejs" firstAttribute="top" secondItem="qIa-CL-Uan" secondAttribute="top" constant="-44" id="bwI-ec-M5k"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qIa-CL-Uan"/>
+                    </view>
+                    <connections>
+                        <outlet property="letsGoButton" destination="arb-Cu-87I" id="h2y-xs-KUo"/>
+                        <outlet property="secondDisplayView" destination="EGY-sp-HIK" id="F3T-xf-F0L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="shd-4h-njo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-186.40000000000001" y="54.679802955665025"/>
+        </scene>
+        <!--Welcome Page View Controller-->
+        <scene sceneID="Mfc-f3-Teu">
+            <objects>
+                <viewController id="ISd-1R-2JK" customClass="WelcomePageViewController" customModule="PhotoBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hys-rg-tFV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoBoxBackground" translatesAutoresizingMaskIntoConstraints="NO" id="P9k-wj-gHs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="59i-qx-MS3">
+                                <rect key="frame" x="41" y="268" width="293" height="276"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="boxGraphic" translatesAutoresizingMaskIntoConstraints="NO" id="Qln-8r-ulI">
+                                        <rect key="frame" x="121" y="8" width="50" height="58"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hi, welcome to PhotoBox! We are so happy you're here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68N-zL-dXd">
+                                        <rect key="frame" x="29" y="89" width="235" height="99"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="24"/>
+                                        <color key="textColor" name="buttonPurple"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYF-8H-AOZ">
+                                        <rect key="frame" x="74" y="219" width="144" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" name="buttonGreen"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
+                                        <state key="normal" title="Continue">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="continueButtonTapped:" destination="ISd-1R-2JK" eventType="touchUpInside" id="FIs-al-dej"/>
+                                            <segue destination="XqG-PI-mwE" kind="show" identifier="toDescriptionPageVC" id="Ky1-Vh-vNB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="a9s-4C-huJ" firstAttribute="bottom" secondItem="P9k-wj-gHs" secondAttribute="bottom" constant="-34" id="7ke-SD-4ry"/>
+                            <constraint firstItem="P9k-wj-gHs" firstAttribute="top" secondItem="a9s-4C-huJ" secondAttribute="top" constant="-44" id="DH8-Kd-BXd"/>
+                            <constraint firstItem="a9s-4C-huJ" firstAttribute="trailing" secondItem="P9k-wj-gHs" secondAttribute="trailing" id="GyW-vM-T1c"/>
+                            <constraint firstItem="P9k-wj-gHs" firstAttribute="leading" secondItem="a9s-4C-huJ" secondAttribute="leading" id="TDt-wz-Qi6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="a9s-4C-huJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="continueButton" destination="AYF-8H-AOZ" id="Wey-KD-ppW"/>
+                        <outlet property="displayView" destination="59i-qx-MS3" id="Zhb-eg-rZ5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nwC-GO-xPP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1172" y="106"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rK4-eH-ISY">
@@ -936,6 +1079,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="PhotoBoxBackground" width="1125" height="2436"/>
+        <image name="boxGraphic" width="96" height="105"/>
         <image name="downArrow" width="384" height="384"/>
         <image name="steve" width="825.3599853515625" height="825.3599853515625"/>
         <namedColor name="buttonGreen">
