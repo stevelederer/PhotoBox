@@ -44,6 +44,8 @@
 		1B61AEBD21F91B0A007C6C06 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B61AEBC21F91B0A007C6C06 /* ForgotPasswordViewController.swift */; };
 		1B9AF9AC21F98DA80003C220 /* UnderlineButtonTextPurple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9AF9AB21F98DA80003C220 /* UnderlineButtonTextPurple.swift */; };
 		1BAF23AF21FAD03C00E26504 /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF23AE21FAD03C00E26504 /* PhotoSelectViewController.swift */; };
+		1BAF23D021FB823A00E26504 /* FirebaseStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF23CF21FB823A00E26504 /* FirebaseStorable.swift */; };
+		1BAF23D221FB90D100E26504 /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF23D121FB90D100E26504 /* PhotoController.swift */; };
 		1BB36AE621EEACF20089E2D1 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AE521EEACF20089E2D1 /* FirebaseManager.swift */; };
 		1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */; };
 		1BCEF0FD21F97B2300662756 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */; };
@@ -115,6 +117,8 @@
 		1B61AEBC21F91B0A007C6C06 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		1B9AF9AB21F98DA80003C220 /* UnderlineButtonTextPurple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButtonTextPurple.swift; sourceTree = "<group>"; };
 		1BAF23AE21FAD03C00E26504 /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
+		1BAF23CF21FB823A00E26504 /* FirebaseStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorable.swift; sourceTree = "<group>"; };
+		1BAF23D121FB90D100E26504 /* PhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
 		1BB36AE521EEACF20089E2D1 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreFetchable.swift; sourceTree = "<group>"; };
 		1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -285,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */,
+				1BAF23CF21FB823A00E26504 /* FirebaseStorable.swift */,
 				E91FD2C421F14903004327D3 /* AppUser.swift */,
 				E91FD2CA21F25296004327D3 /* BasicProfile.swift */,
 				E91FD2C621F149BB004327D3 /* Event.swift */,
@@ -301,6 +306,7 @@
 				1B17856121F29BD600CDADAC /* BasicUserController.swift */,
 				E91FD2D021F634DF004327D3 /* EventController.swift */,
 				E957776A21F8F96A000F8E7A /* BasicEventController.swift */,
+				1BAF23D121FB90D100E26504 /* PhotoController.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -534,6 +540,7 @@
 				E9E9660021F92D0F0038218E /* EventDetailTableViewController.swift in Sources */,
 				1B07486221F16E4E0030D907 /* LoginTextField.swift in Sources */,
 				1B07486021F16A090030D907 /* SignupViewController.swift in Sources */,
+				1BAF23D021FB823A00E26504 /* FirebaseStorable.swift in Sources */,
 				E9E9660A21F955420038218E /* MessageComposer.swift in Sources */,
 				1BAF23AF21FAD03C00E26504 /* PhotoSelectViewController.swift in Sources */,
 				1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */,
@@ -548,6 +555,7 @@
 				E957776B21F8F96A000F8E7A /* BasicEventController.swift in Sources */,
 				1B07485921F153BF0030D907 /* LoggedOutViewController.swift in Sources */,
 				E9E9660621F93A950038218E /* MemberCollectionViewCell.swift in Sources */,
+				1BAF23D221FB90D100E26504 /* PhotoController.swift in Sources */,
 				B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */,
 				E9F3BA2A21FA78BF00D17003 /* Extensions.swift in Sources */,
 				E9E9660C21F96C770038218E /* PhotoDetailViewController.swift in Sources */,
@@ -714,7 +722,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2446Y3VTK6;
+				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = PhotoBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -733,7 +741,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2446Y3VTK6;
+				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = PhotoBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

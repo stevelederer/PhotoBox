@@ -28,14 +28,27 @@ class EventDetailTableViewController: UITableViewController {
     //Landing Pad
     var event: Event?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Set both collection view data source's to respective data source
         memberCollectionView.dataSource = memberDataSource
         liveFeedCollectionView.dataSource = feedDataSource
-        // Set both collection view data source's to respective data source
+        guard let event = event else { return }
+        EventController.shared.fetchMembers(for: event) { (fetchedMembers) in
+            if let fetchedMembers = fetchedMembers {
+                self.memberDataSource.members = fetchedMembers
+                DispatchQueue.main.async {
+                    self.memberCollectionView.reloadData()
+                }
+            }
+        }
         
-        
+        PhotoController.shared.fetchPhotos(for: event) { (photos) in
+            self.feedDataSource.photos = photos
+            DispatchQueue.main.async {
+                self.liveFeedCollectionView.reloadData()
+            }
+        }
     }
     
     //   MARK: - Actions
@@ -73,7 +86,9 @@ class EventDetailTableViewController: UITableViewController {
         collectionIsExpanded = !collectionIsExpanded
     }
     
-    
+    @objc func reloadCollection() {
+        memberCollectionView.reloadData()
+    }
     
     // MARK: - Table view data source
     

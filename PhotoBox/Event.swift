@@ -21,6 +21,7 @@ class Event: FirestoreFetchable {
     var endTime: TimeInterval
     var details: String?
     var location: String?
+    var photoIDs: [String]?
     var coverPhoto: UIImage?
     var coverPhotoURL: String?
     var formattedStartTime: String? {
@@ -32,7 +33,7 @@ class Event: FirestoreFetchable {
         return date.formattedString()
     }
     
-    init(uuid: String = UUID().uuidString, eventName: String, eventCode: String, creatorID: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String? = nil, location: String? = nil, coverPhoto: UIImage? = nil, coverPhotoURL: String? = nil) {
+    init(uuid: String = UUID().uuidString, eventName: String, eventCode: String, creatorID: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String? = nil, location: String? = nil, photoIDs: [String]? = nil, coverPhoto: UIImage? = nil, coverPhotoURL: String? = nil) {
         self.uuid = uuid
         self.eventName = eventName
         self.eventCode = eventCode
@@ -42,6 +43,7 @@ class Event: FirestoreFetchable {
         self.endTime = endTime
         self.details = details
         self.location = location
+        self.photoIDs = photoIDs
         self.coverPhoto = coverPhoto
         self.coverPhotoURL = coverPhotoURL
     }
@@ -55,10 +57,11 @@ class Event: FirestoreFetchable {
             let endTime = dictionary["endTime"] as? TimeInterval,
             let details = dictionary["details"] as? String?,
             let location = dictionary["location"] as? String?,
+            let photoIDs = dictionary["photoIDs"] as? [String]?,
             let coverPhoto = dictionary["coverPhoto"] as? UIImage?,
             let coverPhotoURL = dictionary["coverPhotoURL"] as? String? else {return nil}
         
-        self.init(uuid: id, eventName: eventName, eventCode: eventCode, creatorID: creatorID, memberIDs: memberIDs, startTime: startTime, endTime: endTime, details: details, location: location, coverPhoto: coverPhoto, coverPhotoURL: coverPhotoURL)
+        self.init(uuid: id, eventName: eventName, eventCode: eventCode, creatorID: creatorID, memberIDs: memberIDs, startTime: startTime, endTime: endTime, details: details, location: location, photoIDs: photoIDs, coverPhoto: coverPhoto, coverPhotoURL: coverPhotoURL)
     }
 }
 
@@ -75,6 +78,7 @@ extension Event {
             "endTime" : endTime,
             "details" : details,
             "location" : location,
+            "photoIDs" : photoIDs,
             "coverPhoto" : coverPhoto,
             "coverPhotoURL" : coverPhotoURL
         ]

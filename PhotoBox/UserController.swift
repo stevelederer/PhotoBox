@@ -121,25 +121,25 @@ class UserController {
         BasicUserController.shared.changeBasicProfileInfo(user: user, completion: completion)
     }
     
-    func searchForUser(with searchTerm: String, completion: @escaping ([BasicProfile]?) -> Void) {
-        let basicUsersRef = Firestore.firestore().collection("BasicProfile")
-        basicUsersRef.whereField("name", arrayContains: searchTerm).getDocuments { (querySnapshot, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                completion(nil)
-                return
-            } else {
-                guard let documents = querySnapshot?.documents else { completion(nil) ; return }
-                var returnedUsers: [BasicProfile] = []
-                for document in documents {
-                    let documentDictionary = document.data()
-                    guard let newBasicProfile = BasicProfile(with: documentDictionary, id: document.documentID) else { completion(nil) ; return }
-                    returnedUsers.append(newBasicProfile)
-                }
-                completion(returnedUsers)
-            }
-        }
-    }
+//    func searchForUser(with searchTerm: String, completion: @escaping ([BasicProfile]?) -> Void) {
+//        let basicUsersRef = Firestore.firestore().collection("BasicProfile")
+//        basicUsersRef.whereField("name", arrayContains: searchTerm).getDocuments { (querySnapshot, error) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                completion(nil)
+//                return
+//            } else {
+//                guard let documents = querySnapshot?.documents else { completion(nil) ; return }
+//                var returnedUsers: [BasicProfile] = []
+//                for document in documents {
+//                    let documentDictionary = document.data()
+//                    guard let newBasicProfile = BasicProfile(with: documentDictionary, id: document.documentID) else { completion(nil) ; return }
+//                    returnedUsers.append(newBasicProfile)
+//                }
+//                completion(returnedUsers)
+//            }
+//        }
+//    }
     
 //    func fetchEventsFor(user: AppUser, completion: @escaping (Bool) -> Void) {
 //        guard let eventIDs = user.memberEventIDs else { completion(false) ; return }

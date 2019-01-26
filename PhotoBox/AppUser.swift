@@ -16,16 +16,18 @@ class AppUser: FirestoreFetchable {
     var name: String
     var username: String
     var emailAddress: String
+    var eventIDs: [String]?
     var profilePic: UIImage?
     var profilePicURL: String?
     var blockedUserIDs: [String]?
     
-    init(uuid: String = UUID().uuidString, name: String, username: String, emailAddress: String, profilePicURL: String? = nil, blockedUserIDs: [String]? = nil) {
+    init(uuid: String = UUID().uuidString, name: String, username: String, emailAddress: String, eventIDs: [String]? = nil, profilePicURL: String? = nil, blockedUserIDs: [String]? = nil) {
         
         self.uuid = uuid
         self.name = name
         self.username = username
         self.emailAddress = emailAddress
+        self.eventIDs = eventIDs
         self.profilePicURL = profilePicURL
         self.blockedUserIDs = blockedUserIDs
     }
@@ -41,6 +43,9 @@ class AppUser: FirestoreFetchable {
         self.username = username
         self.emailAddress = emailAddress
         
+        if let eventIDs = dictionary["eventIDs"] as? [String] {
+            self.eventIDs = eventIDs
+        }
         if let profilePicURL = dictionary["profilePicURL"] as? String? {
             self.profilePicURL = profilePicURL
         }
@@ -57,6 +62,7 @@ extension AppUser { // should any be optional??
             "name": name,
             "username": username,
             "emailAddress": emailAddress,
+            "eventIDs": eventIDs,
             "profilePicURL" : profilePicURL,
             "blockedUsersIDs" : blockedUserIDs
         ]
