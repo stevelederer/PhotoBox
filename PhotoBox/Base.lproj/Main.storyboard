@@ -40,7 +40,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3L2-gd-N7h">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="127.66666666666667"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <state key="normal" title="Select Cover Photo" backgroundImage="PhotoBoxBackground">
+                                                    <state key="normal" title="Select Cover Photo">
                                                         <color key="titleColor" name="buttonPurple"/>
                                                     </state>
                                                     <connections>
@@ -977,7 +977,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PhotoBoxBackground" width="1125" height="2436"/>
         <image name="PhotoBoxBackgroundLight" width="375" height="812"/>
         <image name="downArrow" width="384" height="384"/>
         <image name="steve" width="825.3599853515625" height="825.3599853515625"/>
