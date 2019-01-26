@@ -22,23 +22,11 @@ class FeedDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDele
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "liveFeedCell", for: indexPath) as! FeedCollectionViewCell
         if let photoArray = photos {
             let photo = photoArray[indexPath.row]
-            let imageURLString = photo.imageURL
-            var imageData: NSData = NSData()
-            if let imageURL: URL = URL(string: imageURLString) {
-                DispatchQueue.global(qos: .userInitiated).async {
-                    do {
-                        imageData = try NSData(contentsOf: imageURL)
-                    } catch {
-                        print("There was an error in \(#function) ; \(error.localizedDescription)")
-                    }
-                    DispatchQueue.main.async {
-                        cell.postedImage.image = UIImage(data: imageData as Data)
-                        
-                        
-                    }
+            PhotoController.shared.fetchImage(for: photo) { (image) in
+                DispatchQueue.main.async {
+                    cell.postedImage.image = image
                 }
             }
-            
         }
         return cell
     }

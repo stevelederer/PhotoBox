@@ -8,28 +8,42 @@
 
 import UIKit
 
-class Photo: FirestoreFetchable {
+class Photo: FirestoreFetchable, FirebaseStorable {
     
     static var CollectionName: String = "photo"
     
+    let image: UIImage?
     let uuid: String
-    let imageURL: String
     let eventID: String
-    let user: String
-    
-    init(uuid: String, imageURL: String, eventID: String, user: String) {
-        self.uuid = uuid
-        self.imageURL = imageURL
-        self.eventID = eventID
-        self.user = user
+    let imageURL: String?
+    let creatorID: String
+    var data: Data {
+        guard let image = self.image,
+            let data = image.jpegData(compressionQuality: 0.25)
+            else { return Data() }
+        return data
     }
     
-    convenience required init?(with dictionary: [String : Any], id: String) {
+    init(image: UIImage?, uuid: String = UUID().uuidString, eventID: String, creatorID: String) {
+        self.image = image
+        self.uuid = uuid
+        self.eventID = eventID
+        self.creatorID = creatorID
+        self.imageURL = nil
+    }
+    
+    required init?(with dictionary: [String : Any], id: String) {
         guard let imageURL = dictionary["imageURL"] as? String,
-        let eventID = dictionary["eventID"] as? String,
-        let user = dictionary["user"] as? String  else {return nil}
+            let uuid = dictionary["uuid"] as? String,
+            let eventID = dictionary["eventID"] as? String,
+            let creatorID = dictionary["creatorID"] as? String
+            else {return nil}
         
-        self.init(uuid: id, imageURL: imageURL, eventID: eventID, user: user)
+        self.image = nil
+        self.imageURL = imageURL
+        self.uuid = uuid
+        self.eventID = eventID
+        self.creatorID = creatorID
     }
 }
 
@@ -39,7 +53,7 @@ extension Photo {
             "uuid" : uuid,
             "imageURL" : imageURL,
             "eventID" : eventID,
-            "user" : user
+            "creatorID" : creatorID
         ]
     }
 }

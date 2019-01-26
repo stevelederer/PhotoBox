@@ -186,22 +186,12 @@ class EventController {
         }
     }
     
-    func fetchMembers(for event: Event, completion: @escaping (Bool, [BasicProfile]?) -> Void) {
-        let dispatchGroup = DispatchGroup()
-        var fetchedEventMembers: [BasicProfile] = []
+    func fetchMembers(for event: Event, completion: @escaping ([BasicProfile]?) -> Void) {
         
-        for memberID in event.memberIDs {
-            dispatchGroup.enter()
-            FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "uuid", criteria: memberID, inArray: false) { (users: [BasicProfile]?) in
-                guard let users = users else { completion(false, nil) ; return }
-                fetchedEventMembers = users
-                dispatchGroup.leave()
-            }
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            print("Fetched members of event \(event.eventName).")
-            completion(true, fetchedEventMembers)
+        FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "eventIDs", criteria: event.uuid, inArray: false) { (users: [BasicProfile]?) in
+            guard let users = users else { completion(nil) ; return }
+            
+            completion(users)
         }
     }
 }

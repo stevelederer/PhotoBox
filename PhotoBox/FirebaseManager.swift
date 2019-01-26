@@ -250,31 +250,21 @@ class FirebaseManager {
     // MARK: - Photo Storage
     
     
-    static func uploadPhotoToFirebase(photo: UIImage, name: String, completion: @escaping (Bool) -> Void) {
-        let storage = Storage.storage()
-        let storageRef = storage.reference()
-        let photosRef = storageRef.child("photos")
-
-        var data = Data()
-        data = photo.jpegData(compressionQuality: 0.25)!
-        let imageRef = photosRef.child("\(name).jpg")
-        let _ = imageRef.putData(data, metadata: nil, completion: { (metadata, error) in
-            guard let metadata = metadata else {
-                completion(false)
+    static func uploadPhotoToFirebase<T: FirebaseStorable>(_ object: T, completion: @escaping (URL?, Error?) -> Void) {
+        let storageRef = object.storageReference
+        storageRef.putData(object.data, metadata: nil) { (metadata, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(nil, error)
                 return
             }
             
-            let _ = metadata.size
-            
-            imageRef.downloadURL { (url, error) in
-                if let downloadURL = url {
-                    print(downloadURL)
-                    completion(true)
-                    return
-                }
-            }
+            metadata?.storageReference?.downloadURL(completion: { (url, _) in
+                completion(url, nil)
+            })
         }
-    )}
+    }
+    
     
     static func fetchPhotoFromFirebase(url: String, completion: @escaping (Bool, UIImage?) -> Void) {
         let storage = Storage.storage()

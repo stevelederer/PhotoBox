@@ -11,6 +11,7 @@ import UIKit
 class MemberDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var members: [BasicProfile]?
+    var profilePics: [UIImage] = []
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let members = members else { return 0 }
@@ -23,13 +24,14 @@ class MemberDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDe
         if let membersArray = members {
             let member = membersArray[indexPath.row]
             cell.memberName.text = member.name
-//            cell.memberPhotoImageView.image = member.profilePicURL
-            
+            PhotoController.shared.fetchProfileImages(for: member) { (image) in
+                if let image = image {
+                    DispatchQueue.main.async {
+                        cell.memberPhotoImageView.image = image
+                    }
+                }
+            }
         }
-
-        
         return cell
     }
-    
-    
 }
