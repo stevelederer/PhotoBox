@@ -124,7 +124,7 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
             endTimeTextField.text != "",
             let eventLocation = eventLocationTextField.text,
             let eventDetails = eventDetailsTextView.text,
-            let backgroundImage = UIImage(named: "steve")
+            let backgroundImage = backgroundImage.image
             else { presentRequiredFieldAlert() ; return }
         
         EventController.shared.createAnEvent(eventName: eventName, creatorID: currentUser.uuid , memberIDs: [currentUser.uuid], startTime: startTime, endTime: endTime, details: eventDetails, location: eventLocation, coverPhoto: backgroundImage) { (event) in

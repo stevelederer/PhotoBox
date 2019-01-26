@@ -24,10 +24,11 @@ class EnterCodeViewController: UIViewController, UITextFieldDelegate {
         enterCodeTextField.layer.borderWidth = 2
         enterCodeTextField.layer.borderColor = UIColor(named: "textDarkGray")?.cgColor
         continueButton.layer.cornerRadius = continueButton.frame.height / 2
-
     }
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
+        // adds event for this code to currentUser's eventIDs array
+        // segues to event detail view passing the event matching code
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
