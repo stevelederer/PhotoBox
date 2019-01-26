@@ -12,9 +12,7 @@ class LandingPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let backgroundImage = UIImage(named: "PhotoBoxLoadingScreen") {
-            self.view.backgroundColor = UIColor(patternImage: backgroundImage)
-        }
+     
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -23,7 +21,8 @@ class LandingPageViewController: UIViewController {
             if success {
                 self.performSegue(withIdentifier: "userIsLoggedIn", sender: self)
             } else {
-                self.performSegue(withIdentifier: "noUserLoggedIn", sender: self)
+                
+                self.performSegue(withIdentifier: "toWelcomePageVC", sender: self)
             }
         }
     }
