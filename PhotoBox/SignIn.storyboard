@@ -248,6 +248,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="yOk-5c-chU" id="S72-ga-Mwo"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a26-gc-UlD">
                                         <rect key="frame" x="0.0" y="72" width="280" height="56"/>
@@ -257,6 +260,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" textContentType="email"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="yOk-5c-chU" id="Bgv-dr-TdT"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ltu-Yv-naz">
                                         <rect key="frame" x="0.0" y="144" width="280" height="56"/>
@@ -266,6 +272,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="username"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="yOk-5c-chU" id="B67-GM-GtG"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FgV-tJ-XvX">
                                         <rect key="frame" x="0.0" y="216" width="280" height="56"/>
@@ -275,6 +284,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="new-password"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="yOk-5c-chU" id="hvg-rS-nMN"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>

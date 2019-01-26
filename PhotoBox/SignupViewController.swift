@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
 
@@ -48,6 +48,21 @@ class SignupViewController: UIViewController {
         checkBoxButton.layer.borderColor = darkGrayBorder.cgColor
         checkBoxButton.layer.cornerRadius = 5
         termsAndConditionsButton.setTitle("Terms and conditions", for: .normal)
+    }
+    
+     //   MARK: - TextfieldDelegate Methods
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameTextField {
+            emailTextField.becomeFirstResponder()
+        } else if textField == emailTextField {
+            usernameTextField.becomeFirstResponder()
+        } else if textField == usernameTextField {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
     }
     
     // MARK: - Actions
