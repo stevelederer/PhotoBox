@@ -70,6 +70,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         present(createEventNav, animated: true, completion: nil)
     }
     
+    @IBAction func joinEventButtonTapped(_ sender: UIButton) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let joinEventNav = sb.instantiateViewController(withIdentifier: "EnterCodeViewController")
+        present(joinEventNav, animated: true, completion: nil)
+    }
     
     @IBAction func accountDropDownButtonTapped(_ sender: UIButton) {
         let _ = LoginPageViewController()
@@ -139,22 +144,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         return cell
+    
+    }
+    
+    @IBAction func unwindToHomePage(segue:UIStoryboardSegue) {
     }
 }
-
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
-
-
-
 extension UIViewController {
     func setNavigationItem() {
         let imageView = UIImageView(image: UIImage(named: "boxGraphic"))

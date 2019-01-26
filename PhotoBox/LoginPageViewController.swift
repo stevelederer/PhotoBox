@@ -44,9 +44,6 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.text = ""
     }
     
-//    @IBAction func unwindToLoginPage(segue:UIStoryboardSegue) {
-//    }
-    
     @IBAction func logInButtonTapped(_ sender: UIButton) {
         guard let email = emailTextField.text,
         !email.isEmpty,
