@@ -24,7 +24,7 @@ class Event: FirestoreFetchable {
     var photoIDs: [String]?
     var coverPhoto: UIImage?
     var coverPhotoURL: String?
-    var formattedStartTime: String? {
+    var formattedStartTime: String {
         let date = Date(timeIntervalSince1970: startTime)
         return date.formattedString()
     }

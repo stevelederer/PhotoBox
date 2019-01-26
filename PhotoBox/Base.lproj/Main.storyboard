@@ -190,7 +190,7 @@
                         <outlet property="eventLocationTextField" destination="xdp-7t-E9c" id="n9S-tQ-UKV"/>
                         <outlet property="eventNameTextField" destination="9op-yQ-n51" id="iUk-xF-Cqr"/>
                         <outlet property="startTimeTextField" destination="JaV-iy-S3e" id="hF9-ku-g4y"/>
-                        <segue destination="7uH-WC-zIV" kind="show" id="dBA-EF-48m"/>
+                        <segue destination="7uH-WC-zIV" kind="show" identifier="toCreatedEventDetailView" id="dBA-EF-48m"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FsA-L9-U33" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -225,30 +225,29 @@
                                                     <rect key="frame" x="0.0" y="20" width="375" height="95"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </view>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ljN-wA-EAK">
-                                                    <rect key="frame" x="16.000000000000021" y="20" width="119.33333333333333" height="94"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ljN-wA-EAK">
+                                                    <rect key="frame" x="0.0" y="11" width="375" height="110"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(eventName)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deb-ox-AFA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="119.33333333333333" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="25.333333333333332"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(startDate)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZC-ff-PmY">
-                                                            <rect key="frame" x="0.0" y="27" width="119.33333333333333" height="20.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="28.333333333333336" width="375" height="25.333333333333336"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(event location)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBI-Q4-m48">
-                                                            <rect key="frame" x="0.0" y="50.333333333333336" width="119.33333333333333" height="20.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="56.666666666666671" width="375" height="25"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(creator)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rre-ho-X0U">
-                                                            <rect key="frame" x="0.0" y="73.666666666666671" width="119.33333333333333" height="20.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="84.666666666666671" width="375" height="25.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -264,11 +263,15 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="ljN-wA-EAK" firstAttribute="height" secondItem="I7V-6b-2xp" secondAttribute="height" id="JIZ-hf-ow2"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Xot-5J-n40" secondAttribute="trailing" constant="153" id="M3e-al-Ouc"/>
-                                                <constraint firstItem="I7V-6b-2xp" firstAttribute="centerX" secondItem="Xot-5J-n40" secondAttribute="centerX" id="gkF-Y5-Usv"/>
+                                                <constraint firstItem="ljN-wA-EAK" firstAttribute="centerY" secondItem="I7V-6b-2xp" secondAttribute="centerY" id="VqV-XI-UrG"/>
                                                 <constraint firstItem="Xot-5J-n40" firstAttribute="top" secondItem="g8R-g1-OUa" secondAttribute="topMargin" constant="155" id="hi8-BP-BqP"/>
+                                                <constraint firstItem="ljN-wA-EAK" firstAttribute="centerX" secondItem="I7V-6b-2xp" secondAttribute="centerX" id="jXD-fu-LUO"/>
                                                 <constraint firstItem="I7V-6b-2xp" firstAttribute="top" secondItem="g8R-g1-OUa" secondAttribute="topMargin" id="kRe-DV-MFg"/>
+                                                <constraint firstItem="ljN-wA-EAK" firstAttribute="width" secondItem="I7V-6b-2xp" secondAttribute="width" id="m3u-og-w8A"/>
                                                 <constraint firstItem="I7V-6b-2xp" firstAttribute="leading" secondItem="g8R-g1-OUa" secondAttribute="leading" id="omL-i8-79F"/>
+                                                <constraint firstItem="I7V-6b-2xp" firstAttribute="width" secondItem="g8R-g1-OUa" secondAttribute="width" id="zT8-R3-iqA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -463,6 +466,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="creator" destination="rre-ho-X0U" id="qy9-jW-ASH"/>
+                        <outlet property="eventCoverPhotoImageView" destination="I7V-6b-2xp" id="fh2-d1-efh"/>
                         <outlet property="eventLocation" destination="pBI-Q4-m48" id="gWy-Tu-NJn"/>
                         <outlet property="eventName" destination="deb-ox-AFA" id="T55-2L-dcn"/>
                         <outlet property="expandCollapseButton" destination="wEP-NP-Ixr" id="WNX-Ei-aCn"/>

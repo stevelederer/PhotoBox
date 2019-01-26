@@ -10,6 +10,7 @@ import UIKit
 
 class EventDetailTableViewController: UITableViewController {
     
+    @IBOutlet weak var eventCoverPhotoImageView: UIImageView!
     @IBOutlet weak var eventName: UILabel!
     @IBOutlet weak var startDate: UILabel!
     @IBOutlet weak var eventLocation: UILabel!
@@ -42,6 +43,7 @@ class EventDetailTableViewController: UITableViewController {
         // Set both collection view data source's to respective data source
         memberCollectionView.dataSource = memberDataSource
         liveFeedCollectionView.dataSource = feedDataSource
+        updateViews()
         guard let event = event else { return }
         EventController.shared.fetchMembers(for: event) { (fetchedMembers) in
             if let fetchedMembers = fetchedMembers {
@@ -58,6 +60,23 @@ class EventDetailTableViewController: UITableViewController {
                 self.liveFeedCollectionView.reloadData()
             }
         }
+    }
+    
+    // MARK: - Setup
+    
+    func updateViews() {
+        guard let event = event else { return }
+        FirebaseManager.fetchFromFirestore(uuid: event.creatorID) { (user: AppUser?) in
+            if let user = user {
+                self.creator.text = "Event Host: \(user.name)"
+            }
+        }
+        eventName.text = event.eventName
+        startDate.text = "Date: \(event.formattedStartTime)"
+        guard let location = event.location,
+            !location.isEmpty else { eventLocation.isHidden = true ; return }
+        eventLocation.text = "Location: \(location)"
+        eventCoverPhotoImageView.image = event.coverPhoto
     }
     
     //   MARK: - Actions
