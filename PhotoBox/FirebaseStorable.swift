@@ -11,6 +11,7 @@ import FirebaseStorage
 
 protocol FirebaseStorable {
     var data: Data { get }
+    var uuid: String { get }
     static var CollectionName: String { get }
 }
 

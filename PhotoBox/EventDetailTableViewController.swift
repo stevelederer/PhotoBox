@@ -35,6 +35,7 @@ class EventDetailTableViewController: UITableViewController {
     
     //Landing Pad
     var event: Event?
+    var currentUser: AppUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()

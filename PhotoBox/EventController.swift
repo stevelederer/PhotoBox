@@ -49,7 +49,7 @@ class EventController {
     }
     
     func randomEventCode(completion: @escaping (String?) -> Void) {
-        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789"
         let newCode = String((0...3).map{ _ in characters.randomElement()! })
         var returnedEvents: [Event] = []
         
@@ -168,7 +168,7 @@ class EventController {
     // admin can edit people in event
     
     func adminEditAttendees() {
-        #warning("?")
+        #warning("remove attendees")
     }
     
     func fetchEvents(completion: @escaping (Bool, [BasicEvent]?) -> Void) {

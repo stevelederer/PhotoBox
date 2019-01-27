@@ -12,10 +12,21 @@ class ForgotPasswordViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var emailLinkButton: UIButton!
+    @IBOutlet weak var backToLoginButton: UnderlineButtonTextLightGray!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let backgroundImage = UIImage(named: "PhotoBoxBackgroundLight") {
+            self.view.backgroundColor = UIColor(patternImage: backgroundImage)
+        }
+        guard let darkGrayBorder: UIColor = UIColor(named: "textDarkGray") else { return }
+        emailTextField.layer.cornerRadius = emailTextField.frame.height / 2
+        emailTextField.clipsToBounds = true
+        emailTextField.layer.borderWidth = 3
+        emailTextField.layer.borderColor = darkGrayBorder.cgColor
+        emailLinkButton.layer.cornerRadius = emailLinkButton.frame.height / 2
+        backToLoginButton.setTitle("Back to Login", for: .normal)
     }
     
     @IBAction func emailLinkButtonTapped(_ sender: UIButton) {

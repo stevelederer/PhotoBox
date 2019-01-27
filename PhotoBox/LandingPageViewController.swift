@@ -27,6 +27,8 @@ class LandingPageViewController: UIViewController {
         }
     }
     
+    
+    // have to unwind to landing page instead of login page, because when the app successfully checks for a logged in user, it never instantiates the login screen, so there is no possibility of unwinding to login screen without moving the responsibility for the check for logged in user to the login screen view controller
     @IBAction func unwindToLoginPage(segue:UIStoryboardSegue) {
     }
 }

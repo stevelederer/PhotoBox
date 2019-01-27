@@ -50,6 +50,29 @@ class PhotoController {
         }
     }
     
+    func upload(images: [UIImage], for eventID: String , from userID: String, completion: @escaping (Bool) -> Void) {
+        for image in images {
+            let newPhoto = Photo(image: image, eventID: eventID, creatorID: userID)
+            FirebaseManager.uploadPhotoToFirebase(newPhoto) { (url, error) in
+                if let error = error {
+                    print("There was an error uploading image to cloud storage: \(error.localizedDescription)")
+                    completion(false)
+                    return
+                } else {
+                    guard let url = url else { return }
+                    newPhoto.imageURL = "\(url)"
+                    FirebaseManager.saveData(object: newPhoto, completion: { (error) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                            return
+                        }
+                    })
+                    completion(true)
+                }
+            }
+        }
+    }
+    
     func fetchImage(for photo: Photo, completion: @escaping (UIImage?) -> Void) {
         if let url = photo.imageURL {
             FirebaseManager.fetchPhotoFromFirebase(url: url, completion: { (success, image) in
@@ -61,6 +84,26 @@ class PhotoController {
                     completion(image)
                 }
             })
+        }
+    }
+    
+    func saveProfilePhoto(from image: UIImage, user: AppUser, completion: @escaping (String?) -> Void) {
+        let newPhoto = Photo(image: image, uuid: user.uuid, eventID: "", creatorID: "")
+        FirebaseManager.uploadPhotoToFirebase(newPhoto) { (url, error) in
+            if let error = error {
+                print("There was an error uploading to cloud storage: \(error.localizedDescription)")
+                completion(nil)
+                return
+            } else {
+                guard let url = url else { return }
+                do {
+                    let urlAsString = try String(contentsOf: url)
+                    user.profilePicURL = urlAsString
+                    completion(urlAsString)
+                } catch {
+                    print("❌ There was an error in \(#function) ; \(error.localizedDescription)❌")
+                }
+            }
         }
     }
 }
