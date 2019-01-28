@@ -69,16 +69,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func createEventButtonTapped(_ sender: UIButton) {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        guard let createEventNav = sb.instantiateInitialViewController() else { return }
-        
-        present(createEventNav, animated: true, completion: nil)
+//        let sb = UIStoryboard(name: "Main", bundle: nil)
+//        guard let createEventNav = sb.instantiateInitialViewController() else { return }
+//        present(createEventNav, animated: true, completion: nil)
     }
     
     @IBAction func joinEventButtonTapped(_ sender: UIButton) {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let joinEventNav = sb.instantiateViewController(withIdentifier: "EnterCodeViewController")
-        present(joinEventNav, animated: true, completion: nil)
+//        let sb = UIStoryboard(name: "Main", bundle: nil)
+//        let joinEventNav = sb.instantiateViewController(withIdentifier: "EnterCodeViewController")
+//        present(joinEventNav, animated: true, completion: nil)
     }
     
     @IBAction func accountDropDownButtonTapped(_ sender: UIButton) {
