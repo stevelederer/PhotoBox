@@ -11,6 +11,7 @@ import UIKit
 class CreateEventTableViewController: UITableViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
      //   MARK: - Outlets
+    @IBOutlet weak var selectCoverPhotoButton: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var eventNameTextField: UITextField!
     @IBOutlet weak var startTimeTextField: UITextField!
@@ -91,19 +92,20 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
         return true
     }
     
-    @IBAction func importBackgroundImage(_ sender: Any) {
+    @IBAction func selectCoverPhotoButtonTapped(_ sender: Any) {
         
-        let backGroundimage = UIImagePickerController()
-        backGroundimage.delegate = self
-        backGroundimage.sourceType = UIImagePickerController.SourceType.photoLibrary
-        backGroundimage.allowsEditing = true
-        backGroundimage.setEditing(true, animated: true)
-        self.present(backGroundimage, animated: true)
+        let backgroundimage = UIImagePickerController()
+        backgroundimage.delegate = self
+        backgroundimage.sourceType = UIImagePickerController.SourceType.photoLibrary
+        backgroundimage.allowsEditing = true
+        backgroundimage.setEditing(true, animated: true)
+        self.present(backgroundimage, animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             backgroundImage.image = image
+            selectCoverPhotoButton.isHidden = true
         } else {
             print("Error picking image)")
         }
@@ -189,12 +191,40 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
             let backgroundImage = backgroundImage.image
             else { presentRequiredFieldAlert() ; return }
         
-        EventController.shared.createAnEvent(eventName: eventName, creatorID: currentUser.uuid , memberIDs: [currentUser.uuid], startTime: startTime, endTime: endTime, details: eventDetails, location: eventLocation, coverPhoto: backgroundImage) { (event) in
+        
+        
+        EventController.shared.createAnEvent(eventName: eventName, creatorID: currentUser.uuid , memberIDs: [currentUser.uuid], startTime: startTime, endTime: endTime, details: eventDetails, location: eventLocation) { (event) in
             if let event = event {
+                let backgroundPhoto = Photo(image: backgroundImage, eventID: event.uuid, creatorID: currentUser.uuid)
+                event.coverPhoto = backgroundImage
+                FirebaseManager.uploadPhotoToFirebase(backgroundPhoto, completion: { (url, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                    if let url = url {
+                        event.coverPhotoURL = "\(url)"
+                        FirebaseManager.updateData(obect: event, dictionary: event.dictionary as [String : Any], completion: { (error) in
+                            if let error = error {
+                                print(error.localizedDescription)
+                            } else {
+                                print("success adding coverPhotoURL to new event.")
+                            }
+                        })
+                    }
+                })
+                currentUser.eventIDs?.append(event.uuid)
+                UserController.shared.changeUserInfo(user: currentUser, completion: { (success) in
+                    if success {
+                        print("success adding new event to the user's events array")
+                    } else {
+                        print("error adding new event to the user's events array")
+                    }
+                })
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let eventDetailVC = storyboard.instantiateViewController(withIdentifier: "eventDetailVC") as! EventDetailTableViewController
                 
                 eventDetailVC.event = event
+                eventDetailVC.currentUser = currentUser
                 
                 DispatchQueue.main.async {
                     self.navigationController?.pushViewController(eventDetailVC, animated: true)

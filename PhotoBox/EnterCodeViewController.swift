@@ -13,18 +13,6 @@ class EnterCodeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var enterCodeTextField: UITextField!
     @IBOutlet weak var continueButton: UIButton!
     
-    var selectedEventID: String? {
-        didSet {
-            guard let selectedEventID = selectedEventID else { return }
-            FirebaseManager.fetchFromFirestore(uuid: selectedEventID) { (T: Event?) in
-                if let event = T {
-                    self.selectedEvent = event
-                }
-            }
-        }
-    }
-    var selectedEvent: Event?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         enterCodeTextField.delegate = self
@@ -37,33 +25,56 @@ class EnterCodeViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
-        guard let currentUser = UserController.shared.currentUser else { return }
-        guard let enteredCode = enterCodeTextField.text, enterCodeTextField.text?.count == 4 else { presentRequiredFieldAlert() ; return }
+        guard let enteredCode = enterCodeTextField.text?.uppercased(), enterCodeTextField.text?.count == 4 else { presentRequiredFieldAlert() ; return }
         FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "eventCode", criteria: enteredCode, inArray: false) { (events: [Event]?) in
             guard let events = events else { print("❌❌❌❌ no event found for that code") ; return }
-            guard let uuid = events.first?.uuid else { return }
-            if let eventName = events.first?.eventName {
-                print("Joining event: \(eventName)")
+            guard let event = events.first else { return }
+            let eventName = event.eventName
+            print("Joining event: \(eventName)")
+            if UserController.shared.currentUser?.eventIDs == nil {
+                UserController.shared.currentUser?.eventIDs = [event.uuid]
+            } else {
+                UserController.shared.currentUser?.eventIDs?.append(event.uuid)
             }
-            currentUser.eventIDs?.append(uuid)
+            guard let currentUser = UserController.shared.currentUser else { print("❌❌❌❌ no current user found") ; return }
             UserController.shared.changeUserInfo(user: currentUser, completion: { (success) in
                 if !success {
-                    print("error saving new eventID to currentUser in database")
+                    print("❌❌❌❌ error saving new eventID to currentUser in database")
+                } else {
+                    print("✅✅✅✅ User eventIDs updated in database")
                 }
             })
-            self.selectedEventID = uuid
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let eventDetailVC = storyboard.instantiateViewController(withIdentifier: "eventDetailVC") as! EventDetailTableViewController
-            
-            guard let selectedEvent = self.selectedEvent else { return }
-            eventDetailVC.event = selectedEvent
-            eventDetailVC.currentUser = currentUser
-            
-            DispatchQueue.main.async {
-                self.navigationController?.pushViewController(eventDetailVC, animated: true)
-            }
+            event.memberIDs.append(currentUser.uuid)
+            EventController.shared.updateAnEvent(event: event, eventName: event.eventName, memberIDs: event.memberIDs, startTime: event.startTime, endTime: event.endTime, details: event.details, location: event.location, completion: { (success) in
+                if success {
+                    print("✅✅✅✅ Success updating event info!")
+                } else {
+                    print("❌❌❌❌ error updating event in database")
+                }
+            })
+            self.transitionToDetailView(user: currentUser, event: event)
         }
+    }
+    
+    func transitionToDetailView(user: AppUser, event: Event) {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let eventDetailVC = storyboard.instantiateViewController(withIdentifier: "eventDetailVC") as! EventDetailTableViewController
+        let currentUser = user
+        let selectedEvent = event
+//        eventDetailVC.event = selectedEvent
+//        eventDetailVC.currentUser = currentUser
+        
+        if let eventDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "eventDetailVC") as? EventDetailTableViewController {
+            eventDetailVC.currentUser = currentUser
+            eventDetailVC.event = selectedEvent
+            present(eventDetailVC, animated: true, completion: nil)
+        }
+        
+//        DispatchQueue.main.async {
+//            self.present(EventDetailTableViewController(), animated: true, completion: nil)
+//        }
+//        self.navigationController?.pushViewController(eventDetailVC, animated: true)
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
