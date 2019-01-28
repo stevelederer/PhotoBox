@@ -67,14 +67,8 @@ class EnterCodeViewController: UIViewController, UITextFieldDelegate {
         if let eventDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "eventDetailVC") as? EventDetailTableViewController {
             eventDetailVC.currentUser = currentUser
             eventDetailVC.event = selectedEvent
-            present(eventDetailVC, animated: true, completion: nil)
+            self.navigationController?.pushViewController(eventDetailVC, animated: true)
         }
-        
-//        DispatchQueue.main.async {
-//            self.present(EventDetailTableViewController(), animated: true, completion: nil)
-//        }
-//        self.navigationController?.pushViewController(eventDetailVC, animated: true)
-        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

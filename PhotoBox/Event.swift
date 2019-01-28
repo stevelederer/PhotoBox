@@ -68,7 +68,7 @@ class Event: FirestoreFetchable {
         if let details = dictionary["details"] as? String? {
             self.details = details
         }
-        if let location = dictionary["locations"] as? String? {
+        if let location = dictionary["location"] as? String? {
             self.location = location
         }
         if let photoIDs = dictionary["photoIDs"] as? [String]? {
