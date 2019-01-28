@@ -985,7 +985,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lpu-nu-FHu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4965.6000000000004" y="779.55665024630548"/>
+            <point key="canvasLocation" x="4938" y="768"/>
         </scene>
         <!--Pop Up View Controller-->
         <scene sceneID="KHw-r8-jtT">
@@ -1024,7 +1024,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsi-Pi-42K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5812" y="768.4729064039409"/>
+            <point key="canvasLocation" x="5783" y="768"/>
         </scene>
     </scenes>
     <resources>

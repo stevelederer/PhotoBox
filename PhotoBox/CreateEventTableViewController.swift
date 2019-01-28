@@ -58,7 +58,7 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
 //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
 //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
+ 
 //    deinit {
 //        // stop listening for keyboard hide/show events
 //        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -103,7 +103,9 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        if let image = info[.editedImage] as? UIImage {
+            self.backgroundImage.image = image
+        } else if let image = info[.originalImage] as? UIImage {
             backgroundImage.image = image
             selectCoverPhotoButton.isHidden = true
         } else {
