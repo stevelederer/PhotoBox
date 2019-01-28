@@ -16,10 +16,10 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate{
         return MFMessageComposeViewController.canSendText()
     }
     
-    func configuredMessageComposeViewController(eventName: String, code: String) -> MFMessageComposeViewController {
+    func configuredMessageComposeViewController(eventName: String, code: String, creator: String) -> MFMessageComposeViewController {
         let messageComposeVC = MFMessageComposeViewController()
         messageComposeVC.messageComposeDelegate = self
-        messageComposeVC.body = "Hey! Download the PhotoBox app on the AppStore and enter code \(code) to join \(eventName) and share photos!"
+        messageComposeVC.body = "You’ve been invited to contribute to a PhotoBox! \(creator) has created a Photobox for \(eventName). To add your photos to the collection, open the Photobox app and enter \(code)."
         return messageComposeVC
     }
     

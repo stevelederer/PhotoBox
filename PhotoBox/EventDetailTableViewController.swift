@@ -19,6 +19,8 @@ class EventDetailTableViewController: UITableViewController {
     @IBOutlet weak var memberCollectionView: UICollectionView!
     @IBOutlet weak var liveFeedCollectionView: UICollectionView!
     @IBOutlet weak var expandCollapseButton: UIButton!
+    @IBOutlet weak var detailsLabel: UILabel!
+    
     
     var collectionIsExpanded = false
     var membersCollectionViewCellHeight: CGFloat {
@@ -96,6 +98,7 @@ class EventDetailTableViewController: UITableViewController {
             !location.isEmpty else { eventLocationLabel.isHidden = true ; return }
         eventLocationLabel.text = "Location: \(location)"
         eventCoverPhotoImageView.image = event.coverPhoto
+        detailsLabel.text = event.details
     }
     
     //   MARK: - Actions
@@ -109,8 +112,9 @@ class EventDetailTableViewController: UITableViewController {
     @IBAction func invitePeopleButtonTapped(_ sender: Any) {
         if (messageComposer.canSendText()) {
             guard let code = event?.eventCode,
+                let creator = currentUser?.name,
                 let name = event?.eventName else { return }
-            let messageComposerVC = messageComposer.configuredMessageComposeViewController(eventName: name, code: code)
+            let messageComposerVC = messageComposer.configuredMessageComposeViewController(eventName: name, code: code, creator: creator)
             
             present(messageComposerVC, animated: true, completion: nil)
         } else {
