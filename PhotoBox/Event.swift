@@ -48,20 +48,35 @@ class Event: FirestoreFetchable {
         self.coverPhotoURL = coverPhotoURL
     }
     
-    required convenience init?(with dictionary: [String : Any], id: String) {
+    required init?(with dictionary: [String : Any], id: String) {
         guard let eventName = dictionary["eventName"] as? String,
             let eventCode = dictionary["eventCode"] as? String,
             let creatorID = dictionary["creatorID"] as? String,
             let memberIDs = dictionary["memberIDs"] as? [String],
             let startTime = dictionary["startTime"] as? TimeInterval,
-            let endTime = dictionary["endTime"] as? TimeInterval,
-            let details = dictionary["details"] as? String?,
-            let location = dictionary["location"] as? String?,
-            let photoIDs = dictionary["photoIDs"] as? [String]?,
-            let coverPhoto = dictionary["coverPhoto"] as? UIImage?,
-            let coverPhotoURL = dictionary["coverPhotoURL"] as? String? else {return nil}
+            let endTime = dictionary["endTime"] as? TimeInterval
+            else {return nil}
         
-        self.init(uuid: id, eventName: eventName, eventCode: eventCode, creatorID: creatorID, memberIDs: memberIDs, startTime: startTime, endTime: endTime, details: details, location: location, photoIDs: photoIDs, coverPhoto: coverPhoto, coverPhotoURL: coverPhotoURL)
+        self.uuid = id
+        self.eventName = eventName
+        self.eventCode = eventCode
+        self.creatorID = creatorID
+        self.memberIDs = memberIDs
+        self.startTime = startTime
+        self.endTime = endTime
+        
+        if let details = dictionary["details"] as? String? {
+            self.details = details
+        }
+        if let location = dictionary["locations"] as? String? {
+            self.location = location
+        }
+        if let photoIDs = dictionary["photoIDs"] as? [String]? {
+            self.photoIDs = photoIDs
+        }
+        if let coverPhotoURL = dictionary["coverPhotoURL"] as? String? {
+            self.coverPhotoURL = coverPhotoURL
+        }
     }
 }
 
@@ -79,7 +94,6 @@ extension Event {
             "details" : details,
             "location" : location,
             "photoIDs" : photoIDs,
-            "coverPhoto" : coverPhoto,
             "coverPhotoURL" : coverPhotoURL
         ]
     }

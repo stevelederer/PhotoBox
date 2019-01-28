@@ -184,7 +184,7 @@ class FirebaseManager {
             var returnValue: [T] = []
             for dictionary in dictionaries {
                 guard let uuid = dictionary["uuid"] as? String,
-                    let object = T(with: dictionary, id: uuid) else { completion(nil) ; return }
+                    let object = T(with: dictionary, id: uuid) else { print("🚨🚨🚨 problem on firebasemanager line 187") ; completion(nil) ; return }
                 returnValue.append(object)
             }
             completion(returnValue)

@@ -25,7 +25,7 @@ class EventController {
     
     
     // Create an event
-    func createAnEvent(eventName: String, creatorID: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, coverPhoto: UIImage?, completion: @escaping (Event?) -> Void) {
+    func createAnEvent(eventName: String, creatorID: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, completion: @escaping (Event?) -> Void) {
         
         var newEventCode: String = ""
         randomEventCode { (newCode) in
@@ -33,7 +33,7 @@ class EventController {
             newEventCode = newCode
         }
         
-        let newEvent = Event(eventName: eventName, eventCode: newEventCode, creatorID: creatorID, memberIDs: memberIDs, startTime: startTime, endTime: endTime, details: details, location: location/*, coverPhoto: coverPhoto*/)
+        let newEvent = Event(eventName: eventName, eventCode: newEventCode, creatorID: creatorID, memberIDs: memberIDs, startTime: startTime, endTime: endTime, details: details, location: location)
         
         FirebaseManager.saveData(object: newEvent) { (error) in
             if let error = error {
@@ -75,7 +75,7 @@ class EventController {
     }
     
     // Update an event
-    func updateAnEvent(event: Event, eventName: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, coverPhoto: UIImage?, completion: @escaping (Bool) -> Void) {
+    func updateAnEvent(event: Event, eventName: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, completion: @escaping (Bool) -> Void) {
         
         event.eventName = eventName
         event.memberIDs = memberIDs
@@ -83,7 +83,6 @@ class EventController {
         event.endTime = endTime
         event.details = details
         event.location = location
-        event.coverPhoto = coverPhoto
         
         FirebaseManager.updateData(obect: event, dictionary: event.dictionary) { (error) in
             if let error = error {

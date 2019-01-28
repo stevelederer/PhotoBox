@@ -46,13 +46,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          */
         
         //Test fetching an event with criteria
-        FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "eventCode", criteria: "KKYL", inArray: false) { (events: [Event]?) in
-            if let events = events {
-                print("✅Event Found! Event Name is \(String(describing: events.first?.eventName))")
-            } else {
-                print("❌No event found for that code")
-            }
-        }
+//        FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "eventCode", criteria: "KKYL", inArray: false) { (events: [Event]?) in
+//            if let events = events {
+//                print("✅Event Found! Event Name is \(String(describing: events.first?.eventName))")
+//            } else {
+//                print("❌No event found for that code")
+//            }
+//        }
         return true
     }
 }
