@@ -13,5 +13,15 @@ class MemberCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var memberPhotoImageView: UIImageView!
     @IBOutlet weak var memberName: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        memberPhotoImageView.layer.cornerRadius = memberPhotoImageView.frame.height / 2
+        memberPhotoImageView.clipsToBounds = true
+        memberPhotoImageView.contentMode = .scaleAspectFill
+    }
   
 }
