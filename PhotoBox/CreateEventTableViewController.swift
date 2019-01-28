@@ -105,6 +105,7 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage {
             self.backgroundImage.image = image
+            selectCoverPhotoButton.isHidden = true
         } else if let image = info[.originalImage] as? UIImage {
             backgroundImage.image = image
             selectCoverPhotoButton.isHidden = true
