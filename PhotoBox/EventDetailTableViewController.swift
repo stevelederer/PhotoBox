@@ -166,14 +166,17 @@ class EventDetailTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 && indexPath.row == 1 {
-            return membersTableViewCellHeight
-        } else {
-            return 248
-        }
-    }
+//    
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.section == 0 && indexPath.row == 0 {
+//            return 128
+//        } else if indexPath.section == 0 && indexPath.row == 2 {
+//            return 90
+//        }
+//        else {
+//            return UITableView.automaticDimension
+//        }
+//    }
     
     /*
      // MARK: - Navigation
