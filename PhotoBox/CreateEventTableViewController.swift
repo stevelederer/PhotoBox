@@ -61,14 +61,15 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
         
         let backGroundimage = UIImagePickerController()
         backGroundimage.delegate = self
-        backGroundimage.sourceType = UIImagePickerController.SourceType.photoLibrary
+        backGroundimage.sourceType = .photoLibrary
         backGroundimage.allowsEditing = true
-        backGroundimage.setEditing(true, animated: true)
         self.present(backGroundimage, animated: true)
         
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        if let image = info[.editedImage] as? UIImage {
+            self.backgroundImage.image = image
+        } else if let image = info[.originalImage] as? UIImage {
             backgroundImage.image = image
         } else {
             print("Error picking image)")

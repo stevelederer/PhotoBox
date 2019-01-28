@@ -47,7 +47,7 @@
                                                         <action selector="importBackgroundImage:" destination="hL1-3n-qwa" eventType="touchUpInside" id="ZOT-dF-IVr"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OXi-C6-bTs">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OXi-C6-bTs">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="127.66666666666667"/>
                                                 </imageView>
                                             </subviews>
@@ -651,7 +651,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eIs-nh-KRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4050" y="743"/>
+            <point key="canvasLocation" x="4057" y="768"/>
         </scene>
         <!--Title-->
         <scene sceneID="Dxo-Vg-IBG">
@@ -952,7 +952,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lpu-nu-FHu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4965.6000000000004" y="779.55665024630548"/>
+            <point key="canvasLocation" x="4938" y="768"/>
         </scene>
         <!--Pop Up View Controller-->
         <scene sceneID="KHw-r8-jtT">
@@ -991,7 +991,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsi-Pi-42K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5812" y="768.4729064039409"/>
+            <point key="canvasLocation" x="5783" y="768"/>
         </scene>
     </scenes>
     <resources>
