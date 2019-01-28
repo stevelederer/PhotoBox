@@ -185,9 +185,9 @@ class EventController {
         }
     }
     
-    func fetchMembers(for event: Event, completion: @escaping ([BasicProfile]?) -> Void) {
+    func fetchMembers(for event: Event, completion: @escaping ([AppUser]?) -> Void) {
         
-        FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "eventIDs", criteria: event.uuid, inArray: false) { (users: [BasicProfile]?) in
+        FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "eventIDs", criteria: event.uuid, inArray: true) { (users: [AppUser]?) in
             guard let users = users else { completion(nil) ; return }
             
             completion(users)

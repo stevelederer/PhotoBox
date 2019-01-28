@@ -17,11 +17,11 @@ class PhotoController {
     
     static let shared = PhotoController()
     
-    func fetchProfileImages(for basicProfile: BasicProfile, completion: @escaping (UIImage?) -> Void) {
-        guard let profilePicURL = basicProfile.profilePicURL else { return }
+    func fetchProfileImages(for appUser: AppUser, completion: @escaping (UIImage?) -> Void) {
+        guard let profilePicURL = appUser.profilePicURL else { return }
         FirebaseManager.fetchPhotoFromFirebase(url: profilePicURL) { (success, profilePic) in
             if !success {
-                print("there was an error fetching the profile picture for user: \(basicProfile.name)")
+                print("there was an error fetching the profile picture for user: \(appUser.name)")
                 completion(nil)
                 return
             } else {

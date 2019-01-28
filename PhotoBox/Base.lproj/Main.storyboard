@@ -806,7 +806,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="56" height="84"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steve" translatesAutoresizingMaskIntoConstraints="NO" id="ZPN-YL-Blp">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steve" translatesAutoresizingMaskIntoConstraints="NO" id="ZPN-YL-Blp">
                                                                         <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="ZPN-YL-Blp" secondAttribute="height" multiplier="1:1" id="vLM-xk-3o8"/>

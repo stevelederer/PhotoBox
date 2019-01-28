@@ -10,7 +10,7 @@ import UIKit
 
 class MemberDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var members: [BasicProfile]?
+    var members: [AppUser]?
     var profilePics: [UIImage] = []
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
