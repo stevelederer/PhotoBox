@@ -10,12 +10,12 @@ import UIKit
 
 class Photo: FirestoreFetchable, FirebaseStorable {
     
-    static var CollectionName: String = "photo"
+    static var CollectionName: String = "photos"
     
     let image: UIImage?
     let uuid: String
     let eventID: String
-    let imageURL: String?
+    var imageURL: String?
     let creatorID: String
     var data: Data {
         guard let image = self.image,

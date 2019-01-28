@@ -16,9 +16,10 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var termsAndConditionsButton: UnderlineButtonTextGray!
+    @IBOutlet weak var termsAndConditionsButton: UnderlineButtonTextDarkGray!
     @IBOutlet weak var checkBoxButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var logInButton: UnderlineButtonTextDarkGray!
     
     var acceptedTermsAndContitions = false
     
@@ -48,6 +49,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         checkBoxButton.layer.borderColor = darkGrayBorder.cgColor
         checkBoxButton.layer.cornerRadius = 5
         termsAndConditionsButton.setTitle("Terms and conditions", for: .normal)
+        logInButton.setTitle("LOG IN", for: .normal)
     }
     
      //   MARK: - TextfieldDelegate Methods
@@ -98,6 +100,10 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             checkBoxButton.setTitle("", for: .normal)
             acceptedTermsAndContitions = false
         }
+    }
+    
+    @IBAction func logInButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func presentRequiredFieldAlert() {

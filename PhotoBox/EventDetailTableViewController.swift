@@ -11,10 +11,11 @@ import UIKit
 class EventDetailTableViewController: UITableViewController {
     
     @IBOutlet weak var eventCoverPhotoImageView: UIImageView!
-    @IBOutlet weak var eventName: UILabel!
-    @IBOutlet weak var startDate: UILabel!
-    @IBOutlet weak var eventLocation: UILabel!
-    @IBOutlet weak var creator: UILabel!
+    @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var startDateLabel: UILabel!
+    @IBOutlet weak var eventLocationLabel: UILabel!
+    @IBOutlet weak var creatorLabel: UILabel!
+    @IBOutlet weak var inviteButton: UIButton!
     @IBOutlet weak var memberCollectionView: UICollectionView!
     @IBOutlet weak var liveFeedCollectionView: UICollectionView!
     @IBOutlet weak var expandCollapseButton: UIButton!
@@ -35,10 +36,13 @@ class EventDetailTableViewController: UITableViewController {
     
     //Landing Pad
     var event: Event?
+    var currentUser: AppUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
+        navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
+        inviteButton.layer.cornerRadius = inviteButton.frame.height / 2
         membersTableViewCellHeight = membersCollectionViewCellHeight
         // Set both collection view data source's to respective data source
         memberCollectionView.dataSource = memberDataSource
@@ -60,6 +64,19 @@ class EventDetailTableViewController: UITableViewController {
                 self.liveFeedCollectionView.reloadData()
             }
         }
+
+        guard let coverPhotoURL = event.coverPhotoURL else { return }
+        FirebaseManager.fetchPhotoFromFirebase(url: coverPhotoURL) { (success, backgroundImage) in
+            if success {
+                event.coverPhoto = backgroundImage
+                DispatchQueue.main.async {
+                    self.eventCoverPhotoImageView.image = backgroundImage
+                }
+            } else {
+                print("🚨 No cover photo downloaded.")
+            }
+        }
+        
     }
     
     // MARK: - Setup
@@ -68,14 +85,16 @@ class EventDetailTableViewController: UITableViewController {
         guard let event = event else { return }
         FirebaseManager.fetchFromFirestore(uuid: event.creatorID) { (user: AppUser?) in
             if let user = user {
-                self.creator.text = "Event Host: \(user.name)"
+                DispatchQueue.main.async {
+                    self.creatorLabel.text = "Event Host: \(user.name)"
+                }
             }
         }
-        eventName.text = event.eventName
-        startDate.text = "Date: \(event.formattedStartTime)"
+        eventNameLabel.text = event.eventName
+        startDateLabel.text = "Date: \(event.formattedStartTime)"
         guard let location = event.location,
-            !location.isEmpty else { eventLocation.isHidden = true ; return }
-        eventLocation.text = "Location: \(location)"
+            !location.isEmpty else { eventLocationLabel.isHidden = true ; return }
+        eventLocationLabel.text = "Location: \(location)"
         eventCoverPhotoImageView.image = event.coverPhoto
     }
     

@@ -25,7 +25,7 @@ class EventController {
     
     
     // Create an event
-    func createAnEvent(eventName: String, creatorID: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, coverPhoto: UIImage?, completion: @escaping (Event?) -> Void) {
+    func createAnEvent(eventName: String, creatorID: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, completion: @escaping (Event?) -> Void) {
         
         var newEventCode: String = ""
         randomEventCode { (newCode) in
@@ -33,7 +33,7 @@ class EventController {
             newEventCode = newCode
         }
         
-        let newEvent = Event(eventName: eventName, eventCode: newEventCode, creatorID: creatorID, memberIDs: memberIDs, startTime: startTime, endTime: endTime, details: details, location: location/*, coverPhoto: coverPhoto*/)
+        let newEvent = Event(eventName: eventName, eventCode: newEventCode, creatorID: creatorID, memberIDs: memberIDs, startTime: startTime, endTime: endTime, details: details, location: location)
         
         FirebaseManager.saveData(object: newEvent) { (error) in
             if let error = error {
@@ -49,7 +49,7 @@ class EventController {
     }
     
     func randomEventCode(completion: @escaping (String?) -> Void) {
-        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789"
         let newCode = String((0...3).map{ _ in characters.randomElement()! })
         var returnedEvents: [Event] = []
         
@@ -75,7 +75,7 @@ class EventController {
     }
     
     // Update an event
-    func updateAnEvent(event: Event, eventName: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, coverPhoto: UIImage?, completion: @escaping (Bool) -> Void) {
+    func updateAnEvent(event: Event, eventName: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String?, location: String?, completion: @escaping (Bool) -> Void) {
         
         event.eventName = eventName
         event.memberIDs = memberIDs
@@ -83,7 +83,6 @@ class EventController {
         event.endTime = endTime
         event.details = details
         event.location = location
-        event.coverPhoto = coverPhoto
         
         FirebaseManager.updateData(obect: event, dictionary: event.dictionary) { (error) in
             if let error = error {
@@ -168,7 +167,7 @@ class EventController {
     // admin can edit people in event
     
     func adminEditAttendees() {
-        #warning("?")
+        #warning("remove attendees")
     }
     
     func fetchEvents(completion: @escaping (Bool, [BasicEvent]?) -> Void) {

@@ -184,7 +184,7 @@ class FirebaseManager {
             var returnValue: [T] = []
             for dictionary in dictionaries {
                 guard let uuid = dictionary["uuid"] as? String,
-                    let object = T(with: dictionary, id: uuid) else { completion(nil) ; return }
+                    let object = T(with: dictionary, id: uuid) else { print("🚨🚨🚨 problem on firebasemanager line 187") ; completion(nil) ; return }
                 returnValue.append(object)
             }
             completion(returnValue)
@@ -252,15 +252,22 @@ class FirebaseManager {
     
     static func uploadPhotoToFirebase<T: FirebaseStorable>(_ object: T, completion: @escaping (URL?, Error?) -> Void) {
         let storageRef = object.storageReference
-        storageRef.putData(object.data, metadata: nil) { (metadata, error) in
+        let objectRef = storageRef.child("\(object.uuid).jpg")
+        let _ = objectRef.putData(object.data, metadata: nil) { (metadata, error) in
+            guard let _ = metadata else {
+                completion(nil, nil)
+                return
+            }
             if let error = error {
                 print(error.localizedDescription)
                 completion(nil, error)
                 return
             }
             
-            metadata?.storageReference?.downloadURL(completion: { (url, _) in
-                completion(url, nil)
+            objectRef.downloadURL(completion: { (url, error) in
+                guard let downloadURL = url else { return }
+                print(downloadURL)
+                completion(downloadURL, nil)
             })
         }
     }

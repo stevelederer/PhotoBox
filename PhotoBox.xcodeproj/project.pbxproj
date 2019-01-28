@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		1B07485921F153BF0030D907 /* LoggedOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07485821F153BF0030D907 /* LoggedOutViewController.swift */; };
 		1B07485B21F15ADB0030D907 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07485A21F15ADB0030D907 /* LoginPageViewController.swift */; };
-		1B07485E21F160C70030D907 /* UnderlineButtonTextGray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07485D21F160C70030D907 /* UnderlineButtonTextGray.swift */; };
+		1B07485E21F160C70030D907 /* UnderlineButtonTextLightGray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07485D21F160C70030D907 /* UnderlineButtonTextLightGray.swift */; };
 		1B07486021F16A090030D907 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07485F21F16A090030D907 /* SignupViewController.swift */; };
 		1B07486221F16E4E0030D907 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07486121F16E4E0030D907 /* LoginTextField.swift */; };
 		1B17856221F29BD600CDADAC /* BasicUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B17856121F29BD600CDADAC /* BasicUserController.swift */; };
+		1B34890B21FD55E7000AFF0D /* UnderlineButtonTextDarkGray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B34890A21FD55E7000AFF0D /* UnderlineButtonTextDarkGray.swift */; };
 		1B4B13A621F1733B002040A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */; };
 		1B4B13A821F18B03002040A6 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13A721F18B03002040A6 /* NewEventViewController.swift */; };
 		1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13AC21F279FB002040A6 /* UserController.swift */; };
@@ -94,10 +95,11 @@
 		1B07485721F14BFA0030D907 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		1B07485821F153BF0030D907 /* LoggedOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutViewController.swift; sourceTree = "<group>"; };
 		1B07485A21F15ADB0030D907 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
-		1B07485D21F160C70030D907 /* UnderlineButtonTextGray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButtonTextGray.swift; sourceTree = "<group>"; };
+		1B07485D21F160C70030D907 /* UnderlineButtonTextLightGray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButtonTextLightGray.swift; sourceTree = "<group>"; };
 		1B07485F21F16A090030D907 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		1B07486121F16E4E0030D907 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		1B17856121F29BD600CDADAC /* BasicUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUserController.swift; sourceTree = "<group>"; };
+		1B34890A21FD55E7000AFF0D /* UnderlineButtonTextDarkGray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButtonTextDarkGray.swift; sourceTree = "<group>"; };
 		1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B4B13A721F18B03002040A6 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		1B4B13AC21F279FB002040A6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -215,7 +217,8 @@
 		1B07485C21F160B70030D907 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				1B07485D21F160C70030D907 /* UnderlineButtonTextGray.swift */,
+				1B07485D21F160C70030D907 /* UnderlineButtonTextLightGray.swift */,
+				1B34890A21FD55E7000AFF0D /* UnderlineButtonTextDarkGray.swift */,
 				1B9AF9AB21F98DA80003C220 /* UnderlineButtonTextPurple.swift */,
 				1B07486121F16E4E0030D907 /* LoginTextField.swift */,
 				E9E9660921F955420038218E /* MessageComposer.swift */,
@@ -548,11 +551,12 @@
 				1B07486021F16A090030D907 /* SignupViewController.swift in Sources */,
 				1BAF23D021FB823A00E26504 /* FirebaseStorable.swift in Sources */,
 				E9E9660A21F955420038218E /* MessageComposer.swift in Sources */,
+				1B34890B21FD55E7000AFF0D /* UnderlineButtonTextDarkGray.swift in Sources */,
 				1BAF23AF21FAD03C00E26504 /* PhotoSelectViewController.swift in Sources */,
 				1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */,
 				1BCEF0FD21F97B2300662756 /* SettingsTableViewCell.swift in Sources */,
 				E9E9660221F937D50038218E /* MemberDataSource.swift in Sources */,
-				1B07485E21F160C70030D907 /* UnderlineButtonTextGray.swift in Sources */,
+				1B07485E21F160C70030D907 /* UnderlineButtonTextLightGray.swift in Sources */,
 				1B61AEBD21F91B0A007C6C06 /* ForgotPasswordViewController.swift in Sources */,
 				E9F3BA2C21FA9CF200D17003 /* EnterCodeViewController.swift in Sources */,
 				E957776521F7F89D000F8E7A /* CreateEventTableViewController.swift in Sources */,
@@ -730,7 +734,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2446Y3VTK6;
+				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = PhotoBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -749,7 +753,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2446Y3VTK6;
+				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = PhotoBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

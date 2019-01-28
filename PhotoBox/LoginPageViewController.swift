@@ -13,8 +13,8 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var signUpButton: UnderlineButtonTextGray!
-    @IBOutlet weak var forgotPasswordButton: UnderlineButtonTextGray!
+    @IBOutlet weak var signUpButton: UnderlineButtonTextDarkGray!
+    @IBOutlet weak var forgotPasswordButton: UnderlineButtonTextLightGray!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
             self.view.backgroundColor = UIColor(patternImage: backgroundImage)
         }
         
-        let darkGrayBorder: UIColor = UIColor(displayP3Red: 0.59, green: 0.59, blue: 0.59, alpha: 1)
+        guard let darkGrayBorder: UIColor = UIColor(named: "textDarkGray") else { return }
         emailTextField.layer.borderWidth = 3
         emailTextField.layer.borderColor = darkGrayBorder.cgColor
         emailTextField.layer.cornerRadius = emailTextField.frame.height / 2
@@ -31,12 +31,7 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 2
         forgotPasswordButton.setTitle("Forgot Password", for: .normal)
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
-        loginButton.backgroundColor = UIColor(red:0.43, green:0.44, blue:0.78, alpha:1)
-        loginButton.setTitleColor(.white, for: .normal)
         signUpButton.setTitle("SIGN UP", for: .normal)
-        
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,16 +80,4 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

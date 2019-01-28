@@ -23,26 +23,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //Source of truth
     var events: [BasicEvent]?
+    var currentUser = UserController.shared.currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let currentUser = UserController.shared.currentUser
-        settingsDropDown.isHidden = true
-        displayNameLabel.text = currentUser?.name
-        usernameLabel.text = currentUser?.username
-        if let url = currentUser?.profilePicURL {
-            FirebaseManager.fetchPhotoFromFirebase(url: url) { (_, image) in
-                if let image = image {
-                    self.profilePicImageView.image = image
-                }
-            }
-        }
-
         self.setNavigationItem()
         self.navigationController?.navigationBar.layer.masksToBounds = false
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
         self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
-        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 3.0)
         self.navigationController?.navigationBar.layer.shadowRadius = 5
         let navigationTitleFont = UIFont(name: "OpenSans-SemiBold", size: 20)
         let navigationTitleColor = UIColor(named: "textDarkGray")
@@ -60,6 +49,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         settingsDropDown.isHidden = true
         if let index = self.settingsDropDown.indexPathForSelectedRow {
             self.settingsDropDown.deselectRow(at: index, animated: true)
+        }
+        settingsDropDown.isHidden = true
+        currentUser = UserController.shared.currentUser
+        updateViews()
+    }
+    
+    func updateViews() {
+        displayNameLabel.text = currentUser?.name
+        usernameLabel.text = currentUser?.username
+        if let url = currentUser?.profilePicURL {
+            FirebaseManager.fetchPhotoFromFirebase(url: url) { (_, image) in
+                if let image = image {
+                    self.profilePicImageView.image = image
+                    self.currentUser?.profilePic = image
+                }
+            }
         }
     }
     
@@ -102,13 +107,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = settingArray.object(at: indexPath.row) as! NSString
         if selectedItem.isEqual(to: "Settings") {
-            self.performSegue(withIdentifier: "toSettingsScreen", sender: self)
+            toSettingsScreenButtonTapped()
         } else if selectedItem.isEqual(to: "Logout") {
             print("Now logging out...Goodbye!")
             UserController.shared.logOutUser { (success) in
                 if success {
                     self.performSegue(withIdentifier: "unwindToLoginPage", sender: self)
                 }
+            }
+        }
+    }
+    
+    func toSettingsScreenButtonTapped() {
+        self.performSegue(withIdentifier: "toSettingsScreen", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSettingsScreen" {
+            if let destinationVC = segue.destination as? SettingsViewController {
+                guard let currentUser = UserController.shared.currentUser else { return }
+                destinationVC.currentUser = currentUser
             }
         }
     }
