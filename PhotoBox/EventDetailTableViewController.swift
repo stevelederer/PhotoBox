@@ -21,7 +21,6 @@ class EventDetailTableViewController: UITableViewController {
     @IBOutlet weak var expandCollapseButton: UIButton!
     @IBOutlet weak var detailsLabel: UILabel!
     
-    
     var collectionIsExpanded = false
     let membersCollectionViewCellHeight: CGFloat = 84
     var membersTableViewCellHeight: CGFloat = 0
@@ -116,8 +115,6 @@ class EventDetailTableViewController: UITableViewController {
         self.performSegue(withIdentifier: "unwindToHomePage", sender: self)
     }
     
-    
-    
     @IBAction func invitePeopleButtonTapped(_ sender: Any) {
         if (messageComposer.canSendText()) {
             guard let code = event?.eventCode,
@@ -140,18 +137,6 @@ class EventDetailTableViewController: UITableViewController {
     @IBAction func expandCollapseButtonTapped(_ sender: UIButton) {
         let buttonRotateClockwise = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         if !collectionIsExpanded {
-//            UIView.animate(withDuration: 0.3) {
-//                sender.transform = buttonRotateClockwise
-//                self.tableView.beginUpdates()
-//                self.membersTableViewCellHeight = self.expandedTableViewCellHeight
-//                self.tableView.endUpdates()
-//            }
-//            UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
-//                sender.transform = buttonRotateClockwise
-//                self.tableView.beginUpdates()
-//                self.membersTableViewCellHeight = self.expandedTableViewCellHeight
-//                self.tableView.endUpdates()
-//            }, completion: nil)
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 4, options: [.curveEaseInOut], animations: {
                 sender.transform = buttonRotateClockwise
                 self.tableView.beginUpdates()
@@ -159,18 +144,6 @@ class EventDetailTableViewController: UITableViewController {
                 self.tableView.endUpdates()
             }, completion: nil)
         } else {
-//            UIView.animate(withDuration: 0.3) {
-//                sender.transform = .identity
-//                self.tableView.beginUpdates()
-//                self.membersTableViewCellHeight = self.membersCollectionViewCellHeight + 52
-//                self.tableView.endUpdates()
-//            }
-//            UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
-//                sender.transform = .identity
-//                self.tableView.beginUpdates()
-//                self.membersTableViewCellHeight = self.membersCollectionViewCellHeight + 52
-//                self.tableView.endUpdates()
-//            }, completion: nil)
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 4, options: [.curveEaseInOut], animations: {
                 sender.transform = .identity
                 self.tableView.beginUpdates()
