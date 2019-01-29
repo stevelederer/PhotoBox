@@ -12,6 +12,7 @@ class MemberCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var memberPhotoImageView: UIImageView!
     @IBOutlet weak var memberName: UILabel!
+    @IBOutlet weak var memberAdminLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
