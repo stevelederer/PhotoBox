@@ -22,7 +22,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var logInButton: UnderlineButtonTextDarkGray!
     
     var acceptedTermsAndContitions = false
-//    var shiftedView: CGFloat = 0
+    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -54,48 +54,15 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     
      //   MARK: - TextfieldDelegate Methods
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == nameTextField {
-            UIView.animate(withDuration: 0.3,
-                           delay: 0,
-                           options: [.curveEaseInOut],
-                           animations: { self.view.frame.origin.y = -100 },
-                           completion: nil)
-        }
-        if textField == usernameTextField {
-            UIView.animate(withDuration: 0.3,
-                            delay: 0,
-                            options: [.curveEaseInOut],
-                            animations: { self.view.frame.origin.y = -150 },
-                            completion: nil)
-        }
-        if textField == emailTextField {
-            UIView.animate(withDuration: 0.3,
-                           delay: 0,
-                           options: [.curveEaseInOut],
-                           animations: { self.view.frame.origin.y = -175 },
-                           completion: nil)
-        } else if textField == passwordTextField {
-            UIView.animate(withDuration: 0.3,
-                           delay: 0,
-                           options: [.curveEaseInOut],
-                           animations: { self.view.frame.origin.y = -205 },
-                           completion: nil)
-        }
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameTextField {
-            usernameTextField.becomeFirstResponder()
-        } else if textField == usernameTextField {
             emailTextField.becomeFirstResponder()
         } else if textField == emailTextField {
+            usernameTextField.becomeFirstResponder()
+        } else if textField == usernameTextField {
             passwordTextField.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
-            UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
-                self.view.frame.origin.y = 0
-            }, completion: nil)
         }
         return true
     }
