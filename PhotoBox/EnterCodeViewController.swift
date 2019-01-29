@@ -57,12 +57,8 @@ class EnterCodeViewController: UIViewController, UITextFieldDelegate {
     }
     
     func transitionToDetailView(user: AppUser, event: Event) {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let eventDetailVC = storyboard.instantiateViewController(withIdentifier: "eventDetailVC") as! EventDetailTableViewController
         let currentUser = user
         let selectedEvent = event
-//        eventDetailVC.event = selectedEvent
-//        eventDetailVC.currentUser = currentUser
         
         if let eventDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "eventDetailVC") as? EventDetailTableViewController {
             eventDetailVC.currentUser = currentUser
@@ -75,6 +71,13 @@ class EnterCodeViewController: UIViewController, UITextFieldDelegate {
         guard let text = enterCodeTextField.text else { return true }
         let count = text.count + string.count - range.length
         return count <= 4
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == enterCodeTextField {
+            self.continueButtonTapped(continueButton)
+        }
+        return true
     }
     
     func presentRequiredFieldAlert() {

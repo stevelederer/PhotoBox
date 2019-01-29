@@ -21,16 +21,15 @@ class EventDetailTableViewController: UITableViewController {
     @IBOutlet weak var expandCollapseButton: UIButton!
     @IBOutlet weak var detailsLabel: UILabel!
     
-    
     var collectionIsExpanded = false
-    var membersCollectionViewCellHeight: CGFloat {
-        return memberCollectionView.frame.height
-    }
+    let membersCollectionViewCellHeight: CGFloat = 84
     var membersTableViewCellHeight: CGFloat = 0
     var expandedTableViewCellHeight: CGFloat {
         return determineTableViewCellHeight()
     }
-    var numberOfRows = 0
+    var numberOfMemberRows = 0
+    var numberOfMembers: Int?
+    var row4Height: CGFloat = 0
     
     var memberDataSource = MemberDataSource()
     var feedDataSource = FeedDataSource()
@@ -45,7 +44,7 @@ class EventDetailTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
         navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
         inviteButton.layer.cornerRadius = inviteButton.frame.height / 2
-        membersTableViewCellHeight = membersCollectionViewCellHeight
+        membersTableViewCellHeight = membersCollectionViewCellHeight + 52
         // Set both collection view data source's to respective data source
         memberCollectionView.dataSource = memberDataSource
         liveFeedCollectionView.dataSource = feedDataSource
@@ -53,6 +52,15 @@ class EventDetailTableViewController: UITableViewController {
         guard let event = event else { return }
         EventController.shared.fetchMembers(for: event) { (fetchedMembers) in
             if let fetchedMembers = fetchedMembers {
+                self.numberOfMembers = fetchedMembers.count
+                if fetchedMembers.count <= 5 {
+                    self.expandCollapseButton.isHidden = true
+                } else {
+                    self.expandCollapseButton.isHidden = false
+                    self.tableView.beginUpdates()
+                    self.row4Height = 44
+                    self.tableView.endUpdates()
+                }
                 self.memberDataSource.members = fetchedMembers
                 DispatchQueue.main.async {
                     self.memberCollectionView.reloadData()
@@ -107,8 +115,6 @@ class EventDetailTableViewController: UITableViewController {
         self.performSegue(withIdentifier: "unwindToHomePage", sender: self)
     }
     
-    
-    
     @IBAction func invitePeopleButtonTapped(_ sender: Any) {
         if (messageComposer.canSendText()) {
             guard let code = event?.eventCode,
@@ -131,61 +137,57 @@ class EventDetailTableViewController: UITableViewController {
     @IBAction func expandCollapseButtonTapped(_ sender: UIButton) {
         let buttonRotateClockwise = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         if !collectionIsExpanded {
-            UIView.animate(withDuration: 0.3) {
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 4, options: [.curveEaseInOut], animations: {
                 sender.transform = buttonRotateClockwise
-                self.tableView.beginUpdates()
-                self.membersTableViewCellHeight = self.membersCollectionViewCellHeight
-                self.tableView.endUpdates()
-            }
-        } else {
-            UIView.animate(withDuration: 0.3) {
-                sender.transform = .identity
                 self.tableView.beginUpdates()
                 self.membersTableViewCellHeight = self.expandedTableViewCellHeight
                 self.tableView.endUpdates()
-            }
+            }, completion: nil)
+        } else {
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 4, options: [.curveEaseInOut], animations: {
+                sender.transform = .identity
+                self.tableView.beginUpdates()
+                self.membersTableViewCellHeight = self.membersCollectionViewCellHeight + 52
+                self.tableView.endUpdates()
+            }, completion: nil)
         }
         collectionIsExpanded = !collectionIsExpanded
     }
     
     func determineTableViewCellHeight() -> CGFloat {
-//        guard let numberOfMembers = memberDataSource.members?.count else { return 0 }
-        let numberOfMembers = 20
+        guard let numberOfMembers = memberDataSource.members?.count else { return 0 }
         if numberOfMembers > 5 {
             if numberOfMembers % 5 >= 1 {
-                numberOfRows = (numberOfMembers / 5) + 1
+                numberOfMemberRows = (numberOfMembers / 5) + 1
             } else {
-                numberOfRows = numberOfMembers / 5
+                numberOfMemberRows = numberOfMembers / 5
             }
             let cellHeight = self.membersCollectionViewCellHeight
-            return (CGFloat(numberOfRows) * cellHeight) + CGFloat(((numberOfRows - 1) * 16))
+            return (CGFloat(numberOfMemberRows) * cellHeight) + CGFloat(((numberOfMemberRows - 1) * 16) + 52)
         } else if numberOfMembers <= 5 {
-            return self.membersCollectionViewCellHeight
+            return self.membersCollectionViewCellHeight + 52
         }
         return self.membersCollectionViewCellHeight
     }
     
     // MARK: - Table view data source
-//    
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if indexPath.section == 0 && indexPath.row == 0 {
-//            return 128
-//        } else if indexPath.section == 0 && indexPath.row == 2 {
-//            return 90
-//        }
-//        else {
-//            return UITableView.automaticDimension
-//        }
-//    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                return 128
+            } else if indexPath.row == 1 || indexPath.row == 2 {
+                return 64
+            } else if indexPath.row == 3 {
+                return membersTableViewCellHeight
+            } else if indexPath.row == 4 {
+                return self.row4Height
+            } else {
+                return 248
+            }
+        } else {
+            return UITableView.automaticDimension
+        }
+    }
     
 }
