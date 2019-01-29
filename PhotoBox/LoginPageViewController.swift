@@ -18,9 +18,9 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let backgroundImage = UIImage(named: "PhotoBoxBackgroundLight") {
-            self.view.backgroundColor = UIColor(patternImage: backgroundImage)
-        }
+//        if let backgroundImage = UIImage(named: "PhotoBoxBackgroundLight") {
+//            self.view.backgroundColor = UIColor(patternImage: backgroundImage)
+//        }
         
         guard let darkGrayBorder: UIColor = UIColor(named: "textDarkGray") else { return }
         emailTextField.layer.borderWidth = 3
