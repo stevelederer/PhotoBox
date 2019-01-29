@@ -406,38 +406,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h78-Qs-ZlR">
-                                <rect key="frame" x="79.666666666666686" y="211.33333333333334" width="216" height="56.000000000000028"/>
-                                <color key="backgroundColor" name="buttonPurple"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="P9t-pj-rdm"/>
-                                    <constraint firstAttribute="width" constant="216" id="zf8-zv-hUs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="22"/>
-                                <state key="normal" title="CREATE EVENT">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="createEventButtonTapped:" destination="cON-SR-WLr" eventType="touchUpInside" id="FJ6-zl-QgW"/>
-                                    <segue destination="tnf-IY-9L5" kind="show" id="M5y-hq-JTF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cw-fX-Zch">
-                                <rect key="frame" x="79.666666666666686" y="291.33333333333331" width="216" height="56"/>
-                                <color key="backgroundColor" name="buttonPurple"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="4bb-Ki-fcf"/>
-                                    <constraint firstAttribute="width" constant="216" id="pFK-jC-A4K"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="22"/>
-                                <state key="normal" title="JOIN EVENT">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="joinEventButtonTapped:" destination="cON-SR-WLr" eventType="touchUpInside" id="DAw-gj-bod"/>
-                                    <segue destination="Qfg-xb-9vd" kind="show" id="OLy-ud-FNF"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rvL-Ik-sRw">
                                 <rect key="frame" x="15" y="106" width="72" height="72"/>
                                 <constraints>
@@ -445,8 +413,8 @@
                                     <constraint firstAttribute="width" constant="72" id="bKO-U8-jHf"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Past Group Albums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yq-BS-Dmo">
-                                <rect key="frame" x="16" y="385.33333333333331" width="166.66666666666666" height="24.666666666666686"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My PhotoBoxes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yq-BS-Dmo">
+                                <rect key="frame" x="16" y="385.33333333333331" width="134" height="24.666666666666686"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
                                 <color key="textColor" name="textDarkGray"/>
                                 <nil key="highlightedColor"/>
@@ -508,18 +476,16 @@
                                     <outlet property="delegate" destination="cON-SR-WLr" id="EV7-3j-XTG"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnp-dk-uaY">
-                                <rect key="frame" x="286" y="111" width="74" height="15"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnp-dk-uaY">
+                                <rect key="frame" x="286" y="106" width="74" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="3Bh-Se-cze"/>
-                                    <constraint firstAttribute="height" constant="15" id="vni-dh-TEs"/>
+                                    <constraint firstAttribute="height" constant="20" id="vni-dh-TEs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="11"/>
-                                <color key="tintColor" name="buttonPurple"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="73" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="59" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="ACCOUNT" image="downArrow">
-                                    <color key="titleColor" name="buttonPurple"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="13"/>
+                                <color key="tintColor" name="textLightGray"/>
+                                <state key="normal" image="ellipsis">
+                                    <color key="titleColor" name="textLightGray"/>
                                 </state>
                                 <connections>
                                     <action selector="accountDropDownButtonTapped:" destination="cON-SR-WLr" eventType="touchUpInside" id="DRu-qp-ioL"/>
@@ -529,15 +495,47 @@
                                 <rect key="frame" x="0.0" y="441" width="375" height="371"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tlK-ic-wkN">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="tlK-ic-wkN">
                                     <size key="itemSize" width="96" height="120"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="albumCell" id="nAk-OY-7P5" customClass="AlbumCollectionViewCell" customModule="PhotoBox" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="createPhotoBox" id="SNW-Th-7FS" customClass="CreateNewPhotoBoxCollectionViewCell" customModule="PhotoBox" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="96" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="96" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create PhotoBox" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRL-NL-bvK">
+                                                    <rect key="frame" x="4" y="99" width="89" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBt-cd-wZP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="96" height="94"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" name="textLightGray"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                                    <state key="normal" title="+">
+                                                        <color key="titleColor" name="textDarkGray"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="tnf-IY-9L5" kind="show" id="0RM-yg-1yj"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="createPhotoBoxButton" destination="aBt-cd-wZP" id="SwN-tp-Cy6"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="albumCell" id="nAk-OY-7P5" customClass="AlbumCollectionViewCell" customModule="PhotoBox" customModuleProvider="target">
+                                        <rect key="frame" x="139.66666666666666" y="0.0" width="96" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="96" height="120"/>
@@ -574,7 +572,27 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="cON-SR-WLr" id="q5O-ZH-fyw"/>
+                                    <outlet property="delegate" destination="cON-SR-WLr" id="THN-D5-BVI"/>
+                                </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cw-fX-Zch">
+                                <rect key="frame" x="79" y="248" width="216" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="4bb-Ki-fcf"/>
+                                    <constraint firstAttribute="width" constant="216" id="pFK-jC-A4K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="22"/>
+                                <state key="normal" title="JOIN A PHOTOBOX">
+                                    <color key="titleColor" name="buttonGreen"/>
+                                </state>
+                                <connections>
+                                    <action selector="joinEventButtonTapped:" destination="cON-SR-WLr" eventType="touchUpInside" id="DAw-gj-bod"/>
+                                    <segue destination="Qfg-xb-9vd" kind="show" id="OLy-ud-FNF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -583,16 +601,14 @@
                             <constraint firstItem="fqs-bo-ZSf" firstAttribute="leading" secondItem="rvL-Ik-sRw" secondAttribute="trailing" constant="8" id="7Vo-Qd-kW0"/>
                             <constraint firstItem="rvL-Ik-sRw" firstAttribute="top" secondItem="QcM-Iy-f5L" secondAttribute="top" constant="18" id="8fk-P3-ROG"/>
                             <constraint firstItem="8aL-M5-Ary" firstAttribute="top" secondItem="7yq-BS-Dmo" secondAttribute="bottom" constant="10" id="8w6-6u-w00"/>
-                            <constraint firstItem="pnp-dk-uaY" firstAttribute="top" secondItem="QcM-Iy-f5L" secondAttribute="top" constant="23" id="FrO-px-rXF"/>
+                            <constraint firstItem="pnp-dk-uaY" firstAttribute="top" secondItem="QcM-Iy-f5L" secondAttribute="top" constant="18" id="FrO-px-rXF"/>
                             <constraint firstItem="bLx-XC-VdS" firstAttribute="leading" secondItem="pnp-dk-uaY" secondAttribute="leading" id="Ijd-Zj-bZG"/>
                             <constraint firstItem="7yq-BS-Dmo" firstAttribute="leading" secondItem="QcM-Iy-f5L" secondAttribute="leading" constant="16" id="JL4-Ef-h5y"/>
                             <constraint firstItem="fqs-bo-ZSf" firstAttribute="top" secondItem="QcM-Iy-f5L" secondAttribute="top" constant="29" id="ZJm-44-UZb"/>
                             <constraint firstItem="QcM-Iy-f5L" firstAttribute="trailing" secondItem="pnp-dk-uaY" secondAttribute="trailing" constant="15" id="a5w-Cs-T5X"/>
                             <constraint firstItem="N3Y-aj-aak" firstAttribute="leading" secondItem="fqs-bo-ZSf" secondAttribute="leading" id="c0p-cj-Zh2"/>
-                            <constraint firstItem="h78-Qs-ZlR" firstAttribute="centerX" secondItem="QEL-w3-Wjf" secondAttribute="centerX" id="c7f-Gx-Wqn"/>
                             <constraint firstAttribute="bottom" secondItem="8aL-M5-Ary" secondAttribute="bottom" constant="390" id="erc-bu-BIZ"/>
-                            <constraint firstItem="1cw-fX-Zch" firstAttribute="top" secondItem="h78-Qs-ZlR" secondAttribute="bottom" constant="24" id="f9g-Dl-ccB"/>
-                            <constraint firstItem="7yq-BS-Dmo" firstAttribute="top" secondItem="1cw-fX-Zch" secondAttribute="bottom" constant="38" id="hdr-SK-f02"/>
+                            <constraint firstItem="7yq-BS-Dmo" firstAttribute="top" secondItem="1cw-fX-Zch" secondAttribute="bottom" constant="81.333333333333314" id="hdr-SK-f02"/>
                             <constraint firstItem="N3Y-aj-aak" firstAttribute="top" secondItem="fqs-bo-ZSf" secondAttribute="bottom" constant="3" id="roV-lc-V0N"/>
                             <constraint firstItem="bLx-XC-VdS" firstAttribute="trailing" secondItem="pnp-dk-uaY" secondAttribute="trailing" id="sMI-P6-ik6"/>
                             <constraint firstItem="bLx-XC-VdS" firstAttribute="top" secondItem="pnp-dk-uaY" secondAttribute="bottom" id="sfu-cn-MAu"/>
@@ -603,7 +619,6 @@
                     <navigationItem key="navigationItem" title="PhotoBox" id="wJW-9q-Kb1"/>
                     <connections>
                         <outlet property="accountDropDownButton" destination="pnp-dk-uaY" id="YsM-Qm-4ul"/>
-                        <outlet property="createEventButton" destination="h78-Qs-ZlR" id="jfJ-tY-XTi"/>
                         <outlet property="displayNameLabel" destination="fqs-bo-ZSf" id="oYQ-ia-Eho"/>
                         <outlet property="joinEventButton" destination="1cw-fX-Zch" id="9SV-FN-kag"/>
                         <outlet property="profilePicImageView" destination="rvL-Ik-sRw" id="pwj-Pp-Eoh"/>
@@ -642,7 +657,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steve" translatesAutoresizingMaskIntoConstraints="NO" id="L1Q-cS-aBK">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="L1Q-cS-aBK">
                                 <rect key="frame" x="63" y="109" width="72" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="04S-wQ-ZEQ"/>
@@ -1139,8 +1154,8 @@
     <resources>
         <image name="PhotoBoxBackground" width="1125" height="2436"/>
         <image name="boxGraphic" width="96" height="105"/>
-        <image name="downArrow" width="384" height="384"/>
-        <image name="steve" width="825.3599853515625" height="825.3599853515625"/>
+        <image name="ellipsis" width="1920" height="692"/>
+        <image name="noProfilePic" width="800" height="1074"/>
         <namedColor name="buttonGreen">
             <color red="0.5607843137254902" green="0.73333333333333328" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

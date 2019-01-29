@@ -79,6 +79,7 @@
 		E9F3BA2E21FAA9A200D17003 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F3BA2D21FAA9A200D17003 /* PopUpViewController.swift */; };
 		E9F3BA3021FBEADD00D17003 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F3BA2F21FBEADD00D17003 /* WelcomePageViewController.swift */; };
 		E9F3BA3221FBEB2600D17003 /* DescriptionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F3BA3121FBEB2600D17003 /* DescriptionPageViewController.swift */; };
+		E9F610B821FFF207005D1773 /* CreateNewPhotoBoxCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F610B721FFF207005D1773 /* CreateNewPhotoBoxCollectionViewCell.swift */; };
 		EAD62AE684AD3C1A25E0C506 /* Pods_PhotoBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2121C950E2C77FF835D4F074 /* Pods_PhotoBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +163,7 @@
 		E9F3BA2D21FAA9A200D17003 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		E9F3BA2F21FBEADD00D17003 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		E9F3BA3121FBEB2600D17003 /* DescriptionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionPageViewController.swift; sourceTree = "<group>"; };
+		E9F610B721FFF207005D1773 /* CreateNewPhotoBoxCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPhotoBoxCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 			children = (
 				E9E9660521F93A950038218E /* MemberCollectionViewCell.swift */,
 				E9E9660721F93AB30038218E /* FeedCollectionViewCell.swift */,
+				E9F610B721FFF207005D1773 /* CreateNewPhotoBoxCollectionViewCell.swift */,
 				1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */,
 				E9E9660D21F96D0D0038218E /* PhotoCollectionViewCell.swift */,
 				E9E9661121FA3A5A0038218E /* AlbumCollectionViewCell.swift */,
@@ -582,6 +585,7 @@
 				E9E9660E21F96D0D0038218E /* PhotoCollectionViewCell.swift in Sources */,
 				E91FD2C721F149BB004327D3 /* Event.swift in Sources */,
 				E91FD2CB21F25296004327D3 /* BasicProfile.swift in Sources */,
+				E9F610B821FFF207005D1773 /* CreateNewPhotoBoxCollectionViewCell.swift in Sources */,
 				1B61AE9921F7BCC9007C6C06 /* LandingPageViewController.swift in Sources */,
 				1B5D6A8321F676290095F9CA /* FakeProfileViewController.swift in Sources */,
 				1B9AF9AC21F98DA80003C220 /* UnderlineButtonTextPurple.swift in Sources */,
