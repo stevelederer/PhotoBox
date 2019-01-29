@@ -230,7 +230,6 @@
                                                         <constraint firstAttribute="height" constant="133" id="JoC-gN-nxH"/>
                                                     </constraints>
                                                 </imageView>
-
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dS9-tZ-ptp">
                                                     <rect key="frame" x="0.0" y="14" width="375" height="100"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IQ8-9i-FNF">
@@ -274,7 +273,6 @@
                                                             <constraint firstItem="ljN-wA-EAK" firstAttribute="leading" secondItem="IQ8-9i-FNF" secondAttribute="leading" constant="8" id="oBE-NX-rxo"/>
                                                         </constraints>
                                                     </view>
-
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="0uY-cb-bxO"/>
                                                     </constraints>
@@ -351,9 +349,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="132"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rao-9W-b52">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rao-9W-b52">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="132"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="18" minimumInteritemSpacing="16" id="KJc-Za-SX9">
                                                         <size key="itemSize" width="56" height="84"/>
@@ -379,14 +376,14 @@
                                                                         <rect key="frame" x="0.0" y="56" width="56" height="28"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="(steve)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJ8-tt-YlB">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="56" height="19.666666666666668"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="56" height="16.666666666666668"/>
                                                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                                                 <color key="textColor" name="textDarkGray"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="(admin)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDI-8X-Z2g">
-                                                                                <rect key="frame" x="0.0" y="19.666666666666671" width="56" height="8.3333333333333357"/>
-                                                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="6"/>
+                                                                                <rect key="frame" x="0.0" y="16.666666666666671" width="56" height="11.333333333333336"/>
+                                                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="10"/>
                                                                                 <color key="textColor" name="textDarkGray"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -444,6 +441,12 @@
                                                     </collectionReusableView>
                                                 </collectionView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Rao-9W-b52" firstAttribute="leading" secondItem="gev-hN-wBC" secondAttribute="leading" id="BXj-2Q-gOk"/>
+                                                <constraint firstItem="Rao-9W-b52" firstAttribute="top" secondItem="gev-hN-wBC" secondAttribute="top" id="OUm-8t-yFH"/>
+                                                <constraint firstAttribute="bottom" secondItem="Rao-9W-b52" secondAttribute="bottom" id="qMY-DB-8Og"/>
+                                                <constraint firstAttribute="trailing" secondItem="Rao-9W-b52" secondAttribute="trailing" id="su2-os-FUP"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="UAc-DR-C7j">
@@ -465,6 +468,7 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <color key="backgroundColor" red="1" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="wEP-NP-Ixr" firstAttribute="centerX" secondItem="DSL-Qa-PWw" secondAttribute="centerX" id="P5i-ar-h73"/>
                                                 <constraint firstItem="wEP-NP-Ixr" firstAttribute="centerY" secondItem="DSL-Qa-PWw" secondAttribute="centerY" id="c6R-ka-a3p"/>
@@ -671,7 +675,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t2K-07-UlS">
-                                <rect key="frame" x="32" y="314.66666666666669" width="311" height="53"/>
+                                <rect key="frame" x="32" y="320" width="311" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="8E1-Zz-xCV"/>
                                     <constraint firstAttribute="width" constant="311" id="nNB-CF-dd8"/>
@@ -681,7 +685,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" textContentType="one-time-code"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoZ-Ab-MXa">
-                                <rect key="frame" x="79.666666666666686" y="443.66666666666669" width="216" height="56"/>
+                                <rect key="frame" x="79.666666666666686" y="449" width="216" height="56"/>
                                 <color key="backgroundColor" name="buttonPurple"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Ykn-wd-ckO"/>
@@ -696,7 +700,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get You Connected!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snT-ud-CXC">
-                                <rect key="frame" x="32.333333333333343" y="224" width="310.33333333333326" height="31.666666666666657"/>
+                                <rect key="frame" x="26.333333333333343" y="224" width="322.66666666666663" height="37"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="27"/>
                                 <color key="textColor" name="textDarkGray"/>
                                 <nil key="highlightedColor"/>
@@ -726,7 +730,6 @@
             </objects>
             <point key="canvasLocation" x="4048.8000000000002" y="742.61083743842369"/>
         </scene>
-
         <!--Title-->
         <scene sceneID="Dxo-Vg-IBG">
             <objects>

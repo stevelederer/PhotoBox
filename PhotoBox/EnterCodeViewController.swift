@@ -77,6 +77,13 @@ class EnterCodeViewController: UIViewController, UITextFieldDelegate {
         return count <= 4
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == enterCodeTextField {
+            self.continueButtonTapped(continueButton)
+        }
+        return true
+    }
+    
     func presentRequiredFieldAlert() {
         let requiredFieldAlert = UIAlertController(title: "Required Field", message: "Please enter a code consisting of 4 alphanumeric characters", preferredStyle: .alert)
         requiredFieldAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
