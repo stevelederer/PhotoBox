@@ -51,6 +51,7 @@
 		1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */; };
 		1BCEF0FD21F97B2300662756 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */; };
 		1BCEF0FF21F989E800662756 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEF0FE21F989E800662756 /* SettingsViewController.swift */; };
+		1BEA8ADA21FFE6B600AF07F3 /* MembersHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEA8AD921FFE6B600AF07F3 /* MembersHeaderView.swift */; };
 		B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B404A99521EEA23200491CE2 /* AppDelegate.swift */; };
 		B404A99B21EEA23200491CE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B404A99921EEA23200491CE2 /* Main.storyboard */; };
 		B404A9A021EEA23400491CE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B404A99F21EEA23400491CE2 /* Assets.xcassets */; };
@@ -128,6 +129,7 @@
 		1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreFetchable.swift; sourceTree = "<group>"; };
 		1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		1BCEF0FE21F989E800662756 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1BEA8AD921FFE6B600AF07F3 /* MembersHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersHeaderView.swift; sourceTree = "<group>"; };
 		2121C950E2C77FF835D4F074 /* Pods_PhotoBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		488B08BD8C7C19EE8FBC8343 /* Pods-PhotoBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoBox/Pods-PhotoBox.debug.xcconfig"; sourceTree = "<group>"; };
 		7056FB326F4087AA873129ED /* Pods-PhotoBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BatchShare/Pods-PhotoBox.debug.xcconfig"; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */,
 				E9E9660D21F96D0D0038218E /* PhotoCollectionViewCell.swift */,
 				E9E9661121FA3A5A0038218E /* AlbumCollectionViewCell.swift */,
+				1BEA8AD921FFE6B600AF07F3 /* MembersHeaderView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				E957776521F7F89D000F8E7A /* CreateEventTableViewController.swift in Sources */,
 				1B61AEBB21F83496007C6C06 /* HomeViewController.swift in Sources */,
 				1B4B13A821F18B03002040A6 /* NewEventViewController.swift in Sources */,
+				1BEA8ADA21FFE6B600AF07F3 /* MembersHeaderView.swift in Sources */,
 				E957776B21F8F96A000F8E7A /* BasicEventController.swift in Sources */,
 				1B07485921F153BF0030D907 /* LoggedOutViewController.swift in Sources */,
 				E9E9660621F93A950038218E /* MemberCollectionViewCell.swift in Sources */,

@@ -34,4 +34,23 @@ class MemberDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDe
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard
+                let headerView = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: "\(MembersHeaderView.self)",
+                    for: indexPath) as? MembersHeaderView
+                else {
+                    fatalError("Invalid view type")
+            }
+            headerView.label.text = "Who's Here?"
+            return headerView
+        default:
+            assert(false, "Invalid element type")
+        }
+        
+    }
 }

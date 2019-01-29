@@ -49,7 +49,7 @@ class EventController {
     }
     
     func randomEventCode(completion: @escaping (String?) -> Void) {
-        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789"
+        let characters = "ABCDEFGHIJKLMNPQRSTUVWXYZ123456789"
         let newCode = String((0...3).map{ _ in characters.randomElement()! })
         var returnedEvents: [Event] = []
         
