@@ -14,7 +14,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var profilePicImageView: UIImageView!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var createEventButton: UIButton!
     @IBOutlet weak var joinEventButton: UIButton!
     @IBOutlet weak var accountDropDownButton: UIButton!
     @IBOutlet weak var settingsDropDown: UITableView!
@@ -36,13 +35,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let navigationTitleFont = UIFont(name: "OpenSans-SemiBold", size: 20)
         let navigationTitleColor = UIColor(named: "textDarkGray")
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont!, NSAttributedString.Key.foregroundColor: navigationTitleColor!]
-        let origButtonImage = UIImage(named: "downArrow")
+        let origButtonImage = UIImage(named: "ellipsis")
         let tintedButtonImage = origButtonImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         accountDropDownButton.setImage(tintedButtonImage, for: .normal)
-        accountDropDownButton.tintColor = UIColor(named: "buttonPurple")
+        accountDropDownButton.tintColor = UIColor(named: "textDarkGray")
+        accountDropDownButton.imageView?.contentMode = .scaleAspectFit
         profilePicImageView.layer.cornerRadius = profilePicImageView.frame.height / 2
-        createEventButton.layer.cornerRadius = createEventButton.frame.height / 2
         joinEventButton.layer.cornerRadius = joinEventButton.frame.height / 2
+        joinEventButton.layer.borderColor = #colorLiteral(red: 0.5607843137, green: 0.7333333333, blue: 0.6862745098, alpha: 1)
+        joinEventButton.layer.borderWidth = 4.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,15 +70,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func createEventButtonTapped(_ sender: UIButton) {
-//        let sb = UIStoryboard(name: "Main", bundle: nil)
-//        guard let createEventNav = sb.instantiateInitialViewController() else { return }
-//        present(createEventNav, animated: true, completion: nil)
+        //        let sb = UIStoryboard(name: "Main", bundle: nil)
+        //        guard let createEventNav = sb.instantiateInitialViewController() else { return }
+        //        present(createEventNav, animated: true, completion: nil)
     }
     
     @IBAction func joinEventButtonTapped(_ sender: UIButton) {
-//        let sb = UIStoryboard(name: "Main", bundle: nil)
-//        let joinEventNav = sb.instantiateViewController(withIdentifier: "EnterCodeViewController")
-//        present(joinEventNav, animated: true, completion: nil)
+        //        let sb = UIStoryboard(name: "Main", bundle: nil)
+        //        let joinEventNav = sb.instantiateViewController(withIdentifier: "EnterCodeViewController")
+        //        present(joinEventNav, animated: true, completion: nil)
     }
     
     @IBAction func accountDropDownButtonTapped(_ sender: UIButton) {
@@ -131,37 +132,45 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let events = events else {return 0}
-        return events.count
+        guard let events = events else {return 1}
+        return events.count + 1
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as! AlbumCollectionViewCell
-        if let basicEvents = events {
-            let event = basicEvents[indexPath.row]
+        if indexPath.row == 0 {
+            let createPhotoBoxCell = collectionView.dequeueReusableCell(withReuseIdentifier: "createPhotoBox", for: indexPath) as! CreateNewPhotoBoxCollectionViewCell
+            createPhotoBoxCell.createPhotoBoxButton.backgroundColor = UIColor.red
+            return createPhotoBoxCell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumCell", for: indexPath) as! AlbumCollectionViewCell
             
-            if let basicEventCoverPhotoURLString = event.coverPhotoURL ,
-                let coverPhotoURL = URL(string: basicEventCoverPhotoURLString) {
-                URLSession.shared.dataTask(with: coverPhotoURL) { (data, _, error) in
-                    if let error = error {
-                        print(error)
+            
+            if let basicEvents = events {
+                let event = basicEvents[indexPath.row]
+                
+                if let basicEventCoverPhotoURLString = event.coverPhotoURL ,
+                    let coverPhotoURL = URL(string: basicEventCoverPhotoURLString) {
+                    URLSession.shared.dataTask(with: coverPhotoURL) { (data, _, error) in
+                        if let error = error {
+                            print(error)
+                        }
+                        guard let data = data else { return }
+                        
+                        DispatchQueue.main.async {
+                            cell.albumImageView.image = UIImage(data: data)
+                            cell.eventName.text = event.eventName
+                            cell.eventTime.text = event.formattedEndTime
+                        }
                     }
-                    guard let data = data else { return }
-                    
-                    DispatchQueue.main.async {
-                        cell.albumImageView.image = UIImage(data: data)
-                        cell.eventName.text = event.eventName
-                        cell.eventTime.text = event.formattedEndTime
-                    }
+                } else {
+                    // FIXME: - Have a default cover photo display if no cover photo URL
                 }
-            } else {
-                // FIXME: - Have a default cover photo display if no cover photo URL
             }
+            
+            return cell
         }
-        
-        return cell
-    
     }
     
     @IBAction func unwindToHomePage(segue:UIStoryboardSegue) {

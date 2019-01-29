@@ -237,19 +237,19 @@
                                                             <rect key="frame" x="8" y="0.0" width="359" height="113"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(eventName)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deb-ox-AFA">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="48.666666666666664"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="49"/>
                                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="32"/>
                                                                     <color key="textColor" name="textDarkGray"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(startDate)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZC-ff-PmY">
-                                                                    <rect key="frame" x="0.0" y="48.666666666666664" width="359" height="21.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="49" width="359" height="21.333333333333329"/>
                                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                                     <color key="textColor" name="textDarkGray"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(event location)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBI-Q4-m48">
-                                                                    <rect key="frame" x="0.0" y="70" width="359" height="21.666666666666671"/>
+                                                                    <rect key="frame" x="0.0" y="70.333333333333329" width="359" height="21.333333333333329"/>
                                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                                     <color key="textColor" name="textDarkGray"/>
                                                                     <nil key="highlightedColor"/>
@@ -361,24 +361,24 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="56" height="84"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steve" translatesAutoresizingMaskIntoConstraints="NO" id="lmz-Gu-RKR">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="lmz-Gu-RKR">
                                                                         <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="lmz-Gu-RKR" secondAttribute="height" multiplier="1:1" id="Gx3-Gf-jm1"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KTg-yz-dN4">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KTg-yz-dN4">
                                                                         <rect key="frame" x="0.0" y="56" width="56" height="28"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(steve)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJ8-tt-YlB">
-                                                                                <rect key="frame" x="10" y="0.0" width="36.333333333333336" height="16.666666666666668"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="(steve)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJ8-tt-YlB">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="56" height="19.666666666666668"/>
                                                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                                                 <color key="textColor" name="textDarkGray"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="(admin)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDI-8X-Z2g">
-                                                                                <rect key="frame" x="6.6666666666666679" y="16.666666666666671" width="43" height="11.333333333333336"/>
-                                                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="(admin)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDI-8X-Z2g">
+                                                                                <rect key="frame" x="0.0" y="19.666666666666671" width="56" height="8.3333333333333357"/>
+                                                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="6"/>
                                                                                 <color key="textColor" name="textDarkGray"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -573,7 +573,7 @@
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIr-oj-5gy">
                                                     <rect key="frame" x="0.0" y="0.0" width="378" height="519"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steve" translatesAutoresizingMaskIntoConstraints="NO" id="j8i-Ry-upz">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j8i-Ry-upz">
                                                             <rect key="frame" x="0.0" y="0.0" width="378" height="466"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
@@ -584,7 +584,7 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="steve" translatesAutoresizingMaskIntoConstraints="NO" id="IqZ-TT-osm">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IqZ-TT-osm">
                                                             <rect key="frame" x="14" y="474" width="54" height="37"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
@@ -648,7 +648,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t2K-07-UlS">
-                                <rect key="frame" x="32" y="320" width="311" height="53"/>
+                                <rect key="frame" x="32" y="314.66666666666669" width="311" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="8E1-Zz-xCV"/>
                                     <constraint firstAttribute="width" constant="311" id="nNB-CF-dd8"/>
@@ -658,7 +658,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" textContentType="one-time-code"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoZ-Ab-MXa">
-                                <rect key="frame" x="79.666666666666686" y="449" width="216" height="56"/>
+                                <rect key="frame" x="79.666666666666686" y="443.66666666666669" width="216" height="56"/>
                                 <color key="backgroundColor" name="buttonPurple"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Ykn-wd-ckO"/>
@@ -673,7 +673,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get You Connected!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snT-ud-CXC">
-                                <rect key="frame" x="26.333333333333343" y="224" width="322.66666666666663" height="37"/>
+                                <rect key="frame" x="32.333333333333343" y="224" width="310.33333333333326" height="31.666666666666657"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="27"/>
                                 <color key="textColor" name="textDarkGray"/>
                                 <nil key="highlightedColor"/>
@@ -830,7 +830,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="56" height="84"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steve" translatesAutoresizingMaskIntoConstraints="NO" id="ZPN-YL-Blp">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZPN-YL-Blp">
                                                                         <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="ZPN-YL-Blp" secondAttribute="height" multiplier="1:1" id="vLM-xk-3o8"/>
@@ -1047,7 +1047,7 @@
     <resources>
         <image name="PhotoBoxBackgroundLight" width="375" height="812"/>
         <image name="downArrow" width="384" height="384"/>
-        <image name="steve" width="825.3599853515625" height="825.3599853515625"/>
+        <image name="noProfilePic" width="800" height="1074"/>
         <namedColor name="buttonGreen">
             <color red="0.5607843137254902" green="0.73333333333333328" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
