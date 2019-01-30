@@ -36,7 +36,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         profilePicImageView.layer.cornerRadius = profilePicImageView.frame.height / 2
         joinEventButton.layer.cornerRadius = joinEventButton.frame.height / 2
         joinEventButton.layer.borderColor = UIColor(named: "buttonGreen")?.cgColor
-        joinEventButton.layer.borderWidth = 4.0
+        joinEventButton.layer.borderWidth = 3
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,7 +96,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         if indexPath.row == 0 {
             let createPhotoBoxCell = collectionView.dequeueReusableCell(withReuseIdentifier: "createPhotoBox", for: indexPath) as! CreateNewPhotoBoxCollectionViewCell
-            createPhotoBoxCell.createPhotoBoxButton.backgroundColor = UIColor.red
+//            createPhotoBoxCell.createPhotoBoxButton.backgroundColor = UIColor.red
             return createPhotoBoxCell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumCell", for: indexPath) as! AlbumCollectionViewCell

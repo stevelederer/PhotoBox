@@ -31,4 +31,23 @@ class FeedDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDele
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard
+                let headerView = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: "\(FeedHeaderView.self)",
+                    for: indexPath) as? FeedHeaderView
+                else {
+                    fatalError("Invalid view type")
+            }
+            headerView.label.text = "Live Feed"
+            headerView.button.setTitle("My Photos", for: .normal)
+            return headerView
+        default:
+            assert(false, "Invalid element type")
+        }
+    }
+    
 }

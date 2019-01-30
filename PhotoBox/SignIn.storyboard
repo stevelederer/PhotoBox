@@ -20,6 +20,9 @@
         <array key="OpenSans-SemiBold.ttf">
             <string>OpenSans-SemiBold</string>
         </array>
+        <array key="OpenSans-SemiBoldItalic.ttf">
+            <string>OpenSans-SemiBoldItalic</string>
+        </array>
         <array key="Skia.ttf">
             <string>Skia-Regular_Bold</string>
         </array>
@@ -448,8 +451,8 @@
                                     <constraint firstAttribute="width" constant="72" id="bKO-U8-jHf"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My PhotoBoxes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yq-BS-Dmo">
-                                <rect key="frame" x="16" y="389" width="134" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your PhotoBox Albums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yq-BS-Dmo">
+                                <rect key="frame" x="16" y="389" width="199" height="25"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
                                 <color key="textColor" name="textDarkGray"/>
                                 <nil key="highlightedColor"/>
@@ -478,33 +481,32 @@
                                 <rect key="frame" x="0.0" y="442" width="375" height="336"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="tlK-ic-wkN">
-                                    <size key="itemSize" width="96" height="120"/>
+                                    <size key="itemSize" width="96" height="125"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="createPhotoBox" id="SNW-Th-7FS" customClass="CreateNewPhotoBoxCollectionViewCell" customModule="PhotoBox" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="96" height="120"/>
+                                        <rect key="frame" x="15" y="0.0" width="96" height="125"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="96" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="96" height="125"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create PhotoBox" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRL-NL-bvK">
-                                                    <rect key="frame" x="4" y="99" width="89" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create PhotoBox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRL-NL-bvK">
+                                                    <rect key="frame" x="2" y="100" width="92" height="17"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-SemiBoldItalic" family="Open Sans" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBt-cd-wZP">
                                                     <rect key="frame" x="0.0" y="0.0" width="96" height="94"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" name="textLightGray"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                                    <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                     <state key="normal" title="+">
-                                                        <color key="titleColor" name="textDarkGray"/>
+                                                        <color key="titleColor" red="0.41960784313725491" green="0.4823529411764706" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <segue destination="tnf-IY-9L5" kind="show" id="0RM-yg-1yj"/>
@@ -512,15 +514,19 @@
                                                 </button>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="YRL-NL-bvK" firstAttribute="centerX" secondItem="SNW-Th-7FS" secondAttribute="centerX" id="PCX-da-V2b"/>
+                                            <constraint firstAttribute="bottom" secondItem="YRL-NL-bvK" secondAttribute="bottom" constant="8" id="wU5-W9-6c3"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="createPhotoBoxButton" destination="aBt-cd-wZP" id="SwN-tp-Cy6"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="albumCell" id="nAk-OY-7P5" customClass="AlbumCollectionViewCell" customModule="PhotoBox" customModuleProvider="target">
-                                        <rect key="frame" x="139.66666666666666" y="0.0" width="96" height="120"/>
+                                        <rect key="frame" x="139.66666666666666" y="0.0" width="96" height="125"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="96" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="96" height="125"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lgl-yo-bCd">
@@ -528,7 +534,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="2u7-Mo-nmA">
-                                                    <rect key="frame" x="17" y="97" width="62.333333333333336" height="21.666666666666668"/>
+                                                    <rect key="frame" x="17.000000000000004" y="97" width="62.333333333333336" height="21.666666666666668"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(eventName)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIV-1c-r7a">
@@ -560,10 +566,11 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cw-fX-Zch">
-                                <rect key="frame" x="79.666666666666686" y="251.66666666666663" width="216" height="56"/>
+                                <rect key="frame" x="52" y="251.66666666666663" width="271" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="4bb-Ki-fcf"/>
+                                    <constraint firstAttribute="width" constant="271" id="bZD-h0-qrS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="22"/>
                                 <state key="normal" title="JOIN A PHOTOBOX">
@@ -588,11 +595,10 @@
                             <constraint firstItem="QcM-Iy-f5L" firstAttribute="bottom" secondItem="hHh-Xy-24d" secondAttribute="bottom" id="XO1-pt-qNW"/>
                             <constraint firstItem="fqs-bo-ZSf" firstAttribute="top" secondItem="QcM-Iy-f5L" secondAttribute="top" constant="29" id="ZJm-44-UZb"/>
                             <constraint firstItem="N3Y-aj-aak" firstAttribute="leading" secondItem="fqs-bo-ZSf" secondAttribute="leading" id="c0p-cj-Zh2"/>
-                            <constraint firstItem="QcM-Iy-f5L" firstAttribute="trailing" secondItem="1cw-fX-Zch" secondAttribute="trailing" constant="79.329999999999998" id="gEu-rx-iiL"/>
+                            <constraint firstItem="1cw-fX-Zch" firstAttribute="centerX" secondItem="QEL-w3-Wjf" secondAttribute="centerX" id="eQc-TM-q47"/>
                             <constraint firstItem="7yq-BS-Dmo" firstAttribute="top" secondItem="1cw-fX-Zch" secondAttribute="bottom" constant="81.333333333333314" id="hdr-SK-f02"/>
                             <constraint firstItem="N3Y-aj-aak" firstAttribute="top" secondItem="fqs-bo-ZSf" secondAttribute="bottom" constant="3" id="roV-lc-V0N"/>
                             <constraint firstItem="rvL-Ik-sRw" firstAttribute="leading" secondItem="QcM-Iy-f5L" secondAttribute="leading" constant="15" id="v0G-D2-BPE"/>
-                            <constraint firstItem="1cw-fX-Zch" firstAttribute="leading" secondItem="QcM-Iy-f5L" secondAttribute="leading" constant="79.670000000000002" id="xRG-ga-r54"/>
                             <constraint firstItem="QcM-Iy-f5L" firstAttribute="trailing" secondItem="hHh-Xy-24d" secondAttribute="trailing" id="zsB-1X-xu5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QcM-Iy-f5L"/>

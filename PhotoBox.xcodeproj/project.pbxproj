@@ -44,6 +44,7 @@
 		1B61AEB921F82F20007C6C06 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B07484E21F14BF90030D907 /* Lato-Regular.ttf */; };
 		1B61AEBB21F83496007C6C06 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B61AEBA21F83496007C6C06 /* HomeViewController.swift */; };
 		1B61AEBD21F91B0A007C6C06 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B61AEBC21F91B0A007C6C06 /* ForgotPasswordViewController.swift */; };
+		1B7BBD1322017C9100D18B88 /* FeedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BBD1222017C9100D18B88 /* FeedHeaderView.swift */; };
 		1B9AF9AC21F98DA80003C220 /* UnderlineButtonTextPurple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9AF9AB21F98DA80003C220 /* UnderlineButtonTextPurple.swift */; };
 		1BAF23AF21FAD03C00E26504 /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF23AE21FAD03C00E26504 /* PhotoSelectViewController.swift */; };
 		1BAF23D021FB823A00E26504 /* FirebaseStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF23CF21FB823A00E26504 /* FirebaseStorable.swift */; };
@@ -119,6 +120,7 @@
 		1B61AEA421F82AC1007C6C06 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		1B61AEBA21F83496007C6C06 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1B61AEBC21F91B0A007C6C06 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		1B7BBD1222017C9100D18B88 /* FeedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedHeaderView.swift; sourceTree = "<group>"; };
 		1B9AF9AB21F98DA80003C220 /* UnderlineButtonTextPurple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButtonTextPurple.swift; sourceTree = "<group>"; };
 		1BAF23AE21FAD03C00E26504 /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
 		1BAF23CF21FB823A00E26504 /* FirebaseStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorable.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				E9E9661121FA3A5A0038218E /* AlbumCollectionViewCell.swift */,
 				E9F610B721FFF207005D1773 /* CreateNewPhotoBoxCollectionViewCell.swift */,
 				E9E9660721F93AB30038218E /* FeedCollectionViewCell.swift */,
+				1B7BBD1222017C9100D18B88 /* FeedHeaderView.swift */,
 				E9E9660521F93A950038218E /* MemberCollectionViewCell.swift */,
 				1BEA8AD921FFE6B600AF07F3 /* MembersHeaderView.swift */,
 				E9E9660D21F96D0D0038218E /* PhotoCollectionViewCell.swift */,
@@ -257,7 +260,6 @@
 				1B4B13A721F18B03002040A6 /* NewEventViewController.swift */,
 				E9E9660B21F96C770038218E /* PhotoDetailViewController.swift */,
 				1BAF23AE21FAD03C00E26504 /* PhotoSelectViewController.swift */,
-				E9F3BA2D21FAA9A200D17003 /* PopUpViewController.swift */,
 				1BCEF0FE21F989E800662756 /* SettingsViewController.swift */,
 				1B07485F21F16A090030D907 /* SignupViewController.swift */,
 				E9F3BA2F21FBEADD00D17003 /* WelcomePageViewController.swift */,
@@ -548,6 +550,7 @@
 				B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */,
 				E9F3BA2A21FA78BF00D17003 /* Extensions.swift in Sources */,
 				E9E9660C21F96C770038218E /* PhotoDetailViewController.swift in Sources */,
+				1B7BBD1322017C9100D18B88 /* FeedHeaderView.swift in Sources */,
 				1B07485B21F15ADB0030D907 /* LoginPageViewController.swift in Sources */,
 				1BCEF0FF21F989E800662756 /* SettingsViewController.swift in Sources */,
 				1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */,
