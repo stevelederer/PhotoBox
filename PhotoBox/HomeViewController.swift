@@ -8,17 +8,16 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     
     
     @IBOutlet weak var profilePicImageView: UIImageView!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var joinEventButton: UIButton!
-    @IBOutlet weak var accountDropDownButton: UIButton!
-    @IBOutlet weak var settingsDropDown: UITableView!
+    @IBOutlet weak var settingsBarButtonItem: UIBarButtonItem!
     
-    let settingArray: NSMutableArray = ["Settings", "Logout"]
+//    let settingArray: NSMutableArray = ["Settings", "Logout"]
     
     //Source of truth
     var events: [BasicEvent]?
@@ -35,24 +34,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let navigationTitleFont = UIFont(name: "OpenSans-SemiBold", size: 20)
         let navigationTitleColor = UIColor(named: "textDarkGray")
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont!, NSAttributedString.Key.foregroundColor: navigationTitleColor!]
-        let origButtonImage = UIImage(named: "ellipsis")
-        let tintedButtonImage = origButtonImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        accountDropDownButton.setImage(tintedButtonImage, for: .normal)
-        accountDropDownButton.tintColor = UIColor(named: "textDarkGray")
-        accountDropDownButton.imageView?.contentMode = .scaleAspectFit
         profilePicImageView.layer.cornerRadius = profilePicImageView.frame.height / 2
         joinEventButton.layer.cornerRadius = joinEventButton.frame.height / 2
-        joinEventButton.layer.borderColor = #colorLiteral(red: 0.5607843137, green: 0.7333333333, blue: 0.6862745098, alpha: 1)
+        joinEventButton.layer.borderColor = UIColor(named: "buttonGreen")?.cgColor
         joinEventButton.layer.borderWidth = 4.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        settingsDropDown.isHidden = true
-        if let index = self.settingsDropDown.indexPathForSelectedRow {
-            self.settingsDropDown.deselectRow(at: index, animated: true)
-        }
-        settingsDropDown.isHidden = true
-        currentUser = UserController.shared.currentUser
         updateViews()
     }
     
@@ -81,41 +69,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //        present(joinEventNav, animated: true, completion: nil)
     }
     
-    @IBAction func accountDropDownButtonTapped(_ sender: UIButton) {
-        let _ = LoginPageViewController()
-        if settingsDropDown.isHidden == true {
-            settingsDropDown.isHidden = false
-        } else {
-            settingsDropDown.isHidden = true
-        }
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingsTableViewCell
-        cell.cellTextLabel?.text = settingArray[indexPath.row] as? String
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedItem = settingArray.object(at: indexPath.row) as! NSString
-        if selectedItem.isEqual(to: "Settings") {
-            toSettingsScreenButtonTapped()
-        } else if selectedItem.isEqual(to: "Logout") {
-            print("Now logging out...Goodbye!")
-            UserController.shared.logOutUser { (success) in
-                if success {
-                    self.performSegue(withIdentifier: "unwindToLoginPage", sender: self)
-                }
-            }
-        }
+
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+        toSettingsScreenButtonTapped()
     }
     
     func toSettingsScreenButtonTapped() {
