@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Navigation_Camera_2x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "ios11-control-center-camera-icon.png",
       "scale" : "2x"
     },
     {

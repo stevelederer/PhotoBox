@@ -19,6 +19,7 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
     @IBOutlet weak var eventLocationTextField: UITextField!
     @IBOutlet weak var eventDetailsTextView: UITextView!
     @IBOutlet weak var createEventButton: UIButton!
+    @IBOutlet weak var cameraImageView: UIImageView!
     var startTime: TimeInterval?
     var endTime: TimeInterval?
     
@@ -51,6 +52,7 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
         eventDetailsTextView.clipsToBounds = true
         
         createEventButton.layer.cornerRadius = createEventButton.frame.height / 2
+        cameraImageView.tintColor = UIColor.gray
         
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
 
@@ -106,9 +108,11 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
         if let image = info[.editedImage] as? UIImage {
             self.backgroundImage.image = image
             selectCoverPhotoButton.isHidden = true
+            cameraImageView.isHidden = true
         } else if let image = info[.originalImage] as? UIImage {
             backgroundImage.image = image
             selectCoverPhotoButton.isHidden = true
+            cameraImageView.isHidden = true
         } else {
             print("Error picking image)")
         }
