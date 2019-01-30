@@ -20,7 +20,7 @@ class DescriptionPageViewController: UIViewController {
         secondDisplayView.layer.shadowRadius = 10
         secondDisplayView.layer.cornerRadius = 10
         letsGoButton.layer.cornerRadius = letsGoButton.frame.height / 2
-}
+    }
     
     @IBAction func letsGoButtonTappped(_ sender: Any) {
         self.performSegue(withIdentifier: "noUserLoggedIn", sender: self)

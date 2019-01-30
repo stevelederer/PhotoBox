@@ -10,8 +10,8 @@ import UIKit
 
 class LoginPageViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: PaddingTextField!
+    @IBOutlet weak var passwordTextField: PaddingTextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UnderlineButtonTextDarkGray!
     @IBOutlet weak var forgotPasswordButton: UnderlineButtonTextLightGray!

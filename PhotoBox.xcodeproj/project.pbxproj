@@ -52,6 +52,7 @@
 		1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */; };
 		1BCEF0FD21F97B2300662756 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */; };
 		1BCEF0FF21F989E800662756 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEF0FE21F989E800662756 /* SettingsViewController.swift */; };
+		1BD8B1C222017270006988D6 /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8B1C122017270006988D6 /* PaddingTextField.swift */; };
 		1BEA8ADA21FFE6B600AF07F3 /* MembersHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEA8AD921FFE6B600AF07F3 /* MembersHeaderView.swift */; };
 		B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B404A99521EEA23200491CE2 /* AppDelegate.swift */; };
 		B404A99B21EEA23200491CE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B404A99921EEA23200491CE2 /* Main.storyboard */; };
@@ -127,6 +128,7 @@
 		1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreFetchable.swift; sourceTree = "<group>"; };
 		1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		1BCEF0FE21F989E800662756 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1BD8B1C122017270006988D6 /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
 		1BEA8AD921FFE6B600AF07F3 /* MembersHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersHeaderView.swift; sourceTree = "<group>"; };
 		3338BBDF247CCC4E5C095E86 /* Pods_PhotoBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B404A99221EEA23200491CE2 /* PhotoBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,12 +207,13 @@
 		1B07485C21F160B70030D907 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				1B07485D21F160C70030D907 /* UnderlineButtonTextLightGray.swift */,
-				1B34890A21FD55E7000AFF0D /* UnderlineButtonTextDarkGray.swift */,
-				1B9AF9AB21F98DA80003C220 /* UnderlineButtonTextPurple.swift */,
+				E9F3BA2921FA78BF00D17003 /* Extensions.swift */,
 				1B07486121F16E4E0030D907 /* LoginTextField.swift */,
 				E9E9660921F955420038218E /* MessageComposer.swift */,
-				E9F3BA2921FA78BF00D17003 /* Extensions.swift */,
+				1BD8B1C122017270006988D6 /* PaddingTextField.swift */,
+				1B34890A21FD55E7000AFF0D /* UnderlineButtonTextDarkGray.swift */,
+				1B07485D21F160C70030D907 /* UnderlineButtonTextLightGray.swift */,
+				1B9AF9AB21F98DA80003C220 /* UnderlineButtonTextPurple.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -218,13 +221,13 @@
 		1B4B13A921F19120002040A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E9E9660521F93A950038218E /* MemberCollectionViewCell.swift */,
-				E9E9660721F93AB30038218E /* FeedCollectionViewCell.swift */,
-				E9F610B721FFF207005D1773 /* CreateNewPhotoBoxCollectionViewCell.swift */,
-				1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */,
-				E9E9660D21F96D0D0038218E /* PhotoCollectionViewCell.swift */,
 				E9E9661121FA3A5A0038218E /* AlbumCollectionViewCell.swift */,
+				E9F610B721FFF207005D1773 /* CreateNewPhotoBoxCollectionViewCell.swift */,
+				E9E9660721F93AB30038218E /* FeedCollectionViewCell.swift */,
+				E9E9660521F93A950038218E /* MemberCollectionViewCell.swift */,
 				1BEA8AD921FFE6B600AF07F3 /* MembersHeaderView.swift */,
+				E9E9660D21F96D0D0038218E /* PhotoCollectionViewCell.swift */,
+				1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -243,23 +246,23 @@
 		1BB36AE021EEAABD0089E2D1 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */,
-				1B07485821F153BF0030D907 /* LoggedOutViewController.swift */,
-				1B07485A21F15ADB0030D907 /* LoginPageViewController.swift */,
-				1B07485F21F16A090030D907 /* SignupViewController.swift */,
 				E957776421F7F89D000F8E7A /* CreateEventTableViewController.swift */,
+				E9F3BA3121FBEB2600D17003 /* DescriptionPageViewController.swift */,
+				E9F3BA2B21FA9CF200D17003 /* EnterCodeViewController.swift */,
 				E9E965FF21F92D0F0038218E /* EventDetailTableViewController.swift */,
-				1B4B13A721F18B03002040A6 /* NewEventViewController.swift */,
 				1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */,
 				1B61AEBC21F91B0A007C6C06 /* ForgotPasswordViewController.swift */,
 				1B61AEBA21F83496007C6C06 /* HomeViewController.swift */,
-				1BCEF0FE21F989E800662756 /* SettingsViewController.swift */,
+				1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */,
+				1B07485821F153BF0030D907 /* LoggedOutViewController.swift */,
+				1B07485A21F15ADB0030D907 /* LoginPageViewController.swift */,
+				1B4B13A721F18B03002040A6 /* NewEventViewController.swift */,
 				E9E9660B21F96C770038218E /* PhotoDetailViewController.swift */,
-				E9F3BA2B21FA9CF200D17003 /* EnterCodeViewController.swift */,
-				E9F3BA2D21FAA9A200D17003 /* PopUpViewController.swift */,
-				E9F3BA2F21FBEADD00D17003 /* WelcomePageViewController.swift */,
-				E9F3BA3121FBEB2600D17003 /* DescriptionPageViewController.swift */,
 				1BAF23AE21FAD03C00E26504 /* PhotoSelectViewController.swift */,
+				E9F3BA2D21FAA9A200D17003 /* PopUpViewController.swift */,
+				1BCEF0FE21F989E800662756 /* SettingsViewController.swift */,
+				1B07485F21F16A090030D907 /* SignupViewController.swift */,
+				E9F3BA2F21FBEADD00D17003 /* WelcomePageViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -268,10 +271,10 @@
 			isa = PBXGroup;
 			children = (
 				B404A99921EEA23200491CE2 /* Main.storyboard */,
-				E9E9660121F937D50038218E /* MemberDataSource.swift */,
-				E9E9660321F937E30038218E /* FeedDataSource.swift */,
 				1B61AE9621F79736007C6C06 /* SignIn.storyboard */,
+				E9E9660321F937E30038218E /* FeedDataSource.swift */,
 				B404A9A121EEA23400491CE2 /* LaunchScreen.storyboard */,
+				E9E9660121F937D50038218E /* MemberDataSource.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -287,12 +290,12 @@
 		1BB36AE721EEB8F60089E2D1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */,
-				1BAF23CF21FB823A00E26504 /* FirebaseStorable.swift */,
 				E91FD2C421F14903004327D3 /* AppUser.swift */,
+				E91FD2CC21F258C2004327D3 /* BasicEvent.swift */,
 				E91FD2CA21F25296004327D3 /* BasicProfile.swift */,
 				E91FD2C621F149BB004327D3 /* Event.swift */,
-				E91FD2CC21F258C2004327D3 /* BasicEvent.swift */,
+				1BAF23CF21FB823A00E26504 /* FirebaseStorable.swift */,
+				1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */,
 				E91FD2CE21F2764C004327D3 /* Photo.swift */,
 			);
 			name = Models;
@@ -301,11 +304,11 @@
 		1BB36AEA21EEBA440089E2D1 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1B4B13AC21F279FB002040A6 /* UserController.swift */,
+				E957776A21F8F96A000F8E7A /* BasicEventController.swift */,
 				1B17856121F29BD600CDADAC /* BasicUserController.swift */,
 				E91FD2D021F634DF004327D3 /* EventController.swift */,
-				E957776A21F8F96A000F8E7A /* BasicEventController.swift */,
 				1BAF23D121FB90D100E26504 /* PhotoController.swift */,
+				1B4B13AC21F279FB002040A6 /* UserController.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				E9E9660821F93AB30038218E /* FeedCollectionViewCell.swift in Sources */,
 				1B17856221F29BD600CDADAC /* BasicUserController.swift in Sources */,
 				E9E9661221FA3A5A0038218E /* AlbumCollectionViewCell.swift in Sources */,
+				1BD8B1C222017270006988D6 /* PaddingTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

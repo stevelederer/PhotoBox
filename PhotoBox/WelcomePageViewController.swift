@@ -9,14 +9,13 @@
 import UIKit
 
 class WelcomePageViewController: UIViewController {
-
-   
+    
+    
     @IBOutlet weak var displayView: UIView!
     @IBOutlet weak var continueButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         displayView.layer.shadowOpacity = 0.5
         displayView.layer.shadowOffset = CGSize(width: 0, height: 5.0)
         displayView.layer.shadowRadius = 10
@@ -24,7 +23,10 @@ class WelcomePageViewController: UIViewController {
         continueButton.layer.cornerRadius = continueButton.frame.height / 2
     }
     
-@IBAction func continueButtonTapped(_ sender: Any) {
-    self.performSegue(withIdentifier: "toDescriptionPageVC", sender: self)
+    @IBAction func continueButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "toDescriptionView", sender: self)
+        UIView.animate(withDuration: 0.1, delay: 0.5, options: [.curveLinear], animations: {
+            self.displayView.alpha = 0
+        }, completion: nil)
     }
 }

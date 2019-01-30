@@ -15,10 +15,10 @@
         
         // MARK: - Properties
         
-        @IBOutlet weak var nameTextField: UITextField!
-        @IBOutlet weak var emailTextField: UITextField!
-        @IBOutlet weak var usernameTextField: UITextField!
-        @IBOutlet weak var passwordTextField: UITextField!
+        @IBOutlet weak var nameTextField: PaddingTextField!
+        @IBOutlet weak var emailTextField: PaddingTextField!
+        @IBOutlet weak var usernameTextField: PaddingTextField!
+        @IBOutlet weak var passwordTextField: PaddingTextField!
         @IBOutlet weak var termsAndConditionsButton: UnderlineButtonTextDarkGray!
         @IBOutlet weak var checkBoxButton: UIButton!
         @IBOutlet weak var signUpButton: UIButton!

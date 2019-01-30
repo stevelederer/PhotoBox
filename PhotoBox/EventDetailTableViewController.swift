@@ -30,10 +30,13 @@ class EventDetailTableViewController: UITableViewController {
     var numberOfMemberRows = 0
     var numberOfMembers: Int?
     var row4Height: CGFloat = 0
+    var row2Height: CGFloat = 0
     
     var memberDataSource = MemberDataSource()
     var feedDataSource = FeedDataSource()
     let messageComposer = MessageComposer()
+    
+    var currentUserIsEventCreator: Bool = false
     
     //Landing Pad
     var event: Event?
@@ -41,6 +44,7 @@ class EventDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        isUserTheCreator()
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
         navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
         inviteButton.layer.cornerRadius = inviteButton.frame.height / 2
@@ -50,6 +54,7 @@ class EventDetailTableViewController: UITableViewController {
         liveFeedCollectionView.dataSource = feedDataSource
         updateViews()
         guard let event = event else { return }
+        guard let currentUser = currentUser else { return }
         EventController.shared.fetchMembers(for: event) { (fetchedMembers) in
             if let fetchedMembers = fetchedMembers {
                 self.numberOfMembers = fetchedMembers.count
@@ -87,6 +92,21 @@ class EventDetailTableViewController: UITableViewController {
             }
         }
         
+        if event.creatorID == currentUser.uuid {
+            print("🙏 Current user is THE CREATOR! 🙏")
+            currentUserIsEventCreator = true
+            self.inviteButton.isHidden = false
+            self.tableView.beginUpdates()
+            self.row4Height = 44
+            self.tableView.endUpdates()
+        } else {
+            print("Current user is not an admin of this event")
+            currentUserIsEventCreator = false
+            self.inviteButton.isHidden = true
+            self.tableView.beginUpdates()
+            self.row4Height = 0
+            self.tableView.endUpdates()
+        }
     }
     
     // MARK: - Setup
@@ -107,6 +127,10 @@ class EventDetailTableViewController: UITableViewController {
         eventLocationLabel.text = "Location: \(location)"
         eventCoverPhotoImageView.image = event.coverPhoto
         detailsLabel.text = event.details
+    }
+    
+    func isUserTheCreator() {
+
     }
     
     //   MARK: - Actions
