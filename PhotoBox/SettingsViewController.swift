@@ -17,9 +17,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var changeDisplayNameButton: UnderlineButtonTextPurple!
     @IBOutlet weak var changeUsernameButton: UnderlineButtonTextPurple!
     @IBOutlet weak var deleteAccountButton: UnderlineButtonTextPurple!
+    @IBOutlet weak var logOutButton: UnderlineButtonTextPurple!
     @IBOutlet weak var eventReminderNotificationSwitch: UISwitch!
-    @IBOutlet weak var photosAddedNotificationSwitch: UISwitch!
-    @IBOutlet weak var automaticUploadReminderNotificationSwitch: UISwitch!
     
     var currentUser: AppUser?
     
@@ -45,15 +44,11 @@ class SettingsViewController: UIViewController {
         changeDisplayNameButton.setTitle("Change Display Name", for: .normal)
         changeUsernameButton.setTitle("Change Username", for: .normal)
         deleteAccountButton.setTitle("Delete Account", for: .normal)
+        logOutButton.setTitle("Log Out", for: .normal)
         eventReminderNotificationSwitch.layer.borderColor = UIColor(named: "darkGrayText")?.cgColor
         eventReminderNotificationSwitch.layer.borderWidth = 2
         eventReminderNotificationSwitch.layer.cornerRadius = eventReminderNotificationSwitch.frame.height / 2
-        photosAddedNotificationSwitch.layer.borderColor = UIColor(named: "darkGrayText")?.cgColor
-        photosAddedNotificationSwitch.layer.borderWidth = 2
-        photosAddedNotificationSwitch.layer.cornerRadius = photosAddedNotificationSwitch.frame.height / 2
-        automaticUploadReminderNotificationSwitch.layer.borderColor = UIColor(named: "darkGrayText")?.cgColor
-        automaticUploadReminderNotificationSwitch.layer.borderWidth = 2
-        automaticUploadReminderNotificationSwitch.layer.cornerRadius = automaticUploadReminderNotificationSwitch.frame.height / 2
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -132,6 +127,10 @@ class SettingsViewController: UIViewController {
     
     @IBAction func deleteAccountButtonTapped(_ sender: UIButton) {
         #warning("delete account")
+    }
+    
+    @IBAction func logOutButtonTapped(_ sender: UIButton) {
+        
     }
     
     func saveChangesToFirebase() {

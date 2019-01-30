@@ -130,7 +130,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBAction func unwindToHomePage(segue:UIStoryboardSegue) {
     }
+    
 }
+
 extension UIViewController {
     func setNavigationItem() {
         let imageView = UIImageView(image: UIImage(named: "boxGraphic"))

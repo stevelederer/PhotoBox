@@ -449,13 +449,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My PhotoBoxes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yq-BS-Dmo">
-                                <rect key="frame" x="16" y="389" width="128.66666666666666" height="21"/>
+                                <rect key="frame" x="16" y="389" width="134" height="25"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
                                 <color key="textColor" name="textDarkGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8aL-M5-Ary">
-                                <rect key="frame" x="15.666666666666657" y="420" width="344" height="2"/>
+                                <rect key="frame" x="15.666666666666657" y="424" width="344" height="2"/>
                                 <color key="backgroundColor" name="textLightGray"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="344" id="bMt-KK-bD7"/>
@@ -463,19 +463,19 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(username)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3Y-aj-aak">
-                                <rect key="frame" x="95" y="148" width="59.666666666666657" height="14"/>
+                                <rect key="frame" x="95" y="153" width="66.666666666666686" height="16.666666666666657"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="12"/>
                                 <color key="textColor" name="textLightGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(display name)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqs-bo-ZSf">
-                                <rect key="frame" x="95" y="117" width="155" height="28"/>
+                                <rect key="frame" x="94.999999999999986" y="117" width="169.66666666666663" height="33"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="24"/>
                                 <color key="textColor" name="textDarkGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hHh-Xy-24d">
-                                <rect key="frame" x="0.0" y="438" width="375" height="340"/>
+                                <rect key="frame" x="0.0" y="442" width="375" height="336"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="tlK-ic-wkN">
                                     <size key="itemSize" width="96" height="120"/>
@@ -528,7 +528,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="2u7-Mo-nmA">
-                                                    <rect key="frame" x="17.000000000000004" y="97" width="62.333333333333336" height="21.666666666666668"/>
+                                                    <rect key="frame" x="17" y="97" width="62.333333333333336" height="21.666666666666668"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(eventName)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIV-1c-r7a">
@@ -611,12 +611,10 @@
                         <outlet property="profilePicImageView" destination="rvL-Ik-sRw" id="pwj-Pp-Eoh"/>
                         <outlet property="settingsBarButtonItem" destination="MLm-gy-MBZ" id="7J7-BB-ZHN"/>
                         <outlet property="usernameLabel" destination="N3Y-aj-aak" id="IUy-mI-UKE"/>
-                        <segue destination="bWb-za-aEB" kind="unwind" identifier="unwindToLoginPage" unwindAction="unwindToLoginPageWithSegue:" id="8XR-oE-V4L"/>
                         <segue destination="ybG-e4-ZaL" kind="show" identifier="toSettingsScreen" id="bh1-aG-gO9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n9x-IE-iIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="bWb-za-aEB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3842.4000000000001" y="-713.79310344827593"/>
         </scene>
@@ -664,13 +662,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6YO-sV-oPO">
-                                <rect key="frame" x="15" y="485" width="177" height="24.666666666666686"/>
+                                <rect key="frame" x="14.666666666666671" y="485" width="177" height="24.666666666666686"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
                                 <color key="textColor" name="textDarkGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TY6-z3-T54">
-                                <rect key="frame" x="16" y="527" width="344" height="2"/>
+                                <rect key="frame" x="15.666666666666657" y="527" width="344" height="2"/>
                                 <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="344" id="CNH-kI-N2e"/>
@@ -734,12 +732,16 @@
                                             <action selector="deleteAccountButtonTapped:" destination="ybG-e4-ZaL" eventType="touchUpInside" id="eZx-Xf-yG0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5Q-zt-CsH">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5Q-zt-CsH" customClass="UnderlineButtonTextPurple" customModule="PhotoBox" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="164" width="45" height="29"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                         <state key="normal" title="Log Out">
                                             <color key="titleColor" name="buttonPurple"/>
                                         </state>
+                                        <connections>
+                                            <action selector="logOutButtonTapped:" destination="ybG-e4-ZaL" eventType="touchUpInside" id="7LC-04-7jn"/>
+                                            <segue destination="kls-E4-CrY" kind="presentation" identifier="seeYouNextTime" id="rKt-aI-EWj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -790,6 +792,7 @@
                         <outlet property="deleteAccountButton" destination="fhT-Vr-1BD" id="bVg-eW-nDw"/>
                         <outlet property="displayNameLabel" destination="yDk-jT-cM8" id="ytd-BT-lN2"/>
                         <outlet property="eventReminderNotificationSwitch" destination="NX3-a1-dz6" id="6lR-Vn-l1e"/>
+                        <outlet property="logOutButton" destination="E5Q-zt-CsH" id="fvR-Am-zxV"/>
                         <outlet property="profilePicImageView" destination="L1Q-cS-aBK" id="tLu-G4-1Hg"/>
                         <outlet property="usernameLabel" destination="c84-Q3-gpo" id="UBB-6B-Nf5"/>
                     </connections>
@@ -799,67 +802,71 @@
             <point key="canvasLocation" x="4671" y="-1317"/>
         </scene>
         <!--Logged Out View Controller-->
-        <scene sceneID="DSk-7C-h6V">
+        <scene sceneID="wej-Qb-X9f">
             <objects>
-                <viewController id="zDL-va-I2e" customClass="LoggedOutViewController" customModule="PhotoBox" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="FzX-oD-vKE">
+                <viewController id="kls-E4-CrY" customClass="LoggedOutViewController" customModule="PhotoBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eC4-cU-adc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGG-nx-BK1">
-                                <rect key="frame" x="107.66666666666669" y="160" width="160" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="YYw-bi-Mdd"/>
-                                    <constraint firstAttribute="height" constant="56" id="vgl-Oq-Dxb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="51"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See You  Next Time!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwA-zV-dzi">
-                                <rect key="frame" x="90" y="305" width="195" height="102"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="195" id="LUE-9n-pHM"/>
-                                    <constraint firstAttribute="height" constant="102" id="h1L-tB-cKg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="40"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSb-2o-bVE">
-                                <rect key="frame" x="87.666666666666686" y="514" width="200" height="56"/>
-                                <color key="backgroundColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="416-Z9-0l0"/>
-                                    <constraint firstAttribute="height" constant="56" id="f0Q-Iy-Yon"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
-                                <state key="normal" title="LOG BACK IN">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="logBackInButtonTapped:" destination="zDL-va-I2e" eventType="touchUpInside" id="Pok-Fo-OCE"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoBoxBackgroundLight" translatesAutoresizingMaskIntoConstraints="NO" id="zoI-MJ-ZUx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="FJG-V2-fLR">
+                                <rect key="frame" x="45" y="235.00000000000003" width="285.33333333333331" height="369.66666666666669"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boxLogoPNG" translatesAutoresizingMaskIntoConstraints="NO" id="ovx-Pw-JMX">
+                                        <rect key="frame" x="94.666666666666686" y="0.0" width="96" height="104"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHOTOBOX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqU-61-qIv">
+                                        <rect key="frame" x="55.666666666666657" y="149" width="174" height="31"/>
+                                        <fontDescription key="fontDescription" name="Skia-Regular_Bold" family="Skia" pointSize="31"/>
+                                        <color key="textColor" name="textDarkGray"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See You Next Time!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eR-mq-CPH">
+                                        <rect key="frame" x="0.0" y="225" width="285.33333333333331" height="43.666666666666686"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="32"/>
+                                        <color key="textColor" name="textDarkGray"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inC-qP-EzJ">
+                                        <rect key="frame" x="34.666666666666657" y="313.66666666666669" width="216" height="56"/>
+                                        <color key="backgroundColor" name="buttonPurple"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="DIQ-Rn-Zvh"/>
+                                            <constraint firstAttribute="width" constant="216" id="Via-Pn-SuB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="24"/>
+                                        <state key="normal" title="LOG BACK IN">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logBackInButtonTapped:" destination="kls-E4-CrY" eventType="touchUpInside" id="zK7-ZK-S4V"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dSb-2o-bVE" firstAttribute="centerX" secondItem="FzX-oD-vKE" secondAttribute="centerX" id="HVE-6K-EOt"/>
-                            <constraint firstItem="LGG-nx-BK1" firstAttribute="top" secondItem="FzX-oD-vKE" secondAttribute="top" constant="160" id="NpK-Cu-32N"/>
-                            <constraint firstItem="dSb-2o-bVE" firstAttribute="top" secondItem="ZwA-zV-dzi" secondAttribute="bottom" constant="107" id="U0c-68-q8E"/>
-                            <constraint firstItem="ZwA-zV-dzi" firstAttribute="top" secondItem="LGG-nx-BK1" secondAttribute="bottom" constant="89" id="aF1-aP-Foa"/>
-                            <constraint firstItem="LGG-nx-BK1" firstAttribute="centerX" secondItem="FzX-oD-vKE" secondAttribute="centerX" id="fP4-nU-HxG"/>
-                            <constraint firstItem="ZwA-zV-dzi" firstAttribute="centerX" secondItem="FzX-oD-vKE" secondAttribute="centerX" id="ul0-xW-vnX"/>
+                            <constraint firstItem="wfi-Q2-OKp" firstAttribute="trailing" secondItem="zoI-MJ-ZUx" secondAttribute="trailing" id="DfQ-DI-T22"/>
+                            <constraint firstAttribute="bottom" secondItem="zoI-MJ-ZUx" secondAttribute="bottom" id="FBB-KK-5Ko"/>
+                            <constraint firstItem="zoI-MJ-ZUx" firstAttribute="leading" secondItem="wfi-Q2-OKp" secondAttribute="leading" id="S39-ox-cb2"/>
+                            <constraint firstItem="zoI-MJ-ZUx" firstAttribute="top" secondItem="eC4-cU-adc" secondAttribute="top" id="acM-2Y-sE3"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="s8B-u3-eJH"/>
+                        <viewLayoutGuide key="safeArea" id="wfi-Q2-OKp"/>
                     </view>
                     <connections>
-                        <outlet property="logBackInButton" destination="dSb-2o-bVE" id="iyT-pF-COT"/>
+                        <outlet property="logBackInButton" destination="inC-qP-EzJ" id="Rp2-0E-Jp5"/>
+                        <segue destination="YKR-4a-50D" kind="unwind" identifier="unwindToLandingPage" unwindAction="unwindToLandingPageWithSegue:" id="SaV-af-Tfn"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yfK-My-dxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yWx-yl-Llq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="YKR-4a-50D" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3049" y="594"/>
+            <point key="canvasLocation" x="5460" y="-1322.6600985221676"/>
         </scene>
         <!--Landing Page View Controller-->
         <scene sceneID="0Pe-qf-D8D">
@@ -1081,73 +1088,12 @@
             </objects>
             <point key="canvasLocation" x="2900" y="-713.05418719211821"/>
         </scene>
-        <!--Logged Out View Controller-->
-        <scene sceneID="G2f-qG-D3e">
-            <objects>
-                <viewController id="hhO-fb-Jij" customClass="LoggedOutViewController" customModule="PhotoBox" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OqB-2K-5sm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZz-xP-xVw">
-                                <rect key="frame" x="107.66666666666669" y="160" width="160" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="8xA-JE-1E3"/>
-                                    <constraint firstAttribute="width" constant="160" id="IfW-Zo-WE4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="51"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See You  Next Time!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbU-vQ-mdB">
-                                <rect key="frame" x="90" y="305" width="195" height="102"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="102" id="pB7-9e-ZDe"/>
-                                    <constraint firstAttribute="width" constant="195" id="xRI-2P-D97"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="40"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcQ-gS-DBL">
-                                <rect key="frame" x="87.666666666666686" y="514" width="200" height="56"/>
-                                <color key="backgroundColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="1Ot-cW-Dqz"/>
-                                    <constraint firstAttribute="width" constant="200" id="wEb-Mk-K9H"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
-                                <state key="normal" title="LOG BACK IN">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="logBackInButtonTapped:" destination="hhO-fb-Jij" eventType="touchUpInside" id="yev-Uh-FF0"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="FbU-vQ-mdB" firstAttribute="centerX" secondItem="OqB-2K-5sm" secondAttribute="centerX" id="IFg-27-gwA"/>
-                            <constraint firstItem="EZz-xP-xVw" firstAttribute="top" secondItem="OqB-2K-5sm" secondAttribute="top" constant="160" id="J8j-LD-fpy"/>
-                            <constraint firstItem="FbU-vQ-mdB" firstAttribute="top" secondItem="EZz-xP-xVw" secondAttribute="bottom" constant="89" id="NNI-QW-5rP"/>
-                            <constraint firstItem="WcQ-gS-DBL" firstAttribute="top" secondItem="FbU-vQ-mdB" secondAttribute="bottom" constant="107" id="O1G-CC-Uz1"/>
-                            <constraint firstItem="EZz-xP-xVw" firstAttribute="centerX" secondItem="OqB-2K-5sm" secondAttribute="centerX" id="cbu-iH-KM7"/>
-                            <constraint firstItem="WcQ-gS-DBL" firstAttribute="centerX" secondItem="OqB-2K-5sm" secondAttribute="centerX" id="nVj-ca-UQ5"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="DNF-NT-QDw"/>
-                    </view>
-                    <connections>
-                        <outlet property="logBackInButton" destination="WcQ-gS-DBL" id="RP4-8q-MvF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zIh-S7-Ydl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3049" y="594"/>
-        </scene>
     </scenes>
     <resources>
         <image name="PhotoBoxBackground" width="1125" height="2436"/>
+        <image name="PhotoBoxBackgroundLight" width="375" height="812"/>
         <image name="boxGraphic" width="96" height="105"/>
+        <image name="boxLogoPNG" width="96" height="104.63999938964844"/>
         <image name="noProfilePic" width="800" height="1074"/>
         <image name="settings" width="20" height="20"/>
         <namedColor name="buttonGreen">
@@ -1164,6 +1110,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vVD-Qy-zah"/>
+        <segue reference="czN-Oi-FcR"/>
     </inferredMetricsTieBreakers>
 </document>

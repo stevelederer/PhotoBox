@@ -243,8 +243,8 @@
 		1BB36AE021EEAABD0089E2D1 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1B07485821F153BF0030D907 /* LoggedOutViewController.swift */,
 				1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */,
+				1B07485821F153BF0030D907 /* LoggedOutViewController.swift */,
 				1B07485A21F15ADB0030D907 /* LoginPageViewController.swift */,
 				1B07485F21F16A090030D907 /* SignupViewController.swift */,
 				E957776421F7F89D000F8E7A /* CreateEventTableViewController.swift */,
