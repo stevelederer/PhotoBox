@@ -16,18 +16,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var joinEventButton: UIButton!
     @IBOutlet weak var settingsBarButtonItem: UIBarButtonItem!
-    
-//    let settingArray: NSMutableArray = ["Settings", "Logout"]
-    
+        
     //Source of truth
     var events: [BasicEvent]?
     var currentUser = UserController.shared.currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserController.shared.logOutUser { (_) in
-            
-        }
+        
         self.setNavigationItem()
         self.navigationController?.navigationBar.layer.masksToBounds = false
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
