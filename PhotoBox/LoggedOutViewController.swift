@@ -13,12 +13,16 @@ class LoggedOutViewController: UIViewController {
     @IBOutlet weak var logBackInButton: UIButton!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        logBackInButton.backgroundColor = UIColor(displayP3Red: 0.61, green: 0.61, blue: 0.61, alpha: 1)
         logBackInButton.layer.cornerRadius = logBackInButton.frame.height / 2
+        UserController.shared.logOutUser { (success) in
+            if success {
+                print("👋👋👋 User logged out! Goodbye! 👋👋👋")
+            }
+        }
     }
     
     @IBAction func logBackInButtonTapped(_ sender: UIButton) {
-        
+        self.performSegue(withIdentifier: "unwindToLandingPage", sender: self)
     }
+    
 }
