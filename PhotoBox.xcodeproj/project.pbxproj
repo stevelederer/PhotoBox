@@ -77,7 +77,6 @@
 		E9E9661221FA3A5A0038218E /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9661121FA3A5A0038218E /* AlbumCollectionViewCell.swift */; };
 		E9F3BA2A21FA78BF00D17003 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F3BA2921FA78BF00D17003 /* Extensions.swift */; };
 		E9F3BA2C21FA9CF200D17003 /* EnterCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F3BA2B21FA9CF200D17003 /* EnterCodeViewController.swift */; };
-		E9F3BA2E21FAA9A200D17003 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F3BA2D21FAA9A200D17003 /* PopUpViewController.swift */; };
 		E9F3BA3021FBEADD00D17003 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F3BA2F21FBEADD00D17003 /* WelcomePageViewController.swift */; };
 		E9F3BA3221FBEB2600D17003 /* DescriptionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F3BA3121FBEB2600D17003 /* DescriptionPageViewController.swift */; };
 		E9F610B821FFF207005D1773 /* CreateNewPhotoBoxCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F610B721FFF207005D1773 /* CreateNewPhotoBoxCollectionViewCell.swift */; };
@@ -158,7 +157,6 @@
 		E9E9661121FA3A5A0038218E /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9F3BA2921FA78BF00D17003 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E9F3BA2B21FA9CF200D17003 /* EnterCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCodeViewController.swift; sourceTree = "<group>"; };
-		E9F3BA2D21FAA9A200D17003 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		E9F3BA2F21FBEADD00D17003 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		E9F3BA3121FBEB2600D17003 /* DescriptionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionPageViewController.swift; sourceTree = "<group>"; };
 		E9F610B721FFF207005D1773 /* CreateNewPhotoBoxCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPhotoBoxCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -562,7 +560,6 @@
 				1B5D6A8321F676290095F9CA /* FakeProfileViewController.swift in Sources */,
 				1B9AF9AC21F98DA80003C220 /* UnderlineButtonTextPurple.swift in Sources */,
 				E91FD2D121F634DF004327D3 /* EventController.swift in Sources */,
-				E9F3BA2E21FAA9A200D17003 /* PopUpViewController.swift in Sources */,
 				E9E9660421F937E30038218E /* FeedDataSource.swift in Sources */,
 				E9E9660821F93AB30038218E /* FeedCollectionViewCell.swift in Sources */,
 				1B17856221F29BD600CDADAC /* BasicUserController.swift in Sources */,

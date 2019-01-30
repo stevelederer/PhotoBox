@@ -67,6 +67,8 @@ class EnterCodeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+     //   MARK: - Textfield Delegate Methods
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = enterCodeTextField.text else { return true }
         let count = text.count + string.count - range.length
@@ -79,6 +81,18 @@ class EnterCodeViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == enterCodeTextField {
+            UIView.animate(withDuration: 0.3,
+                           delay: 0,
+                           options: [.curveEaseInOut],
+                           animations: {self.view.frame.origin.y = -100},
+                           completion: nil)
+        }
+    }
+    
+    
     
     func presentRequiredFieldAlert() {
         let requiredFieldAlert = UIAlertController(title: "Required Field", message: "Please enter a code consisting of 4 alphanumeric characters", preferredStyle: .alert)
