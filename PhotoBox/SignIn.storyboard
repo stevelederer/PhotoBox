@@ -33,12 +33,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHOTOBOX" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1Q-5L-eCM">
-                                <rect key="frame" x="97.5" y="218" width="219" height="39"/>
-                                <fontDescription key="fontDescription" name="Skia-Regular_Bold" family="Skia" pointSize="39"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jcX-Pz-UH8">
                                 <rect key="frame" x="51.5" y="342" width="311" height="53"/>
                                 <constraints>
@@ -112,6 +106,12 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PHOTOBOX" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1Q-5L-eCM">
+                                <rect key="frame" x="99" y="178" width="219" height="39"/>
+                                <fontDescription key="fontDescription" name="Skia-Regular_Bold" family="Skia" pointSize="39"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -141,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Odp-Fy-Rk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="710" y="35"/>
+            <point key="canvasLocation" x="606" y="151"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="Hsh-Nf-6qN">
@@ -228,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VcK-3X-dwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-186" y="950"/>
+            <point key="canvasLocation" x="-707" y="972"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="Bwo-s4-paH">
@@ -423,7 +423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2u-DE-AW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1552.1739130434785" y="949.55357142857133"/>
+            <point key="canvasLocation" x="1032" y="972"/>
         </scene>
         <!--PhotoBox-->
         <scene sceneID="jGX-y6-eKl">
@@ -1033,7 +1033,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="shd-4h-njo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-186.40000000000001" y="54.679802955665025"/>
+            <point key="canvasLocation" x="-288" y="63"/>
         </scene>
         <!--Welcome Page View Controller-->
         <scene sceneID="Mfc-f3-Teu">
@@ -1094,7 +1094,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nwC-GO-xPP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1172" y="106"/>
+            <point key="canvasLocation" x="-1212" y="63"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rK4-eH-ISY">
@@ -1112,7 +1112,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L2d-z0-Ht6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2900" y="-713.05418719211821"/>
+            <point key="canvasLocation" x="2841" y="-453"/>
         </scene>
         <!--Logged Out View Controller-->
         <scene sceneID="G2f-qG-D3e">
@@ -1197,6 +1197,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="54K-oT-9dq"/>
+        <segue reference="vVD-Qy-zah"/>
     </inferredMetricsTieBreakers>
 </document>
