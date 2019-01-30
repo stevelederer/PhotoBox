@@ -25,6 +25,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserController.shared.logOutUser { (_) in
+            
+        }
         self.setNavigationItem()
         self.navigationController?.navigationBar.layer.masksToBounds = false
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
