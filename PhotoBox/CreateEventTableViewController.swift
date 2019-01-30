@@ -13,10 +13,10 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
      //   MARK: - Outlets
     @IBOutlet weak var selectCoverPhotoButton: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var eventNameTextField: UITextField!
-    @IBOutlet weak var startTimeTextField: UITextField!
-    @IBOutlet weak var endTimeTextField: UITextField!
-    @IBOutlet weak var eventLocationTextField: UITextField!
+    @IBOutlet weak var eventNameTextField: PaddingTextField!
+    @IBOutlet weak var startTimeTextField: PaddingTextField!
+    @IBOutlet weak var endTimeTextField: PaddingTextField!
+    @IBOutlet weak var eventLocationTextField: PaddingTextField!
     @IBOutlet weak var eventDetailsTextView: UITextView!
     @IBOutlet weak var createEventButton: UIButton!
     @IBOutlet weak var cameraImageView: UIImageView!
@@ -25,6 +25,12 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        eventNameTextField.setPadding(left: 20)
+        startTimeTextField.setPadding(left: 20)
+        endTimeTextField.setPadding(left: 20)
+        eventLocationTextField.setPadding(left: 20)
+        
         let borderColor = UIColor(named: "textDarkGray")?.cgColor
         eventNameTextField.layer.cornerRadius = eventNameTextField.frame.height / 2
         eventNameTextField.layer.borderWidth = 2

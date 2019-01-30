@@ -121,10 +121,10 @@ class EventDetailTableViewController: UITableViewController {
             }
         }
         eventNameLabel.text = event.eventName
-        startDateLabel.text = "Date: \(event.formattedStartTime)"
+        startDateLabel.text = "\(event.formattedStartTime)"
         guard let location = event.location,
             !location.isEmpty else { eventLocationLabel.isHidden = true ; return }
-        eventLocationLabel.text = "Location: \(location)"
+        eventLocationLabel.text = "\(location)"
         eventCoverPhotoImageView.image = event.coverPhoto
         detailsLabel.text = event.details
     }
