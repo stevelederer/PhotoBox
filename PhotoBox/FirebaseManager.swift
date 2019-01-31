@@ -303,7 +303,7 @@ class FirebaseManager {
                 return
             }
             
-            objectRef.downloadURL(completion: { (url, error) in
+            objectRef.downloadURL(completion: { (url, _) in
                 guard let downloadURL = url else { return }
                 print(downloadURL)
                 completion(downloadURL, nil)

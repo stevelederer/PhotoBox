@@ -95,8 +95,9 @@ class EnterCodeViewController: UIViewController, UITextFieldDelegate {
     
     
     func presentRequiredFieldAlert() {
-        let requiredFieldAlert = UIAlertController(title: "Required Field", message: "Please enter a code consisting of 4 alphanumeric characters", preferredStyle: .alert)
-        requiredFieldAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-        present(requiredFieldAlert, animated: true)
+        self.presentPhotoBoxModalVC(message: "Oops! We need the code to get you connected!")
+//        let requiredFieldAlert = UIAlertController(title: "Required Field", message: "Please enter a code consisting of 4 alphanumeric characters", preferredStyle: .alert)
+//        requiredFieldAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+//        present(requiredFieldAlert, animated: true)
     }
 }

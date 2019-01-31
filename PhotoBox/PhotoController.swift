@@ -50,18 +50,17 @@ class PhotoController {
         }
     }
     
-    func upload(images: [UIImage], for eventID: String , from userID: String, completion: @escaping (Bool) -> Void) {
-        for image in images {
-            let newPhoto = Photo(image: image, eventID: eventID, creatorID: userID)
-            FirebaseManager.uploadPhotoToFirebase(newPhoto) { (url, error) in
+    func upload(photos: [Photo], eventID: String, userID: String, completion: @escaping (Bool) -> Void) {
+        for photo in photos {
+            FirebaseManager.uploadPhotoToFirebase(photo) { (url, error) in
                 if let error = error {
                     print("There was an error uploading image to cloud storage: \(error.localizedDescription)")
                     completion(false)
                     return
                 } else {
                     guard let url = url else { return }
-                    newPhoto.imageURL = "\(url)"
-                    FirebaseManager.saveData(object: newPhoto, completion: { (error) in
+                    photo.imageURL = "\(url)"
+                    FirebaseManager.saveData(object: photo, completion: { (error) in
                         if let error = error {
                             print(error.localizedDescription)
                             return

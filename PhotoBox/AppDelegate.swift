@@ -8,15 +8,44 @@
 
 import UIKit
 import Firebase
+//import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+//        completionHandler([.alert, .badge, .sound])
+//    }
+//
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+//
+//        if response.notification.request.identifier == "FirstEventEndReminder" {
+//            print("handling the firstEventReminder notification")
+//            DispatchQueue.main.async {
+//                self.notificationAction1()
+//            }
+//        }
+//        completionHandler()
+//
+//    }
+//
+//    func notificationAction1() {
+//        redirectToVC()
+//    }
+//
+//    func redirectToVC() {
+//        let signInStoryboard: UIStoryboard = UIStoryboard(name: "SignIn", bundle: nil)
+//
+//        let toVC = EventDetailTableViewController()
+//    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         FirebaseApp.configure()
+        
+//        UNUserNotificationCenter.current().delegate = self
         
         // TEST SAVING A SINGLE PHOTO
         

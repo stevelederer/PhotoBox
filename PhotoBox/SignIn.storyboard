@@ -152,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Odp-Fy-Rk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708.69565217391312" y="34.239130434782609"/>
+            <point key="canvasLocation" x="774" y="106"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="Hsh-Nf-6qN">
@@ -214,6 +214,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gVK-Ue-Wqh" id="j3f-U7-gbn"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -239,12 +242,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VcK-3X-dwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-707" y="972"/>
+            <point key="canvasLocation" x="774" y="951"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="Bwo-s4-paH">
             <objects>
-                <viewController id="yOk-5c-chU" customClass="SignupViewController" customModule="PhotoBox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignupViewController" id="yOk-5c-chU" customClass="SignupViewController" customModule="PhotoBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zwi-0i-KlY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -434,7 +437,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2u-DE-AW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1032" y="972"/>
+            <point key="canvasLocation" x="2084" y="106"/>
         </scene>
         <!--PhotoBox-->
         <scene sceneID="jGX-y6-eKl">
@@ -618,11 +621,12 @@
                         <outlet property="settingsBarButtonItem" destination="MLm-gy-MBZ" id="7J7-BB-ZHN"/>
                         <outlet property="usernameLabel" destination="N3Y-aj-aak" id="IUy-mI-UKE"/>
                         <segue destination="ybG-e4-ZaL" kind="show" identifier="toSettingsScreen" id="bh1-aG-gO9"/>
+                        <segue destination="ADf-cz-QeC" kind="show" identifier="toEventDetailVC" id="su2-CV-ULU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n9x-IE-iIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3842.4000000000001" y="-713.79310344827593"/>
+            <point key="canvasLocation" x="1434" y="-715"/>
         </scene>
         <!--EnterCodeViewController-->
         <scene sceneID="Yfy-z6-da6">
@@ -630,7 +634,15 @@
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="EnterCodeViewController" id="Qfg-xb-9vd" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXT-2B-Dxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4622" y="-713"/>
+            <point key="canvasLocation" x="2950" y="-437"/>
+        </scene>
+        <!--eventDetailVC-->
+        <scene sceneID="YZH-0e-1Dr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="eventDetailVC" id="ADf-cz-QeC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oh0-kz-D8X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2693" y="-641"/>
         </scene>
         <!--Main-->
         <scene sceneID="NBM-ar-sYG">
@@ -638,7 +650,7 @@
                 <viewControllerPlaceholder storyboardName="Main" id="tnf-IY-9L5" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSi-2y-Ffh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4622" y="-825"/>
+            <point key="canvasLocation" x="2738" y="-533"/>
         </scene>
         <!--Settings-->
         <scene sceneID="d41-Jx-foZ">
@@ -805,7 +817,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gz-yj-CbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4671" y="-1317"/>
+            <point key="canvasLocation" x="2703" y="-1253"/>
         </scene>
         <!--Logged Out View Controller-->
         <scene sceneID="wej-Qb-X9f">
@@ -818,27 +830,31 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoBoxBackgroundLight" translatesAutoresizingMaskIntoConstraints="NO" id="zoI-MJ-ZUx">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="FJG-V2-fLR">
-                                <rect key="frame" x="45" y="235.00000000000003" width="285.33333333333331" height="369.66666666666669"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillProportionally" alignment="center" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="FJG-V2-fLR">
+                                <rect key="frame" x="45" y="235.00000000000003" width="285.33333333333331" height="349.66666666666669"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boxLogoPNG" translatesAutoresizingMaskIntoConstraints="NO" id="ovx-Pw-JMX">
                                         <rect key="frame" x="94.666666666666686" y="0.0" width="96" height="104"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="96" id="0wA-Ue-sMz"/>
+                                            <constraint firstAttribute="height" constant="104" id="lzZ-ZK-Voy"/>
+                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHOTOBOX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqU-61-qIv">
-                                        <rect key="frame" x="55.666666666666657" y="149" width="174" height="31"/>
+                                        <rect key="frame" x="55.666666666666657" y="146" width="174" height="31"/>
                                         <fontDescription key="fontDescription" name="Skia-Regular_Bold" family="Skia" pointSize="31"/>
                                         <color key="textColor" name="textDarkGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See You Next Time!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eR-mq-CPH">
-                                        <rect key="frame" x="0.0" y="225" width="285.33333333333331" height="43.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="219" width="285.33333333333331" height="32.666666666666657"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="32"/>
                                         <color key="textColor" name="textDarkGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inC-qP-EzJ">
-                                        <rect key="frame" x="34.666666666666657" y="313.66666666666669" width="216" height="56"/>
+                                        <rect key="frame" x="34.666666666666657" y="293.66666666666669" width="216" height="56"/>
                                         <color key="backgroundColor" name="buttonPurple"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="DIQ-Rn-Zvh"/>
@@ -872,7 +888,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWx-yl-Llq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YKR-4a-50D" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5460" y="-1322.6600985221676"/>
+            <point key="canvasLocation" x="3543" y="-1253"/>
         </scene>
         <!--Landing Page View Controller-->
         <scene sceneID="0Pe-qf-D8D">
@@ -897,12 +913,12 @@
                     </view>
                     <connections>
                         <segue destination="V6n-eu-BFT" kind="show" identifier="userIsLoggedIn" id="czN-Oi-FcR"/>
-                        <segue destination="ISd-1R-2JK" kind="presentation" identifier="toWelcomePageVC" modalPresentationStyle="overCurrentContext" modalTransitionStyle="flipHorizontal" id="5RV-WT-jHe"/>
+                        <segue destination="ISd-1R-2JK" kind="presentation" identifier="toWelcomePageVC" modalPresentationStyle="overFullScreen" modalTransitionStyle="flipHorizontal" id="5RV-WT-jHe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15c-xh-jfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-868" y="-641.37931034482756"/>
+            <point key="canvasLocation" x="-2289" y="-202"/>
         </scene>
         <!--Description Page View Controller-->
         <scene sceneID="K2g-tc-Paz">
@@ -915,6 +931,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGY-sp-HIK">
                                 <rect key="frame" x="39.666666666666657" y="273" width="296" height="276"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popupBackground" translatesAutoresizingMaskIntoConstraints="NO" id="CCG-v1-bTE">
+                                        <rect key="frame" x="0.0" y="0.0" width="296" height="276"/>
+                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="RLf-Mf-qE1">
                                         <rect key="frame" x="14.666666666666657" y="27.666666666666671" width="266.33333333333337" height="220.66666666666663"/>
                                         <subviews>
@@ -937,7 +956,7 @@
                                                 <color key="textColor" name="textDarkGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n5A-7a-kwD">
+                                            <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="n5A-7a-kwD">
                                                 <rect key="frame" x="133.33333333333331" y="150" width="0.0" height="19"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
@@ -961,6 +980,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="fTm-ke-zcz" firstAttribute="width" secondItem="RLf-Mf-qE1" secondAttribute="width" multiplier="0.7" id="HNO-LU-nVR"/>
+                                            <constraint firstItem="n5A-7a-kwD" firstAttribute="top" secondItem="RLf-Mf-qE1" secondAttribute="top" constant="150" id="WYe-CP-3eO"/>
                                             <constraint firstItem="8Ls-qy-WzY" firstAttribute="width" secondItem="RLf-Mf-qE1" secondAttribute="width" multiplier="0.9" id="b7V-Pc-b9v"/>
                                         </constraints>
                                     </stackView>
@@ -968,11 +988,15 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="RLf-Mf-qE1" firstAttribute="centerY" secondItem="EGY-sp-HIK" secondAttribute="centerY" id="1zG-h8-OTv"/>
+                                    <constraint firstItem="CCG-v1-bTE" firstAttribute="centerX" secondItem="EGY-sp-HIK" secondAttribute="centerX" id="326-B1-83n"/>
                                     <constraint firstAttribute="height" constant="276" id="EB7-bK-Lg9"/>
+                                    <constraint firstItem="CCG-v1-bTE" firstAttribute="height" secondItem="EGY-sp-HIK" secondAttribute="height" id="HUp-zR-IBt"/>
                                     <constraint firstItem="RLf-Mf-qE1" firstAttribute="centerX" secondItem="EGY-sp-HIK" secondAttribute="centerX" id="Jxr-fl-1o9"/>
                                     <constraint firstItem="RLf-Mf-qE1" firstAttribute="width" secondItem="EGY-sp-HIK" secondAttribute="width" multiplier="0.9" id="RI8-Ww-qeM"/>
                                     <constraint firstItem="RLf-Mf-qE1" firstAttribute="height" secondItem="EGY-sp-HIK" secondAttribute="height" multiplier="0.8" id="g5g-SU-6xM"/>
+                                    <constraint firstItem="CCG-v1-bTE" firstAttribute="width" secondItem="EGY-sp-HIK" secondAttribute="width" id="mt4-p7-haz"/>
                                     <constraint firstAttribute="width" constant="296" id="njy-cc-0bw"/>
+                                    <constraint firstItem="CCG-v1-bTE" firstAttribute="centerY" secondItem="EGY-sp-HIK" secondAttribute="centerY" id="o7V-zv-gYk"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -990,7 +1014,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="shd-4h-njo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-189.59999999999999" y="52.463054187192121"/>
+            <point key="canvasLocation" x="-198" y="106"/>
         </scene>
         <!--Welcome Page View Controller-->
         <scene sceneID="Mfc-f3-Teu">
@@ -1003,6 +1027,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59i-qx-MS3" userLabel="Popup View">
                                 <rect key="frame" x="39.666666666666657" y="268" width="296" height="276"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popupBackground" translatesAutoresizingMaskIntoConstraints="NO" id="a2V-Qg-mko">
+                                        <rect key="frame" x="0.0" y="0.0" width="296" height="276"/>
+                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6hd-V2-WIq">
                                         <rect key="frame" x="7.3333333333333428" y="20.666666666666671" width="281" height="234.66666666666663"/>
                                         <subviews>
@@ -1039,12 +1066,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="a2V-Qg-mko" firstAttribute="width" secondItem="59i-qx-MS3" secondAttribute="width" id="8BY-wl-Dso"/>
                                     <constraint firstItem="6hd-V2-WIq" firstAttribute="centerX" secondItem="59i-qx-MS3" secondAttribute="centerX" id="8D1-1r-uHM"/>
+                                    <constraint firstItem="a2V-Qg-mko" firstAttribute="centerX" secondItem="59i-qx-MS3" secondAttribute="centerX" id="NXy-k6-Ngq"/>
                                     <constraint firstItem="6hd-V2-WIq" firstAttribute="width" secondItem="59i-qx-MS3" secondAttribute="width" multiplier="0.95" id="OJR-mx-cdv"/>
                                     <constraint firstItem="6hd-V2-WIq" firstAttribute="centerY" secondItem="59i-qx-MS3" secondAttribute="centerY" id="Up4-iL-Bc1"/>
+                                    <constraint firstItem="a2V-Qg-mko" firstAttribute="centerY" secondItem="59i-qx-MS3" secondAttribute="centerY" id="g79-qj-QYt"/>
                                     <constraint firstAttribute="width" constant="296" id="jvB-We-3JG"/>
                                     <constraint firstAttribute="height" constant="276" id="nam-nF-u1d"/>
                                     <constraint firstItem="6hd-V2-WIq" firstAttribute="height" secondItem="59i-qx-MS3" secondAttribute="height" multiplier="0.85" id="q2t-dE-hdL"/>
+                                    <constraint firstItem="a2V-Qg-mko" firstAttribute="height" secondItem="59i-qx-MS3" secondAttribute="height" id="zTp-h7-dTj"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1068,7 +1099,7 @@
         <!--Navigation Controller-->
         <scene sceneID="rK4-eH-ISY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V6n-eu-BFT" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="V6n-eu-BFT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3WZ-Zl-Xba">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -1081,7 +1112,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L2d-z0-Ht6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2900" y="-713.05418719211821"/>
+            <point key="canvasLocation" x="255" y="-714"/>
         </scene>
     </scenes>
     <resources>
@@ -1090,6 +1121,7 @@
         <image name="boxGraphic" width="96" height="105"/>
         <image name="boxLogoPNG" width="96" height="104.63999938964844"/>
         <image name="noProfilePic" width="800" height="1074"/>
+        <image name="popupBackground" width="945" height="822"/>
         <image name="settings" width="20" height="20"/>
         <namedColor name="buttonGreen">
             <color red="0.5607843137254902" green="0.73333333333333328" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1105,6 +1137,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vVD-Qy-zah"/>
+        <segue reference="czN-Oi-FcR"/>
     </inferredMetricsTieBreakers>
 </document>

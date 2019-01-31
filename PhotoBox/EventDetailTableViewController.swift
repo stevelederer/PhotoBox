@@ -45,6 +45,7 @@ class EventDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        UNUserNotificationCenter.current().delegate = self
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
         navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
         inviteButton.layer.cornerRadius = inviteButton.frame.height / 2
@@ -120,6 +121,7 @@ class EventDetailTableViewController: UITableViewController {
                 }
             }
         }
+        scheduleUserNotifications()
         eventNameLabel.text = event.eventName
         startDateLabel.text = "\(event.formattedStartTime)"
         guard let location = event.location,
@@ -132,16 +134,22 @@ class EventDetailTableViewController: UITableViewController {
         let center = UNUserNotificationCenter.current()
         center.getNotificationSettings { (settings) in
             if settings.authorizationStatus != .authorized {
-                // present view
-                
+//                self.presentPhotoBoxModalVC(message: "You've joined your first PhotoBox! We'd like to send reminders to upload your photos (so your friends don't have to!)")
+                #warning("apple auth alert comes up over this other modal")
                 center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-                    
                 }
+            } else {
+                print("🥳🥳🥳🥳🥳 Notifications Authorized!")
             }
         }
     }
     
     //   MARK: - Actions
+    
+    func scheduleUserNotifications() {
+        guard let event = event else { return }
+        NotificationManager.scheduleEventNotification(for: event)
+    }
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "unwindToHomePage", sender: self)
@@ -156,9 +164,10 @@ class EventDetailTableViewController: UITableViewController {
             
             present(messageComposerVC, animated: true, completion: nil)
         } else {
-            let errorAlert = UIAlertController(title: "Cannot Send Text Message", message: "Your device is not able to send text messages.", preferredStyle: .alert)
-            errorAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-            present(errorAlert, animated: true)
+            presentPhotoBoxModalVC(message: "Oh no! It looks like this device isn't able to send text messages out.")
+//            let errorAlert = UIAlertController(title: "Cannot Send Text Message", message: "Your device is not able to send text messages.", preferredStyle: .alert)
+//            errorAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+//            present(errorAlert, animated: true)
         }
     }
     

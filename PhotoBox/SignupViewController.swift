@@ -53,6 +53,7 @@
             checkBoxButton.layer.cornerRadius = 5
             termsAndConditionsButton.setTitle("Terms and conditions", for: .normal)
             logInButton.setTitle("LOG IN", for: .normal)
+            NotificationCenter.default.addObserver(self, selector: #selector(signUpSuccess), name: .letsGoButtonTapped, object: nil)
         }
         
         //   MARK: - TextfieldDelegate Methods
@@ -120,12 +121,16 @@
                     if let error = error {
                         self.presentSignUpErrorAlert(error: error)
                     } else {
-                        self.performSegue(withIdentifier: "signUpSuccess", sender: self)
+                        self.presentModalCompletedSignUp()
                     }
                 }
             } else {
                 presentTermsAndConditionsAlert()
             }
+        }
+        
+        @objc func signUpSuccess() {
+            self.performSegue(withIdentifier: "signUpSuccess", sender: self)
         }
         
         @IBAction func checkBoxButtonTapped(_ sender: UIButton) {
