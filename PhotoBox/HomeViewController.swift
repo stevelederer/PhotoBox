@@ -11,22 +11,20 @@ import UserNotifications
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UNUserNotificationCenterDelegate  {
     
-    
     @IBOutlet weak var profilePicImageView: UIImageView!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var joinEventButton: UIButton!
     @IBOutlet weak var settingsBarButtonItem: UIBarButtonItem!
-        
+    
     //Source of truth
     var events: [BasicEvent]?
     var currentUser = UserController.shared.currentUser
-    
     var eventIDFromNotification: String?
+    var fromNotification = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UNUserNotificationCenter.current().delegate = self
         self.setNavigationItem()
         self.navigationController?.navigationBar.layer.masksToBounds = false
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
@@ -40,6 +38,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         joinEventButton.layer.cornerRadius = joinEventButton.frame.height / 2
         joinEventButton.layer.borderColor = UIColor(named: "buttonGreen")?.cgColor
         joinEventButton.layer.borderWidth = 3
+        
+        if fromNotification == true {
+            guard let eventDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "eventDetailVC") as? EventDetailTableViewController else { return }
+            eventDetailVC.eventID = eventIDFromNotification
+            eventDetailVC.fromNotification = true
+            self.navigationController?.pushViewController(eventDetailVC, animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,7 +76,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBAction func joinEventButtonTapped(_ sender: UIButton) { }
     
-
+    
     @IBAction func settingsButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "toSettingsScreen", sender: self)
     }
@@ -85,13 +90,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         } else if segue.identifier == "toEventDetailVC" {
             if let destinationVC = segue.destination as? EventDetailTableViewController {
                 guard let currentUser = UserController.shared.currentUser else { return }
-                destinationVC.currentUser = currentUser
                 guard let eventID = self.eventIDFromNotification else { return }
-                FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "uuid", criteria: eventID, inArray: false) { (events: [Event]?) in
-                    guard let events = events else { print("❌❌❌❌ no event found for that code") ; return }
-                    guard let event = events.first else { return }
-                    destinationVC.event = event
-                }
+                destinationVC.eventID = eventID
             }
         }
     }
@@ -106,7 +106,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         if indexPath.row == 0 {
             let createPhotoBoxCell = collectionView.dequeueReusableCell(withReuseIdentifier: "createPhotoBox", for: indexPath) as! CreateNewPhotoBoxCollectionViewCell
-//            createPhotoBoxCell.createPhotoBoxButton.backgroundColor = UIColor.red
+            //            createPhotoBoxCell.createPhotoBoxButton.backgroundColor = UIColor.red
             return createPhotoBoxCell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumCell", for: indexPath) as! AlbumCollectionViewCell

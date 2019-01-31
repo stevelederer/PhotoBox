@@ -40,12 +40,22 @@ class EventDetailTableViewController: UITableViewController {
     var currentUserIsEventCreator: Bool = false
     
     //Landing Pad
-    var event: Event?
-    var currentUser: AppUser?
+    var eventID: String?
+    var event: Event? {
+        didSet {
+            guard let event = event else { return }
+            fetchDetails(for: event)
+            if fromNotification {
+                guard let selectPhotosVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "selectPhotosVC") as? SelectPhotosViewController else { return }
+                selectPhotosVC.event = event
+                self.present(selectPhotosVC, animated: true, completion: nil)
+            }
+        }
+    }
+    var fromNotification = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        UNUserNotificationCenter.current().delegate = self
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
         navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
         inviteButton.layer.cornerRadius = inviteButton.frame.height / 2
@@ -54,25 +64,38 @@ class EventDetailTableViewController: UITableViewController {
         memberCollectionView.dataSource = memberDataSource
         liveFeedCollectionView.dataSource = feedDataSource
         updateViews()
-        guard let event = event else { return }
-        guard let currentUser = currentUser else { return }
-        EventController.shared.fetchMembers(for: event) { (fetchedMembers) in
-            if let fetchedMembers = fetchedMembers {
-                self.numberOfMembers = fetchedMembers.count
-                if fetchedMembers.count <= 5 {
-                    self.expandCollapseButton.isHidden = true
-                } else {
-                    self.expandCollapseButton.isHidden = false
-                    self.tableView.beginUpdates()
-                    self.row4Height = 44
-                    self.tableView.endUpdates()
-                }
-                self.memberDataSource.members = fetchedMembers
-                DispatchQueue.main.async {
-                    self.memberCollectionView.reloadData()
+
+            guard let currentUser = UserController.shared.currentUser,
+            let eventID = eventID
+            else { return }
+        
+        FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "uuid", criteria: eventID, inArray: false) { (events: [Event]?) in
+            guard let events = events else { print("❌❌❌❌ no event found for that code") ; return }
+            guard let event = events.first else { return }
+            self.event = event
+            
+            EventController.shared.fetchMembers(for: event) { (fetchedMembers) in
+                if let fetchedMembers = fetchedMembers {
+                    self.numberOfMembers = fetchedMembers.count
+                    if fetchedMembers.count <= 5 {
+                        self.expandCollapseButton.isHidden = true
+                    } else {
+                        self.expandCollapseButton.isHidden = false
+                        self.tableView.beginUpdates()
+                        self.row4Height = 44
+                        self.tableView.endUpdates()
+                    }
+                    self.memberDataSource.members = fetchedMembers
+                    DispatchQueue.main.async {
+                        self.memberCollectionView.reloadData()
+                    }
                 }
             }
         }
+    }
+    
+    func fetchDetails(for event: Event) {
+        guard let currentUser = UserController.shared.currentUser else { return }
         
         PhotoController.shared.fetchPhotos(for: event) { (photos) in
             self.feedDataSource.photos = photos
@@ -80,7 +103,7 @@ class EventDetailTableViewController: UITableViewController {
                 self.liveFeedCollectionView.reloadData()
             }
         }
-
+ 
         guard let coverPhotoURL = event.coverPhotoURL else { return }
         FirebaseManager.fetchPhotoFromFirebase(url: coverPhotoURL) { (success, backgroundImage) in
             if success {
@@ -109,6 +132,7 @@ class EventDetailTableViewController: UITableViewController {
             self.tableView.endUpdates()
         }
     }
+
     
     // MARK: - Setup
     
@@ -158,7 +182,7 @@ class EventDetailTableViewController: UITableViewController {
     @IBAction func invitePeopleButtonTapped(_ sender: Any) {
         if (messageComposer.canSendText()) {
             guard let code = event?.eventCode,
-                let creator = currentUser?.name,
+                let creator = UserController.shared.currentUser?.name,
                 let name = event?.eventName else { return }
             let messageComposerVC = messageComposer.configuredMessageComposeViewController(eventName: name, code: code, creator: creator)
             

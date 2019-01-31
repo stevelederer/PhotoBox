@@ -9,8 +9,9 @@
 import UIKit
 import Photos
 
-class SelectPhotosViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate  {
     
+    @IBOutlet weak var collectionView: UICollectionView!
     var photos: [Photo] = []
     var event: Event?
     var currentUser: AppUser? = UserController.shared.currentUser
@@ -19,6 +20,8 @@ class SelectPhotosViewController: UICollectionViewController, UICollectionViewDe
         super.viewDidLoad()
         collectionView.allowsMultipleSelection = true
         getPhotosFromLibrary()
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
     }
     func getPhotosFromLibrary() {
@@ -74,11 +77,11 @@ class SelectPhotosViewController: UICollectionViewController, UICollectionViewDe
     }
     
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! SelectPhotosCollectionViewCell
         let photo = photos[indexPath.row]
         if photo.isSelected == true {
@@ -105,7 +108,7 @@ class SelectPhotosViewController: UICollectionViewController, UICollectionViewDe
         return 10.0
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let photo = photos[indexPath.row]
         photo.isSelected = !photo.isSelected
         collectionView.reloadItems(at: [indexPath])
