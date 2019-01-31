@@ -67,6 +67,8 @@
 		E91FD2D121F634DF004327D3 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91FD2D021F634DF004327D3 /* EventController.swift */; };
 		E957776521F7F89D000F8E7A /* CreateEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E957776421F7F89D000F8E7A /* CreateEventTableViewController.swift */; };
 		E957776B21F8F96A000F8E7A /* BasicEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E957776A21F8F96A000F8E7A /* BasicEventController.swift */; };
+		E96A6EBE22024E9F002E3A19 /* SelectPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A6EBD22024E9F002E3A19 /* SelectPhotosViewController.swift */; };
+		E96A6EC022025243002E3A19 /* SelectPhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A6EBF22025243002E3A19 /* SelectPhotosCollectionViewCell.swift */; };
 		E9E9660021F92D0F0038218E /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E965FF21F92D0F0038218E /* EventDetailTableViewController.swift */; };
 		E9E9660221F937D50038218E /* MemberDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9660121F937D50038218E /* MemberDataSource.swift */; };
 		E9E9660421F937E30038218E /* FeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9660321F937E30038218E /* FeedDataSource.swift */; };
@@ -148,6 +150,8 @@
 		E91FD2D021F634DF004327D3 /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		E957776421F7F89D000F8E7A /* CreateEventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventTableViewController.swift; sourceTree = "<group>"; };
 		E957776A21F8F96A000F8E7A /* BasicEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicEventController.swift; sourceTree = "<group>"; };
+		E96A6EBD22024E9F002E3A19 /* SelectPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotosViewController.swift; sourceTree = "<group>"; };
+		E96A6EBF22025243002E3A19 /* SelectPhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9E965FF21F92D0F0038218E /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		E9E9660121F937D50038218E /* MemberDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDataSource.swift; sourceTree = "<group>"; };
 		E9E9660321F937E30038218E /* FeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDataSource.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 				1BEA8AD921FFE6B600AF07F3 /* MembersHeaderView.swift */,
 				E9E9660D21F96D0D0038218E /* PhotoCollectionViewCell.swift */,
 				1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */,
+				E96A6EBF22025243002E3A19 /* SelectPhotosCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				1BCEF0FE21F989E800662756 /* SettingsViewController.swift */,
 				1B07485F21F16A090030D907 /* SignupViewController.swift */,
 				E9F3BA2F21FBEADD00D17003 /* WelcomePageViewController.swift */,
+				E96A6EBD22024E9F002E3A19 /* SelectPhotosViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -532,6 +538,7 @@
 				1B34890B21FD55E7000AFF0D /* UnderlineButtonTextDarkGray.swift in Sources */,
 				1BAF23AF21FAD03C00E26504 /* PhotoSelectViewController.swift in Sources */,
 				1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */,
+				E96A6EC022025243002E3A19 /* SelectPhotosCollectionViewCell.swift in Sources */,
 				1BCEF0FD21F97B2300662756 /* SettingsTableViewCell.swift in Sources */,
 				E9E9660221F937D50038218E /* MemberDataSource.swift in Sources */,
 				1B07485E21F160C70030D907 /* UnderlineButtonTextLightGray.swift in Sources */,
@@ -551,6 +558,7 @@
 				E9F3BA2A21FA78BF00D17003 /* Extensions.swift in Sources */,
 				E9E9660C21F96C770038218E /* PhotoDetailViewController.swift in Sources */,
 				1B7BBD1322017C9100D18B88 /* FeedHeaderView.swift in Sources */,
+				E96A6EBE22024E9F002E3A19 /* SelectPhotosViewController.swift in Sources */,
 				1B07485B21F15ADB0030D907 /* LoginPageViewController.swift in Sources */,
 				1BCEF0FF21F989E800662756 /* SettingsViewController.swift in Sources */,
 				1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */,

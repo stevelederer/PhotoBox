@@ -23,6 +23,7 @@ class Photo: FirestoreFetchable, FirebaseStorable {
             else { return Data() }
         return data
     }
+    var isSelected = true
     
     init(image: UIImage?, uuid: String = UUID().uuidString, eventID: String, creatorID: String) {
         self.image = image
