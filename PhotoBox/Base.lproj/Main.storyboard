@@ -269,7 +269,7 @@
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dS9-tZ-ptp">
                                                     <rect key="frame" x="0.0" y="-2.6666666666666714" width="375" height="133.33333333333337"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IQ8-9i-FNF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="133.33333333333337"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ljN-wA-EAK">
@@ -850,7 +850,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6n-CU-IR3">
-                                                    <rect key="frame" x="50" y="0.0" width="20" height="20"/>
+                                                    <rect key="frame" x="65" y="0.0" width="5" height="5"/>
                                                     <state key="normal" image="checkmark"/>
                                                     <connections>
                                                         <action selector="imageSelectedButtonTapped:" destination="A8u-Xm-P31" eventType="touchUpInside" id="kOL-fk-2eB"/>
@@ -863,10 +863,10 @@
                                             <constraint firstAttribute="trailing" secondItem="i6n-CU-IR3" secondAttribute="trailing" id="E41-Z6-MC3"/>
                                             <constraint firstItem="L25-9I-XxF" firstAttribute="leading" secondItem="dKq-oK-LDu" secondAttribute="leading" id="F2u-xK-lfj"/>
                                             <constraint firstItem="L25-9I-XxF" firstAttribute="top" secondItem="dKq-oK-LDu" secondAttribute="top" id="GsF-vW-b5n"/>
-                                            <constraint firstItem="i6n-CU-IR3" firstAttribute="leading" secondItem="dKq-oK-LDu" secondAttribute="leading" constant="50" id="cXG-vL-duq"/>
+                                            <constraint firstItem="i6n-CU-IR3" firstAttribute="leading" secondItem="dKq-oK-LDu" secondAttribute="leading" constant="65" id="cXG-vL-duq"/>
                                             <constraint firstAttribute="trailing" secondItem="L25-9I-XxF" secondAttribute="trailing" id="cou-bD-NqV"/>
                                             <constraint firstAttribute="bottom" secondItem="L25-9I-XxF" secondAttribute="bottom" id="eep-Om-RlR"/>
-                                            <constraint firstAttribute="bottom" secondItem="i6n-CU-IR3" secondAttribute="bottom" constant="50" id="pxy-wx-543"/>
+                                            <constraint firstAttribute="bottom" secondItem="i6n-CU-IR3" secondAttribute="bottom" constant="65" id="pxy-wx-543"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="photoImageView" destination="L25-9I-XxF" id="Mjl-SU-YZ8"/>
