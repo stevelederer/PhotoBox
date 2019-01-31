@@ -189,9 +189,6 @@ class EventDetailTableViewController: UITableViewController {
             present(messageComposerVC, animated: true, completion: nil)
         } else {
             presentPhotoBoxModalVC(message: "Oh no! It looks like this device isn't able to send text messages out.")
-//            let errorAlert = UIAlertController(title: "Cannot Send Text Message", message: "Your device is not able to send text messages.", preferredStyle: .alert)
-//            errorAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-//            present(errorAlert, animated: true)
         }
     }
     
