@@ -8,7 +8,11 @@
 
 import UIKit
 
-class Photo: FirestoreFetchable, FirebaseStorable {
+class Photo: FirestoreFetchable, FirebaseStorable, Equatable {
+    static func == (lhs: Photo, rhs: Photo) -> Bool {
+        return lhs.uuid == rhs.uuid
+    }
+    
     
     static var CollectionName: String = "photos"
     
