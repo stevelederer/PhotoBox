@@ -184,11 +184,17 @@
                                     <action selector="logInButtonTapped:" destination="KvX-ah-Vvn" eventType="touchUpInside" id="Eeg-2P-HZz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJo-jX-sgD" customClass="UnderlineButtonTextLightGray" customModule="PhotoBox" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJo-jX-sgD" customClass="UnderlineButtonTextLightGray" customModule="PhotoBox" customModuleProvider="target">
                                 <rect key="frame" x="138" y="599" width="99" height="33"/>
-                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
-                                <state key="normal" title="Back To Login">
-                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Back To Login">
+                                            <attributes>
+                                                <color key="NSColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <font key="NSFont" size="15" name="OpenSans-SemiBold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <action selector="backToLoginButtonTapped:" destination="gVK-Ue-Wqh" eventType="touchUpInside" id="N4s-iW-9gI"/>
