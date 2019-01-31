@@ -8,50 +8,41 @@
 
 import UIKit
 import Firebase
-//import UserNotifications
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
-    
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-//        completionHandler([.alert, .badge, .sound])
-//    }
-//
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-//
-//        if response.notification.request.identifier == "FirstEventEndReminder" {
-//            print("handling the firstEventReminder notification")
-//            DispatchQueue.main.async {
-//                self.notificationAction1()
-//            }
-//        }
-//        completionHandler()
-//
-//    }
-//
-//    func notificationAction1() {
-//        redirectToVC()
-//    }
-//
-//    func redirectToVC() {
-//        let signInStoryboard: UIStoryboard = UIStoryboard(name: "SignIn", bundle: nil)
-//
-//        let toVC = EventDetailTableViewController()
-//    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("foo")
+        if response.notification.request.identifier == "FirstEventEndReminder" {
+            let payload = response.notification.request.content.userInfo
+            let eventID = payload["eventID"] as? String
+            
+            guard let landingVC = UIStoryboard(name: "SignIn", bundle: nil).instantiateInitialViewController() as? LandingPageViewController else { return }
+            landingVC.fromNotification = true
+            landingVC.eventIDFromNotification = eventID
+            window?.rootViewController = landingVC
+            window?.makeKeyAndVisible()
+            
+            completionHandler()
+//            UIApplication.shared.applicationState
+        }
+    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        
         FirebaseApp.configure()
         
-//        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().delegate = self
         
         // TEST SAVING A SINGLE PHOTO
         
         /*
-        let image = #imageLiteral(resourceName: "PhotoBoxLoadingScreen")
-        let newPhoto = Photo(image: image, eventID: "", creatorID: "")
+         let image = #imageLiteral(resourceName: "PhotoBoxLoadingScreen")
+         let newPhoto = Photo(image: image, eventID: "", creatorID: "")
         FirebaseManager.uploadPhotoToFirebase(newPhoto) { (url, error) in
             if let error = error {
                 print("❌\(error.localizedDescription)")

@@ -61,7 +61,6 @@ class EnterCodeViewController: UIViewController, UITextFieldDelegate {
         let selectedEvent = event
         
         if let eventDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "eventDetailVC") as? EventDetailTableViewController {
-            eventDetailVC.currentUser = currentUser
             eventDetailVC.event = selectedEvent
             self.navigationController?.pushViewController(eventDetailVC, animated: true)
         }

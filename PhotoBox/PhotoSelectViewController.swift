@@ -15,7 +15,6 @@ protocol PhotoSelectViewControllerDelegate: class {
 class PhotoSelectViewController: UIViewController {
     
     weak var delegate: PhotoSelectViewControllerDelegate?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 //        selectImage()

@@ -130,7 +130,15 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
         let datePicker: UIDatePicker = UIDatePicker()
         datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
         datePicker.minimumDate = Date(timeIntervalSinceNow: 0)
-        datePicker.minuteInterval = 5
+        datePicker.minuteInterval = 1
+        
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        sender.text = dateFormatter.string(from: datePicker.date)
+        startTime = datePicker.date.timeIntervalSince1970
+    
         sender.inputView = datePicker
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
@@ -162,11 +170,18 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
         datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
         if let startTime = startTime {
             datePicker.minimumDate = Date(timeIntervalSince1970: startTime)
-            datePicker.minuteInterval = 5
-            datePicker.setDate(Date(timeIntervalSinceNow: (60*60)), animated: true)
+            datePicker.minuteInterval = 1
+//            datePicker.setDate(Date(timeIntervalSinceNow: (60*60)), animated: true)
         } else {
             datePicker.minimumDate = Date(timeIntervalSinceNow: 0)
         }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        sender.text = dateFormatter.string(from: datePicker.date)
+        endTime = datePicker.date.timeIntervalSince1970
+        
         sender.inputView = datePicker
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
@@ -247,7 +262,6 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
                 let eventDetailVC = storyboard.instantiateViewController(withIdentifier: "eventDetailVC") as! EventDetailTableViewController
                 
                 eventDetailVC.event = event
-                eventDetailVC.currentUser = currentUser
                 
                 DispatchQueue.main.async {
                     self.navigationController?.pushViewController(eventDetailVC, animated: true)
