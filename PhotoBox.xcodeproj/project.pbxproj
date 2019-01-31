@@ -25,7 +25,6 @@
 		1B4F4A9F2202E247008D4E68 /* ModalSignUpCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4A9E2202E247008D4E68 /* ModalSignUpCompleteViewController.swift */; };
 		1B4F4AA12202E33E008D4E68 /* Modals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4AA02202E33E008D4E68 /* Modals.swift */; };
 		1B4F4AA32202EA80008D4E68 /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4AA22202EA80008D4E68 /* Notification.Name+Extension.swift */; };
-		1B5D6A8321F676290095F9CA /* FakeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */; };
 		1B61AE9721F79736007C6C06 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AE9621F79736007C6C06 /* SignIn.storyboard */; };
 		1B61AE9921F7BCC9007C6C06 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */; };
 		1B61AEA521F82F20007C6C06 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AEA021F82AC1007C6C06 /* OpenSans-Bold.ttf */; };
@@ -120,7 +119,6 @@
 		1B4F4A9E2202E247008D4E68 /* ModalSignUpCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSignUpCompleteViewController.swift; sourceTree = "<group>"; };
 		1B4F4AA02202E33E008D4E68 /* Modals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modals.swift; sourceTree = "<group>"; };
 		1B4F4AA22202EA80008D4E68 /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
-		1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeProfileViewController.swift; sourceTree = "<group>"; };
 		1B61AE9621F79736007C6C06 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		1B61AE9A21F82894007C6C06 /* Skia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Skia.ttf; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 				E9F3BA3121FBEB2600D17003 /* DescriptionPageViewController.swift */,
 				E9F3BA2B21FA9CF200D17003 /* EnterCodeViewController.swift */,
 				E9E965FF21F92D0F0038218E /* EventDetailTableViewController.swift */,
-				1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */,
 				1B61AEBC21F91B0A007C6C06 /* ForgotPasswordViewController.swift */,
 				1B61AEBA21F83496007C6C06 /* HomeViewController.swift */,
 				1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */,
@@ -594,7 +591,6 @@
 				E9F610B821FFF207005D1773 /* CreateNewPhotoBoxCollectionViewCell.swift in Sources */,
 				1B61AE9921F7BCC9007C6C06 /* LandingPageViewController.swift in Sources */,
 				1B4F4AA12202E33E008D4E68 /* Modals.swift in Sources */,
-				1B5D6A8321F676290095F9CA /* FakeProfileViewController.swift in Sources */,
 				1B9AF9AC21F98DA80003C220 /* UnderlineButtonTextPurple.swift in Sources */,
 				E91FD2D121F634DF004327D3 /* EventController.swift in Sources */,
 				E9E9660421F937E30038218E /* FeedDataSource.swift in Sources */,
@@ -751,7 +747,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 56CLV9J785;
+				DEVELOPMENT_TEAM = 2446Y3VTK6;
 				INFOPLIST_FILE = PhotoBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -770,7 +766,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 56CLV9J785;
+				DEVELOPMENT_TEAM = 2446Y3VTK6;
 				INFOPLIST_FILE = PhotoBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
