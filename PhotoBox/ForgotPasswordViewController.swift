@@ -14,7 +14,6 @@ class ForgotPasswordViewController: UIViewController {
     @IBOutlet weak var emailLinkButton: UIButton!
     @IBOutlet weak var backToLoginButton: UnderlineButtonTextLightGray!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         if let backgroundImage = UIImage(named: "PhotoBoxBackgroundLight") {
@@ -29,14 +28,16 @@ class ForgotPasswordViewController: UIViewController {
         backToLoginButton.setTitle("Back to Login", for: .normal)
     }
     
+    // MARK: - Actions
+    
     @IBAction func emailLinkButtonTapped(_ sender: UIButton) {
         guard let email = emailTextField.text else { return }
         if email.isEmpty {
-            presentEmptyEmailAlert()
+            self.presentPhotoBoxModalVC(message: "Wait! We need your email so we can send out the reset link!")
         } else {
             UserController.shared.forgotPassword(email: email) { (success) in
                 if success {
-                    self.passwordResetSuccessAlert()
+                    self.presentModalEmailSent()
                 }
             }
         }
@@ -45,28 +46,17 @@ class ForgotPasswordViewController: UIViewController {
     @IBAction func backToLoginButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    func presentEmptyEmailAlert() {
-        let emptyEmailAlert = UIAlertController(title: "Enter your email!", message: "Enter an email address and tap the button to reset password", preferredStyle: .alert)
-        emptyEmailAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-        self.present(emptyEmailAlert, animated: true)
+    
+}
+
+extension ForgotPasswordViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            textField.resignFirstResponder()
+            self.emailLinkButtonTapped(emailLinkButton)
+        }
+        return true
     }
     
-    func passwordResetSuccessAlert() {
-        let passwordResetSuccessAlert = UIAlertController(title: "Sent!", message: "Password reset email has been sent.", preferredStyle: .alert)
-        passwordResetSuccessAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { (_) in
-            self.dismiss(animated: true, completion: nil)
-        }))
-        self.present(passwordResetSuccessAlert, animated: true)
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

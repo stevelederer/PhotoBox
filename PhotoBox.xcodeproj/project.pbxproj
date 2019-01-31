@@ -19,6 +19,12 @@
 		1B4B13A821F18B03002040A6 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13A721F18B03002040A6 /* NewEventViewController.swift */; };
 		1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13AC21F279FB002040A6 /* UserController.swift */; };
 		1B4F4A9522026487008D4E68 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4A9422026487008D4E68 /* NotificationManager.swift */; };
+		1B4F4A992202D5AD008D4E68 /* ModalPresentations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4F4A982202D5AD008D4E68 /* ModalPresentations.storyboard */; };
+		1B4F4A9B2202D5E6008D4E68 /* ModalPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4A9A2202D5E6008D4E68 /* ModalPopUpViewController.swift */; };
+		1B4F4A9D2202DB99008D4E68 /* ModalEmailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4A9C2202DB99008D4E68 /* ModalEmailSentViewController.swift */; };
+		1B4F4A9F2202E247008D4E68 /* ModalSignUpCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4A9E2202E247008D4E68 /* ModalSignUpCompleteViewController.swift */; };
+		1B4F4AA12202E33E008D4E68 /* Modals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4AA02202E33E008D4E68 /* Modals.swift */; };
+		1B4F4AA32202EA80008D4E68 /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4AA22202EA80008D4E68 /* Notification.Name+Extension.swift */; };
 		1B5D6A8321F676290095F9CA /* FakeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */; };
 		1B61AE9721F79736007C6C06 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AE9621F79736007C6C06 /* SignIn.storyboard */; };
 		1B61AE9921F7BCC9007C6C06 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */; };
@@ -108,6 +114,12 @@
 		1B4B13A721F18B03002040A6 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		1B4B13AC21F279FB002040A6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		1B4F4A9422026487008D4E68 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		1B4F4A982202D5AD008D4E68 /* ModalPresentations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ModalPresentations.storyboard; sourceTree = "<group>"; };
+		1B4F4A9A2202D5E6008D4E68 /* ModalPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPopUpViewController.swift; sourceTree = "<group>"; };
+		1B4F4A9C2202DB99008D4E68 /* ModalEmailSentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalEmailSentViewController.swift; sourceTree = "<group>"; };
+		1B4F4A9E2202E247008D4E68 /* ModalSignUpCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSignUpCompleteViewController.swift; sourceTree = "<group>"; };
+		1B4F4AA02202E33E008D4E68 /* Modals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modals.swift; sourceTree = "<group>"; };
+		1B4F4AA22202EA80008D4E68 /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
 		1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeProfileViewController.swift; sourceTree = "<group>"; };
 		1B61AE9621F79736007C6C06 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +228,9 @@
 				E9F3BA2921FA78BF00D17003 /* Extensions.swift */,
 				1B07486121F16E4E0030D907 /* LoginTextField.swift */,
 				E9E9660921F955420038218E /* MessageComposer.swift */,
+				1B4F4AA02202E33E008D4E68 /* Modals.swift */,
+				1B4F4A9422026487008D4E68 /* NotificationManager.swift */,
+				1B4F4AA22202EA80008D4E68 /* Notification.Name+Extension.swift */,
 				1BD8B1C122017270006988D6 /* PaddingTextField.swift */,
 				1B34890A21FD55E7000AFF0D /* UnderlineButtonTextDarkGray.swift */,
 				1B07485D21F160C70030D907 /* UnderlineButtonTextLightGray.swift */,
@@ -264,14 +279,16 @@
 				1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */,
 				1B07485821F153BF0030D907 /* LoggedOutViewController.swift */,
 				1B07485A21F15ADB0030D907 /* LoginPageViewController.swift */,
+				1B4F4A9C2202DB99008D4E68 /* ModalEmailSentViewController.swift */,
+				1B4F4A9A2202D5E6008D4E68 /* ModalPopUpViewController.swift */,
+				1B4F4A9E2202E247008D4E68 /* ModalSignUpCompleteViewController.swift */,
 				1B4B13A721F18B03002040A6 /* NewEventViewController.swift */,
-				1B4F4A9422026487008D4E68 /* NotificationManager.swift */,
 				E9E9660B21F96C770038218E /* PhotoDetailViewController.swift */,
 				1BAF23AE21FAD03C00E26504 /* PhotoSelectViewController.swift */,
+				E96A6EBD22024E9F002E3A19 /* SelectPhotosViewController.swift */,
 				1BCEF0FE21F989E800662756 /* SettingsViewController.swift */,
 				1B07485F21F16A090030D907 /* SignupViewController.swift */,
 				E9F3BA2F21FBEADD00D17003 /* WelcomePageViewController.swift */,
-				E96A6EBD22024E9F002E3A19 /* SelectPhotosViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -280,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				B404A99921EEA23200491CE2 /* Main.storyboard */,
+				1B4F4A982202D5AD008D4E68 /* ModalPresentations.storyboard */,
 				1B61AE9621F79736007C6C06 /* SignIn.storyboard */,
 				E9E9660321F937E30038218E /* FeedDataSource.swift */,
 				B404A9A121EEA23400491CE2 /* LaunchScreen.storyboard */,
@@ -445,6 +463,7 @@
 				1B61AEAE21F82F20007C6C06 /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				1B61AEAF21F82F20007C6C06 /* Skia.ttf in Resources */,
 				1B61AEB021F82F20007C6C06 /* Lato-Black.ttf in Resources */,
+				1B4F4A992202D5AD008D4E68 /* ModalPresentations.storyboard in Resources */,
 				1B61AEB121F82F20007C6C06 /* Lato-BlackItalic.ttf in Resources */,
 				1B61AEB221F82F20007C6C06 /* Lato-Bold.ttf in Resources */,
 				1B61AEB321F82F20007C6C06 /* Lato-BoldItalic.ttf in Resources */,
@@ -532,6 +551,7 @@
 			files = (
 				E91FD2CF21F2764C004327D3 /* Photo.swift in Sources */,
 				E91FD2C521F14903004327D3 /* AppUser.swift in Sources */,
+				1B4F4AA32202EA80008D4E68 /* Notification.Name+Extension.swift in Sources */,
 				1BB36AE621EEACF20089E2D1 /* FirebaseManager.swift in Sources */,
 				E9E9660021F92D0F0038218E /* EventDetailTableViewController.swift in Sources */,
 				1B07486221F16E4E0030D907 /* LoginTextField.swift in Sources */,
@@ -561,6 +581,7 @@
 				B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */,
 				E9F3BA2A21FA78BF00D17003 /* Extensions.swift in Sources */,
 				E9E9660C21F96C770038218E /* PhotoDetailViewController.swift in Sources */,
+				1B4F4A9D2202DB99008D4E68 /* ModalEmailSentViewController.swift in Sources */,
 				1B7BBD1322017C9100D18B88 /* FeedHeaderView.swift in Sources */,
 				E96A6EBE22024E9F002E3A19 /* SelectPhotosViewController.swift in Sources */,
 				1B07485B21F15ADB0030D907 /* LoginPageViewController.swift in Sources */,
@@ -572,13 +593,16 @@
 				E91FD2CB21F25296004327D3 /* BasicProfile.swift in Sources */,
 				E9F610B821FFF207005D1773 /* CreateNewPhotoBoxCollectionViewCell.swift in Sources */,
 				1B61AE9921F7BCC9007C6C06 /* LandingPageViewController.swift in Sources */,
+				1B4F4AA12202E33E008D4E68 /* Modals.swift in Sources */,
 				1B5D6A8321F676290095F9CA /* FakeProfileViewController.swift in Sources */,
 				1B9AF9AC21F98DA80003C220 /* UnderlineButtonTextPurple.swift in Sources */,
 				E91FD2D121F634DF004327D3 /* EventController.swift in Sources */,
 				E9E9660421F937E30038218E /* FeedDataSource.swift in Sources */,
 				E9E9660821F93AB30038218E /* FeedCollectionViewCell.swift in Sources */,
 				1B17856221F29BD600CDADAC /* BasicUserController.swift in Sources */,
+				1B4F4A9B2202D5E6008D4E68 /* ModalPopUpViewController.swift in Sources */,
 				E9E9661221FA3A5A0038218E /* AlbumCollectionViewCell.swift in Sources */,
+				1B4F4A9F2202E247008D4E68 /* ModalSignUpCompleteViewController.swift in Sources */,
 				1BD8B1C222017270006988D6 /* PaddingTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,7 +751,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2446Y3VTK6;
+				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = PhotoBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -746,7 +770,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2446Y3VTK6;
+				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = PhotoBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

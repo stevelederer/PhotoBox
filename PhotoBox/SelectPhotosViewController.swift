@@ -13,6 +13,7 @@ class SelectPhotosViewController: UICollectionViewController, UICollectionViewDe
     
     var photos: [Photo] = []
     var event: Event?
+    var currentUser: AppUser? = UserController.shared.currentUser
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,14 +42,14 @@ class SelectPhotosViewController: UICollectionViewController, UICollectionViewDe
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         
         
+        guard let currentUser = currentUser else { return }
         if let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions) {
-            
             if fetchResult.count > 0 {
                 for i in 0..<fetchResult.count {
                     
                     imgManager.requestImage(for: fetchResult.object(at: i), targetSize: CGSize(width: 150, height: 150), contentMode: .aspectFill, options: requestOptions, resultHandler: {
                         image, error in
-                        let photo = Photo(image: image, eventID: event.uuid, creatorID: UserController.shared.currentUser!.uuid)
+                        let photo = Photo(image: image, eventID: event.uuid, creatorID: currentUser.uuid)
                         self.photos.append(photo)
                     })
                     collectionView.reloadData()
@@ -58,11 +59,15 @@ class SelectPhotosViewController: UICollectionViewController, UICollectionViewDe
                 self.collectionView.reloadData()
             }
         }
-        
-        
-//        // compress before passing
-//        PhotoController.shared.upload(images: <#T##[UIImage]#>, for: <#T##String#>, from: <#T##String#>, completion: )
+
         let selectedPhotos = photos.filter { $0.isSelected }
+        PhotoController.shared.upload(photos: selectedPhotos, eventID: event.uuid, userID: currentUser.uuid) { (success) in
+            if !success {
+                print("Error uploading photos.")
+            } else {
+                print("Photos successfully updated")
+            }
+        }
     }
     
     @IBAction func imageSelectedButtonTapped(_ sender: UIButton) {

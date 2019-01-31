@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginPageViewController: UIViewController, UITextFieldDelegate {
+class LoginPageViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: PaddingTextField!
     @IBOutlet weak var passwordTextField: PaddingTextField!
@@ -18,10 +18,6 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if let backgroundImage = UIImage(named: "PhotoBoxBackgroundLight") {
-//            self.view.backgroundColor = UIColor(patternImage: backgroundImage)
-//        }
-        
         guard let darkGrayBorder: UIColor = UIColor(named: "textDarkGray") else { return }
         emailTextField.layer.borderWidth = 3
         emailTextField.layer.borderColor = darkGrayBorder.cgColor
@@ -43,7 +39,7 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
         guard let email = emailTextField.text,
         !email.isEmpty,
         let password = passwordTextField.text,
-            !password.isEmpty else { presentRequiredFieldAlert() ; return }
+            !password.isEmpty else { self.presentPhotoBoxModalVC(message: "Oops! Looks like all fields are required!") ; return }
         
         UserController.shared.logInUser(email: email, password: password) { (success, error) in
             if let error = error {
@@ -57,11 +53,11 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
     @IBAction func forgotPasswordButtonTapped(_ sender: UIButton) {
     }
     
-    func presentRequiredFieldAlert() {
-        let requiredFieldAlert = UIAlertController(title: "Missing Information!", message: "Please enter a username and password.", preferredStyle: .alert)
-        requiredFieldAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-        self.present(requiredFieldAlert, animated: true)
-    }
+//    func presentRequiredFieldAlert() {
+//        let requiredFieldAlert = UIAlertController(title: "Missing Information!", message: "Please enter a username and password.", preferredStyle: .alert)
+//        requiredFieldAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+//        self.present(requiredFieldAlert, animated: true)
+//    }
     
     func presentLogInErrorAlert(error: Error) {
         let logInErrorAlert = UIAlertController(title: "Error!", message: "\(error.localizedDescription)", preferredStyle: .alert)
@@ -70,6 +66,10 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - TextFieldDelegate Methods
+    
+}
+
+extension LoginPageViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField {
@@ -80,4 +80,5 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
+    
 }

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import UserNotifications
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UNUserNotificationCenterDelegate  {
     
     
     @IBOutlet weak var profilePicImageView: UIImageView!
@@ -21,9 +22,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var events: [BasicEvent]?
     var currentUser = UserController.shared.currentUser
     
+    var eventIDFromNotification: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        UNUserNotificationCenter.current().delegate = self
         self.setNavigationItem()
         self.navigationController?.navigationBar.layer.masksToBounds = false
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
@@ -56,24 +59,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    @IBAction func createEventButtonTapped(_ sender: UIButton) {
-        //        let sb = UIStoryboard(name: "Main", bundle: nil)
-        //        guard let createEventNav = sb.instantiateInitialViewController() else { return }
-        //        present(createEventNav, animated: true, completion: nil)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.notification.request.identifier == "FirstEventEndReminder" {
+            self.eventIDFromNotification = response.notification.request.content.userInfo["eventID"] as? String
+            self.performSegue(withIdentifier: "toEventDetailVC", sender: self)
+        }
+        completionHandler()
     }
     
-    @IBAction func joinEventButtonTapped(_ sender: UIButton) {
-        //        let sb = UIStoryboard(name: "Main", bundle: nil)
-        //        let joinEventNav = sb.instantiateViewController(withIdentifier: "EnterCodeViewController")
-        //        present(joinEventNav, animated: true, completion: nil)
-    }
+    @IBAction func createEventButtonTapped(_ sender: UIButton) { }
+    
+    @IBAction func joinEventButtonTapped(_ sender: UIButton) { }
     
 
     @IBAction func settingsButtonTapped(_ sender: Any) {
-        toSettingsScreenButtonTapped()
-    }
-    
-    func toSettingsScreenButtonTapped() {
         self.performSegue(withIdentifier: "toSettingsScreen", sender: self)
     }
     
@@ -82,6 +81,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if let destinationVC = segue.destination as? SettingsViewController {
                 guard let currentUser = UserController.shared.currentUser else { return }
                 destinationVC.currentUser = currentUser
+            }
+        } else if segue.identifier == "toEventDetailVC" {
+            if let destinationVC = segue.destination as? EventDetailTableViewController {
+                guard let currentUser = UserController.shared.currentUser else { return }
+                destinationVC.currentUser = currentUser
+                guard let eventID = self.eventIDFromNotification else { return }
+                FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "uuid", criteria: eventID, inArray: false) { (events: [Event]?) in
+                    guard let events = events else { print("❌❌❌❌ no event found for that code") ; return }
+                    guard let event = events.first else { return }
+                    destinationVC.event = event
+                }
             }
         }
     }

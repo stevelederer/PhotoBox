@@ -129,6 +129,8 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
         
         let datePicker: UIDatePicker = UIDatePicker()
         datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
+        datePicker.minimumDate = Date(timeIntervalSinceNow: 0)
+        datePicker.minuteInterval = 5
         sender.inputView = datePicker
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
@@ -158,6 +160,13 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
         
         let datePicker: UIDatePicker = UIDatePicker()
         datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
+        if let startTime = startTime {
+            datePicker.minimumDate = Date(timeIntervalSince1970: startTime)
+            datePicker.minuteInterval = 5
+            datePicker.setDate(Date(timeIntervalSinceNow: (60*60)), animated: true)
+        } else {
+            datePicker.minimumDate = Date(timeIntervalSinceNow: 0)
+        }
         sender.inputView = datePicker
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
@@ -254,7 +263,8 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
 
