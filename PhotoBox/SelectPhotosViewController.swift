@@ -15,7 +15,8 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
     var photos: [Photo] = []
     var event: Event?
     var currentUser: AppUser? = UserController.shared.currentUser
-
+    var selectedPhotos = [Photo]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.allowsMultipleSelection = true
@@ -84,15 +85,11 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! SelectPhotosCollectionViewCell
         let photo = photos[indexPath.row]
-        if photo.isSelected == true {
-            cell.isSelected = true
-            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionView.ScrollPosition.top)
-        } else {
-            cell.isSelected = false
-        }
-        cell.photoImageView.image = photo.image
+        cell.photo = photo
+        cell.delegate = self
+      
         return cell
-        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width / 4) - 10
@@ -107,27 +104,13 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10.0
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let photo = photos[indexPath.row]
-        photo.isSelected = !photo.isSelected
-        collectionView.reloadItems(at: [indexPath])
-        
-    }
-//    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//        selectedImage.remove(indexPath)
-//        collectionView.reloadItems(at: [indexPath])
-//    }
 }
-    
-        /*
-         // MARK: - Navigation
-         
-         // In a storyboard-based application, you will often want to do a little preparation before navigation
-         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-         }
-         */
-        
 
+extension SelectPhotosViewController: SelectPhotosCollectionViewCellDelegate {
+    
+    func photoButtonTapped(sender: SelectPhotosCollectionViewCell) {
+        guard let photo = sender.photo else { return }
+        photo.isSelected = !photo.isSelected
+        sender.updateViews()
+    }
+}
