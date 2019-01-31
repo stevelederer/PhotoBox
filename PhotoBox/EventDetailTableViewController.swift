@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class EventDetailTableViewController: UITableViewController {
     
@@ -44,7 +45,6 @@ class EventDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        isUserTheCreator()
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
         navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
         inviteButton.layer.cornerRadius = inviteButton.frame.height / 2
@@ -127,10 +127,18 @@ class EventDetailTableViewController: UITableViewController {
         eventLocationLabel.text = "\(location)"
         eventCoverPhotoImageView.image = event.coverPhoto
         detailsLabel.text = event.details
-    }
-    
-    func isUserTheCreator() {
-
+        
+        // FIXME: - Update after additional auth view rec'd from designers
+        let center = UNUserNotificationCenter.current()
+        center.getNotificationSettings { (settings) in
+            if settings.authorizationStatus != .authorized {
+                // present view
+                
+                center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+                    
+                }
+            }
+        }
     }
     
     //   MARK: - Actions

@@ -126,7 +126,13 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func deleteAccountButtonTapped(_ sender: UIButton) {
-        #warning("delete account")
+        FirebaseManager.deleteLoggedInUser { (success) in
+            if success {
+                print("✅ User Successfully Deleted")
+            } else {
+                print("Error deleting user")
+            }
+        }
     }
     
     @IBAction func logOutButtonTapped(_ sender: UIButton) {

@@ -210,6 +210,7 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
             if let event = event {
                 let backgroundPhoto = Photo(image: backgroundImage, eventID: event.uuid, creatorID: currentUser.uuid)
                 event.coverPhoto = backgroundImage
+                #warning("use photo controller here?")
                 FirebaseManager.uploadPhotoToFirebase(backgroundPhoto, completion: { (url, error) in
                     if let error = error {
                         print(error.localizedDescription)

@@ -110,6 +110,45 @@ class FirebaseManager {
         }
     }
     
+    static func deleteLoggedInUser(completion: @escaping (Bool) -> Void) {
+        if Auth.auth().currentUser != nil {
+            guard let user = Auth.auth().currentUser else { return }
+            
+            let userID = user.uid
+            
+            let usersCollectionReference = Firestore.firestore().collection("users")
+            
+            usersCollectionReference.document(userID).delete { (error) in
+                if let error = error {
+                    print("Error deleting user from \"users\" database \(error.localizedDescription)")
+                } else {
+                    print("User deleted!")
+                }
+            }
+            
+            let basicProfileCollectionReference = Firestore.firestore().collection("BasicProfile")
+            
+            basicProfileCollectionReference.document(userID).delete { (error) in
+                if let error = error {
+                    print("Error deleting basic profile from \"basic profile\" database. \(error.localizedDescription)")
+                } else {
+                    print("Basic profile deleted!")
+                }
+            }
+            
+            #warning("remember to delete photos posted by the user")
+            
+            user.delete { (error) in
+                if let error = error {
+                    print("Error deleting account: \(error.localizedDescription)")
+                } else {
+                    print("␡␡␡ⓧ Account Deleted ⓧ␡␡␡")
+                    completion(true)
+                }
+            }
+        }
+    }
+    
     static func forgotPassword(email: String, completion: @escaping (Bool) -> Void) {
         Auth.auth().sendPasswordReset(withEmail: email) { (error) in
             if let error = error {

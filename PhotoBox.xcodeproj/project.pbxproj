@@ -18,6 +18,7 @@
 		1B4B13A621F1733B002040A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */; };
 		1B4B13A821F18B03002040A6 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13A721F18B03002040A6 /* NewEventViewController.swift */; };
 		1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13AC21F279FB002040A6 /* UserController.swift */; };
+		1B4F4A9522026487008D4E68 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4A9422026487008D4E68 /* NotificationManager.swift */; };
 		1B5D6A8321F676290095F9CA /* FakeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */; };
 		1B61AE9721F79736007C6C06 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B61AE9621F79736007C6C06 /* SignIn.storyboard */; };
 		1B61AE9921F7BCC9007C6C06 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */; };
@@ -106,6 +107,7 @@
 		1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B4B13A721F18B03002040A6 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		1B4B13AC21F279FB002040A6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		1B4F4A9422026487008D4E68 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		1B5D6A8221F676290095F9CA /* FakeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeProfileViewController.swift; sourceTree = "<group>"; };
 		1B61AE9621F79736007C6C06 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		1B61AE9821F7BCC9007C6C06 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				1B07485821F153BF0030D907 /* LoggedOutViewController.swift */,
 				1B07485A21F15ADB0030D907 /* LoginPageViewController.swift */,
 				1B4B13A721F18B03002040A6 /* NewEventViewController.swift */,
+				1B4F4A9422026487008D4E68 /* NotificationManager.swift */,
 				E9E9660B21F96C770038218E /* PhotoDetailViewController.swift */,
 				1BAF23AE21FAD03C00E26504 /* PhotoSelectViewController.swift */,
 				1BCEF0FE21F989E800662756 /* SettingsViewController.swift */,
@@ -533,6 +536,7 @@
 				E9E9660021F92D0F0038218E /* EventDetailTableViewController.swift in Sources */,
 				1B07486221F16E4E0030D907 /* LoginTextField.swift in Sources */,
 				1B07486021F16A090030D907 /* SignupViewController.swift in Sources */,
+				1B4F4A9522026487008D4E68 /* NotificationManager.swift in Sources */,
 				1BAF23D021FB823A00E26504 /* FirebaseStorable.swift in Sources */,
 				E9E9660A21F955420038218E /* MessageComposer.swift in Sources */,
 				1B34890B21FD55E7000AFF0D /* UnderlineButtonTextDarkGray.swift in Sources */,
