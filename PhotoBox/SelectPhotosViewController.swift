@@ -12,6 +12,11 @@ import Photos
 class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate  {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var uploadButton: UIButton!
+    @IBOutlet weak var unselectButton: UIButton!
+    @IBOutlet weak var eventNameLabel: UILabel!
+    
+    
     var photos: [Photo] = []
     var event: Event?
     var currentUser: AppUser? = UserController.shared.currentUser
@@ -19,11 +24,13 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        uploadButton.layer.cornerRadius = uploadButton.frame.height / 2
         collectionView.allowsMultipleSelection = true
         getPhotosFromLibrary()
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+        guard let event = event else { return }
+        eventNameLabel.text = event.eventName
     }
     func getPhotosFromLibrary() {
         
@@ -64,6 +71,11 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
             }
         }
 
+    }
+    
+    
+    @IBAction func uploadButtonTapped(_ sender: Any) {
+        guard let event = event, let currentUser = currentUser else { return }
         let selectedPhotos = photos.filter { $0.isSelected }
         PhotoController.shared.upload(photos: selectedPhotos, eventID: event.uuid, userID: currentUser.uuid) { (success) in
             if !success {
@@ -72,11 +84,25 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
                 print("Photos successfully updated")
             }
         }
+        var newArray: [String] = []
+        for photo in selectedPhotos {
+            newArray.append(photo.uuid)
+        }
+        event.photoIDs = newArray
+        DispatchQueue.main.async {
+            self.update(event: event)
+        }
     }
     
-    @IBAction func imageSelectedButtonTapped(_ sender: UIButton) {
+    func update(event: Event) {
+        FirebaseManager.updateData(obect: event, dictionary: event.dictionary) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("photoIDs added to \(event.eventName) 👍")
+            }
+        }
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
