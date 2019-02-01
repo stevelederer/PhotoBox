@@ -188,13 +188,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJo-jX-sgD" customClass="UnderlineButtonTextLightGray" customModule="PhotoBox" customModuleProvider="target">
-                                <rect key="frame" x="138" y="599" width="99" height="33"/>
+                                <rect key="frame" x="139.66666666666666" y="599" width="96" height="30"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Back To Login">
                                             <attributes>
                                                 <color key="NSColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <font key="NSFont" size="15" name="OpenSans-SemiBold"/>
+                                                <font key="NSFont" metaFont="system" size="15"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -459,7 +459,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoBox-Home" translatesAutoresizingMaskIntoConstraints="NO" id="3Mc-xz-iBA">
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rvL-Ik-sRw">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="rvL-Ik-sRw">
                                 <rect key="frame" x="15" y="106" width="72" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="CSf-nj-FNY"/>
@@ -1163,6 +1163,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="czN-Oi-FcR"/>
+        <segue reference="vVD-Qy-zah"/>
     </inferredMetricsTieBreakers>
 </document>
