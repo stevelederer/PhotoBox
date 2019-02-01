@@ -11,6 +11,7 @@ import UIKit
 class PhotoDetailViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var photoCollectionView: UICollectionView!
+    @IBOutlet var optionsButton: [UIButton]!
     
     var photos: [UIImage] = [] {
         didSet {
@@ -23,7 +24,31 @@ override func viewDidLoad() {
 
     }
     
-
+    @IBAction func handleSelection(_ sender: UIButton) {
+        optionsButton.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            })
+        }
+            
+        }
+    
+    
+    @IBAction func savePhotoButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func deletePhotoButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func reportButtonButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func blockUserButtonTapped(_ sender: Any) {
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
