@@ -64,7 +64,7 @@ extension AppUser { // should any be optional??
             "emailAddress": emailAddress,
             "eventIDs": eventIDs,
             "profilePicURL" : profilePicURL,
-            "blockedUsersIDs" : blockedUserIDs
+            "blockedUserIDs" : blockedUserIDs
         ]
     }
 }

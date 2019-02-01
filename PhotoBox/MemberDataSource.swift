@@ -10,7 +10,16 @@ import UIKit
 
 class MemberDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var members: [AppUser]?
+    var members: [AppUser]? {
+        didSet {
+            guard let currentUser = UserController.shared.currentUser else { return }
+            guard let blockedUserIDs = currentUser.blockedUserIDs else { return }
+            for blockedUserID in blockedUserIDs {
+                members = members?.filter{ $0.uuid != blockedUserID }
+            }
+        }
+    }
+    
     var profilePics: [UIImage] = []
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
