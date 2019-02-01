@@ -15,7 +15,6 @@
 		1B07486221F16E4E0030D907 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07486121F16E4E0030D907 /* LoginTextField.swift */; };
 		1B17856221F29BD600CDADAC /* BasicUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B17856121F29BD600CDADAC /* BasicUserController.swift */; };
 		1B34890B21FD55E7000AFF0D /* UnderlineButtonTextDarkGray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B34890A21FD55E7000AFF0D /* UnderlineButtonTextDarkGray.swift */; };
-		1B4B13A621F1733B002040A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */; };
 		1B4B13A821F18B03002040A6 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13A721F18B03002040A6 /* NewEventViewController.swift */; };
 		1B4B13AD21F279FB002040A6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B13AC21F279FB002040A6 /* UserController.swift */; };
 		1B4F4A9522026487008D4E68 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4A9422026487008D4E68 /* NotificationManager.swift */; };
@@ -56,6 +55,7 @@
 		1BAF23D221FB90D100E26504 /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF23D121FB90D100E26504 /* PhotoController.swift */; };
 		1BB36AE621EEACF20089E2D1 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AE521EEACF20089E2D1 /* FirebaseManager.swift */; };
 		1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */; };
+		1BB746A82203E1DB004B7125 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BB746A72203E1DB004B7125 /* GoogleService-Info.plist */; };
 		1BCEF0FD21F97B2300662756 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */; };
 		1BCEF0FF21F989E800662756 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEF0FE21F989E800662756 /* SettingsViewController.swift */; };
 		1BD8B1C222017270006988D6 /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8B1C122017270006988D6 /* PaddingTextField.swift */; };
@@ -108,7 +108,6 @@
 		1B07486121F16E4E0030D907 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		1B17856121F29BD600CDADAC /* BasicUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUserController.swift; sourceTree = "<group>"; };
 		1B34890A21FD55E7000AFF0D /* UnderlineButtonTextDarkGray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButtonTextDarkGray.swift; sourceTree = "<group>"; };
-		1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B4B13A721F18B03002040A6 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		1B4B13AC21F279FB002040A6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		1B4F4A9422026487008D4E68 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -139,6 +138,7 @@
 		1BAF23D121FB90D100E26504 /* PhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
 		1BB36AE521EEACF20089E2D1 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreFetchable.swift; sourceTree = "<group>"; };
+		1BB746A72203E1DB004B7125 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1BCEF0FC21F97B2300662756 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		1BCEF0FE21F989E800662756 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1BD8B1C122017270006988D6 /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
@@ -255,8 +255,8 @@
 			isa = PBXGroup;
 			children = (
 				B404A99521EEA23200491CE2 /* AppDelegate.swift */,
-				1B4B13A521F1733B002040A6 /* GoogleService-Info.plist */,
 				B404A99F21EEA23400491CE2 /* Assets.xcassets */,
+				1BB746A72203E1DB004B7125 /* GoogleService-Info.plist */,
 				B404A9A421EEA23400491CE2 /* Info.plist */,
 			);
 			name = Resources;
@@ -456,6 +456,7 @@
 				1B61AEAD21F82F20007C6C06 /* OpenSans-SemiBold.ttf in Resources */,
 				1B61AEAE21F82F20007C6C06 /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				1B61AEAF21F82F20007C6C06 /* Skia.ttf in Resources */,
+				1BB746A82203E1DB004B7125 /* GoogleService-Info.plist in Resources */,
 				1B61AEB021F82F20007C6C06 /* Lato-Black.ttf in Resources */,
 				1B4F4A992202D5AD008D4E68 /* ModalPresentations.storyboard in Resources */,
 				1B61AEB121F82F20007C6C06 /* Lato-BlackItalic.ttf in Resources */,
@@ -469,7 +470,6 @@
 				1B61AEB921F82F20007C6C06 /* Lato-Regular.ttf in Resources */,
 				B404A9A321EEA23400491CE2 /* LaunchScreen.storyboard in Resources */,
 				1B61AE9721F79736007C6C06 /* SignIn.storyboard in Resources */,
-				1B4B13A621F1733B002040A6 /* GoogleService-Info.plist in Resources */,
 				B404A9A021EEA23400491CE2 /* Assets.xcassets in Resources */,
 				B404A99B21EEA23200491CE2 /* Main.storyboard in Resources */,
 			);
