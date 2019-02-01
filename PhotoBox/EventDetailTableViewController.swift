@@ -157,6 +157,12 @@ class EventDetailTableViewController: UITableViewController {
                 }
             }
         }
+        if event.coverPhoto == nil {
+            eventNameLabel.textColor = UIColor(named: "textDarkGray")
+            startDateLabel.textColor = UIColor(named: "textDarkGray")
+            eventLocationLabel.textColor = UIColor(named: "textDarkGray")
+            creatorLabel.textColor = UIColor(named: "textDarkGray")
+        }
         scheduleUserNotifications()
         eventNameLabel.text = event.eventName
         startDateLabel.text = "\(event.formattedStartTime)"
@@ -207,9 +213,9 @@ class EventDetailTableViewController: UITableViewController {
             guard let code = event?.eventCode,
                 let creator = UserController.shared.currentUser?.name,
                 let name = event?.eventName else { return }
-            let messageComposerVC = messageComposer.configuredMessageComposeViewController(eventName: name, code: code, creator: creator)
-            
-            present(messageComposerVC, animated: true, completion: nil)
+            let textMessageComposerVC = messageComposer.composeEventInviteTextMessageWith(eventName: name, code: code, creator: creator)
+
+            present(textMessageComposerVC, animated: true, completion: nil)
         } else {
             presentPhotoBoxModalVC(message: "Oh no! It looks like this device isn't able to send text messages out.")
         }

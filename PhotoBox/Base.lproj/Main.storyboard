@@ -107,7 +107,7 @@
                                                             </constraints>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" textContentType="name"/>
                                                             <connections>
                                                                 <outlet property="delegate" destination="hL1-3n-qwa" id="maM-9I-Z5O"/>
                                                             </connections>
@@ -120,7 +120,7 @@
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="textColor"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                                     <connections>
                                                                         <action selector="startTime:" destination="hL1-3n-qwa" eventType="editingDidBegin" id="qgc-Aa-2cM"/>
                                                                         <outlet property="delegate" destination="hL1-3n-qwa" id="W3S-pd-yJz"/>
@@ -131,7 +131,7 @@
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="textColor"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                                     <connections>
                                                                         <action selector="endTime:" destination="hL1-3n-qwa" eventType="editingDidBegin" id="2Cg-3z-7eU"/>
                                                                         <outlet property="delegate" destination="hL1-3n-qwa" id="m9g-GL-LPh"/>
@@ -153,7 +153,7 @@
                                                                     </constraints>
                                                                     <nil key="textColor"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" textContentType="location"/>
                                                                     <connections>
                                                                         <outlet property="delegate" destination="hL1-3n-qwa" id="Nq2-An-9Qt"/>
                                                                     </connections>
@@ -182,7 +182,7 @@
                                                                 <constraint firstAttribute="height" constant="104" id="vQb-0A-qta"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="go"/>
                                                         </textView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbw-JN-dvn">
                                                             <rect key="frame" x="0.0" y="500" width="355" height="56"/>
@@ -269,7 +269,7 @@
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dS9-tZ-ptp">
                                                     <rect key="frame" x="0.0" y="-2.6666666666666714" width="375" height="133.33333333333337"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IQ8-9i-FNF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="133.33333333333337"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ljN-wA-EAK">
