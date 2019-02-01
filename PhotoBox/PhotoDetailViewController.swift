@@ -11,7 +11,7 @@ import UIKit
 class PhotoDetailViewController: UIViewController {
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
-//    @IBOutlet var optionsButton: [UIButton]!
+    
     
     var photos: [Photo] = [] {
         didSet {
@@ -31,13 +31,50 @@ class PhotoDetailViewController: UIViewController {
         
     }
     
+    @IBAction func actionButtonTapped(_ sender: Any) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
+            // Save functionality here
+        }
+        let deleteAction = UIAlertAction(title: "Delete", style: .default) { (_) in
+            
+        }
+        
+        let reportPhotoAction = UIAlertAction(title: "Report Photo", style: .default) { (_) in
+            
+        }
+        
+        let blockerUserAction = UIAlertAction(title: "Block User", style: .default) { (_) in
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        
+        
+        alertController.addAction(saveAction)
+        alertController.addAction(deleteAction)
+        alertController.addAction(reportPhotoAction)
+        alertController.addAction(blockerUserAction)
+        alertController.addAction(cancelAction)
+        // add rest of actions ^
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
     func updateView() {
         photoCollectionView.reloadData()
         guard photoCollectionView.numberOfItems(inSection: 0) >=  selectedPosition else { return }
         let indexPath = IndexPath(row: selectedPosition, section: 0)
         photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
     }
-//    
+    @IBAction func handleSelection(_ sender: Any) {
+    }
+    
+   
+    
+    //
 //    @IBAction func handleSelection(_ sender: UIButton) {
 //        optionsButton.forEach { (button) in
 //            UIView.animate(withDuration: 0.3, animations: {
@@ -50,17 +87,6 @@ class PhotoDetailViewController: UIViewController {
     
     
     
-    @IBAction func savePhotoButtonTapped(_ sender: Any) {
-    }
-    
-    @IBAction func deletePhotoButtonTapped(_ sender: Any) {
-    }
-    
-    @IBAction func reportButtonButtonTapped(_ sender: Any) {
-    }
-    
-    @IBAction func blockUserButtonTapped(_ sender: Any) {
-    }
 }
 
 extension PhotoDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
