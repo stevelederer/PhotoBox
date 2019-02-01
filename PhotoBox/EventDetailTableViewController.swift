@@ -30,8 +30,9 @@ class EventDetailTableViewController: UITableViewController {
     }
     var numberOfMemberRows = 0
     var numberOfMembers: Int?
-    var row4Height: CGFloat = 0
+    var row1Height: CGFloat = 0
     var row2Height: CGFloat = 0
+    var row4Height: CGFloat = 0
     
     var memberDataSource = MemberDataSource()
     var feedDataSource = FeedDataSource()
@@ -44,6 +45,8 @@ class EventDetailTableViewController: UITableViewController {
     var event: Event? {
         didSet {
             guard let event = event else { return }
+            eventID = event.uuid
+            loadViewIfNeeded()
             fetchDetails(for: event)
             if fromNotification {
                 guard let selectPhotosVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "selectPhotosVC") as? SelectPhotosViewController else { return }
@@ -65,9 +68,7 @@ class EventDetailTableViewController: UITableViewController {
         liveFeedCollectionView.dataSource = feedDataSource
         updateViews()
 
-            guard let currentUser = UserController.shared.currentUser,
-            let eventID = eventID
-            else { return }
+        guard let eventID = eventID else { return }
         
         FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "uuid", criteria: eventID, inArray: false) { (events: [Event]?) in
             guard let events = events else { print("❌❌❌❌ no event found for that code") ; return }
@@ -119,16 +120,16 @@ class EventDetailTableViewController: UITableViewController {
         if event.creatorID == currentUser.uuid {
             print("🙏 Current user is THE CREATOR! 🙏")
             currentUserIsEventCreator = true
-            self.inviteButton.isHidden = false
+            inviteButton.isHidden = false
             self.tableView.beginUpdates()
-            self.row4Height = 44
+            self.row2Height = 44
             self.tableView.endUpdates()
         } else {
             print("Current user is not an admin of this event")
             currentUserIsEventCreator = false
-            self.inviteButton.isHidden = true
+            inviteButton.isHidden = true
             self.tableView.beginUpdates()
-            self.row4Height = 0
+            self.row2Height = 0
             self.tableView.endUpdates()
         }
     }
@@ -152,7 +153,18 @@ class EventDetailTableViewController: UITableViewController {
             !location.isEmpty else { eventLocationLabel.isHidden = true ; return }
         eventLocationLabel.text = "\(location)"
         eventCoverPhotoImageView.image = event.coverPhoto
-        detailsLabel.text = event.details
+        if event.details == "" {
+            detailsLabel.isHidden = true
+            self.tableView.beginUpdates()
+            self.row1Height = 0
+            self.tableView.endUpdates()
+        } else {
+            detailsLabel.isHidden = false
+            detailsLabel.text = event.details
+            self.tableView.beginUpdates()
+            self.row1Height = 64
+            self.tableView.endUpdates()
+        }
         
         // FIXME: - Update after additional auth view rec'd from designers
         let center = UNUserNotificationCenter.current()
@@ -238,8 +250,10 @@ class EventDetailTableViewController: UITableViewController {
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 return 128
-            } else if indexPath.row == 1 || indexPath.row == 2 {
-                return 64
+            } else if indexPath.row == 1 {
+                return self.row1Height
+            } else if indexPath.row == 2 {
+                return self.row2Height
             } else if indexPath.row == 3 {
                 return membersTableViewCellHeight
             } else if indexPath.row == 4 {
