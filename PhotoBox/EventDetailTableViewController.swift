@@ -187,7 +187,7 @@ class EventDetailTableViewController: UITableViewController {
         let center = UNUserNotificationCenter.current()
         center.getNotificationSettings { (settings) in
             if settings.authorizationStatus != .authorized {
-//                self.presentPhotoBoxModalVC(message: "You've joined your first PhotoBox! We'd like to send reminders to upload your photos (so your friends don't have to!)")
+                self.presentPhotoBoxModalVC(message: "You've joined your first PhotoBox! We'd like to send reminders to upload your photos (so your friends don't have to!)")
                 #warning("apple auth alert comes up over this other modal")
                 center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
                 }
