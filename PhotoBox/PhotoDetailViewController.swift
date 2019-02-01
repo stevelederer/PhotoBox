@@ -8,10 +8,14 @@
 
 import UIKit
 
+protocol PhotoDetailViewControllerDelegate: class {
+    func userWasBlocked(userID: String)
+}
+
 class PhotoDetailViewController: UIViewController {
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
-    
+    weak var delegate: PhotoDetailViewControllerDelegate?
     var photos: [Photo] = [] {
         didSet {
             loadViewIfNeeded()
@@ -92,8 +96,23 @@ extension PhotoDetailViewController: PhotoCollectionViewCellDelegate {
             }
         }
         
-        let blockerUserAction = UIAlertAction(title: "Block User", style: .default) { (_) in
+        let blockUserAction = UIAlertAction(title: "Block User", style: .default) { (_) in
+            let userToBlock = photo.creatorID
+            guard let currentUser = UserController.shared.currentUser else { return }
             
+            if currentUser.blockedUserIDs == nil {
+                currentUser.blockedUserIDs = [userToBlock]
+            } else {
+                currentUser.blockedUserIDs?.append(userToBlock)
+            }
+            UserController.shared.changeUserInfo(user: currentUser, completion: { (success) in
+                if success {
+                    self.delegate?.userWasBlocked(userID: userToBlock)
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            })
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -101,7 +120,7 @@ extension PhotoDetailViewController: PhotoCollectionViewCellDelegate {
         alertController.addAction(saveAction)
         alertController.addAction(deleteAction)
         alertController.addAction(reportPhotoAction)
-        alertController.addAction(blockerUserAction)
+        alertController.addAction(blockUserAction)
         alertController.addAction(cancelAction)
         // add rest of actions ^
         

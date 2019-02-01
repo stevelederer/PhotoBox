@@ -33,8 +33,15 @@ class PhotoController {
     }
     
     func fetchPhotos(for event: Event, completion: @escaping ([Photo]?) -> Void) {
-        guard let photoIDs = event.photoIDs else { return }
+        guard var photoIDs = event.photoIDs,
+        let currentUser = UserController.shared.currentUser else { return }
         let dispatchGroup = DispatchGroup()
+        
+        if let blockedUserIDs = currentUser.blockedUserIDs {
+            for blockedUserID in blockedUserIDs {
+                photoIDs = photoIDs.filter{ $0 == blockedUserID }
+            }
+        }
         
         var photos: [Photo] = []
         for photoID in photoIDs {

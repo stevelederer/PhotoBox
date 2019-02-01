@@ -22,6 +22,7 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
     var event: Event?
     var currentUser: AppUser? = UserController.shared.currentUser
     var selectedPhotos = [Photo]()
+    var feedDataSource: FeedDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +92,9 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
         var newArray: [String] = []
         for photo in selectedPhotos {
             newArray.append(photo.uuid)
+            feedDataSource?.photos?.append(photo)
         }
+        
         event.photoIDs = newArray
         DispatchQueue.main.async {
             self.update(event: event)
