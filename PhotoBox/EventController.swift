@@ -3,7 +3,7 @@
 //  PhotoBox
 //
 //  Created by Jack Knight on 1/21/19.
-//  Copyright © 2019 Cameron Milliken. All rights reserved.
+//  Copyright © 2019 Steve Lederer. All rights reserved.
 //
 
 import UIKit

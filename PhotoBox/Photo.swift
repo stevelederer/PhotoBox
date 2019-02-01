@@ -3,7 +3,7 @@
 //  PhotoBox
 //
 //  Created by Jack Knight on 1/18/19.
-//  Copyright © 2019 Cameron Milliken. All rights reserved.
+//  Copyright © 2019 Steve Lederer. All rights reserved.
 //
 
 import UIKit
@@ -21,6 +21,7 @@ class Photo: FirestoreFetchable, FirebaseStorable, Equatable {
     let eventID: String
     var imageURL: String?
     let creatorID: String
+    let creatorName: String
     var data: Data {
         guard let image = self.image,
             let data = image.jpegData(compressionQuality: 0.20)
@@ -29,19 +30,21 @@ class Photo: FirestoreFetchable, FirebaseStorable, Equatable {
     }
     var isSelected = true
     
-    init(image: UIImage?, uuid: String = UUID().uuidString, eventID: String, creatorID: String) {
+    init(image: UIImage?, uuid: String = UUID().uuidString, eventID: String, creatorID: String, creatorName: String) {
         self.image = image
         self.uuid = uuid
         self.eventID = eventID
         self.creatorID = creatorID
         self.imageURL = nil
+        self.creatorName = creatorName
     }
     
     required init?(with dictionary: [String : Any], id: String) {
         guard let imageURL = dictionary["imageURL"] as? String,
             let uuid = dictionary["uuid"] as? String,
             let eventID = dictionary["eventID"] as? String,
-            let creatorID = dictionary["creatorID"] as? String
+            let creatorID = dictionary["creatorID"] as? String,
+            let creatorName = dictionary["creatorName"] as? String
             else {return nil}
         
         self.image = nil
@@ -49,6 +52,7 @@ class Photo: FirestoreFetchable, FirebaseStorable, Equatable {
         self.uuid = uuid
         self.eventID = eventID
         self.creatorID = creatorID
+        self.creatorName = creatorName
     }
 }
 
@@ -58,7 +62,8 @@ extension Photo {
             "uuid" : uuid,
             "imageURL" : imageURL,
             "eventID" : eventID,
-            "creatorID" : creatorID
+            "creatorID" : creatorID,
+            "creatorName" : creatorName
         ]
     }
 }

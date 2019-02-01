@@ -3,7 +3,7 @@
 //  PhotoBox
 //
 //  Created by Jack Knight on 1/30/19.
-//  Copyright © 2019 Cameron Milliken. All rights reserved.
+//  Copyright © 2019 Steve Lederer. All rights reserved.
 //
 
 import UIKit
@@ -63,7 +63,7 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
                     
                     imgManager.requestImage(for: fetchResult.object(at: i), targetSize: CGSize(width: 2000, height: 2000), contentMode: .aspectFill, options: requestOptions, resultHandler: {
                         image, error in
-                        let photo = Photo(image: image, eventID: event.uuid, creatorID: currentUser.uuid)
+                        let photo = Photo(image: image, eventID: event.uuid, creatorID: currentUser.uuid, creatorName: currentUser.name)
                         self.photos.append(photo)
                     })
                     collectionView.reloadData()
