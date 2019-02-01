@@ -52,6 +52,7 @@ class EventDetailTableViewController: UITableViewController {
             if fromNotification {
                 guard let selectPhotosVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "selectPhotosVC") as? SelectPhotosViewController else { return }
                 selectPhotosVC.event = event
+                selectPhotosVC.feedDataSource = self.feedDataSource
                 self.present(selectPhotosVC, animated: true, completion: nil)
             }
         }
@@ -98,8 +99,8 @@ class EventDetailTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        guard let event = self.event else { return }
-        self.fetchDetails(for: event)
+        self.liveFeedCollectionView.reloadData()
+        self.memberCollectionView.reloadData()
     }
     
     func fetchDetails(for event: Event) {
@@ -183,14 +184,10 @@ class EventDetailTableViewController: UITableViewController {
             self.tableView.endUpdates()
         }
         
-        // FIXME: - Update after additional auth view rec'd from designers
         let center = UNUserNotificationCenter.current()
         center.getNotificationSettings { (settings) in
             if settings.authorizationStatus != .authorized {
-                self.presentPhotoBoxModalVC(message: "You've joined your first PhotoBox! We'd like to send reminders to upload your photos (so your friends don't have to!)")
-                #warning("apple auth alert comes up over this other modal")
-                center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-                }
+                self.presentModalNotificationAuth()
             } else {
                 print("🥳🥳🥳🥳🥳 Notifications Authorized!")
             }
@@ -290,14 +287,19 @@ class EventDetailTableViewController: UITableViewController {
             let collectionViewCell = liveFeedCollectionView.cellForItem(at: indexPath) as? FeedCollectionViewCell,
             let destinationVC = segue.destination as? PhotoDetailViewController
                 else { return }
-            
+            destinationVC.delegate = self
             destinationVC.selectedPosition = indexPath.row
             Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { (_) in
                 guard let photos = self.feedDataSource.photos else { return }
                 destinationVC.photos = photos
             }
-            
         }
     }
+}
+
+extension EventDetailTableViewController: PhotoDetailViewControllerDelegate {
     
+    func userWasBlocked(userID: String) {
+        feedDataSource.photos = feedDataSource.photos?.filter { $0.creatorID != userID }
+    }
 }

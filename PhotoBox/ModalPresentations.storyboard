@@ -256,6 +256,78 @@
             </objects>
             <point key="canvasLocation" x="3905" y="770"/>
         </scene>
+        <!--Modal Notification Auth View Controller-->
+        <scene sceneID="JVR-KH-6df">
+            <objects>
+                <viewController storyboardIdentifier="ModalNotificationAuthViewController" id="Te5-MS-mZu" customClass="ModalNotificationAuthViewController" customModule="PhotoBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OoY-wa-V7o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rl3-wD-2Jg">
+                                <rect key="frame" x="30" y="274" width="315" height="274"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popupBackground" translatesAutoresizingMaskIntoConstraints="NO" id="DzL-Kw-e9D">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="274"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="bej-IF-6Cp">
+                                        <rect key="frame" x="31.666666666666657" y="20.666666666666671" width="251.99999999999997" height="232.66666666666663"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've joined your first PhotoBox! We use push notifications to remind you to upload your photos to the app. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSi-oN-mjf">
+                                                <rect key="frame" x="0.0" y="0.0" width="252" height="166.66666666666666"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
+                                                <color key="textColor" name="buttonPurple"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XX-nk-psU">
+                                                <rect key="frame" x="36.333333333333343" y="192.66666666666663" width="179" height="40"/>
+                                                <color key="backgroundColor" name="buttonGreen"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="DHN-oq-nFK"/>
+                                                    <constraint firstAttribute="width" constant="179" id="xso-a5-uSb"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="17"/>
+                                                <state key="normal" title="CONTINUE">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="continueButtonTapped:" destination="Te5-MS-mZu" eventType="touchUpInside" id="VfY-Zd-EXS"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="DzL-Kw-e9D" firstAttribute="centerX" secondItem="rl3-wD-2Jg" secondAttribute="centerX" id="2Ll-k5-S9B"/>
+                                    <constraint firstItem="bej-IF-6Cp" firstAttribute="centerX" secondItem="rl3-wD-2Jg" secondAttribute="centerX" id="A5D-p3-apa"/>
+                                    <constraint firstItem="bej-IF-6Cp" firstAttribute="width" secondItem="rl3-wD-2Jg" secondAttribute="width" multiplier="0.8" id="Atx-g3-FA9"/>
+                                    <constraint firstItem="bej-IF-6Cp" firstAttribute="height" secondItem="rl3-wD-2Jg" secondAttribute="height" multiplier="0.85" id="FYC-dc-b9Q"/>
+                                    <constraint firstItem="bej-IF-6Cp" firstAttribute="centerY" secondItem="rl3-wD-2Jg" secondAttribute="centerY" id="GUh-7K-FEQ"/>
+                                    <constraint firstItem="DzL-Kw-e9D" firstAttribute="height" secondItem="rl3-wD-2Jg" secondAttribute="height" id="KGb-DK-f6z"/>
+                                    <constraint firstItem="DzL-Kw-e9D" firstAttribute="width" secondItem="rl3-wD-2Jg" secondAttribute="width" id="Z3K-8A-Lpb"/>
+                                    <constraint firstAttribute="width" constant="315" id="fwV-XL-3QL"/>
+                                    <constraint firstItem="DzL-Kw-e9D" firstAttribute="centerY" secondItem="rl3-wD-2Jg" secondAttribute="centerY" id="qlf-u0-LpR"/>
+                                    <constraint firstAttribute="height" constant="274" id="xr0-au-ct5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rl3-wD-2Jg" firstAttribute="centerX" secondItem="NED-be-YCu" secondAttribute="centerX" id="JcI-zD-K5f"/>
+                            <constraint firstItem="rl3-wD-2Jg" firstAttribute="centerY" secondItem="NED-be-YCu" secondAttribute="centerY" id="ZLG-eb-0WB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NED-be-YCu"/>
+                    </view>
+                    <connections>
+                        <outlet property="continueButon" destination="2XX-nk-psU" id="5BC-cW-8eG"/>
+                        <outlet property="popUpView" destination="rl3-wD-2Jg" id="Gam-AA-FmM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WtR-CI-GbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4740" y="770"/>
+        </scene>
     </scenes>
     <resources>
         <image name="airplane" width="951" height="828"/>

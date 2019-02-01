@@ -42,4 +42,14 @@ extension UIViewController {
         self.present(popUpVC, animated: true)
     }
     
+    func presentModalNotificationAuth() {
+        let vc = UIStoryboard(name: "ModalPresentations", bundle: nil).instantiateViewController(withIdentifier: "ModalNotificationAuthViewController")
+        guard let popUpVC = vc as? ModalNotificationAuthViewController else { return }
+        
+        self.definesPresentationContext = true
+        popUpVC.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        popUpVC.modalTransitionStyle = .crossDissolve
+        self.present(popUpVC, animated: true)
+    }
+    
 }
