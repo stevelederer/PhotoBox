@@ -224,31 +224,30 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
             let endTime = endTime,
             endTimeTextField.text != "",
             let eventLocation = eventLocationTextField.text,
-            let eventDetails = eventDetailsTextView.text,
-            let backgroundImage = backgroundImage.image
+            let eventDetails = eventDetailsTextView.text
             else { presentRequiredFieldAlert() ; return }
-        
-        
         
         EventController.shared.createAnEvent(eventName: eventName, creatorID: currentUser.uuid , memberIDs: [currentUser.uuid], startTime: startTime, endTime: endTime, details: eventDetails, location: eventLocation) { (event) in
             if let event = event {
-                let backgroundPhoto = Photo(image: backgroundImage, eventID: event.uuid, creatorID: currentUser.uuid)
-                event.coverPhoto = backgroundImage
-                FirebaseManager.uploadPhotoToFirebase(backgroundPhoto, completion: { (url, error) in
-                    if let error = error {
-                        print(error.localizedDescription)
-                    }
-                    if let url = url {
-                        event.coverPhotoURL = "\(url)"
-                        FirebaseManager.updateData(obect: event, dictionary: event.dictionary as [String : Any], completion: { (error) in
-                            if let error = error {
-                                print(error.localizedDescription)
-                            } else {
-                                print("success adding coverPhotoURL to new event.")
-                            }
-                        })
-                    }
-                })
+                if let backgroundImage = self.backgroundImage.image {
+                    let backgroundPhoto = Photo(image: backgroundImage, eventID: event.uuid, creatorID: currentUser.uuid)
+                    event.coverPhoto = backgroundImage
+                    FirebaseManager.uploadPhotoToFirebase(backgroundPhoto, completion: { (url, error) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        }
+                        if let url = url {
+                            event.coverPhotoURL = "\(url)"
+                            FirebaseManager.updateData(obect: event, dictionary: event.dictionary as [String : Any], completion: { (error) in
+                                if let error = error {
+                                    print(error.localizedDescription)
+                                } else {
+                                    print("success adding coverPhotoURL to new event.")
+                                }
+                            })
+                        }
+                    })
+                }
                 currentUser.eventIDs?.append(event.uuid)
                 UserController.shared.changeUserInfo(user: currentUser, completion: { (success) in
                     if success {
@@ -270,13 +269,10 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
     }
     
     func presentRequiredFieldAlert() {
-        let requiredFieldsAlert = UIAlertController(title: "OOPS!", message: "Cover Photo, Event Name, Start Time, and End Time are required fields.", preferredStyle: .alert)
-        requiredFieldsAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-        present(requiredFieldsAlert, animated: true)
+        presentPhotoBoxModalVC(message: "Event Name, Start Time, and End Time are required fields.")
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
-//        self.dismiss(animated: true, completion: nil)
         navigationController?.popViewController(animated: true)
     }
     

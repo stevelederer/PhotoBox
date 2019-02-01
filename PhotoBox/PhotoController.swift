@@ -16,6 +16,7 @@ extension PhotoController {
 class PhotoController {
     
     static let shared = PhotoController()
+    let messageComposer = MessageComposer()
     
     func fetchProfileImages(for appUser: AppUser, completion: @escaping (UIImage?) -> Void) {
         guard let profilePicURL = appUser.profilePicURL else { return }
