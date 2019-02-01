@@ -59,7 +59,7 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
             if fetchResult.count > 0 {
                 for i in 0..<fetchResult.count {
                     
-                    imgManager.requestImage(for: fetchResult.object(at: i), targetSize: CGSize(width: 150, height: 150), contentMode: .aspectFill, options: requestOptions, resultHandler: {
+                    imgManager.requestImage(for: fetchResult.object(at: i), targetSize: CGSize(width: 2000, height: 2000), contentMode: .aspectFill, options: requestOptions, resultHandler: {
                         image, error in
                         let photo = Photo(image: image, eventID: event.uuid, creatorID: currentUser.uuid)
                         self.photos.append(photo)
@@ -128,11 +128,11 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10.0
+        return 7.0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10.0
+        return 7.0
     }
 }
 
