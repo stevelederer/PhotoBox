@@ -24,6 +24,7 @@ class FeedDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDele
             let photo = photoArray[indexPath.row]
             PhotoController.shared.fetchImage(for: photo) { (image) in
                 DispatchQueue.main.async {
+                    photo.image = image
                     cell.postedImage.image = image
                 }
             }

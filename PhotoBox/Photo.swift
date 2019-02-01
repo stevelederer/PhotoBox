@@ -16,7 +16,7 @@ class Photo: FirestoreFetchable, FirebaseStorable, Equatable {
     
     static var CollectionName: String = "photos"
     
-    let image: UIImage?
+    var image: UIImage?
     let uuid: String
     let eventID: String
     var imageURL: String?

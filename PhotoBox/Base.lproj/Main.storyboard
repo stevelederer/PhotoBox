@@ -273,7 +273,7 @@
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ljN-wA-EAK">
-                                                                <rect key="frame" x="8" y="18.666666666666671" width="359" height="96"/>
+                                                                <rect key="frame" x="8" y="19" width="359" height="96"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(eventName)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deb-ox-AFA">
                                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="41.333333333333336"/>
@@ -282,13 +282,13 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(startDate)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZC-ff-PmY">
-                                                                        <rect key="frame" x="0.0" y="41.333333333333336" width="359" height="18"/>
+                                                                        <rect key="frame" x="0.0" y="41.333333333333329" width="359" height="18.333333333333329"/>
                                                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(event location)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBI-Q4-m48">
-                                                                        <rect key="frame" x="0.0" y="59.333333333333336" width="359" height="18.333333333333336"/>
+                                                                        <rect key="frame" x="0.0" y="59.666666666666671" width="359" height="18"/>
                                                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -570,6 +570,7 @@
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="postedImage" destination="e14-tr-2aD" id="OHb-NL-7e5"/>
+                                                                <segue destination="PC3-Me-0tN" kind="show" identifier="toPhotoDetailVC" id="O6t-3y-ZXc"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -662,7 +663,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pa5-gg-or4">
-                                <rect key="frame" x="0.0" y="86" width="375" height="545"/>
+                                <rect key="frame" x="0.0" y="86" width="375" height="496"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WWA-K3-Gkr">
                                     <size key="itemSize" width="378" height="519"/>
@@ -671,8 +672,8 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dfI-UF-qkV" customClass="PhotoCollectionViewCell" customModule="PhotoBox" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="13" width="378" height="519"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoDetailCell" id="dfI-UF-qkV" customClass="PhotoCollectionViewCell" customModule="PhotoBox" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-11.666666666666666" width="378" height="519"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="378" height="519"/>
@@ -704,9 +705,6 @@
                                                             <state key="normal" title="...">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
-                                                            <connections>
-                                                                <action selector="handleSelection:" destination="PC3-Me-0tN" eventType="touchUpInside" id="eSr-a9-feI"/>
-                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -737,7 +735,6 @@
                                             <constraint firstItem="tIr-oj-5gy" firstAttribute="top" secondItem="dfI-UF-qkV" secondAttribute="top" id="syL-WY-ZrR"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="moreOptionsButtonTapped" destination="ew5-zM-kBq" id="jBk-yf-Som"/>
                                             <outlet property="postedImage" destination="j8i-Ry-upz" id="7Db-B6-crT"/>
                                             <outlet property="usersName" destination="gRA-mA-Euj" id="VIB-yQ-iAx"/>
                                             <outlet property="usersProfilePic" destination="IqZ-TT-osm" id="j41-yN-5Ud"/>
@@ -746,7 +743,7 @@
                                 </cells>
                             </collectionView>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rdO-NT-njV">
-                                <rect key="frame" x="240" y="639" width="91" height="120"/>
+                                <rect key="frame" x="240" y="590" width="91" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRc-tC-qsr">
                                         <rect key="frame" x="0.0" y="0.0" width="91" height="30"/>
@@ -757,9 +754,6 @@
                                         <state key="normal" title="Save">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="savePhotoButtonTapped:" destination="PC3-Me-0tN" eventType="touchUpInside" id="3lV-DX-HNa"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbm-nJ-sHO">
                                         <rect key="frame" x="0.0" y="30" width="91" height="30"/>
@@ -770,9 +764,6 @@
                                         <state key="normal" title="Delete">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="deletePhotoButtonTapped:" destination="PC3-Me-0tN" eventType="touchUpInside" id="WVF-YX-das"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoY-fi-EMU">
                                         <rect key="frame" x="0.0" y="60" width="91" height="30"/>
@@ -783,9 +774,6 @@
                                         <state key="normal" title="Report Photo">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="reportButtonButtonTapped:" destination="PC3-Me-0tN" eventType="touchUpInside" id="4t2-4L-Z0k"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCD-B5-PCw">
                                         <rect key="frame" x="0.0" y="90" width="91" height="30"/>
@@ -796,9 +784,6 @@
                                         <state key="normal" title="Block User">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="blockUserButtonTapped:" destination="PC3-Me-0tN" eventType="touchUpInside" id="Z12-7r-V86"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -826,7 +811,6 @@
                         <viewLayoutGuide key="safeArea" id="nID-rC-inV"/>
                     </view>
                     <connections>
-                        <outlet property="optionsButton" destination="MCD-B5-PCw" id="Rrd-VF-Jdr"/>
                         <outlet property="photoCollectionView" destination="pa5-gg-or4" id="LYj-wz-fB4"/>
                     </connections>
                 </viewController>
@@ -846,16 +830,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="L8U-Zb-TS7">
-                                <rect key="frame" x="10" y="265.66666666666669" width="355" height="281.00000000000006"/>
+                                <rect key="frame" x="10" y="289" width="355" height="234"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get You Connected!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snT-ud-CXC">
-                                        <rect key="frame" x="80" y="0.0" width="195" height="82"/>
+                                        <rect key="frame" x="5.3333333333333428" y="0.0" width="344.66666666666663" height="35"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="30"/>
                                         <color key="textColor" name="textDarkGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mdp-ri-74d">
-                                        <rect key="frame" x="22" y="119" width="311" height="162"/>
+                                        <rect key="frame" x="22" y="72" width="311" height="162"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Q0Z-5B-LVk">
                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="96"/>
@@ -1054,6 +1038,9 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7EJ-6Z-0dB">
+                                <rect key="frame" x="177.66666666666666" y="396" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1061,10 +1048,12 @@
                             <constraint firstItem="fAv-et-RYa" firstAttribute="centerX" secondItem="UWv-2a-2G5" secondAttribute="centerX" id="8wh-ae-2lU"/>
                             <constraint firstItem="h6Y-OX-u10" firstAttribute="top" secondItem="fAv-et-RYa" secondAttribute="bottom" constant="8" id="Apr-1q-mbD"/>
                             <constraint firstItem="fAv-et-RYa" firstAttribute="top" secondItem="3vT-kj-buk" secondAttribute="top" constant="66" id="Gh4-m5-ob0"/>
+                            <constraint firstItem="7EJ-6Z-0dB" firstAttribute="centerX" secondItem="UWv-2a-2G5" secondAttribute="centerX" id="JWY-MJ-lNS"/>
                             <constraint firstItem="OVC-Ud-jot" firstAttribute="leading" secondItem="fb7-9W-9Ag" secondAttribute="leading" id="Jp3-9z-LGV"/>
                             <constraint firstItem="h6Y-OX-u10" firstAttribute="centerX" secondItem="UWv-2a-2G5" secondAttribute="centerX" id="LqL-dI-fga"/>
                             <constraint firstItem="gPd-uK-cC1" firstAttribute="centerX" secondItem="UWv-2a-2G5" secondAttribute="centerX" id="QXH-lZ-1sS"/>
                             <constraint firstItem="fAv-et-RYa" firstAttribute="width" secondItem="h6Y-OX-u10" secondAttribute="width" id="REU-4p-aKt"/>
+                            <constraint firstItem="7EJ-6Z-0dB" firstAttribute="centerY" secondItem="UWv-2a-2G5" secondAttribute="centerY" id="SxF-47-Q2M"/>
                             <constraint firstItem="gPd-uK-cC1" firstAttribute="top" secondItem="h6Y-OX-u10" secondAttribute="bottom" constant="8" id="UWa-T1-un8"/>
                             <constraint firstItem="3vT-kj-buk" firstAttribute="bottom" secondItem="fb7-9W-9Ag" secondAttribute="bottom" id="ZlI-k0-vlm"/>
                             <constraint firstItem="fb7-9W-9Ag" firstAttribute="leading" secondItem="3vT-kj-buk" secondAttribute="leading" id="grJ-9b-Mff"/>
@@ -1076,6 +1065,7 @@
                         <viewLayoutGuide key="safeArea" id="3vT-kj-buk"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="7EJ-6Z-0dB" id="bbc-Nb-6b5"/>
                         <outlet property="collectionView" destination="fb7-9W-9Ag" id="KXQ-CI-A4z"/>
                         <outlet property="eventNameLabel" destination="Tbl-LV-bzK" id="YdZ-3u-vP4"/>
                         <outlet property="unselectButton" destination="c00-BQ-7go" id="ccn-RC-6dl"/>

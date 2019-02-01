@@ -31,7 +31,7 @@ class EventDetailTableViewController: UITableViewController {
     var numberOfMemberRows = 0
     var numberOfMembers: Int?
     var row1Height: CGFloat = 0
-    var row2Height: CGFloat = 0
+    var row2Height: CGFloat = 44
     var row4Height: CGFloat = 0
     
     var memberDataSource = MemberDataSource()
@@ -48,6 +48,7 @@ class EventDetailTableViewController: UITableViewController {
             eventID = event.uuid
             loadViewIfNeeded()
             fetchDetails(for: event)
+            checkForAdmin(event: event)
             if fromNotification {
                 guard let selectPhotosVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "selectPhotosVC") as? SelectPhotosViewController else { return }
                 selectPhotosVC.event = event
@@ -95,9 +96,13 @@ class EventDetailTableViewController: UITableViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        guard let event = self.event else { return }
+        self.fetchDetails(for: event)
+    }
+    
     func fetchDetails(for event: Event) {
-        guard let currentUser = UserController.shared.currentUser else { return }
-        
         PhotoController.shared.fetchPhotos(for: event) { (photos) in
             self.feedDataSource.photos = photos
             DispatchQueue.main.async {
@@ -117,6 +122,11 @@ class EventDetailTableViewController: UITableViewController {
             }
         }
         
+    }
+    
+    func checkForAdmin(event: Event) {
+        guard let currentUser = UserController.shared.currentUser else { return }
+        
         if event.creatorID == currentUser.uuid {
             print("🙏 Current user is THE CREATOR! 🙏")
             currentUserIsEventCreator = true
@@ -132,6 +142,7 @@ class EventDetailTableViewController: UITableViewController {
             self.row2Height = 0
             self.tableView.endUpdates()
         }
+        
     }
 
     
@@ -263,6 +274,23 @@ class EventDetailTableViewController: UITableViewController {
             }
         } else {
             return UITableView.automaticDimension
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPhotoDetailVC" {
+            guard let indexPaths = liveFeedCollectionView.indexPathsForSelectedItems,
+            let indexPath = indexPaths.first,
+            let collectionViewCell = liveFeedCollectionView.cellForItem(at: indexPath) as? FeedCollectionViewCell,
+            let destinationVC = segue.destination as? PhotoDetailViewController
+                else { return }
+            
+            destinationVC.selectedPosition = indexPath.row
+            Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { (_) in
+                guard let photos = self.feedDataSource.photos else { return }
+                destinationVC.photos = photos
+            }
+            
         }
     }
     
