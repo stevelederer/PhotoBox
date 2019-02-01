@@ -24,6 +24,11 @@ class EnterCodeViewController: UIViewController, UITextFieldDelegate {
         continueButton.layer.cornerRadius = continueButton.frame.height / 2
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        enterCodeTextField.text = nil
+    }
+    
     @IBAction func continueButtonTapped(_ sender: UIButton) {
         guard let enteredCode = enterCodeTextField.text?.uppercased(), enterCodeTextField.text?.count == 4 else { presentRequiredFieldAlert() ; return }
         FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "eventCode", criteria: enteredCode, inArray: false) { (events: [Event]?) in

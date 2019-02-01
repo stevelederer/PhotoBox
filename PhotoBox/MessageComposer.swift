@@ -39,7 +39,8 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate, MFMailC
         let emailComposeVC = MFMailComposeViewController()
         emailComposeVC.mailComposeDelegate = self
         emailComposeVC.setToRecipients(["PhotoBoxApp@pm.me"])
-        emailComposeVC.setMessageBody("<p>Dear PhotoBox,</p><p>I would like to report this photo as inappropriate.</p><p>Photo ID: \(photo.uuid)</p><p>User ID: \(photo.creatorID)</p>", isHTML: true)
+        emailComposeVC.setSubject("Innappropriate Photo")
+        emailComposeVC.setMessageBody("Dear PhotoBox,\n\nI would like to report this photo as inappropriate.\n\nPhoto ID: \(photo.uuid)\n\nUser ID: \(photo.creatorID)", isHTML: false)
         return emailComposeVC
     }
     

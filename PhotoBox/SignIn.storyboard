@@ -14,9 +14,6 @@
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
         </array>
-        <array key="OpenSans-Light.ttf">
-            <string>OpenSans-Light</string>
-        </array>
         <array key="OpenSans-LightItalic.ttf">
             <string>OpenSans-LightItalic</string>
         </array>
@@ -496,7 +493,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hHh-Xy-24d">
-                                <rect key="frame" x="0.0" y="370" width="375" height="408"/>
+                                <rect key="frame" x="0.0" y="370" width="375" height="442"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="tlK-ic-wkN">
                                     <size key="itemSize" width="96" height="125"/>
@@ -555,7 +552,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(eventName)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIV-1c-r7a">
                                                             <rect key="frame" x="0.0" y="0.0" width="96" height="13.666666666666666"/>
-                                                            <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="10"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="10"/>
                                                             <color key="textColor" name="textDarkGray"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -620,7 +617,7 @@
                             <constraint firstItem="3Mc-xz-iBA" firstAttribute="leading" secondItem="QcM-Iy-f5L" secondAttribute="leading" id="ENn-Hm-3yE"/>
                             <constraint firstItem="7yq-BS-Dmo" firstAttribute="leading" secondItem="QcM-Iy-f5L" secondAttribute="leading" constant="16" id="JL4-Ef-h5y"/>
                             <constraint firstItem="3Mc-xz-iBA" firstAttribute="top" secondItem="QcM-Iy-f5L" secondAttribute="top" id="XMB-6D-doc"/>
-                            <constraint firstItem="QcM-Iy-f5L" firstAttribute="bottom" secondItem="hHh-Xy-24d" secondAttribute="bottom" id="XO1-pt-qNW"/>
+                            <constraint firstAttribute="bottom" secondItem="hHh-Xy-24d" secondAttribute="bottom" id="XO1-pt-qNW"/>
                             <constraint firstItem="fqs-bo-ZSf" firstAttribute="top" secondItem="QcM-Iy-f5L" secondAttribute="top" constant="29" id="ZJm-44-UZb"/>
                             <constraint firstItem="N3Y-aj-aak" firstAttribute="leading" secondItem="fqs-bo-ZSf" secondAttribute="leading" id="c0p-cj-Zh2"/>
                             <constraint firstItem="1cw-fX-Zch" firstAttribute="centerX" secondItem="QEL-w3-Wjf" secondAttribute="centerX" id="eQc-TM-q47"/>
