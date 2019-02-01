@@ -15,6 +15,7 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var unselectButton: UIButton!
     @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     var photos: [Photo] = []
@@ -75,6 +76,7 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
     
     
     @IBAction func uploadButtonTapped(_ sender: Any) {
+        activityIndicator.startAnimating()
         guard let event = event, let currentUser = currentUser else { return }
         let selectedPhotos = photos.filter { $0.isSelected }
         PhotoController.shared.upload(photos: selectedPhotos, eventID: event.uuid, userID: currentUser.uuid) { (success) in
@@ -99,7 +101,9 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
             if let error = error {
                 print(error.localizedDescription)
             } else {
+                self.activityIndicator.stopAnimating()
                 print("photoIDs added to \(event.eventName) 👍")
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }

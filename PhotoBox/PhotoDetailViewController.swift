@@ -8,31 +8,46 @@
 
 import UIKit
 
-class PhotoDetailViewController: UIViewController, UIScrollViewDelegate {
-
+class PhotoDetailViewController: UIViewController {
+    
     @IBOutlet weak var photoCollectionView: UICollectionView!
-    @IBOutlet var optionsButton: [UIButton]!
+//    @IBOutlet var optionsButton: [UIButton]!
     
-    var photos: [UIImage] = [] {
+    var photos: [Photo] = [] {
         didSet {
-            
+            loadViewIfNeeded()
+            updateView()
         }
     }
     
-override func viewDidLoad() {
+    var selectedPosition: Int = 0
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
-
+        photoCollectionView.delegate = self
+        photoCollectionView.dataSource = self
+        photoCollectionView.isPagingEnabled = true
+        photoCollectionView.frame = view.frame
+        
     }
     
-    @IBAction func handleSelection(_ sender: UIButton) {
-        optionsButton.forEach { (button) in
-            UIView.animate(withDuration: 0.3, animations: {
-                button.isHidden = !button.isHidden
-                self.view.layoutIfNeeded()
-            })
-        }
-            
-        }
+    func updateView() {
+        photoCollectionView.reloadData()
+        guard photoCollectionView.numberOfItems(inSection: 0) >=  selectedPosition else { return }
+        let indexPath = IndexPath(row: selectedPosition, section: 0)
+        photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
+    }
+//    
+//    @IBAction func handleSelection(_ sender: UIButton) {
+//        optionsButton.forEach { (button) in
+//            UIView.animate(withDuration: 0.3, animations: {
+//                button.isHidden = !button.isHidden
+//                self.view.layoutIfNeeded()
+//            })
+//        }
+//        
+//    }
+    
     
     
     @IBAction func savePhotoButtonTapped(_ sender: Any) {
@@ -46,17 +61,28 @@ override func viewDidLoad() {
     
     @IBAction func blockUserButtonTapped(_ sender: Any) {
     }
-    
-    
-    
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension PhotoDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photos.count
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoDetailCell", for: indexPath) as! PhotoCollectionViewCell
+        let photo = photos[indexPath.row]
+        if let image = photo.image {
+            cell.postedImage.image = image
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 
 }

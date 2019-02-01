@@ -14,6 +14,9 @@
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans-Regular</string>
         </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Modal Pop Up View Controller-->
@@ -46,7 +49,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="8CW-ht-AYn"/>
                                                     <constraint firstAttribute="width" constant="179" id="Yad-yQ-9AB"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="17"/>
                                                 <state key="normal" title="CONTINUE">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -126,7 +129,7 @@
                                                     <constraint firstAttribute="width" constant="179" id="Ra8-fB-6bQ"/>
                                                     <constraint firstAttribute="height" constant="40" id="ab1-5s-wWd"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="17"/>
                                                 <state key="normal" title="CONTINUE">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -211,7 +214,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="0I1-aH-9tN"/>
                                                     <constraint firstAttribute="width" constant="179" id="Tk5-jh-kup"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="17"/>
                                                 <state key="normal" title="LET'S GO!">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
