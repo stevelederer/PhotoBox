@@ -105,8 +105,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 guard let eventID = self.eventIDFromNotification else { return }
                 destinationVC.eventID = eventID
             }
+        } else if segue.identifier == "albumToDetail" {
+            if let destinationVC = segue.destination as? EventDetailTableViewController,
+                let indexPath = albumCollectionView.indexPathsForSelectedItems?.first,
+                let event = events?[indexPath.row] {
+                   destinationVC.event = event
+                }
+            }
         }
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let events = events else {return 1}
