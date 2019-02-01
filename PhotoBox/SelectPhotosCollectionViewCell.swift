@@ -34,6 +34,9 @@ class SelectPhotosCollectionViewCell: UICollectionViewCell {
         delegate?.photoButtonTapped(sender: self)
     }
     
+
+
+    
     func updateViews() {
         guard let photo = photo else { return }
         
