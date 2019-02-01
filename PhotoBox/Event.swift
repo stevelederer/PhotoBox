@@ -32,6 +32,10 @@ class Event: FirestoreFetchable {
         let date = Date(timeIntervalSince1970: endTime)
         return date.formattedString()
     }
+    var shortFormattedEndTime: String? {
+        let date = Date(timeIntervalSince1970: endTime)
+        return date.formattedShortString()
+    }
     
     init(uuid: String = UUID().uuidString, eventName: String, eventCode: String, creatorID: String, memberIDs: [String], startTime: TimeInterval, endTime: TimeInterval, details: String? = nil, location: String? = nil, photoIDs: [String]? = nil, coverPhoto: UIImage? = nil, coverPhotoURL: String? = nil) {
         self.uuid = uuid

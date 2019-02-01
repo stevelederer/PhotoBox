@@ -31,7 +31,7 @@ class EventDetailTableViewController: UITableViewController {
     var numberOfMemberRows = 0
     var numberOfMembers: Int?
     var row1Height: CGFloat = 0
-    var row2Height: CGFloat = 44
+    var row2Height: CGFloat = 64
     var row4Height: CGFloat = 0
     
     var memberDataSource = MemberDataSource()
@@ -132,7 +132,7 @@ class EventDetailTableViewController: UITableViewController {
             currentUserIsEventCreator = true
             inviteButton.isHidden = false
             self.tableView.beginUpdates()
-            self.row2Height = 44
+            self.row2Height = 64
             self.tableView.endUpdates()
         } else {
             print("Current user is not an admin of this event")

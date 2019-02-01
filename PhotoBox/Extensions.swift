@@ -19,4 +19,12 @@ extension Date {
         return dateString
     }
     
+    func formattedShortString() -> String {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM yyyy"
+        let dateString = formatter.string(from: self)
+        return dateString
+    }
+    
 }

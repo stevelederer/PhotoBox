@@ -25,6 +25,7 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.isHidden = true
         uploadButton.layer.cornerRadius = uploadButton.frame.height / 2
         collectionView.allowsMultipleSelection = true
         getPhotosFromLibrary()
@@ -76,6 +77,7 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
     
     
     @IBAction func uploadButtonTapped(_ sender: Any) {
+        activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         guard let event = event, let currentUser = currentUser else { return }
         let selectedPhotos = photos.filter { $0.isSelected }
