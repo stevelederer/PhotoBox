@@ -3,7 +3,7 @@
 //  PhotoBox
 //
 //  Created by Steve Lederer on 1/25/19.
-//  Copyright © 2019 Cameron Milliken. All rights reserved.
+//  Copyright © 2019 Steve Lederer. All rights reserved.
 //
 
 import UIKit
@@ -95,7 +95,7 @@ class PhotoController {
     }
     
     func saveProfilePhoto(from image: UIImage, user: AppUser, completion: @escaping (String?) -> Void) {
-        let newPhoto = Photo(image: image, uuid: user.uuid, eventID: "", creatorID: "")
+        let newPhoto = Photo(image: image, uuid: user.uuid, eventID: "", creatorID: "", creatorName: "")
         FirebaseManager.uploadPhotoToFirebase(newPhoto) { (url, error) in
             if let error = error {
                 print("There was an error uploading to cloud storage: \(error.localizedDescription)")

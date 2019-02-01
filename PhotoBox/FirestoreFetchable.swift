@@ -3,7 +3,7 @@
 //  BatchShare
 //
 //  Created by Steve Lederer on 1/15/19.
-//  Copyright © 2019 Cameron Milliken. All rights reserved.
+//  Copyright © 2019 Steve Lederer. All rights reserved.
 //
 
 import Foundation

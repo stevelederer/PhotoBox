@@ -3,7 +3,7 @@
 //  PhotoBox
 //
 //  Created by Steve Lederer on 1/23/19.
-//  Copyright © 2019 Cameron Milliken. All rights reserved.
+//  Copyright © 2019 Steve Lederer. All rights reserved.
 //
 
 import UIKit
@@ -156,7 +156,7 @@ extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationC
             self.photo = photo
             currentUser?.profilePic = photo
             guard let currentUser = currentUser else { return }
-            let newPhoto = Photo(image: photo, eventID: "", creatorID: currentUser.uuid)
+            let newPhoto = Photo(image: photo, eventID: "", creatorID: currentUser.uuid, creatorName: currentUser.name)
             FirebaseManager.uploadPhotoToFirebase(newPhoto) { (url, error) in
                 if let error = error {
                     print("There was an error uploading to Firebase Storage: \(error.localizedDescription)")

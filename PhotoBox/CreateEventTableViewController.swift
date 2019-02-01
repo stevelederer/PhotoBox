@@ -3,7 +3,7 @@
 //  PhotoBox
 //
 //  Created by Jack Knight on 1/22/19.
-//  Copyright © 2019 Cameron Milliken. All rights reserved.
+//  Copyright © 2019 Steve Lederer. All rights reserved.
 //
 
 import UIKit
@@ -230,7 +230,7 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
         EventController.shared.createAnEvent(eventName: eventName, creatorID: currentUser.uuid , memberIDs: [currentUser.uuid], startTime: startTime, endTime: endTime, details: eventDetails, location: eventLocation) { (event) in
             if let event = event {
                 if let backgroundImage = self.backgroundImage.image {
-                    let backgroundPhoto = Photo(image: backgroundImage, eventID: event.uuid, creatorID: currentUser.uuid)
+                    let backgroundPhoto = Photo(image: backgroundImage, eventID: event.uuid, creatorID: currentUser.uuid, creatorName: currentUser.name)
                     event.coverPhoto = backgroundImage
                     FirebaseManager.uploadPhotoToFirebase(backgroundPhoto, completion: { (url, error) in
                         if let error = error {
