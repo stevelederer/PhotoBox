@@ -67,6 +67,7 @@ class MemberDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDe
         default:
             assert(false, "Invalid element type")
         }
+        return UICollectionReusableView()
     }
     
 }
