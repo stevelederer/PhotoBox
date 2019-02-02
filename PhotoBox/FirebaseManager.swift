@@ -136,8 +136,21 @@ class FirebaseManager {
                 }
             }
             
-            #warning("remember to delete photos posted by the user")
+            let photoCollectionReference = Firestore.firestore().collection("photos")
             
+            fetchFirestoreWithFieldAndCriteria(for: "creatorID", criteria: userID, inArray: false) { (photos: [Photo]?) in
+                if let photos = photos {
+                    for photo in photos {
+                        deletePhotoFromFirebase(uuid: photo.uuid, completion: { (_) in
+                            
+                        })
+                        photoCollectionReference.document(photo.uuid).delete(completion: { (_) in
+                            
+                        })
+                    }
+                }
+            }
+                        
             user.delete { (error) in
                 if let error = error {
                     print("Error deleting account: \(error.localizedDescription)")
@@ -200,6 +213,13 @@ class FirebaseManager {
             completion(returnValue)
         }
     }
+    
+//    static func removeFromArray<T: FirestoreFetchable>(for field: String, criteria:  String, completion: @escaping ([T]?) -> Void) {
+//        let collectionReference = T.collection
+//        var filteredCollection: Query?
+//
+//
+//    }
     
 
     static func fetchFirestoreWithFieldAndCriteria<T: FirestoreFetchable>(for field: String, criteria: String, inArray: Bool, completion: @escaping ([T]?) -> Void) {
@@ -308,6 +328,18 @@ class FirebaseManager {
                 print(downloadURL)
                 completion(downloadURL, nil)
             })
+        }
+    }
+    
+    static func deletePhotoFromFirebase(uuid: String, completion: @escaping (Bool) -> Void) {
+        let storage = Storage.storage().reference().child("photos")
+        let objectRef = storage.child("\(uuid).jpg")
+        objectRef.delete { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("photo deleted successfully")
+            }
         }
     }
     

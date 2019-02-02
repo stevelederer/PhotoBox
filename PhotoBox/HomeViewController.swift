@@ -57,7 +57,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewWillAppear(_ animated: Bool) {
         updateViews()
         fetchEvents()
-
     }
     
     func fetchEvents() {
@@ -107,7 +106,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         } else if segue.identifier == "toEventDetailVC" {
             if let destinationVC = segue.destination as? EventDetailTableViewController {
-                guard let currentUser = UserController.shared.currentUser else { return }
                 guard let eventID = self.eventIDFromNotification else { return }
                 destinationVC.eventID = eventID
             }
@@ -115,10 +113,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if let destinationVC = segue.destination as? EventDetailTableViewController,
                 let indexPath = albumCollectionView.indexPathsForSelectedItems?.first,
                 let event = events?[indexPath.row - 1] {
-                   destinationVC.event = event
-                }
+                destinationVC.event = event
             }
         }
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let events = events else {return 1}
@@ -139,37 +137,39 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 if let coverPhotoURL = event.coverPhotoURL {
                     FirebaseManager.fetchPhotoFromFirebase(url: coverPhotoURL) { (success, image) in
                         if success {
-                            DispatchQueue.main.async {
-                                cell.albumImageView.image = image
-                                cell.eventName.text = event.eventName
-                                cell.eventTime.text = event.shortFormattedEndTime
-                            }
+                            cell.albumImageView.image = image
+                            cell.eventName.text = event.eventName
+                            cell.eventTime.text = event.shortFormattedEndTime
+                        } else {
+                            cell.eventName.text = event.eventName
+                            cell.eventTime.text = event.shortFormattedEndTime
+                            cell.albumImageView.image = UIImage(named: "photobox_icon")
                         }
                     }
+                } else {
+                    if let imageToDownload = event.photoIDs?.first {
+                        FirebaseManager.fetchFromFirestore(uuid: imageToDownload, completion: { (photo: Photo?) in
+                            if let photoURL = photo?.imageURL {
+                                FirebaseManager.fetchPhotoFromFirebase(url: photoURL, completion: { (success, image) in
+                                    if success {
+                                        cell.albumImageView.image = image
+                                    } else {
+                                        cell.albumImageView.image = UIImage(named: "photobox_icon")
+                                    }
+                                })
+                            }
+                        })
+                        
+                    } else {
+                        cell.albumImageView.image = UIImage(named: "photobox_icon")
+                    }
+                    cell.eventName.text = event.eventName
+                    cell.eventTime.text = event.shortFormattedEndTime
                 }
             }
             return cell
         }
     }
-    
-//                if let basicEventCoverPhotoURLString = event.coverPhotoURL,
-//                    let coverPhotoURL = URL(string: basicEventCoverPhotoURLString) {
-//                    URLSession.shared.dataTask(with: coverPhotoURL) { (data, _, error) in
-//                        if let error = error {
-//                            print(error)
-//                        }
-//                        guard let data = data else { return }
-//
-//                        DispatchQueue.main.async {
-//                            cell.albumImageView.image = UIImage(data: data)
-//                            cell.eventName.text = event.eventName
-//                            cell.eventTime.text = event.formattedEndTime
-//                        }
-//                    }
-//                } else {
-//                    // FIXME: - Have a default cover photo display if no cover photo URL
-//                }
-    
     
     @IBAction func unwindToHomePage(segue:UIStoryboardSegue) {
     }

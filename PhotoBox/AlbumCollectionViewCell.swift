@@ -13,4 +13,9 @@ class AlbumCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var albumImageView: UIImageView!
     @IBOutlet weak var eventName: UILabel!
     @IBOutlet weak var eventTime: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        albumImageView.clipsToBounds = true
+    }
 }

@@ -108,9 +108,28 @@ class EventController {
         }
     }
     
-    func leaveEvent() {
-        
+    func leaveEvent(event: Event, user: AppUser, completion: @escaping (Bool) -> Void) {
+        Firestore.firestore().collection("users").document(user.uuid).updateData(["eventIDs" : FieldValue.arrayRemove([event.uuid])]) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            } else {
+                print("successfully removed event from user's event IDs")
+            }
+        }
+        Firestore.firestore().collection("events").document(event.uuid).updateData(["memberIDs" : FieldValue.arrayRemove([user.uuid])]) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            } else {
+                print("successfully removed user id from event's member IDs")
+            }
+        }
+        completion(true)
     }
+    
     //Upload photos to an event
     
     func uploadPhotos(photos: Photo, completion: @escaping (Bool) -> Void) {
@@ -168,11 +187,7 @@ class EventController {
             }
         }
     }
-    // admin can edit people in event
-    
-    func adminEditAttendees() {
-        #warning("remove attendees")
-    }
+
     
     func fetchEvents(completion: @escaping (Bool, [BasicEvent]?) -> Void) {
         

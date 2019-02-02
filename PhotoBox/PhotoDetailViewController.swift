@@ -59,6 +59,23 @@ extension PhotoDetailViewController: UICollectionViewDelegate, UICollectionViewD
             cell.postedImage.image = image
             cell.delegate = self
         }
+        cell.usersName.text = photo.creatorName
+
+        BasicUserController.shared.fetchBasicProfile(fromUUID: photo.creatorID) { (basicProfile, success) in
+            if !success {
+                print("error fetching basic user")
+            } else {
+                if let url: String = basicProfile?.profilePicURL {
+                    FirebaseManager.fetchPhotoFromFirebase(url: url) { (success, profilePic) in
+                        if !success {
+                            print("error fetching profilePic for user")
+                        } else {
+                            cell.usersProfilePic.image = profilePic
+                        }
+                    }
+                }
+            }
+        }
         return cell
     }
     
@@ -122,7 +139,6 @@ extension PhotoDetailViewController: PhotoCollectionViewCellDelegate {
         alertController.addAction(reportPhotoAction)
         alertController.addAction(blockUserAction)
         alertController.addAction(cancelAction)
-        // add rest of actions ^
         
         present(alertController, animated: true, completion: nil)
     }

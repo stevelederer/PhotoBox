@@ -42,4 +42,14 @@ class BasicUserController {
             return
         }
     }
+    
+    func fetchBasicProfile(fromUUID: String, completion: @escaping (BasicProfile?, Bool) -> Void) {
+        FirebaseManager.fetchFromFirestore(uuid: fromUUID) { (basicUser: BasicProfile?) in
+            if let basicUser = basicUser {
+                completion(basicUser, true)
+            } else {
+                completion(nil, false)
+            }
+        }
+    }
 }

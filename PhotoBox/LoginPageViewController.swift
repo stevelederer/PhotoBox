@@ -53,11 +53,6 @@ class LoginPageViewController: UIViewController {
     @IBAction func forgotPasswordButtonTapped(_ sender: UIButton) {
     }
     
-//    func presentRequiredFieldAlert() {
-//        let requiredFieldAlert = UIAlertController(title: "Missing Information!", message: "Please enter a username and password.", preferredStyle: .alert)
-//        requiredFieldAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-//        self.present(requiredFieldAlert, animated: true)
-//    }
     
     func presentLogInErrorAlert(error: Error) {
         let logInErrorAlert = UIAlertController(title: "Error!", message: "\(error.localizedDescription)", preferredStyle: .alert)
