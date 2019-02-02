@@ -158,7 +158,7 @@ class EventDetailTableViewController: UITableViewController {
                 }
             }
         }
-        if event.coverPhoto == nil {
+        if event.coverPhotoURL == nil {
             eventNameLabel.textColor = UIColor(named: "textDarkGray")
             startDateLabel.textColor = UIColor(named: "textDarkGray")
             eventLocationLabel.textColor = UIColor(named: "textDarkGray")

@@ -316,7 +316,7 @@ class FirebaseManager {
         let storage = Storage.storage()
         let pathReference = storage.reference(forURL: url)
         
-        pathReference.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+        pathReference.getData(maxSize: 10000000) { (data, error) in
             if let error = error {
                 print(error.localizedDescription)
                 completion(false, nil)
