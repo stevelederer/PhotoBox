@@ -12,8 +12,5 @@ class FeedHeaderView: UICollectionReusableView {
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var button: UnderlineButtonTextPurple!
-    
-    
-    
-    
+
 }

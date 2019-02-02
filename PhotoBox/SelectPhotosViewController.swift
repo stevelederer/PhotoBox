@@ -26,6 +26,15 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNavigationItem()
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 5
+        let navigationTitleFont = UIFont(name: "OpenSans-SemiBold", size: 20)
+        let navigationTitleColor = UIColor(named: "textDarkGray")
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont!, NSAttributedString.Key.foregroundColor: navigationTitleColor!]
         activityIndicator.isHidden = true
         uploadButton.layer.cornerRadius = uploadButton.frame.height / 2
         collectionView.allowsMultipleSelection = true
@@ -35,6 +44,7 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
         guard let event = event else { return }
         eventNameLabel.text = event.eventName
     }
+    
     func getPhotosFromLibrary() {
         
         guard let event = event else { return }
@@ -76,7 +86,6 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
 
     }
     
-    
     @IBAction func uploadButtonTapped(_ sender: Any) {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
@@ -99,6 +108,9 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
         DispatchQueue.main.async {
             self.update(event: event)
         }
+    }
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func update(event: Event) {

@@ -146,7 +146,6 @@ class EventDetailTableViewController: UITableViewController {
         }
         
     }
-
     
     // MARK: - Setup
     
@@ -203,21 +202,25 @@ class EventDetailTableViewController: UITableViewController {
     }
     
     @IBAction func leaveEventButtontTapped(_ sender: UIButton) {
-        let leaveEventAlert = UIAlertController(title: "Leave Event?", message: "Are you sure you want to leave the event?", preferredStyle: .alert)
-        leaveEventAlert.addAction(UIAlertAction(title: "Leave", style: .destructive, handler: { (leaveEvent) in
-            guard let event = self.event else { return }
-            guard let currentUser = UserController.shared.currentUser else { return }
-            EventController.shared.leaveEvent(event: event, user: currentUser) { (success) in
-                if success {
-                    print("Successfully left event")
-                    self.dismiss(animated: true, completion: nil)
-                } else {
-                    print("Error leaving event! 🚨")
+        if currentUserIsEventCreator {
+            presentPhotoBoxModalVC(message: "Event admin cannot leave the event.")
+        } else {
+            let leaveEventAlert = UIAlertController(title: "Leave Event?", message: "Are you sure you want to leave the event?", preferredStyle: .alert)
+            leaveEventAlert.addAction(UIAlertAction(title: "Leave", style: .destructive, handler: { (leaveEvent) in
+                guard let event = self.event else { return }
+                guard let currentUser = UserController.shared.currentUser else { return }
+                EventController.shared.leaveEvent(event: event, user: currentUser) { (success) in
+                    if success {
+                        print("Successfully left event")
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        print("Error leaving event! 🚨")
+                    }
                 }
-            }
-        }))
-        leaveEventAlert.addAction(UIAlertAction(title: "Stay", style: .cancel, handler: nil))
-        self.present(leaveEventAlert, animated: true)
+            }))
+            leaveEventAlert.addAction(UIAlertAction(title: "Stay", style: .cancel, handler: nil))
+            self.present(leaveEventAlert, animated: true)
+        }
     }
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
@@ -303,7 +306,6 @@ class EventDetailTableViewController: UITableViewController {
         if segue.identifier == "toPhotoDetailVC" {
             guard let indexPaths = liveFeedCollectionView.indexPathsForSelectedItems,
             let indexPath = indexPaths.first,
-            let collectionViewCell = liveFeedCollectionView.cellForItem(at: indexPath) as? FeedCollectionViewCell,
             let destinationVC = segue.destination as? PhotoDetailViewController
                 else { return }
             destinationVC.delegate = self

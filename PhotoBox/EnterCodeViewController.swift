@@ -62,7 +62,6 @@ class EnterCodeViewController: UIViewController, UITextFieldDelegate {
     }
     
     func transitionToDetailView(user: AppUser, event: Event) {
-        let currentUser = user
         let selectedEvent = event
         
         if let eventDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "eventDetailVC") as? EventDetailTableViewController {

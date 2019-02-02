@@ -139,7 +139,6 @@ extension PhotoDetailViewController: PhotoCollectionViewCellDelegate {
         alertController.addAction(reportPhotoAction)
         alertController.addAction(blockUserAction)
         alertController.addAction(cancelAction)
-        // add rest of actions ^
         
         present(alertController, animated: true, completion: nil)
     }

@@ -187,11 +187,7 @@ class EventController {
             }
         }
     }
-    // admin can edit people in event
-    
-    func adminEditAttendees() {
-        #warning("remove attendees")
-    }
+
     
     func fetchEvents(completion: @escaping (Bool, [BasicEvent]?) -> Void) {
         

@@ -61,28 +61,7 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
         cameraImageView.tintColor = UIColor.gray
         
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
-
-//        // Listen for keyboard events
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
- 
-//    deinit {
-//        // stop listening for keyboard hide/show events
-//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-    
-//    @objc func keyboardWillShow(_ notification: Notification) {
-//        let userInfo = notification.userInfo ?? [:]
-//        let keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-//        let height = keyboardFrame.height + 20
-//        tableView.keyboardRaised(height: height)
-//    }
-//
-//    @objc func keyboardWillHide(_ notification: Notification) {
-//        tableView.keyboardClosed()
-//    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {

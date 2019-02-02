@@ -514,7 +514,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="96" height="125"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lgl-yo-bCd">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lgl-yo-bCd">
                                                     <rect key="frame" x="0.0" y="0.0" width="96" height="96.666666666666671"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="2u7-Mo-nmA">
@@ -759,22 +759,30 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="185" translatesAutoresizingMaskIntoConstraints="NO" id="1TY-uU-wQA">
-                                <rect key="frame" x="15" y="546" width="328.66666666666669" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="185" translatesAutoresizingMaskIntoConstraints="NO" id="1TY-uU-wQA">
+                                <rect key="frame" x="15" y="546" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Reminders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXT-P0-YkY">
                                         <rect key="frame" x="0.0" y="0.0" width="94.666666666666671" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                         <color key="textColor" name="buttonPurple"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NX3-a1-dz6">
-                                        <rect key="frame" x="279.66666666666669" y="0.0" width="51" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="onTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="thumbTintColor" name="buttonGreen"/>
                                     </switch>
                                 </subviews>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="vXT-P0-YkY"/>
+                                        <exclude reference="NX3-a1-dz6"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -797,6 +805,13 @@
                             <constraint firstItem="iYp-Dx-vjc" firstAttribute="top" secondItem="L1Q-cS-aBK" secondAttribute="bottom" constant="37" id="rb9-Rl-3Lb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fl5-2R-Q63"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="6YO-sV-oPO"/>
+                                <exclude reference="TY6-z3-T54"/>
+                                <exclude reference="1TY-uU-wQA"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="40D-re-s5w"/>
                     <connections>
