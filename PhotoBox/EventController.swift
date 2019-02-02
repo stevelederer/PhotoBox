@@ -107,6 +107,10 @@ class EventController {
             }
         }
     }
+    
+    func leaveEvent() {
+        
+    }
     //Upload photos to an event
     
     func uploadPhotos(photos: Photo, completion: @escaping (Bool) -> Void) {
