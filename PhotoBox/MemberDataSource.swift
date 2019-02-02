@@ -20,6 +20,7 @@ class MemberDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDe
             }
         }
     }
+    var eventCreatorID: String?
     
     var profilePics: [UIImage] = []
     
@@ -34,6 +35,11 @@ class MemberDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDe
         if let membersArray = members {
             let member = membersArray[indexPath.row]
             cell.memberName.text = member.name
+            if member.uuid == eventCreatorID {
+                cell.memberAdminLabel.alpha = 1.0
+            } else {
+                cell.memberAdminLabel.alpha = 0
+            }
             PhotoController.shared.fetchProfileImages(for: member) { (image) in
                 if let image = image {
                     DispatchQueue.main.async {

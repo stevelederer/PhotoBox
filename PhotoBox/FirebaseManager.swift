@@ -201,6 +201,13 @@ class FirebaseManager {
         }
     }
     
+    static func removeFromArray<T: FirestoreFetchable>(for field: String, criteria:  String, completion: @escaping ([T]?) -> Void) {
+        let collectionReference = T.collection
+        var filteredCollection: Query?
+        
+
+    }
+    
 
     static func fetchFirestoreWithFieldAndCriteria<T: FirestoreFetchable>(for field: String, criteria: String, inArray: Bool, completion: @escaping ([T]?) -> Void) {
         let collectionReference = T.collection

@@ -27,4 +27,9 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         delegate?.optionButtonTapped(sender: self)
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        usersProfilePic.layer.cornerRadius = usersProfilePic.frame.height / 2
+    }
+    
 }
