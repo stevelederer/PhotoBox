@@ -49,6 +49,7 @@ class FeedDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDele
         default:
             assert(false, "Invalid element type")
         }
+        return UICollectionReusableView()
     }
     
 }
