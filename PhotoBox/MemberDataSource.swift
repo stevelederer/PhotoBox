@@ -13,9 +13,10 @@ class MemberDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDe
     var members: [AppUser]? {
         didSet {
             guard let currentUser = UserController.shared.currentUser else { return }
-            guard let blockedUserIDs = currentUser.blockedUserIDs else { return }
-            for blockedUserID in blockedUserIDs {
-                members = members?.filter{ $0.uuid != blockedUserID }
+            if let blockedUserIDs = currentUser.blockedUserIDs {
+                for blockedUserID in blockedUserIDs {
+                    members = members?.filter{ $0.uuid == blockedUserID }
+                }
             }
         }
     }

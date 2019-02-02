@@ -248,7 +248,11 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
                         }
                     })
                 }
-                currentUser.eventIDs?.append(event.uuid)
+                if currentUser.eventIDs == nil {
+                    currentUser.eventIDs = [event.uuid]
+                } else {
+                    currentUser.eventIDs?.append(event.uuid)
+                }
                 UserController.shared.changeUserInfo(user: currentUser, completion: { (success) in
                     if success {
                         print("success adding new event to the user's events array")
