@@ -44,12 +44,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         joinEventButton.layer.borderColor = UIColor(named: "buttonGreen")?.cgColor
         joinEventButton.layer.borderWidth = 3
         
-        guard let currentUser = currentUser else { return }
-        FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "memberIDs", criteria: currentUser.uuid, inArray: true) { (events: [Event]?) in
-            if let events = events {
-                self.events = events
-            }
-        }
+        fetchEvents()
         
         if fromNotification == true {
             guard let eventDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "eventDetailVC") as? EventDetailTableViewController else { return }
@@ -61,6 +56,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewWillAppear(_ animated: Bool) {
         updateViews()
+        fetchEvents()
+
+    }
+    
+    func fetchEvents() {
+        guard let currentUser = currentUser else { return }
+        FirebaseManager.fetchFirestoreWithFieldAndCriteria(for: "memberIDs", criteria: currentUser.uuid, inArray: true) { (events: [Event]?) in
+            if let events = events {
+                self.events = events
+            }
+        }
     }
     
     func updateViews() {
@@ -108,7 +114,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         } else if segue.identifier == "albumToDetail" {
             if let destinationVC = segue.destination as? EventDetailTableViewController,
                 let indexPath = albumCollectionView.indexPathsForSelectedItems?.first,
-                let event = events?[indexPath.row] {
+                let event = events?[indexPath.row - 1] {
                    destinationVC.event = event
                 }
             }
