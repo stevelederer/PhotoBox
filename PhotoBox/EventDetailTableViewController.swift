@@ -196,6 +196,11 @@ class EventDetailTableViewController: UITableViewController {
     
     //   MARK: - Actions
     
+    
+    @IBAction func leaveEventButtontTapped(_ sender: UIButton) {
+        
+    }
+    
     func scheduleUserNotifications() {
         guard let event = event else { return }
         NotificationManager.scheduleEventNotification(for: event)
