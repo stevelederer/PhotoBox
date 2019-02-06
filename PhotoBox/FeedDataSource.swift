@@ -44,7 +44,7 @@ class FeedDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDele
                     fatalError("Invalid view type")
             }
             headerView.label.text = "Live Feed"
-            headerView.button.setTitle("My Photos", for: .normal)
+            headerView.button.setTitle("Upload Photos", for: .normal)
             return headerView
         default:
             assert(false, "Invalid element type")

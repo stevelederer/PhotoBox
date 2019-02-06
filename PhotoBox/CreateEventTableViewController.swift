@@ -11,7 +11,7 @@ import UIKit
 class CreateEventTableViewController: UITableViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
      //   MARK: - Outlets
-    @IBOutlet weak var selectCoverPhotoButton: UIButton!
+    @IBOutlet weak var selectCoverPhotoButton: UnderlineButtonTextPurple!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var eventNameTextField: PaddingTextField!
     @IBOutlet weak var startTimeTextField: PaddingTextField!
@@ -26,12 +26,15 @@ class CreateEventTableViewController: UITableViewController, UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "New PhotoBox"
+        selectCoverPhotoButton.setTitle("Choose Photo", for: .normal)
+        
         eventNameTextField.setPadding(left: 20)
         startTimeTextField.setPadding(left: 20)
         endTimeTextField.setPadding(left: 20)
         eventLocationTextField.setPadding(left: 20)
         
-        let borderColor = UIColor(named: "textDarkGray")?.cgColor
+        let borderColor = UIColor(displayP3Red: 0.42, green: 0.48, blue: 0.56, alpha: 1).cgColor
         eventNameTextField.layer.cornerRadius = eventNameTextField.frame.height / 2
         eventNameTextField.layer.borderWidth = 2
         eventNameTextField.layer.borderColor = borderColor

@@ -38,7 +38,10 @@ class SelectPhotosCollectionViewCell: UICollectionViewCell {
         guard let photo = photo else { return }
         
         checkmark.isHidden = !photo.isSelected
-        imageButton.setBackgroundImage(photo.image, for: .normal)
+//        imageButton.setBackgroundImage(photo.image, for: .normal)
+        imageButton.setImage(photo.image, for: .normal)
+        imageButton.contentMode = .scaleAspectFill
+        
         if photo.isSelected {
             imageButton.layer.borderWidth =  5
             imageButton.layer.borderColor = UIColor.darkGray.cgColor

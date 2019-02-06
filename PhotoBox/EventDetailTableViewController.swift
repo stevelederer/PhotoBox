@@ -60,7 +60,6 @@ class EventDetailTableViewController: UITableViewController {
     var fromNotification = false
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
         navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
         inviteButton.layer.cornerRadius = inviteButton.frame.height / 2
@@ -222,6 +221,14 @@ class EventDetailTableViewController: UITableViewController {
             self.present(leaveEventAlert, animated: true)
         }
     }
+    
+    @IBAction func uploadPhotosButtonTapped(_ sender: UIButton) {
+        guard let selectPhotosVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "selectPhotosVC") as? SelectPhotosViewController, let event = self.event else { return }
+        selectPhotosVC.event = event
+        selectPhotosVC.feedDataSource = self.feedDataSource
+        self.present(selectPhotosVC, animated: true, completion: nil)
+    }
+    
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "unwindToHomePage", sender: self)

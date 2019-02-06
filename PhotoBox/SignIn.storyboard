@@ -494,7 +494,7 @@
                                                         <color key="titleColor" red="0.41960784313725491" green="0.4823529411764706" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="tnf-IY-9L5" kind="show" id="0RM-yg-1yj"/>
+                                                        <segue destination="tnf-IY-9L5" kind="show" identifier="toCreateEvent" id="0RM-yg-1yj"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -575,7 +575,7 @@
                                 </state>
                                 <connections>
                                     <action selector="joinEventButtonTapped:" destination="cON-SR-WLr" eventType="touchUpInside" id="DAw-gj-bod"/>
-                                    <segue destination="Qfg-xb-9vd" kind="show" id="OLy-ud-FNF"/>
+                                    <segue destination="Qfg-xb-9vd" kind="show" identifier="toEnterCodeView" id="OLy-ud-FNF"/>
                                 </connections>
                             </button>
                         </subviews>
