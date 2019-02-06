@@ -37,12 +37,6 @@ class PhotoController {
         let currentUser = UserController.shared.currentUser else { return }
         let dispatchGroup = DispatchGroup()
         
-        if let blockedUserIDs = currentUser.blockedUserIDs {
-            for blockedUserID in blockedUserIDs {
-                photoIDs = photoIDs.filter{ $0 == blockedUserID }
-            }
-        }
-        
         var photos: [Photo] = []
         for photoID in photoIDs {
             dispatchGroup.enter()
@@ -54,6 +48,13 @@ class PhotoController {
             }
         }
         dispatchGroup.notify(queue: .main) {
+            
+            if let blockedUserIDs = currentUser.blockedUserIDs {
+                let filteredPhotos = photos.filter{ !blockedUserIDs.contains($0.creatorID) }
+                completion(filteredPhotos)
+                return
+            }
+    
             completion(photos)
         }
     }

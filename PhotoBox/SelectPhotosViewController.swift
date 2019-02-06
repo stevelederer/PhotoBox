@@ -104,7 +104,13 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
             feedDataSource?.photos?.append(photo)
         }
         
-        event.photoIDs = newArray
+        if event.photoIDs == nil {
+            event.photoIDs = newArray
+        } else {
+            for item in newArray {
+                event.photoIDs?.append(item)
+            }
+        }
         DispatchQueue.main.async {
             self.update(event: event)
         }

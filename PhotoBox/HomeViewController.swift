@@ -109,18 +109,40 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if let destinationVC = segue.destination as? SettingsViewController {
                 guard let currentUser = UserController.shared.currentUser else { return }
                 destinationVC.currentUser = currentUser
+                let backItem = UIBarButtonItem()
+                backItem.title = nil
+                backItem.tintColor = UIColor(named: "textDarkGray")
+                navigationItem.backBarButtonItem = backItem
             }
         } else if segue.identifier == "toEventDetailVC" {
             if let destinationVC = segue.destination as? EventDetailTableViewController {
                 guard let eventID = self.eventIDFromNotification else { return }
                 destinationVC.eventID = eventID
+                let backItem = UIBarButtonItem()
+                backItem.title = nil
+                backItem.tintColor = UIColor(named: "textDarkGray")
+                navigationItem.backBarButtonItem = backItem
             }
         } else if segue.identifier == "albumToDetail" {
             if let destinationVC = segue.destination as? EventDetailTableViewController,
                 let indexPath = albumCollectionView.indexPathsForSelectedItems?.first,
                 let event = events?[indexPath.row - 1] {
                 destinationVC.event = event
+                let backItem = UIBarButtonItem()
+                backItem.title = nil
+                backItem.tintColor = UIColor(named: "textDarkGray")
+                navigationItem.backBarButtonItem = backItem
             }
+        } else if segue.identifier == "toEnterCodeView" {
+            let backItem = UIBarButtonItem()
+            backItem.title = nil
+            backItem.tintColor = UIColor(named: "textDarkGray")
+            navigationItem.backBarButtonItem = backItem
+        } else if segue.identifier == "toCreateEvent" {
+            let backItem = UIBarButtonItem()
+            backItem.title = nil
+            backItem.tintColor = UIColor(named: "textDarkGray")
+            navigationItem.backBarButtonItem = backItem
         }
     }
     
