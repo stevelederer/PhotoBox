@@ -109,6 +109,7 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
             self.update(event: event)
         }
     }
+    
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
