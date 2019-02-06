@@ -21,7 +21,7 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate, MFMailC
     func composeEventInviteTextMessageWith(eventName: String, code: String, creator: String) -> MFMessageComposeViewController {
         let messageComposeVC = MFMessageComposeViewController()
         messageComposeVC.messageComposeDelegate = self
-        messageComposeVC.body = "You’ve been invited to contribute to a PhotoBox! \(creator) has created a Photobox for \(eventName). To add your photos to the collection, open the Photobox app and enter \(code)."
+        messageComposeVC.body = "You’ve been invited to contribute to a PhotoBox! \(creator) has created a Photobox for \(eventName). To add your photos to the collection, open the Photobox app and enter \(code). https://itunes.apple.com/us/app/photobox-app/id1451387140?mt=8"
         return messageComposeVC
     }
     
