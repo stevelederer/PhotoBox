@@ -33,7 +33,7 @@ class PhotoController {
     }
     
     func fetchPhotos(for event: Event, completion: @escaping ([Photo]?) -> Void) {
-        guard var photoIDs = event.photoIDs,
+        guard let photoIDs = event.photoIDs,
         let currentUser = UserController.shared.currentUser else { return }
         let dispatchGroup = DispatchGroup()
         

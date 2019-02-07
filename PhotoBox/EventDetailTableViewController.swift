@@ -60,6 +60,7 @@ class EventDetailTableViewController: UITableViewController {
     var fromNotification = false
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
         navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "buttonPurple")
         inviteButton.layer.cornerRadius = inviteButton.frame.height / 2

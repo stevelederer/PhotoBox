@@ -13,7 +13,7 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var uploadButton: UIButton!
-    @IBOutlet weak var unselectButton: UIButton!
+    @IBOutlet weak var unselectButton: UnderlineButtonTextPurple!
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -23,6 +23,8 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
     var currentUser: AppUser? = UserController.shared.currentUser
     var selectedPhotos = [Photo]()
     var feedDataSource: FeedDataSource?
+    
+    var unselectAll = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +117,24 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegateFlow
             self.update(event: event)
         }
     }
+    
+    @IBAction func unselectAllButtonTapped(_ sender: UIButton) {
+        if unselectAll {
+            for photo in photos {
+                photo.isSelected = false
+            }
+            unselectButton.setTitle("Select All", for: .normal)
+            collectionView.reloadData()
+        } else {
+            for photo in photos {
+                photo.isSelected = true
+            }
+            unselectButton.setTitle("Unselect All", for: .normal)
+            collectionView.reloadData()
+        }
+        unselectAll = !unselectAll
+    }
+    
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
