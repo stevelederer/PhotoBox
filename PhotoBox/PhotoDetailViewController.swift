@@ -102,9 +102,9 @@ extension PhotoDetailViewController: PhotoCollectionViewCellDelegate {
             self.presentPhotoBoxModalVC(message: "Photo Saved!")
         }
         
-        let deleteAction = UIAlertAction(title: "Delete", style: .default) { (_) in
-            
-        }
+//        let deleteAction = UIAlertAction(title: "Delete", style: .default) { (_) in
+//            guard let image = photo.image else {return}
+//        }
         
         let reportPhotoAction = UIAlertAction(title: "Report Photo", style: .default) { (_) in
             if (self.emailComposer.canSendEmail()) {
@@ -135,7 +135,7 @@ extension PhotoDetailViewController: PhotoCollectionViewCellDelegate {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alertController.addAction(saveAction)
-        alertController.addAction(deleteAction)
+//        alertController.addAction(deleteAction)
         alertController.addAction(reportPhotoAction)
         alertController.addAction(blockUserAction)
         alertController.addAction(cancelAction)
